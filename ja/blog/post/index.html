@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">ブログ | さいばの将棋ポータル</title>
+  <meta name="description" id="page-desc" content="">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" id="og-title" content="">
+  <meta property="og:description" id="og-desc" content="">
+  <meta property="og:url" id="og-url" content="">
+  <meta property="og:image" id="og-image" content="https://saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" id="tw-card" content="summary">
+  <meta name="twitter:title" id="tw-title" content="">
+  <meta name="twitter:description" id="tw-desc" content="">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../../" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="../../">本の紹介</a>
+        <a href="../">ブログ</a>
+        <a href="../../../en/blog/post/" id="lang-link" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="../../../">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">ブログ</a>
+        <span class="breadcrumb-sep">/</span>
+        <span id="breadcrumb-title">記事</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category" id="meta-category"></span>
+            <span id="meta-date"></span>
+            <span>著者：さいば</span>
+          </div>
+          <h1 class="article-title" id="article-title"></h1>
+          <p class="article-lead" id="article-lead"></p>
+        </header>
+
+        <div class="article-body" id="article-body">
+          <p style="color:var(--color-text-muted);">読み込み中...</p>
+        </div>
+
+        <div class="article-share" id="article-share"></div>
+
+        <footer class="article-footer" id="article-footer">
+          <a href="../" class="btn-ghost">← ブログ一覧へ</a>
+        </footer>
+      </article>
+
+      <section class="section">
+        <div class="author-box">
+          <div class="author-avatar">
+            <img src="../../../images/profile.webp" alt="さいば アイコン">
+          </div>
+          <div>
+            <p class="author-name">さいば</p>
+            <p class="author-bio">
+              将棋ウォーズを中心に将棋を楽しむアマチュア三段。初心者～級位者向けの将棋Kindle本の執筆活動を行っている。→ <a href="../../../ja/" class="books-link">執筆した本はこちら</a><br>
+              Note: <a href="https://note.com/saibaba81" target="_blank" rel="noopener">https://note.com/saibaba81</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="affiliate-notice">本ページにはAmazonアソシエイトプログラムを利用した広告リンクが含まれている場合があります。</p>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const slug = new URLSearchParams(location.search).get('slug');
+
+    if (!slug) {
+      location.replace('../../../404.html');
+    } else {
+      fetch('../posts.json')
+        .then(r => r.json())
+        .then(posts => {
+          posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+          const idx = posts.findIndex(p => p.slug === slug);
+          if (idx === -1) { location.replace('../../../404.html'); return Promise.reject(); }
+          const post = posts[idx];
+          const newer = posts[idx - 1] || null;  // 新しい記事（前）
+          const older = posts[idx + 1] || null;  // 古い記事（次）
+
+          // メタ情報を埋め込む
+          document.getElementById('page-title').textContent = post.title + ' | ブログ | さいばの将棋ポータル';
+          document.getElementById('page-desc').content = post.lead;
+          document.getElementById('breadcrumb-title').textContent = post.title.replace(/<br>/g, ' ');
+          document.getElementById('meta-category').textContent = post.category;
+          document.getElementById('meta-date').textContent = post.date;
+          document.getElementById('article-title').innerHTML = post.titleHtml;
+          document.getElementById('article-lead').textContent = post.lead;
+          if (typeof gtag === 'function') {
+            gtag('event', 'view_article', {
+              article_slug: post.slug,
+              article_title: post.title,
+              article_category: post.category,
+              page_language: 'ja'
+            });
+          }
+
+          // サムネイル
+          if (post.thumbnail) {
+            const thumb = document.createElement('figure');
+            thumb.className = 'article-thumb';
+            thumb.innerHTML = `<img src="${post.thumbnail}" alt="${post.title}">`;
+            document.getElementById('article-body').before(thumb);
+          }
+
+          // canonical
+          const canonical = document.createElement('link');
+          canonical.rel = 'canonical';
+          canonical.href = 'https://saiba-zakki.com/ja/blog/post/?slug=' + slug;
+          document.head.appendChild(canonical);
+
+          // JSON-LD
+          const postUrl = 'https://saiba-zakki.com/ja/blog/post/?slug=' + slug;
+          const plainTitle = post.title.replace(/<br>/g, ' ');
+          const ldJson = document.createElement('script');
+          ldJson.type = 'application/ld+json';
+          ldJson.textContent = JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": plainTitle,
+              "description": post.lead,
+              "datePublished": post.date,
+              "author": { "@type": "Person", "name": "さいば", "url": "https://saiba-zakki.com/" },
+              "publisher": { "@type": "Person", "name": "さいば" },
+              "url": postUrl,
+              "inLanguage": "ja",
+              "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "ホーム",     "item": "https://saiba-zakki.com/" },
+                { "@type": "ListItem", "position": 2, "name": "ブログ",     "item": "https://saiba-zakki.com/ja/blog/" },
+                { "@type": "ListItem", "position": 3, "name": plainTitle,   "item": postUrl }
+              ]
+            }
+          ]);
+          document.head.appendChild(ldJson);
+
+          // OGP
+          document.getElementById('og-title').content = plainTitle;
+          document.getElementById('og-desc').content = post.lead;
+          document.getElementById('og-url').content = postUrl;
+          document.getElementById('tw-title').content = plainTitle;
+          document.getElementById('tw-desc').content = post.lead;
+          if (post.thumbnail) {
+            document.getElementById('og-image').content = post.thumbnail;
+            document.getElementById('tw-card').content = 'summary_large_image';
+          }
+
+          // hreflang
+          fetch('../../../en/blog/posts.json')
+            .then(r => r.json())
+            .then(enPosts => {
+              const base = 'https://saiba-zakki.com/';
+              const selfUrl = base + 'ja/blog/post/?slug=' + slug;
+              const addLink = (lang, href) => {
+                const el = document.createElement('link');
+                el.rel = 'alternate'; el.hreflang = lang; el.href = href;
+                document.head.appendChild(el);
+              };
+              addLink('ja', selfUrl);
+              if (enPosts.some(p => p.slug === slug)) {
+                const enUrl = base + 'en/blog/post/?slug=' + slug;
+                addLink('x-default', enUrl);
+                addLink('en', enUrl);
+              } else {
+                addLink('x-default', selfUrl);
+              }
+            })
+            .catch(() => {});
+
+          // 言語切替リンク
+          document.getElementById('lang-link').href = '../../../en/blog/post/?slug=' + slug;
+
+          // X シェアボタン
+          const shareText = encodeURIComponent(post.title + ' | さいばの将棋ポータル');
+          const shareUrl = encodeURIComponent(location.href);
+          document.getElementById('article-share').innerHTML = `
+            <a class="btn-x-share" href="https://x.com/intent/post?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026Z"/></svg>
+              この記事をXでシェア
+            </a>
+          `;
+
+          // フッターに前後ナビを追加
+          const footer = document.getElementById('article-footer');
+          if (newer) {
+            const a = document.createElement('a');
+            a.href = '?slug=' + newer.slug;
+            a.className = 'btn-nav';
+            a.innerHTML = `<span class="btn-nav-label">← 新しい記事</span><span class="btn-nav-title">${newer.title}</span>`;
+            footer.appendChild(a);
+          }
+          if (older) {
+            const a = document.createElement('a');
+            a.href = '?slug=' + older.slug;
+            a.className = 'btn-nav';
+            a.innerHTML = `<span class="btn-nav-label">古い記事 →</span><span class="btn-nav-title">${older.title}</span>`;
+            footer.appendChild(a);
+          }
+
+          // Markdown 本文を読み込む
+          return fetch('../posts/' + slug + '.md');
+        })
+        .then(r => r.text())
+        .then(md => {
+          const body = document.getElementById('article-body');
+          body.innerHTML = marked.parse(md);
+          processLinkCards(body);
+        })
+        .catch((e) => {
+          if (e) document.getElementById('article-body').innerHTML = '<p>記事の読み込みに失敗しました。</p>';
+        });
+    }
+
+    // ```linkcard ブロックをカード要素に変換する
+    function processLinkCards(container) {
+      container.querySelectorAll('pre code.language-linkcard').forEach(code => {
+        const data = {};
+        code.textContent.trim().split('\n').forEach(line => {
+          const i = line.indexOf(':');
+          if (i > 0) data[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+        });
+        if (!data.url) return;
+
+        const card = document.createElement('a');
+        card.href = data.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.className = 'link-card';
+        card.innerHTML = `
+          ${data.image ? `<div class="link-card-thumb"><img src="${data.image}" alt="${data.title || ''}" loading="lazy"></div>` : ''}
+          <div class="link-card-body">
+            <p class="link-card-title">${data.title || data.url}</p>
+            ${data.desc ? `<p class="link-card-desc">${data.desc}</p>` : ''}
+            <p class="link-card-host">${new URL(data.url).hostname}</p>
+          </div>
+        `;
+        code.closest('pre').replaceWith(card);
+      });
+    }
+
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

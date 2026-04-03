@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Blog | Saiba's Shogi Portal</title>
+  <meta name="description" id="page-desc" content="">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" id="og-title" content="">
+  <meta property="og:description" id="og-desc" content="">
+  <meta property="og:url" id="og-url" content="">
+  <meta property="og:image" id="og-image" content="https://saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" id="tw-card" content="summary">
+  <meta name="twitter:title" id="tw-title" content="">
+  <meta name="twitter:description" id="tw-desc" content="">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../../" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="../../">Books</a>
+        <a href="../">Blog</a>
+        <a href="../../../ja/blog/post/" id="lang-link" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="../../../">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span id="breadcrumb-title">Article</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category" id="meta-category"></span>
+            <span id="meta-date"></span>
+            <span>By Saiba</span>
+          </div>
+          <h1 class="article-title" id="article-title"></h1>
+          <p class="article-lead" id="article-lead"></p>
+        </header>
+
+        <div class="article-body" id="article-body">
+          <p style="color:var(--color-text-muted);">Loading...</p>
+        </div>
+
+        <div class="article-share" id="article-share"></div>
+
+        <footer class="article-footer" id="article-footer">
+          <a href="../" class="btn-ghost">← Back to Blog</a>
+        </footer>
+      </article>
+
+      <section class="section">
+        <div class="author-box">
+          <div class="author-avatar">
+            <img src="../../../images/profile.webp" alt="Saiba icon">
+          </div>
+          <div>
+            <p class="author-name">Saiba</p>
+            <p class="author-bio">
+              Amateur 3-dan Shogi player, IT engineer in Japan. Author of beginner-focused Shogi Kindle books in Japanese and English. → <a href="../../../en/" class="books-link">See published books</a><br>
+              Mail:
+              <span class="obfuscated-email">saiba.contact.books [at] gmail [dot] com</span>
+              <button type="button" class="copy-email-btn" data-email-user="saiba.contact.books" data-email-domain="gmail.com" data-copy-default="Copy" data-copy-done="Copied!">Copy</button>
+              (Please feel free to contact for impressions, requests, reports of typos, etc.)<br>
+              Note: Please understand that I may not be able to reply to all emails.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="affiliate-notice">This page may contain affiliate links through the Amazon Associates program.</p>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const slug = new URLSearchParams(location.search).get('slug');
+
+    if (!slug) {
+      location.replace('../../404.html');
+    } else {
+      fetch('../posts.json')
+        .then(r => r.json())
+        .then(posts => {
+          posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+          const idx = posts.findIndex(p => p.slug === slug);
+          if (idx === -1) { location.replace('../../404.html'); return Promise.reject(); }
+          const post = posts[idx];
+          const newer = posts[idx - 1] || null;
+          const older = posts[idx + 1] || null;
+
+          document.getElementById('page-title').textContent = post.title + ' | Blog | Saiba\'s Shogi Portal';
+          document.getElementById('page-desc').content = post.lead;
+          document.getElementById('breadcrumb-title').textContent = post.title.replace(/<br>/g, ' ');
+          document.getElementById('meta-category').textContent = post.category;
+          document.getElementById('meta-date').textContent = post.date;
+          document.getElementById('article-title').innerHTML = post.titleHtml;
+          document.getElementById('article-lead').textContent = post.lead;
+          if (typeof gtag === 'function') {
+            gtag('event', 'view_article', {
+              article_slug: post.slug,
+              article_title: post.title,
+              article_category: post.category,
+              page_language: 'en'
+            });
+          }
+
+          // Thumbnail
+          if (post.thumbnail) {
+            const thumb = document.createElement('figure');
+            thumb.className = 'article-thumb';
+            thumb.innerHTML = `<img src="${post.thumbnail}" alt="${post.title}">`;
+            document.getElementById('article-body').before(thumb);
+          }
+
+          // canonical
+          const canonical = document.createElement('link');
+          canonical.rel = 'canonical';
+          canonical.href = 'https://saiba-zakki.com/en/blog/post/?slug=' + slug;
+          document.head.appendChild(canonical);
+
+          // JSON-LD
+          const postUrl = 'https://saiba-zakki.com/en/blog/post/?slug=' + slug;
+          const plainTitle = post.title.replace(/<br>/g, ' ');
+          const ldJson = document.createElement('script');
+          ldJson.type = 'application/ld+json';
+          ldJson.textContent = JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": plainTitle,
+              "description": post.lead,
+              "datePublished": post.date,
+              "author": { "@type": "Person", "name": "Saiba", "url": "https://saiba-zakki.com/" },
+              "publisher": { "@type": "Person", "name": "Saiba" },
+              "url": postUrl,
+              "inLanguage": "en",
+              "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://saiba-zakki.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog",  "item": "https://saiba-zakki.com/en/blog/" },
+                { "@type": "ListItem", "position": 3, "name": plainTitle, "item": postUrl }
+              ]
+            }
+          ]);
+          document.head.appendChild(ldJson);
+
+          // OGP
+          document.getElementById('og-title').content = plainTitle;
+          document.getElementById('og-desc').content = post.lead;
+          document.getElementById('og-url').content = postUrl;
+          document.getElementById('tw-title').content = plainTitle;
+          document.getElementById('tw-desc').content = post.lead;
+          if (post.thumbnail) {
+            document.getElementById('og-image').content = post.thumbnail;
+            document.getElementById('tw-card').content = 'summary_large_image';
+          }
+
+          // hreflang
+          fetch('../../../ja/blog/posts.json')
+            .then(r => r.json())
+            .then(jaPosts => {
+              const base = 'https://saiba-zakki.com/';
+              const selfUrl = base + 'en/blog/post/?slug=' + slug;
+              const addLink = (lang, href) => {
+                const el = document.createElement('link');
+                el.rel = 'alternate'; el.hreflang = lang; el.href = href;
+                document.head.appendChild(el);
+              };
+              addLink('x-default', selfUrl);
+              addLink('en', selfUrl);
+              if (jaPosts.some(p => p.slug === slug)) {
+                addLink('ja', base + 'ja/blog/post/?slug=' + slug);
+              }
+            })
+            .catch(() => {});
+
+          // Language switch link
+          document.getElementById('lang-link').href = '../../../ja/blog/post/?slug=' + slug;
+
+          // X share button
+          const shareText = encodeURIComponent(post.title + ' | Saiba\'s Shogi Portal');
+          const shareUrl = encodeURIComponent(location.href);
+          document.getElementById('article-share').innerHTML = `
+            <a class="btn-x-share" href="https://x.com/intent/post?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026Z"/></svg>
+              Share on X
+            </a>
+          `;
+
+          // Add prev/next to footer
+          const footer = document.getElementById('article-footer');
+          if (newer) {
+            const a = document.createElement('a');
+            a.href = '?slug=' + newer.slug;
+            a.className = 'btn-nav';
+            a.innerHTML = `<span class="btn-nav-label">← Newer</span><span class="btn-nav-title">${newer.title}</span>`;
+            footer.appendChild(a);
+          }
+          if (older) {
+            const a = document.createElement('a');
+            a.href = '?slug=' + older.slug;
+            a.className = 'btn-nav';
+            a.innerHTML = `<span class="btn-nav-label">Older →</span><span class="btn-nav-title">${older.title}</span>`;
+            footer.appendChild(a);
+          }
+
+          return fetch('../posts/' + slug + '.md');
+        })
+        .then(r => r.text())
+        .then(md => {
+          const body = document.getElementById('article-body');
+          body.innerHTML = marked.parse(md);
+          processLinkCards(body);
+        })
+        .catch((e) => {
+          if (e) document.getElementById('article-body').innerHTML = '<p>Failed to load the article.</p>';
+        });
+    }
+
+    function processLinkCards(container) {
+      container.querySelectorAll('pre code.language-linkcard').forEach(code => {
+        const data = {};
+        code.textContent.trim().split('\n').forEach(line => {
+          const i = line.indexOf(':');
+          if (i > 0) data[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+        });
+        if (!data.url) return;
+
+        const card = document.createElement('a');
+        card.href = data.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.className = 'link-card';
+        card.innerHTML = `
+          ${data.image ? `<div class="link-card-thumb"><img src="${data.image}" alt="${data.title || ''}" loading="lazy"></div>` : ''}
+          <div class="link-card-body">
+            <p class="link-card-title">${data.title || data.url}</p>
+            ${data.desc ? `<p class="link-card-desc">${data.desc}</p>` : ''}
+            <p class="link-card-host">${new URL(data.url).hostname}</p>
+          </div>
+        `;
+        code.closest('pre').replaceWith(card);
+      });
+    }
+
+    function setupCopyEmailButtons() {
+      document.querySelectorAll('.copy-email-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const user = btn.dataset.emailUser || '';
+          const domain = btn.dataset.emailDomain || '';
+          if (!user || !domain) return;
+          const email = `${user}@${domain}`;
+          const defaultLabel = btn.dataset.copyDefault || 'Copy';
+          const doneLabel = btn.dataset.copyDone || 'Copied!';
+          try {
+            await navigator.clipboard.writeText(email);
+          } catch (_) {
+            const temp = document.createElement('textarea');
+            temp.value = email;
+            temp.setAttribute('readonly', '');
+            temp.style.position = 'absolute';
+            temp.style.left = '-9999px';
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            temp.remove();
+          }
+          btn.textContent = doneLabel;
+          setTimeout(() => {
+            btn.textContent = defaultLabel;
+          }, 1600);
+        });
+      });
+    }
+
+    setupCopyEmailButtons();
+
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
