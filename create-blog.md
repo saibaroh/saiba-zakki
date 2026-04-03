@@ -40,15 +40,29 @@ thumbnail: ""
 
 ---
 
-## 3. ビルドを実行する
+## 3. posts.json を更新する
 
 ```bash
-make           # en・ja 両方（通常はこれだけでOK）
-make build-ja  # ja のみ
-make build-en  # en のみ
+node build-posts-json.js        # en・ja 両方
+node build-posts-json.js ja     # ja のみ
+node build-posts-json.js en     # en のみ
 ```
 
-以下の3つをまとめて実行する：
-- `posts.json` の再生成（frontmatter から）
-- `sitemap.xml` の更新
-- `feed.xml`（RSS）の更新（`en/blog/feed.xml` / `ja/blog/feed.xml`）
+---
+
+## 4. sitemap.xml を更新する
+
+```bash
+node build-sitemap.js
+```
+
+---
+
+## まとめ（毎回の作業）
+
+```bash
+# 1. md ファイルを作成・編集
+# 2. 以下の 2 コマンドを実行
+node build-posts-json.js
+node build-sitemap.js
+```

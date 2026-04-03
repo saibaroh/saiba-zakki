@@ -7,8 +7,6 @@ lead: "I share why I wrote beginner-focused English Shogi books, what gap I saw 
 thumbnail: ""
 ---
 
-# Why I Wrote a Shogi (Japanese Chess) Guide for Global Beginners
-
 > "I learned the rules of Shogi, but when it comes to actual games, I don't know what to think."
 
 If that sounds familiar, this post is for you.

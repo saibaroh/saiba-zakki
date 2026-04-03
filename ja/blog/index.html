@@ -100,6 +100,32 @@
             </a>
           `;
         }).join('');
+
+        // JSON-LD
+        const base = 'https://saiba-zakki.com';
+        const ldJson = document.createElement('script');
+        ldJson.type = 'application/ld+json';
+        ldJson.textContent = JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "ブログ | さいばの将棋ポータル",
+            "url": base + "/ja/blog/",
+            "description": "さいばによる将棋コラム・上達のヒントなどをお届けするブログです。",
+            "inLanguage": "ja",
+            "author": { "@type": "Person", "name": "さいば", "url": base + "/" }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": posts.map((post, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "url": `${base}/ja/blog/post/?slug=${post.slug}`
+            }))
+          }
+        ]);
+        document.head.appendChild(ldJson);
       })
       .catch(() => {
         document.getElementById('post-list').innerHTML = '<p>記事の読み込みに失敗しました。</p>';

@@ -208,12 +208,12 @@
               addLink('en', selfUrl);
               if (jaPosts.some(p => p.slug === slug)) {
                 addLink('ja', base + 'ja/blog/post/?slug=' + slug);
+                document.getElementById('lang-link').href = '../../../ja/blog/post/?slug=' + slug;
+              } else {
+                document.getElementById('lang-link').href = '../../../ja/blog/';
               }
             })
             .catch(() => {});
-
-          // Language switch link
-          document.getElementById('lang-link').href = '../../../ja/blog/post/?slug=' + slug;
 
           // X share button
           const shareText = encodeURIComponent(post.title + ' | Saiba\'s Shogi Portal');
@@ -244,14 +244,17 @@
 
           return fetch('../posts/' + slug + '.md');
         })
-        .then(r => r.text())
+        .then(r => {
+          if (!r.ok) return Promise.reject();
+          return r.text();
+        })
         .then(md => {
           const body = document.getElementById('article-body');
-          body.innerHTML = marked.parse(md);
+          body.innerHTML = marked.parse(md.replace(/^---[\s\S]*?---\n?/, ''));
           processLinkCards(body);
         })
-        .catch((e) => {
-          if (e) document.getElementById('article-body').innerHTML = '<p>Failed to load the article.</p>';
+        .catch(() => {
+          document.getElementById('article-body').innerHTML = '<p>Failed to load the article.</p>';
         });
     }
 

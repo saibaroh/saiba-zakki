@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "build":    "node build.js",
+    "build:en": "node build.js en",
+    "build:ja": "node build.js ja"
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>ブログ | さいばの将棋ポータル</title>
+    <link>https://saiba-zakki.com/ja/blog/</link>
+    <description>さいばによる将棋コラム・上達のヒントなどをお届けするブログです。</description>
+    <language>ja</language>
+    <item>
+      <title>将棋はなぜ囲いを作る手から始めるのか？</title>
+      <link>https://saiba-zakki.com/ja/blog/post/?slug=shogi-opening-basics</link>
+      <guid isPermaLink="true">https://saiba-zakki.com/ja/blog/post/?slug=shogi-opening-basics</guid>
+      <description>序盤でいきなり攻めに全振りしてはいけないのはなぜか？実はちゃんとした理由があります。「序盤は将来への投資」という考え方を軸に、囲いを優先すべき理由をわかりやすく解説します。</description>
+      <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>「将棋のルールはわかるけど…」という方に、指す将棋の面白さを伝えたくて本を書きました</title>
+      <link>https://saiba-zakki.com/ja/blog/post/?slug=why-i-wrote-this-book</link>
+      <guid isPermaLink="true">https://saiba-zakki.com/ja/blog/post/?slug=why-i-wrote-this-book</guid>
+      <description>「将棋のルールは分かるけど、どう考えればいいのか分からない」——そんな方のために本を書いた理由と、将棋を指す面白さをもっと多くの人に知ってほしいという思いを綴ります。</description>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

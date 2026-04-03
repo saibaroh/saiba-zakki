@@ -7,8 +7,6 @@ lead: "If you want to improve at Shogi, ultra-fast games can work against you. T
 thumbnail: ""
 ---
 
-# [Shogi] Is 3-Minute Blitz the Cause of Your Plateau? 4 Disadvantages of Short-Time Games for Improvemen
-
 If your goal is to improve your actual Shogi strength, I do not recommend relying mainly on ultra-short games such as 3-minute blitz or 10-second-per-move formats.
 
 I enjoy short-time games too, and I have played many of them. But from my own experience, short games are better for entertainment than for steady long-term growth.
