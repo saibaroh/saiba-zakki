@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP 1：駒の価値を知る | 入門ガイド | さいばの将棋ポータル</title>
+  <meta name="description" content="将棋の駒ごとの価値と「駒得・駒損」の考え方。龍・馬・と金といった成り駒が最強クラスの攻め駒になる理由を解説します。">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/guide/1/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/guide/1/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/guide/1/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="STEP 1：駒の価値を知る | 入門ガイド | さいばの将棋ポータル">
+  <meta property="og:description" content="将棋の駒ごとの価値と「駒得・駒損」の考え方。龍・馬・と金といった成り駒が最強クラスの攻め駒になる理由を解説します。">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/guide/1/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="STEP 1：駒の価値を知る | 入門ガイド | さいばの将棋ポータル">
+  <meta name="twitter:description" content="将棋の駒ごとの価値と「駒得・駒損」の考え方。龍・馬・と金といった成り駒が最強クラスの攻め駒になる理由を解説します。">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+  <style>
+    .guide-body { max-width: 720px; margin: 0 auto; }
+    .guide-body h2 { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--color-border); }
+    .guide-body h3 { font-size: 1.05rem; font-weight: 700; margin: 1.8rem 0 0.6rem; }
+    .guide-body p { line-height: 1.85; margin-bottom: 1rem; }
+    .guide-body ul { margin: 0.5rem 0 1rem 1.4rem; line-height: 1.85; }
+    .guide-body li { margin-bottom: 0.4rem; }
+    .guide-value-table { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; margin: 1rem 0; font-size: 1rem; font-weight: 700; }
+    .guide-value-table .piece { padding: 0.3rem 0.7rem; background: var(--color-hover); border: 1px solid var(--color-border); border-radius: 4px; }
+    .guide-value-table .arrow { color: var(--color-text-muted); font-size: 1.1rem; }
+    /* Step indicator */
+    .step-indicator { display: flex; align-items: center; justify-content: center; max-width: 480px; margin: 0 auto 0; }
+    .step-dot { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; text-decoration: none; color: var(--color-text-muted); }
+    .step-dot-circle { width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--color-text-muted); transition: background 0.15s, border-color 0.15s; }
+    .step-dot.is-current .step-dot-circle { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+    .step-dot.is-current .step-dot-label { color: var(--color-text); font-weight: 700; }
+    .step-dot.is-done .step-dot-circle { border-color: var(--color-accent); color: var(--color-accent); }
+    .step-dot:hover:not(.is-current) .step-dot-circle { border-color: var(--color-accent); }
+    .step-dot-label { font-size: 0.7rem; white-space: nowrap; }
+    .step-line { flex: 1; max-width: 80px; height: 2px; background: var(--color-border); margin: 0 0.4rem 1.4rem; }
+    /* Course nav */
+    .course-nav { display: flex; justify-content: space-between; gap: 1rem; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--color-border); max-width: 720px; }
+    .course-nav-btn { display: flex; flex-direction: column; padding: 0.9rem 1.2rem; border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; color: var(--color-text); flex: 1; max-width: 260px; transition: background 0.15s, border-color 0.15s; }
+    .course-nav-btn:hover { background: var(--color-hover); border-color: var(--color-accent); color: var(--color-text); text-decoration: none; }
+    .course-nav-btn.is-next { text-align: right; margin-left: auto; }
+    .course-nav-label { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.2rem; }
+    .course-nav-title { font-weight: 700; font-size: 0.88rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../../" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="../../">本の紹介</a>
+        <a href="../../blog/">ブログ</a>
+        <a href="../" class="is-current" aria-current="page">入門ガイド</a>
+        <a href="../../glossary/">用語集</a>
+        <a href="../../../en/guide/1/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 2.5rem 0 2rem;">
+      <div class="container">
+        <div class="step-indicator">
+          <div class="step-dot is-current">
+            <div class="step-dot-circle">1</div>
+            <span class="step-dot-label">駒の価値</span>
+          </div>
+          <div class="step-line"></div>
+          <a href="../2/" class="step-dot">
+            <div class="step-dot-circle">2</div>
+            <span class="step-dot-label">一手の価値</span>
+          </a>
+          <div class="step-line"></div>
+          <a href="../3/" class="step-dot">
+            <div class="step-dot-circle">3</div>
+            <span class="step-dot-label">玉の安全度</span>
+          </a>
+        </div>
+        <h1 class="hero-title" style="margin-top: 1.4rem;">STEP 1：駒の価値を知る</h1>
+        <p class="hero-subtitle"><a href="../" style="color:inherit; text-decoration:none; opacity:0.75;">入門ガイド</a> &nbsp;›&nbsp; STEP 1 / 3</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="guide-body">
+
+          <p>将棋には、駒ごとに「価値の高さ」があります。一般的な目安は以下の通りです。</p>
+
+          <div class="guide-value-table" aria-label="駒の価値（高い順）">
+            <span class="piece">飛</span><span class="arrow">＞</span>
+            <span class="piece">角</span><span class="arrow">＞</span>
+            <span class="piece">金</span><span class="arrow">＞</span>
+            <span class="piece">銀</span><span class="arrow">＞</span>
+            <span class="piece">桂</span><span class="arrow">＞</span>
+            <span class="piece">香</span><span class="arrow">＞</span>
+            <span class="piece">歩</span>
+          </div>
+
+          <p>この価値の差を意識することで、<strong>「駒得（こまどく）」</strong>という概念が生まれます。</p>
+          <p>たとえば、自分の桂と相手の金を交換したとしましょう。金のほうが価値が高いため、あなたは「駒得」をしたことになり、有利になります。また、大駒1枚と金・銀2枚の交換では、金・銀2枚を取った側が大きく駒得した、とされます。</p>
+          <p>駒得を積み重ねていくことは、局面を有利に進めることに直結します。ただ漠然と駒をぶつけ合うのではなく、「この交換は得か損か」を意識するだけで、指し手の質がぐっと変わってきます。</p>
+
+          <h2>成り駒は最強の戦力——作るチャンスを逃さない</h2>
+
+          <p>駒の価値を語るうえで、成り駒は特別な存在です。なかでも<strong>龍（成り飛車）・馬（成り角）・と金（成り歩）</strong>は、将棋における最強クラスの攻め駒です。</p>
+          <p>龍・馬は元の大駒の動きに加えて隣接マスへの移動も得られ、盤上を縦横無尽に活躍します。と金は「歩が成っただけ」と侮られがちですが、これは大きな誤解です。と金は金と同じ動きができるうえ、持ち駒として使える歩から生まれるため、数を作りやすく相手の陣地に次々と送り込むことができます。相手からすると飛車や角と同じくらい厄介な存在になりえる、<strong>最強クラスの攻め駒</strong>です。</p>
+          <p>序盤・中盤では、<strong>これらの成り駒を作るチャンスを積極的にものにする</strong>意識が大切です。成り駒が一枚できるだけで攻めの勢いが一気に高まります。</p>
+          <p>逆に言えば、<strong>相手に成り駒を作られることは極力防ぐ</strong>必要があります。特に大駒を相手の陣地に成り込まれてしまうと、それだけで形勢が大きく傾いてしまいます。駒の交換や攻めの応対では、「相手に成り駒を作らせないか」という視点も忘れずに持っておきましょう。</p>
+
+        </div>
+
+        <div class="course-nav">
+          <span></span>
+          <a href="../2/" class="course-nav-btn is-next">
+            <span class="course-nav-label">次のステップ →</span>
+            <span class="course-nav-title">STEP 2：終盤ほど「一手の価値」が上がる</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

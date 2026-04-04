@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beginner's Guide: 3 Core Principles of Shogi Thinking | Saiba's Shogi Portal</title>
-  <meta name="description" content="The essential thinking principles to learn right after you know the rules of shogi. Piece values, the importance of each move, and King safety — universal principles that apply in any position.">
+  <title>Beginner's Guide: Short Course on Core Thinking Principles | Saiba's Shogi Portal</title>
+  <meta name="description" content="A 3-part short course on the thinking principles every shogi player should know right after learning the rules. Piece values, move weight, and King safety — free to read.">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="canonical" href="https://shogi.saiba-zakki.com/en/guide/">
@@ -12,13 +12,13 @@
   <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/guide/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Saiba's Shogi Portal">
-  <meta property="og:title" content="Beginner's Guide: 3 Core Principles of Shogi Thinking | Saiba's Shogi Portal">
-  <meta property="og:description" content="The essential thinking principles to learn right after you know the rules of shogi. Piece values, the importance of each move, and King safety — universal principles that apply in any position.">
+  <meta property="og:title" content="Beginner's Guide: Short Course on Core Thinking Principles | Saiba's Shogi Portal">
+  <meta property="og:description" content="A 3-part short course on the thinking principles every shogi player should know right after learning the rules. Piece values, move weight, and King safety — free to read.">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/en/guide/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Beginner's Guide: 3 Core Principles of Shogi Thinking | Saiba's Shogi Portal">
-  <meta name="twitter:description" content="The essential thinking principles to learn right after you know the rules of shogi. Piece values, the importance of each move, and King safety — universal principles that apply in any position.">
+  <meta name="twitter:title" content="Beginner's Guide: Short Course on Core Thinking Principles | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="A 3-part short course on the thinking principles every shogi player should know right after learning the rules.">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
   <script>
@@ -28,75 +28,83 @@
     gtag('config', 'G-3QWHMZKB7V');
   </script>
   <style>
-    .guide-body {
-      max-width: 720px;
+    .course-intro {
+      max-width: 680px;
       margin: 0 auto;
     }
-    .guide-body h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin: 2.5rem 0 0.8rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 2px solid var(--color-border);
-    }
-    .guide-body h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin: 1.8rem 0 0.6rem;
-    }
-    .guide-body p {
+    .course-intro > p {
       line-height: 1.85;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
-    .guide-body ul {
-      margin: 0.5rem 0 1rem 1.4rem;
-      line-height: 1.85;
-    }
-    .guide-body li {
-      margin-bottom: 0.4rem;
-    }
-    .guide-body ol {
-      margin: 0.5rem 0 1rem 1.4rem;
-      line-height: 1.85;
-    }
-    .guide-body hr {
-      border: none;
-      border-top: 1px solid var(--color-border);
-      margin: 2.5rem 0;
-    }
-    .guide-value-table {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      margin: 1rem 0;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-    .guide-value-table .piece {
-      padding: 0.3rem 0.7rem;
+    .course-badge {
+      display: inline-block;
       background: var(--color-hover);
       border: 1px solid var(--color-border);
-      border-radius: 4px;
-    }
-    .guide-value-table .arrow {
+      border-radius: 20px;
+      padding: 0.2rem 0.85rem;
+      font-size: 0.8rem;
       color: var(--color-text-muted);
-      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
-    .summary-list {
-      background: var(--color-hover);
-      border-left: 4px solid var(--color-primary, #4a7c59);
-      padding: 1.2rem 1.4rem;
-      border-radius: 0 6px 6px 0;
-      margin: 1rem 0;
+    .course-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
     }
-    .summary-list ol {
-      margin: 0;
-      padding-left: 1.4rem;
+    .course-card {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.3rem 1.6rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: box-shadow 0.15s, border-color 0.15s;
     }
-    .summary-list li {
-      margin-bottom: 0.5rem;
-      line-height: 1.7;
+    .course-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--color-accent);
+      color: var(--color-text);
+      text-decoration: none;
+    }
+    .course-card-num {
+      flex-shrink: 0;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .course-card-body {
+      flex: 1;
+    }
+    .course-card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .course-card-desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .course-card-arrow {
+      color: var(--color-border);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform 0.15s, color 0.15s;
+    }
+    .course-card:hover .course-card-arrow {
+      transform: translateX(3px);
+      color: var(--color-accent);
     }
   </style>
 </head>
@@ -117,86 +125,43 @@
   <main>
     <section class="hero" style="padding: 3.5rem 0;">
       <div class="container">
-        <h1 class="hero-title">What to Learn Right After the Rules</h1>
-        <p class="hero-subtitle">The most important principles that apply in any position</p>
+        <h1 class="hero-title">Core Thinking Principles — Short Course</h1>
+        <p class="hero-subtitle">3 principles to know right after learning the rules</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="guide-body">
-
-          <p>After learning the rules of shogi, many players run into the same wall: "I know how the pieces move, but I have no idea what to actually do."</p>
-          <p>The answer is not to memorize a mountain of opening theory. What you need first is a solid foundation of <strong>thinking principles</strong>. Here are three core ideas every shogi player should keep in mind.</p>
-
-          <hr>
-
-          <h2>1. Know the value of each piece</h2>
-
-          <p>Every piece in shogi has a relative value. The general order from highest to lowest is:</p>
-
-          <div class="guide-value-table" aria-label="Piece values (highest to lowest)">
-            <span class="piece">Rook</span><span class="arrow">＞</span>
-            <span class="piece">Bishop</span><span class="arrow">＞</span>
-            <span class="piece">Gold</span><span class="arrow">＞</span>
-            <span class="piece">Silver</span><span class="arrow">＞</span>
-            <span class="piece">Knight</span><span class="arrow">＞</span>
-            <span class="piece">Lance</span><span class="arrow">＞</span>
-            <span class="piece">Pawn</span>
+        <div class="course-intro">
+          <span class="course-badge">3 parts · read only · free</span>
+          <p>After learning the rules of shogi, many players hit the same wall: "I know how the pieces move, but I have no idea what to actually do."</p>
+          <p>The answer is not to memorize opening theory. What you need first is a solid set of <strong>thinking principles that apply in any position</strong>. These three ideas form the foundation of good shogi thinking.</p>
+          <div class="course-cards">
+            <a href="1/" class="course-card">
+              <div class="course-card-num">1</div>
+              <div class="course-card-body">
+                <p class="course-card-title">Know the value of each piece</p>
+                <p class="course-card-desc">Piece rankings and the concept of material gain. Why promoted pieces — Dragon, Horse, and <em>Tokin</em> — are among the most powerful forces on the board.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+            <a href="2/" class="course-card">
+              <div class="course-card-num">2</div>
+              <div class="course-card-body">
+                <p class="course-card-title">Each move becomes more valuable in the endgame</p>
+                <p class="course-card-desc">Why the weight of a single move changes completely from the opening to the endgame — and how the decisions you make now determine how you fight at the end.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+            <a href="3/" class="course-card">
+              <div class="course-card-num">3</div>
+              <div class="course-card-body">
+                <p class="course-card-title">King safety is the foundation of your attack</p>
+                <p class="course-card-desc">King safety is not just a defensive concern. It affects your ability to attack aggressively, sustain momentum, and avoid comeback losses.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
           </div>
-
-          <p>Keeping these values in mind gives rise to an important concept: <strong>material gain</strong> (<em>komadoku</em>).</p>
-          <p>For example, suppose you trade your Knight for your opponent's Gold. Since Gold is worth more, you have gained material — your position has become objectively better. Similarly, if you trade one major piece for two Golds or Silvers, the player who receives the two pieces has made a significant material gain.</p>
-          <p>Accumulating material advantage leads directly to a better position. Simply asking yourself "is this trade good for me or bad for me?" before each exchange will meaningfully raise the quality of your moves.</p>
-
-          <h3>Promoted pieces are the most powerful forces — never miss a chance to promote</h3>
-
-          <p>When talking about piece values, promoted pieces deserve special attention. The <strong>Dragon (promoted Rook), Horse (promoted Bishop), and <em>Tokin</em> (promoted Pawn)</strong> are among the most powerful attacking pieces in shogi.</p>
-          <p>The Dragon and Horse keep all the movement of their original forms and gain the ability to move to adjacent squares as well, making them fearsome pieces that can dominate the board. The <em>Tokin</em> is often underestimated — "it's just a promoted Pawn" — but this is a serious mistake. A <em>Tokin</em> moves like a Gold general, and because Pawns are plentiful and easy to advance, you can create multiple <em>Tokin</em> and pour them into the enemy camp one after another. For your opponent, a <em>Tokin</em> can be every bit as dangerous and annoying as a Rook or Bishop — it is a <strong>top-tier attacking piece</strong>.</p>
-          <p>In the opening and middlegame, it is vital to <strong>actively seize every opportunity to promote your pieces</strong>. A single promoted piece can instantly transform the momentum of your attack.</p>
-          <p>By the same token, <strong>preventing your opponent from promoting is equally important</strong>. Allowing a major piece to promote deep in your camp can alone swing the position dramatically. When responding to trades or attacks, always ask yourself: "am I letting my opponent promote something?"</p>
-
-          <hr>
-
-          <h2>2. Each move becomes more valuable as the game goes on</h2>
-
-          <p>The importance of a single move changes completely from the opening to the endgame.</p>
-          <p>As the game progresses, both players accumulate pieces in hand and promoted pieces on the board, which means the endgame enables a continuous stream of powerful attacking moves. The ideal endgame scenario is one where you keep landing powerful attacking blows while your opponent can only scramble to defend and never gets a turn to attack.</p>
-          <p>Conversely, in the endgame, <strong>moves that merely run away to avoid capture, or passive defensive moves that would have been natural in the opening, have very low value</strong>. Spending a move on these breaks the momentum of your attack and gives your opponent time to regroup.</p>
-          <p><strong>Whether you spent your endgame moves on attacking or not is very often what decides the outcome.</strong></p>
-          <p>That is exactly why it is so important to build a good formation in the opening and middlegame, and to fix any weaknesses before the endgame begins.</p>
-
-          <hr>
-
-          <h2>3. King safety is the foundation of your attack</h2>
-
-          <p>Shogi is a game of checkmating the opponent's King before they checkmate yours. How safe your King is always directly affects the balance of the position.</p>
-          <p>In the opening and middlegame, the standard approach is to build a castle to protect your King. In the endgame, the focus shifts to flexibly creating a formation that is hard to checkmate, rather than clinging rigidly to a specific castle shape.</p>
-
-          <h3>King safety affects your attack, not just your defense</h3>
-
-          <p>It is easy to think of King safety as purely a defensive concern — but it actually has a <strong>major impact on your attacking ability</strong> as well. When your King is not safe, the following problems arise:</p>
-          <ul>
-            <li><strong>Your attack gets interrupted</strong>: The moment a check comes in, you must stop attacking and deal with it. This breaks the flow of your attack and can be very difficult to recover from.</li>
-            <li><strong>You cannot attack aggressively</strong>: When your King is in danger, your opponent's counterattack becomes lethal, making it impossible to launch the kind of bold, piece-sacrificing attacks that win games.</li>
-            <li><strong>You are vulnerable to a comeback loss</strong>: Even if you build an advantage, a King under threat means a single mistake can collapse your position. The risk of losing from a winning position stays high until the very end.</li>
-          </ul>
-          <p>Keeping your King safe is not just defense — it is <strong>building the stable foundation you need to keep attacking</strong>.</p>
-
-          <hr>
-
-          <h2>Summary</h2>
-
-          <p>Here is a quick recap of the three principles covered in this guide:</p>
-          <div class="summary-list">
-            <ol>
-              <li><strong>Know the value of each piece</strong> — be conscious of material gain and loss in every exchange</li>
-              <li><strong>Each move becomes more valuable in the endgame</strong> — avoiding bad formations in the opening and middlegame determines how you fight at the end</li>
-              <li><strong>King safety is the foundation of your attack</strong> — a safe King is what allows you to attack boldly</li>
-            </ol>
-          </div>
-          <p>These three principles are the most fundamental ideas in shogi, and they apply regardless of what opening or strategy you choose. Try keeping them in mind in your next game.</p>
-
         </div>
       </div>
     </section>

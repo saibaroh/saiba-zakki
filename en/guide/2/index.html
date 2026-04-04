@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 2: Each Move Becomes More Valuable in the Endgame | Guide | Saiba's Shogi Portal</title>
+  <meta name="description" content="The importance of a single move changes completely from the opening to the endgame. How you play in the early game determines whether you can keep attacking in the endgame.">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/en/guide/2/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/guide/2/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/guide/2/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="Step 2: Each Move Becomes More Valuable in the Endgame | Guide | Saiba's Shogi Portal">
+  <meta property="og:description" content="The importance of a single move changes completely from the opening to the endgame. How you play in the early game determines whether you can keep attacking in the endgame.">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/en/guide/2/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Step 2: Each Move Becomes More Valuable in the Endgame | Guide | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="The importance of a single move changes completely from opening to endgame. How you play early determines how you fight at the end.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+  <style>
+    .guide-body { max-width: 720px; margin: 0 auto; }
+    .guide-body h2 { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--color-border); }
+    .guide-body p { line-height: 1.85; margin-bottom: 1rem; }
+    .guide-body ul { margin: 0.5rem 0 1rem 1.4rem; line-height: 1.85; }
+    .guide-body li { margin-bottom: 0.4rem; }
+    .step-indicator { display: flex; align-items: center; justify-content: center; max-width: 480px; margin: 0 auto; }
+    .step-dot { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; text-decoration: none; color: var(--color-text-muted); }
+    .step-dot-circle { width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--color-text-muted); transition: background 0.15s, border-color 0.15s; }
+    .step-dot.is-current .step-dot-circle { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+    .step-dot.is-current .step-dot-label { color: var(--color-text); font-weight: 700; }
+    .step-dot.is-done .step-dot-circle { border-color: var(--color-accent); color: var(--color-accent); }
+    .step-dot:hover:not(.is-current) .step-dot-circle { border-color: var(--color-accent); }
+    .step-dot-label { font-size: 0.7rem; white-space: nowrap; }
+    .step-line { flex: 1; max-width: 80px; height: 2px; background: var(--color-border); margin: 0 0.4rem 1.4rem; }
+    .course-nav { display: flex; justify-content: space-between; gap: 1rem; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--color-border); max-width: 720px; }
+    .course-nav-btn { display: flex; flex-direction: column; padding: 0.9rem 1.2rem; border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; color: var(--color-text); flex: 1; max-width: 260px; transition: background 0.15s, border-color 0.15s; }
+    .course-nav-btn:hover { background: var(--color-hover); border-color: var(--color-accent); color: var(--color-text); text-decoration: none; }
+    .course-nav-btn.is-next { text-align: right; margin-left: auto; }
+    .course-nav-label { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.2rem; }
+    .course-nav-title { font-weight: 700; font-size: 0.88rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../../" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="../../">Books</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../" class="is-current" aria-current="page">Guide</a>
+        <a href="../../glossary/">Glossary</a>
+        <a href="../../../ja/guide/2/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 2.5rem 0 2rem;">
+      <div class="container">
+        <div class="step-indicator">
+          <a href="../1/" class="step-dot is-done">
+            <div class="step-dot-circle">1</div>
+            <span class="step-dot-label">Piece Value</span>
+          </a>
+          <div class="step-line"></div>
+          <div class="step-dot is-current">
+            <div class="step-dot-circle">2</div>
+            <span class="step-dot-label">Move Value</span>
+          </div>
+          <div class="step-line"></div>
+          <a href="../3/" class="step-dot">
+            <div class="step-dot-circle">3</div>
+            <span class="step-dot-label">King Safety</span>
+          </a>
+        </div>
+        <h1 class="hero-title" style="margin-top: 1.4rem;">Step 2: Each Move Becomes More Valuable in the Endgame</h1>
+        <p class="hero-subtitle"><a href="../" style="color:inherit; text-decoration:none; opacity:0.75;">Guide</a> &nbsp;›&nbsp; Step 2 of 3</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="guide-body">
+
+          <p>The importance of a single move changes completely from the opening to the endgame.</p>
+          <p>As the game progresses, both players accumulate pieces in hand and promoted pieces on the board, which means the endgame enables a continuous stream of powerful attacking moves. The ideal endgame scenario is one where you keep landing powerful attacking blows while your opponent can only scramble to defend and never gets a turn to attack.</p>
+          <p>Conversely, in the endgame, <strong>moves that merely run away to avoid capture, or passive defensive moves that would have been natural in the opening, have very low value</strong>. Spending a move on these breaks the momentum of your attack and gives your opponent time to regroup.</p>
+          <p><strong>Whether you spent your endgame moves on attacking or not is very often what decides the outcome.</strong></p>
+          <p>That is exactly why it is so important to build a good formation in the opening and middlegame, and to fix any weaknesses before the endgame begins.</p>
+
+          <h2>Use the opening and middlegame to "prepare for the endgame"</h2>
+
+          <p>To keep attacking in the endgame, you need to build the foundation for it earlier. Try keeping these points in mind:</p>
+          <ul>
+            <li><strong>Don't leave bad formations</strong>: Isolated or immobile pieces can become liabilities in the endgame</li>
+            <li><strong>Advance your attacking pieces</strong>: Get them into positions where they can be effective when the endgame arrives</li>
+            <li><strong>Think about how you spend each move</strong>: Every purely defensive move you make is one fewer attacking move available in the endgame</li>
+          </ul>
+          <p>Each move in the opening and middlegame is a small deposit into your "attacking fund" for the endgame. Once this thinking becomes natural, you will find yourself automatically aiming for better formations.</p>
+
+        </div>
+
+        <div class="course-nav">
+          <a href="../1/" class="course-nav-btn is-prev">
+            <span class="course-nav-label">← Previous step</span>
+            <span class="course-nav-title">Step 1: Know the value of each piece</span>
+          </a>
+          <a href="../3/" class="course-nav-btn is-next">
+            <span class="course-nav-label">Next step →</span>
+            <span class="course-nav-title">Step 3: King safety is the foundation of your attack</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
