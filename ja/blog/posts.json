@@ -1,5 +1,23 @@
 [
   {
+    "slug": "kindle-unlimited-shogi-books",
+    "title": "【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介",
+    "titleHtml": "【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介",
+    "date": "2026-04-05",
+    "category": "棋書紹介",
+    "lead": "Kindle Unlimitedで読める将棋本をまとめて紹介。将棋世界バックナンバーから、終盤・詰将棋・考え方の名著まで、上級～有段者向けを中心にピックアップしています。",
+    "thumbnail": ""
+  },
+  {
+    "slug": "short-time-shogi-drawbacks",
+    "title": "3分切れ負け対局が棋力停滞の原因かも？上達における短時間将棋のデメリット",
+    "titleHtml": "3分切れ負け対局が棋力停滞の原因かも？上達における短時間将棋のデメリット",
+    "date": "2026-04-05",
+    "category": "上達",
+    "lead": "将棋を強くなりたいなら、短すぎる持ち時間の対局はあまりおススメできません。3分切れ負けや10秒将棋が棋力向上の妨げになりやすい理由と、感想戦の重要性について解説します。",
+    "thumbnail": ""
+  },
+  {
     "slug": "shogi-opening-basics",
     "title": "将棋はなぜ囲いを作る手から始めるのか？",
     "titleHtml": "将棋はなぜ囲いを作る手から始めるのか？",
