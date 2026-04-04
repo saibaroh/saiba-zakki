@@ -12,7 +12,7 @@
   <meta property="og:title" id="og-title" content="">
   <meta property="og:description" id="og-desc" content="">
   <meta property="og:url" id="og-url" content="">
-  <meta property="og:image" id="og-image" content="https://saiba-zakki.com/images/profile.webp">
+  <meta property="og:image" id="og-image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" id="tw-card" content="summary">
   <meta name="twitter:title" id="tw-title" content="">
   <meta name="twitter:description" id="tw-desc" content="">
@@ -103,7 +103,7 @@
   <footer class="site-footer">
     <div class="container">
       <p class="affiliate-notice">This page may contain affiliate links through the Amazon Associates program.</p>
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">Back to top</a></p>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">Back to top</a></p>
     </div>
   </footer>
 
@@ -151,11 +151,11 @@
           // canonical
           const canonical = document.createElement('link');
           canonical.rel = 'canonical';
-          canonical.href = 'https://saiba-zakki.com/en/blog/post/?slug=' + slug;
+          canonical.href = 'https://shogi.saiba-zakki.com/en/blog/post/?slug=' + slug;
           document.head.appendChild(canonical);
 
           // JSON-LD
-          const postUrl = 'https://saiba-zakki.com/en/blog/post/?slug=' + slug;
+          const postUrl = 'https://shogi.saiba-zakki.com/en/blog/post/?slug=' + slug;
           const plainTitle = post.title.replace(/<br>/g, ' ');
           const ldJson = document.createElement('script');
           ldJson.type = 'application/ld+json';
@@ -166,7 +166,7 @@
               "headline": plainTitle,
               "description": post.lead,
               "datePublished": post.date,
-              "author": { "@type": "Person", "name": "Saiba", "url": "https://saiba-zakki.com/" },
+              "author": { "@type": "Person", "name": "Saiba", "url": "https://shogi.saiba-zakki.com/" },
               "publisher": { "@type": "Person", "name": "Saiba" },
               "url": postUrl,
               "inLanguage": "en",
@@ -176,8 +176,8 @@
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://saiba-zakki.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Blog",  "item": "https://saiba-zakki.com/en/blog/" },
+                { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://shogi.saiba-zakki.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog",  "item": "https://shogi.saiba-zakki.com/en/blog/" },
                 { "@type": "ListItem", "position": 3, "name": plainTitle, "item": postUrl }
               ]
             }
@@ -199,7 +199,7 @@
           fetch('../../../ja/blog/posts.json')
             .then(r => r.json())
             .then(jaPosts => {
-              const base = 'https://saiba-zakki.com/';
+              const base = 'https://shogi.saiba-zakki.com/';
               const selfUrl = base + 'en/blog/post/?slug=' + slug;
               const addLink = (lang, href) => {
                 const el = document.createElement('link');

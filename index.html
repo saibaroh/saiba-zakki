@@ -7,16 +7,16 @@
   <meta name="description" content="初級者のための将棋学習サイト。さいばが書いた将棋の本の紹介や、上達に役立つブログ記事をまとめています。 / A shogi learning site for beginners — books and articles by Saiba.">
   <link rel="icon" href="images/profile.webp" type="image/webp">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="canonical" href="https://saiba-zakki.com/">
-  <link rel="alternate" hreflang="x-default" href="https://saiba-zakki.com/">
-  <link rel="alternate" hreflang="en" href="https://saiba-zakki.com/en/">
-  <link rel="alternate" hreflang="ja" href="https://saiba-zakki.com/ja/">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="さいばの将棋ポータル">
   <meta property="og:title" content="さいばの将棋ポータル / Saiba's Shogi Portal">
   <meta property="og:description" content="初級者のための将棋学習サイト。さいばが書いた将棋の本の紹介や、上達に役立つブログ記事をまとめています。">
-  <meta property="og:url" content="https://saiba-zakki.com/">
-  <meta property="og:image" content="https://saiba-zakki.com/images/profile.webp">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="さいばの将棋ポータル / Saiba's Shogi Portal">
   <meta name="twitter:description" content="初級者のための将棋学習サイト。さいばが書いた将棋の本の紹介や、上達に役立つブログ記事をまとめています。">
@@ -28,54 +28,218 @@
     gtag('js', new Date());
     gtag('config', 'G-3QWHMZKB7V');
   </script>
+  <style>
+    .top-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: var(--color-bg);
+    }
+    .top-hero {
+      width: 100%;
+      background: linear-gradient(135deg, #1B2D4F 0%, #2A6496 100%);
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+    }
+    .top-title {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+    .top-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+    }
+    .top-content {
+      width: 100%;
+      padding: 2.5rem 1.5rem 3rem;
+      display: flex;
+      justify-content: center;
+    }
+    .lang-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 820px;
+    }
+    .lang-col {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .lang-col-header {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      padding: 0.85rem 1.2rem;
+      background: var(--color-primary);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .lang-col-items {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-surface);
+    }
+    .lang-col-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-col-item:last-child {
+      border-bottom: none;
+    }
+    .lang-col-item:hover {
+      background: var(--color-hover);
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .lang-col-item:hover .lang-col-arrow {
+      transform: translateX(3px);
+    }
+    .lang-col-item-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .lang-col-item-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .lang-col-item-desc {
+      font-size: 0.76rem;
+      color: var(--color-text-muted);
+      line-height: 1.45;
+    }
+    .lang-col-arrow {
+      color: var(--color-border);
+      font-size: 0.9rem;
+      transition: transform 0.15s, color 0.15s;
+      flex-shrink: 0;
+      margin-left: 0.5rem;
+    }
+    .lang-col-item:hover .lang-col-arrow {
+      color: var(--color-accent);
+    }
+    @media (max-width: 480px) {
+      .lang-columns {
+        grid-template-columns: 1fr;
+      }
+      .top-hero {
+        padding: 2.5rem 1.5rem 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <main>
-    <div class="lang-selector">
-      <h1 class="lang-selector-title">
-        さいばの将棋ポータル<br>
-        <span style="font-size:0.6em; opacity:0.75;">Saiba's Shogi Portal</span>
-      </h1>
-      <p class="lang-selector-subtitle">
-        アマチュア将棋愛好家・さいばによる将棋学習サイトです。<br>
-        初級者・級位者向けの本の紹介や、上達に役立つ記事をまとめています。<br>
-        <span style="opacity:0.7;">A shogi site by Saiba, an amateur enthusiast — books and articles for beginners.</span>
-      </p>
-      <p class="lang-selector-subtitle" style="margin-top:1rem;">
-        言語を選んでください &nbsp;/&nbsp; Choose your language
-      </p>
-      <div class="lang-buttons">
-        <a href="ja/" class="lang-btn">
-          <span class="label">日本語</span>
-          <span class="sub">Japanese</span>
-        </a>
-        <a href="en/" class="lang-btn">
-          <span class="label">English</span>
-          <span class="sub">英語</span>
-        </a>
+    <div class="top-wrap">
+      <div class="top-hero">
+        <h1 class="top-title">
+          さいばの将棋ポータル<br>
+          <span style="font-size:0.55em; opacity:0.8; font-weight:600;">Saiba's Shogi Portal</span>
+        </h1>
+        <p class="top-desc">
+          アマチュア将棋愛好家・さいばによる将棋学習サイト<br>
+          A shogi learning site by Saiba, an amateur enthusiast
+        </p>
+      </div>
+
+      <div class="top-content">
+        <div class="lang-columns">
+
+          <div class="lang-col">
+            <div class="lang-col-header">日本語</div>
+            <div class="lang-col-items">
+              <a href="ja/blog/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">将棋ブログ</span>
+                  <span class="lang-col-item-desc">上達法・感想戦の活用・おすすめ棋書紹介など</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+              <a href="ja/guide/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">入門ガイド</span>
+                  <span class="lang-col-item-desc">ルールを覚えたら次に知りたい「考え方の土台」を公開しています</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+              <a href="ja/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">さいばの著書</span>
+                  <span class="lang-col-item-desc">初級者・級位者向けに執筆したKindle本の紹介。<br>軽く読める将棋の考え方が身につく本で、ルールを覚えたばかりの方に最適です。<br>Kindle Unlimited読み放題対象</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+              <a href="ja/glossary/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">将棋用語集</span>
+                  <span class="lang-col-item-desc">受け・囲い・詰めろ・手筋など、よく使われる将棋用語を解説</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lang-col">
+            <div class="lang-col-header">English</div>
+            <div class="lang-col-items">
+              <a href="en/blog/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">Blog</span>
+                  <span class="lang-col-item-desc">How to improve, making the most of game reviews,<br>recommended shogi books, and more</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+              <a href="en/guide/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">Guide</span>
+                  <span class="lang-col-item-desc">The core thinking principles to know right after learning the rules — free to read</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+              <a href="en/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">Books by Saiba</span>
+                  <span class="lang-col-item-desc">Kindle books written for beginners and improving players.<br>Easy reads that build your shogi thinking — perfect for those who just learned the rules.<br>Available on Kindle Unlimited</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+              <a href="en/glossary/" class="lang-col-item">
+                <div class="lang-col-item-body">
+                  <span class="lang-col-item-name">Glossary</span>
+                  <span class="lang-col-item-desc">Commonly used shogi terms explained — defense, castle, threatmate, tesuji, and more</span>
+                </div>
+                <span class="lang-col-arrow">›</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </main>
 
-  <button class="back-to-top" aria-label="ページ上部へ戻る">
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> saiba-zakki.com</p>
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.6); margin-bottom:0.4rem;">コンテンツは随時追加予定です。&nbsp;/&nbsp; More content coming soon.</p>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com</p>
     </div>
   </footer>
-  <script>
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 400);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>
