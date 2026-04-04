@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>将棋用語集 | さいばの将棋ポータル</title>
+  <meta name="description" content="将棋でよく使われる用語をまとめた用語集です。受け・大駒・囲い・寄せ・詰めろなど、初心者が知っておきたい基本用語を解説しています。">
+  <link rel="icon" href="../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="canonical" href="https://saiba-zakki.com/ja/glossary/">
+  <link rel="alternate" hreflang="ja" href="https://saiba-zakki.com/ja/glossary/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="将棋用語集 | さいばの将棋ポータル">
+  <meta property="og:description" content="将棋でよく使われる用語をまとめた用語集です。受け・大駒・囲い・寄せ・詰めろなど、初心者が知っておきたい基本用語を解説しています。">
+  <meta property="og:url" content="https://saiba-zakki.com/ja/glossary/">
+  <meta property="og:image" content="https://saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="将棋用語集 | さいばの将棋ポータル">
+  <meta name="twitter:description" content="将棋でよく使われる用語をまとめた用語集です。受け・大駒・囲い・寄せ・詰めろなど、初心者が知っておきたい基本用語を解説しています。">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+  <style>
+    .glossary-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .glossary-index a {
+      font-size: 0.85rem;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-text);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .glossary-index a:hover {
+      background: var(--color-hover);
+    }
+    .glossary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .glossary-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .glossary-item:first-child {
+      border-top: 1px solid var(--color-border);
+    }
+    .glossary-term {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      color: var(--color-heading, var(--color-text));
+    }
+    .glossary-term a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .glossary-def {
+      margin: 0;
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+    .glossary-def ul {
+      margin: 0.5rem 0 0 1.2rem;
+      padding: 0;
+    }
+    .glossary-def li {
+      margin-bottom: 0.25rem;
+    }
+    .glossary-note {
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="../">本の紹介</a>
+        <a href="../blog/">ブログ</a>
+        <a href="./." class="is-current" aria-current="page">用語集</a>
+        <a href="../../en/glossary/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 3.5rem 0;">
+      <div class="container">
+        <h1 class="hero-title">将棋用語集</h1>
+        <p class="hero-subtitle">将棋でよく使われる基本用語をまとめました。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <nav class="glossary-index" aria-label="用語インデックス">
+          <a href="#受け">受け</a>
+          <a href="#大駒">大駒</a>
+          <a href="#小駒">小駒</a>
+          <a href="#大駒を切る">大駒を切る</a>
+          <a href="#合駒">合駒</a>
+          <a href="#遊び駒">遊び駒</a>
+          <a href="#駒の交換">駒の交換</a>
+          <a href="#飛車先の歩交換">飛車先の歩交換</a>
+          <a href="#駒得">駒得</a>
+          <a href="#入玉">入玉</a>
+          <a href="#攻防手">攻防手</a>
+          <a href="#両取り">両取り</a>
+          <a href="#囲い">囲い</a>
+          <a href="#駒組">駒組</a>
+          <a href="#寄せ">寄せ</a>
+          <a href="#詰めろ">詰めろ</a>
+          <a href="#必至">必至</a>
+          <a href="#居飛車・振り飛車">居飛車・振り飛車</a>
+          <a href="#相居飛車・相振り飛車・対抗形">相居飛車・相振り飛車・対抗形</a>
+          <a href="#居玉">居玉</a>
+          <a href="#桂頭・角頭・玉頭">桂頭・角頭・玉頭</a>
+          <a href="#コビン">コビン</a>
+          <a href="#陣地">陣地</a>
+          <a href="#下段">下段</a>
+          <a href="#手筋">手筋</a>
+        </nav>
+
+        <div class="glossary-list">
+
+          <div class="glossary-item" id="受け">
+            <h2 class="glossary-term"><a href="#受け">受け</a></h2>
+            <p class="glossary-def">相手が次に指してくるであろう攻め手を読み、防御の手を指すこと。</p>
+          </div>
+
+          <div class="glossary-item" id="大駒">
+            <h2 class="glossary-term"><a href="#大駒">大駒（おおごま）</a></h2>
+            <p class="glossary-def">将棋の中で特に価値の高い駒、飛(龍)や角(馬)のことです。</p>
+          </div>
+
+          <div class="glossary-item" id="小駒">
+            <h2 class="glossary-term"><a href="#小駒">小駒（こごま）</a></h2>
+            <p class="glossary-def">大駒と対になる用語で、玉と大駒以外の駒のことを指します。つまり、金、銀、桂、香、歩をまとめて指す用語です。</p>
+          </div>
+
+          <div class="glossary-item" id="大駒を切る">
+            <h2 class="glossary-term"><a href="#大駒を切る">大駒を切る</a></h2>
+            <p class="glossary-def">大駒を、より価値が低い駒と交換になる手を指すこと。強力な大駒を犠牲にするので思い切りが必要です。</p>
+          </div>
+
+          <div class="glossary-item" id="合駒">
+            <h2 class="glossary-term"><a href="#合駒">合駒（あいごま）</a></h2>
+            <p class="glossary-def">飛(龍)、角(馬)、香で遠距離から王手をされた時に、守備側が、王手をかけている駒と玉の間に駒を配置して玉を守ること。</p>
+          </div>
+
+          <div class="glossary-item" id="遊び駒">
+            <h2 class="glossary-term"><a href="#遊び駒">遊び駒</a></h2>
+            <p class="glossary-def">攻めにも守りにも有効に機能していない、戦力になっていない駒のこと。</p>
+          </div>
+
+          <div class="glossary-item" id="駒の交換">
+            <h2 class="glossary-term"><a href="#駒の交換">駒の交換</a></h2>
+            <p class="glossary-def">互いの駒を取り合い、結果として両者の持ち駒が増えること。角と角を取り合った手順などは「角交換」と呼ばれる。</p>
+          </div>
+
+          <div class="glossary-item" id="飛車先の歩交換">
+            <h2 class="glossary-term"><a href="#飛車先の歩交換">飛車先の歩交換</a></h2>
+            <p class="glossary-def">自分の飛車がいる筋（縦の列）で、自分の歩と相手の歩を交換になる手を指すこと。飛車が非常に使いやすくなること、歩を持ち駒にして自由度の高い使い方ができることがメリットであり、居飛車戦法の序盤では攻めの準備として定番のテクニック。</p>
+          </div>
+
+          <div class="glossary-item" id="駒得">
+            <h2 class="glossary-term"><a href="#駒得">駒得・駒損</a></h2>
+            <p class="glossary-def">相手の駒をただで取ったり、相手の価値の高い駒と自分の価値の低い駒を交換すること。この逆で、駒をただで取られたり、損な駒の交換については<strong>駒損</strong>という。</p>
+          </div>
+
+          <div class="glossary-item" id="入玉">
+            <h2 class="glossary-term"><a href="#入玉">入玉（にゅうぎょく）</a></h2>
+            <p class="glossary-def">玉が自分から見て上部3段目（駒が成ることができるスペース）に入ること。入玉した玉は大変詰ますことが難しくなる。プロの対局や大会などの公式な対局では、入玉が実現した時のために特殊な決着ルールが定められており、通常の決着の条件（玉が詰めば決着）とは違う条件で勝敗がつくことがあります。</p>
+          </div>
+
+          <div class="glossary-item" id="攻防手">
+            <h2 class="glossary-term"><a href="#攻防手">攻防手</a></h2>
+            <p class="glossary-def">一手で、攻撃と守備の役割を両立している手のこと。攻防手は効率が良く、好手になりやすい。</p>
+          </div>
+
+          <div class="glossary-item" id="両取り">
+            <h2 class="glossary-term"><a href="#両取り">両取り</a></h2>
+            <p class="glossary-def">一手で相手の駒取りの狙いを2つ同時に掛けることができる手のこと。もしくはその状態。相手は両方とも防ぐことはできないので、どちらかの駒を取ることができる。</p>
+          </div>
+
+          <div class="glossary-item" id="囲い">
+            <h2 class="glossary-term"><a href="#囲い">囲い</a></h2>
+            <p class="glossary-def">玉を守るための守りの陣形のこと。頻出の囲いには名前がついており、定番のものでは「美濃囲い」、「矢倉囲い」などがある。</p>
+            <p class="glossary-note">※定番の囲いは、著者の著書「<a href="../#book1">脱初心者！将棋の考え方</a>」「<a href="../#book2">脱初心者！将棋の基本フォーム</a>」の巻末付録で詳しく解説しています。</p>
+          </div>
+
+          <div class="glossary-item" id="駒組">
+            <h2 class="glossary-term"><a href="#駒組">駒組（こまぐみ）</a></h2>
+            <p class="glossary-def">初期位置の駒の状態から囲いを作って玉の守りを固めたり、攻めの準備を整えるなどの目的で自分の陣形を整えること。</p>
+          </div>
+
+          <div class="glossary-item" id="寄せ">
+            <h2 class="glossary-term"><a href="#寄せ">寄せ</a></h2>
+            <p class="glossary-def">終盤で、相手の玉を詰みが見える段階まで追い詰めること。</p>
+          </div>
+
+          <div class="glossary-item" id="詰めろ">
+            <h2 class="glossary-term"><a href="#詰めろ">詰めろ</a></h2>
+            <p class="glossary-def">王手がかかっていないが、対処をしないまま相手の手番になると詰まされてしまう状態のこと。</p>
+          </div>
+
+          <div class="glossary-item" id="必至">
+            <h2 class="glossary-term"><a href="#必至">必至</a></h2>
+            <p class="glossary-def">王手がかかっていないが、どんな対処をしても、次の相手の手番になると詰まされてしまう状態のこと。必至がかかってしまった場合に勝つには、相手玉に王手をかけ続けて先に詰ますしかありません。</p>
+          </div>
+
+          <div class="glossary-item" id="居飛車・振り飛車">
+            <h2 class="glossary-term"><a href="#居飛車・振り飛車">居飛車・振り飛車</a></h2>
+            <p class="glossary-def">どちらも序盤の戦法です。重要な駒である飛車をどこに配置しておくか、で呼び名が分かれています。</p>
+            <div class="glossary-def">
+              <ul>
+                <li>居飛車は飛車を初期位置または、盤の右半分（１筋〜４筋）に配置する戦法です。</li>
+                <li>振り飛車は飛車を左側（５筋〜９筋）に移動させて戦う戦法です。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="glossary-item" id="相居飛車・相振り飛車・対抗形">
+            <h2 class="glossary-term"><a href="#相居飛車・相振り飛車・対抗形">相居飛車・相振り飛車・対抗形</a></h2>
+            <div class="glossary-def">
+              <ul>
+                <li>両者とも居飛車戦法を選んだ将棋のことを、<strong>相居飛車</strong>と言います。</li>
+                <li>両者とも振り飛車戦法を選んだ将棋のことを、<strong>相振り飛車</strong>と言います。</li>
+                <li>いずれかが居飛車で、もう一方が振り飛車を選んだ将棋のことを、<strong>対抗形</strong>と言います。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="glossary-item" id="居玉">
+            <h2 class="glossary-term"><a href="#居玉">居玉</a></h2>
+            <p class="glossary-def">玉の位置が、初期局面のままであること。（符号で言えば、先手なら５九、後手なら５一の位置）</p>
+          </div>
+
+          <div class="glossary-item" id="桂頭・角頭・玉頭">
+            <h2 class="glossary-term"><a href="#桂頭・角頭・玉頭">桂頭・角頭・玉頭</a></h2>
+            <p class="glossary-def">それぞれ、桂・角・玉の一マス前方のこと。桂・角・玉ともに、前方から攻められるのが弱点になり、桂頭・角頭・玉頭をポイントにした攻防は起こりやすい。</p>
+          </div>
+
+          <div class="glossary-item" id="コビン">
+            <h2 class="glossary-term"><a href="#コビン">コビン</a></h2>
+            <p class="glossary-def">玉・飛の斜め上のマスのことを指す。玉や飛の斜め前に、歩などの守り駒がないことを「コビンが空く」と言い、相手の角の攻めが効きやすい。</p>
+          </div>
+
+          <div class="glossary-item" id="陣地">
+            <h2 class="glossary-term"><a href="#陣地">陣地</a></h2>
+            <p class="glossary-def">自分からみて、盤の下の三段のエリア。相手の駒が侵入してきたら成ることができる範囲のこと。</p>
+          </div>
+
+          <div class="glossary-item" id="下段">
+            <h2 class="glossary-term"><a href="#下段">下段</a></h2>
+            <p class="glossary-def">自分からみて、盤の一番下の段のこと。符号でいえば、先手なら１九〜９九の９マスのこと。</p>
+          </div>
+
+          <div class="glossary-item" id="手筋">
+            <h2 class="glossary-term"><a href="#手筋">手筋</a></h2>
+            <p class="glossary-def">特定の局面で有効な、定番の駒の使い方やテクニックのこと。</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> saiba-zakki.com &nbsp;|&nbsp; <a href="../../">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

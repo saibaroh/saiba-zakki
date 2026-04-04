@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shogi Glossary | Saiba's Shogi Portal</title>
+  <meta name="description" content="A glossary of commonly used shogi terms. Covers defense, major pieces, castles, endgame attacks, and more — essential vocabulary for beginners.">
+  <link rel="icon" href="../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="canonical" href="https://saiba-zakki.com/en/glossary/">
+  <link rel="alternate" hreflang="en" href="https://saiba-zakki.com/en/glossary/">
+  <link rel="alternate" hreflang="ja" href="https://saiba-zakki.com/ja/glossary/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="Shogi Glossary | Saiba's Shogi Portal">
+  <meta property="og:description" content="A glossary of commonly used shogi terms. Covers defense, major pieces, castles, endgame attacks, and more — essential vocabulary for beginners.">
+  <meta property="og:url" content="https://saiba-zakki.com/en/glossary/">
+  <meta property="og:image" content="https://saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Shogi Glossary | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="A glossary of commonly used shogi terms. Covers defense, major pieces, castles, endgame attacks, and more — essential vocabulary for beginners.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+  <style>
+    .glossary-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .glossary-index a {
+      font-size: 0.85rem;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-text);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .glossary-index a:hover {
+      background: var(--color-hover);
+    }
+    .glossary-italic-note {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2rem;
+      padding: 0.7rem 1rem;
+      border-left: 3px solid var(--color-border);
+      background: var(--color-hover);
+    }
+    .glossary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .glossary-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .glossary-item:first-child {
+      border-top: 1px solid var(--color-border);
+    }
+    .glossary-term {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      color: var(--color-heading, var(--color-text));
+    }
+    .glossary-term a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .glossary-def {
+      margin: 0;
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+    .glossary-def ul {
+      margin: 0.5rem 0 0 1.2rem;
+      padding: 0;
+    }
+    .glossary-def li {
+      margin-bottom: 0.25rem;
+    }
+    .glossary-note {
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="../">Books</a>
+        <a href="../blog/">Blog</a>
+        <a href="./." class="is-current" aria-current="page">Glossary</a>
+        <a href="../../ja/glossary/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 3.5rem 0;">
+      <div class="container">
+        <h1 class="hero-title">Shogi Glossary</h1>
+        <p class="hero-subtitle">Essential vocabulary for reading about and playing shogi.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <p class="glossary-italic-note">Words in <em>italics</em> are the original Japanese terms (romanized). Many of these have no single standard English translation, so you will encounter them frequently in books and online discussions about shogi.</p>
+
+        <nav class="glossary-index" aria-label="Term index">
+          <a href="#defense">Defense</a>
+          <a href="#major-pieces">Major pieces</a>
+          <a href="#minor-pieces">Minor pieces</a>
+          <a href="#sacrificing-major-piece">Sacrificing a major piece</a>
+          <a href="#interposing-piece">Interposing piece</a>
+          <a href="#idle-piece">Idle piece</a>
+          <a href="#piece-exchange">Piece exchange</a>
+          <a href="#pawn-exchange">Pawn exchange on the Rook file</a>
+          <a href="#material-gain">Material gain / loss</a>
+          <a href="#entering-king">Entering King</a>
+          <a href="#dual-purpose-move">Dual-purpose move</a>
+          <a href="#fork">Fork / double attack</a>
+          <a href="#castle">Castle</a>
+          <a href="#piece-development">Piece development</a>
+          <a href="#endgame-attack">Endgame attack</a>
+          <a href="#threatmate">Threatmate</a>
+          <a href="#brinkmate">Brinkmate</a>
+          <a href="#static-ranging-rook">Static Rook / Ranging Rook</a>
+          <a href="#double-static-ranging">Double Static / Double Ranging / Static vs Ranging</a>
+          <a href="#sitting-king">Sitting King</a>
+          <a href="#head-squares">Knight's head / Bishop's head / King's head</a>
+          <a href="#kobin">Kobin</a>
+          <a href="#camp">Camp</a>
+          <a href="#bottom-rank">Bottom rank</a>
+          <a href="#tesuji">Tesuji</a>
+        </nav>
+
+        <div class="glossary-list">
+
+          <div class="glossary-item" id="defense">
+            <h2 class="glossary-term"><a href="#defense">Defense (<em>uke</em>)</a></h2>
+            <p class="glossary-def">Reading your opponent's likely attacking moves and playing to block, reduce, or neutralize their threat.</p>
+          </div>
+
+          <div class="glossary-item" id="major-pieces">
+            <h2 class="glossary-term"><a href="#major-pieces">Major pieces (<em>ōgoma</em>)</a></h2>
+            <p class="glossary-def">The two most powerful pieces: the Rook (promoted: Dragon) and the Bishop (promoted: Horse).</p>
+          </div>
+
+          <div class="glossary-item" id="minor-pieces">
+            <h2 class="glossary-term"><a href="#minor-pieces">Minor pieces (<em>kogoma</em>)</a></h2>
+            <p class="glossary-def">All pieces except the King and the major pieces. In other words: Gold generals, Silver generals, knights, lances, and pawns.</p>
+          </div>
+
+          <div class="glossary-item" id="sacrificing-major-piece">
+            <h2 class="glossary-term"><a href="#sacrificing-major-piece">Sacrificing a major piece (<em>ōgoma o kiru</em>)</a></h2>
+            <p class="glossary-def">Giving up a Rook or Bishop in exchange for a lower-value piece or for attacking chances. It is a bold, forcing decision often used to break open the position.</p>
+          </div>
+
+          <div class="glossary-item" id="interposing-piece">
+            <h2 class="glossary-term"><a href="#interposing-piece">Interposing piece (<em>aigoma</em>)</a></h2>
+            <p class="glossary-def">When your King is being attacked from a distance by a Rook (Dragon), Bishop (Horse), or Lance, you drop or move a piece between the attacker and your King to block the line. That blocking piece is called an interposing piece.</p>
+          </div>
+
+          <div class="glossary-item" id="idle-piece">
+            <h2 class="glossary-term"><a href="#idle-piece">Idle piece (<em>asobigoma</em>)</a></h2>
+            <p class="glossary-def">A piece that is not really doing anything — it is not helping attack or defense and is badly placed.</p>
+          </div>
+
+          <div class="glossary-item" id="piece-exchange">
+            <h2 class="glossary-term"><a href="#piece-exchange">Piece exchange</a></h2>
+            <p class="glossary-def">Both players capture each other's pieces so that the same kind of piece switches hands and becomes a piece in hand. For example, when the bishops are traded, it is called a "Bishop exchange."</p>
+          </div>
+
+          <div class="glossary-item" id="pawn-exchange">
+            <h2 class="glossary-term"><a href="#pawn-exchange">Pawn exchange on the Rook file (<em>hisha-saki no fu kōkan</em>)</a></h2>
+            <p class="glossary-def">An exchange of pawns on the file where your Rook is placed. This often makes your Rook much easier to use and is a basic attacking technique in many openings.</p>
+          </div>
+
+          <div class="glossary-item" id="material-gain">
+            <h2 class="glossary-term"><a href="#material-gain">Material gain / Material loss (<em>komadoku</em> / <em>komazon</em>)</a></h2>
+            <p class="glossary-def">Gaining an advantage in material (piece value) — for example, trading your Knight for your opponent's Gold — is called <strong>material gain</strong> (<em>komadoku</em>). The reverse — losing value in an exchange — is called <strong>material loss</strong> (<em>komazon</em>).</p>
+          </div>
+
+          <div class="glossary-item" id="entering-king">
+            <h2 class="glossary-term"><a href="#entering-king">Entering King (<em>nyūgyoku</em>)</a></h2>
+            <p class="glossary-def">When your King advances into the opponent's camp (their promotion zone). In certain positions, entering the enemy camp can lead to a win even if you are behind in material.</p>
+          </div>
+
+          <div class="glossary-item" id="dual-purpose-move">
+            <h2 class="glossary-term"><a href="#dual-purpose-move">Dual-purpose move (<em>kōbōshu</em>)</a></h2>
+            <p class="glossary-def">A very efficient move that both improves your attack and defends at the same time.</p>
+          </div>
+
+          <div class="glossary-item" id="fork">
+            <h2 class="glossary-term"><a href="#fork">Fork / double attack (<em>ryōdori</em>)</a></h2>
+            <p class="glossary-def">A move that simultaneously threatens to capture two of the opponent's pieces. Because the opponent usually cannot defend both, they must give up one of them.</p>
+          </div>
+
+          <div class="glossary-item" id="castle">
+            <h2 class="glossary-term"><a href="#castle">Castle (<em>kakoi</em>)</a></h2>
+            <p class="glossary-def">A defensive formation built to protect your King. Well-known examples include the Mino castle and the Yagura castle.</p>
+            <p class="glossary-note">For standard castles, see the appendix in the author's books <a href="../#book1">Shogi Thinking for Beginners</a> and <a href="../#book2">Shogi Basic Form for Beginners</a>.</p>
+          </div>
+
+          <div class="glossary-item" id="piece-development">
+            <h2 class="glossary-term"><a href="#piece-development">Piece development (<em>komagumi</em>)</a></h2>
+            <p class="glossary-def">The process, mainly in the opening, of moving your pieces out from their starting squares to build a formation that protects your King and prepares your own attack.</p>
+          </div>
+
+          <div class="glossary-item" id="endgame-attack">
+            <h2 class="glossary-term"><a href="#endgame-attack">Endgame attack (<em>yose</em>)</a></h2>
+            <p class="glossary-def">In the endgame, the phase where you chase and corner the opponent's King, aiming for checkmate.</p>
+          </div>
+
+          <div class="glossary-item" id="threatmate">
+            <h2 class="glossary-term"><a href="#threatmate">Threatmate (<em>tsumero</em>)</a></h2>
+            <p class="glossary-def">A threat such that if the opponent does not defend properly on the very next move, they will be checkmated. In other words, "a move that threatens an immediate mate next turn."</p>
+          </div>
+
+          <div class="glossary-item" id="brinkmate">
+            <h2 class="glossary-term"><a href="#brinkmate">Brinkmate (<em>hisshi</em>)</a></h2>
+            <p class="glossary-def">A position where the King is not currently in check, but no matter how the defender plays, they will be checkmated on the attacker's next move. To win when your own King is under brinkmate, the only hope is to give a continuous series of checks and checkmate the opponent's King first.</p>
+          </div>
+
+          <div class="glossary-item" id="static-ranging-rook">
+            <h2 class="glossary-term"><a href="#static-ranging-rook">Static Rook (<em>ibisha</em>) / Ranging Rook (<em>furibisha</em>)</a></h2>
+            <p class="glossary-def">Names of opening strategies, based on where you place your Rook, one of the major pieces.</p>
+            <div class="glossary-def">
+              <ul>
+                <li>In <strong>Static Rook</strong> (<em>ibisha</em>) openings, you keep your Rook on its original file or on the right side (files 1 to 4).</li>
+                <li>In <strong>Ranging Rook</strong> (<em>furibisha</em>) openings, you move your Rook to the center or left side (around files 5 to 9) and fight from there.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="glossary-item" id="double-static-ranging">
+            <h2 class="glossary-term"><a href="#double-static-ranging">Double Static Rook (<em>ai-ibisha</em>) / Double Ranging Rook (<em>ai-furibisha</em>) / Static vs Ranging Rook (<em>taikō-kei</em>)</a></h2>
+            <div class="glossary-def">
+              <ul>
+                <li>When both players choose Static Rook, it is called a <strong>Double Static Rook</strong> (<em>ai-ibisha</em>) game.</li>
+                <li>When both choose Ranging Rook, it is a <strong>Double Ranging Rook</strong> (<em>ai-furibisha</em>) game.</li>
+                <li>When one plays Static Rook and the other plays Ranging Rook, it is a <strong>Static vs Ranging Rook</strong> (<em>taikō-kei</em>) game.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="glossary-item" id="sitting-king">
+            <h2 class="glossary-term"><a href="#sitting-king">Sitting King (<em>igyoku</em>)</a></h2>
+            <p class="glossary-def">A King that stays near its starting square instead of being moved into a castle. (In notation, this often means the King remains on 5-9 for White or 5-1 for Black.)</p>
+          </div>
+
+          <div class="glossary-item" id="head-squares">
+            <h2 class="glossary-term"><a href="#head-squares">Knight's head (<em>keima-gashira</em>) / Bishop's head (<em>kaku-gashira</em>) / King's head (<em>gyoku-gashira</em>)</a></h2>
+            <p class="glossary-def">The square directly in front of the Knight, Bishop, or King, respectively. These squares are often key targets in attack and defense.</p>
+          </div>
+
+          <div class="glossary-item" id="kobin">
+            <h2 class="glossary-term"><a href="#kobin"><em>Kobin</em></a></h2>
+            <p class="glossary-def">The diagonal "ear" square in front of the King or Rook. When the <em>kobin</em> is weak or unprotected, diagonal Bishop attacks become especially powerful.</p>
+          </div>
+
+          <div class="glossary-item" id="camp">
+            <h2 class="glossary-term"><a href="#camp">Camp (<em>jinchi</em>)</a></h2>
+            <p class="glossary-def">The three ranks on your side of the board. This area is also your promotion zone: an opponent's piece that enters here can usually promote.</p>
+          </div>
+
+          <div class="glossary-item" id="bottom-rank">
+            <h2 class="glossary-term"><a href="#bottom-rank">Bottom rank (<em>gedan</em>)</a></h2>
+            <p class="glossary-def">The rank closest to you (your last row). There is a famous proverb: "A King dropped to the bottom rank is easy to mate."</p>
+          </div>
+
+          <div class="glossary-item" id="tesuji">
+            <h2 class="glossary-term"><a href="#tesuji"><em>Tesuji</em></a></h2>
+            <p class="glossary-def">A standard tactical idea or clever, efficient move. <em>Tesuji</em> are typical "good moves" or techniques that appear again and again in similar patterns.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> saiba-zakki.com &nbsp;|&nbsp; <a href="../../">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
