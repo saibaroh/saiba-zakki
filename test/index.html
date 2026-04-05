@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[TEST] 将棋盤テスト | さいばの将棋ポータル</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- フォント候補 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== テストページ用レイアウト ===== */
+    .test-wrap {
+      max-width: 760px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .test-block {
+      border: 2px dashed var(--color-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      background: var(--color-surface);
+    }
+    .test-block h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin: 0 0 1rem;
+    }
+    .test-block p {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin: 0 0 1rem;
+    }
+    .board-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ===== 将棋盤スタイル ===== */
+    .shogi-player {
+      display: inline-block;
+      font-family: 'Zen Kaku Gothic Antique', sans-serif;
+      font-weight: 700;
+      user-select: none;
+    }
+    /* 持ち駒 */
+    .sp-hand {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      min-height: 1.8rem;
+      font-size: 0.85rem;
+      margin: 5px 0;
+    }
+    .sp-hand-label {
+      color: var(--color-text-muted, #666);
+      font-size: 0.8rem;
+      margin-right: 2px;
+      white-space: nowrap;
+    }
+    .sp-hand-piece {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .sp-hand-piece sup {
+      font-size: 0.6rem;
+      font-weight: normal;
+      vertical-align: super;
+    }
+    .sp-hand-empty {
+      color: var(--color-text-muted, #999);
+      font-size: 0.8rem;
+    }
+    /* 列ラベル */
+    .sp-col-labels {
+      display: grid;
+      grid-template-columns: repeat(9, 40px);
+      margin-left: 2px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--color-text-muted, #888);
+      margin-bottom: 2px;
+    }
+    /* 盤面 + 行ラベルを横並び */
+    .sp-board-and-rows {
+      display: flex;
+      align-items: stretch;
+    }
+    /* 盤面グリッド: 9列×9行のみ（行ラベルは外に出す） */
+    .sp-board {
+      display: grid;
+      grid-template-columns: repeat(9, 40px);
+      grid-template-rows: repeat(9, 46px);
+      border-top: 3px solid #4a2c0a;
+      border-left: 3px solid #4a2c0a;
+    }
+    .sp-cell {
+      width: 40px;
+      height: 46px;
+      border-right: 1px solid #4a2c0a;
+      border-bottom: 1px solid #4a2c0a;
+      background: var(--sp-board-bg, #f0d9b5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* 外枠の右・下 */
+    .sp-cell:nth-child(9n)   { border-right: 3px solid #4a2c0a; }
+    .sp-cell:nth-child(n+73) { border-bottom: 3px solid #4a2c0a; }
+    /* 星目 */
+    .sp-cell.sp-hoshi::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      bottom: -4px;
+      width: 6px;
+      height: 6px;
+      background: #4a2c0a;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .sp-cell.sp-highlight {
+      background: var(--sp-board-hl, #f5f578);
+    }
+    /* テーマスイッチャー */
+    .sp-theme-picker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0 4px;
+      flex-wrap: wrap;
+    }
+    .sp-theme-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted, #888);
+    }
+    .sp-theme-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      padding: 0;
+      outline-offset: 2px;
+      transition: border-color 0.15s, transform 0.1s;
+    }
+    .sp-theme-btn:hover  { transform: scale(1.15); }
+    .sp-theme-btn.is-active { border-color: #333; }
+    /* 行ラベル: 盤の右隣に縦並び */
+    .sp-row-labels {
+      display: flex;
+      flex-direction: column;
+    }
+    .sp-row-label {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      padding-left: 5px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted, #888);
+    }
+    /* 駒 */
+    .sp-piece {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .sp-piece.sp-white {
+      transform: rotate(180deg);
+      display: inline-block;
+    }
+    .sp-piece.sp-promoted {
+      color: #b22222;
+    }
+    /* コントロール */
+    .sp-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .sp-btn {
+      padding: 4px 10px;
+      border: 1px solid var(--color-border, #ccc);
+      border-radius: 4px;
+      background: var(--color-surface, #fff);
+      color: var(--color-text, #333);
+      cursor: pointer;
+      font-size: 0.8rem;
+      line-height: 1;
+      transition: background 0.1s;
+    }
+    .sp-btn:hover {
+      background: var(--color-hover, #f0f0f0);
+    }
+    .sp-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .sp-info {
+      font-size: 0.78rem;
+      color: var(--color-text-muted, #666);
+      min-width: 90px;
+      text-align: center;
+    }
+    .sp-caption {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 6px;
+    }
+    /* 盤面 + 棋譜の横並びレイアウト */
+    .sp-layout {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    /* 棋譜リスト */
+    .sp-kifu {
+      flex: 0 0 130px;
+      max-height: 416px; /* 盤面グリッドの高さ(9×46+2px)に合わせる */
+      overflow-y: auto;
+      border: 1px solid var(--color-border, #ddd);
+      border-radius: 6px;
+      background: var(--color-surface, #fff);
+      scroll-behavior: smooth;
+    }
+    .sp-kifu-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .sp-kifu-row:hover {
+      background: var(--color-hover, #f0f0f0);
+    }
+    .sp-kifu-row.is-current {
+      background: var(--color-primary, #1B2D4F);
+      color: #fff;
+    }
+    .sp-kifu-num {
+      min-width: 22px;
+      text-align: right;
+      font-size: 0.72rem;
+      color: var(--color-text-muted, #999);
+      flex-shrink: 0;
+    }
+    .sp-kifu-row.is-current .sp-kifu-num {
+      color: rgba(255,255,255,0.6);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <span style="font-size:0.8rem; color:rgba(255,255,255,0.5);">[テスト・非公開]</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding: 2.5rem 0 1rem;">
+      <div class="container">
+        <h1 class="hero-title" style="font-size:1.5rem;">将棋盤テスト（自作ビューワー）</h1>
+        <p style="color:var(--color-text-muted); font-size:0.85rem;">
+          外部ライブラリなし。SFEN + USI形式の手順をサポート。<br>
+          使い方: <code>&lt;div class="shogi-player" data-sfen="..." data-moves="7g7f 3c3d ..."&gt;&lt;/div&gt;</code>
+        </p>
+      </div>
+    </section>
+
+    <div class="test-wrap">
+
+      <!-- 基本動作確認 -->
+      <div class="test-block">
+        <h2>基本動作確認（Zen Kaku Gothic Antique 700）</h2>
+        <div class="sp-theme-picker" id="theme-picker">
+          <span class="sp-theme-label">盤の色：</span>
+        </div>
+        <div class="board-center">
+          <div class="shogi-player" data-sfen="startpos" data-moves="7g7f 3c3d 8h2b+ 3a2b 2h7h" data-caption="初手からの手順"></div>
+        </div>
+      </div>
+
+      <!-- 成り駒確認 -->
+      <div class="test-block">
+        <h2>成り駒・持ち駒の確認</h2>
+        <div class="board-center">
+          <div class="shogi-player"
+               data-sfen="4k4/9/4+R4/9/4+B4/9/4+P4/9/4K4 b - 1"
+               data-caption="龍・馬・と金の表示テスト">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="font-size:0.8rem; opacity:0.6;">テストページ &nbsp;|&nbsp; <a href="../">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    // =============================================
+    // 定数
+    // =============================================
+    const STARTPOS = 'lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL b - 1';
+    const KANJI = {
+      P: ['歩', 'と'],
+      L: ['香', '杏'],
+      N: ['桂', '圭'],
+      S: ['銀', '全'],
+      G: ['金', '金'],
+      B: ['角', '馬'],
+      R: ['飛', '龍'],
+      K: ['王', '王'], // pieceHtml内で黒=王・白=玉に分岐
+    };
+    const HAND_ORDER = ['R', 'B', 'G', 'S', 'N', 'L', 'P'];
+    const ROW_LABELS  = ['一','二','三','四','五','六','七','八','九'];
+
+    // =============================================
+    // SFENパーサー
+    // board[row][col]: row=0が一段目, col=0が9筋
+    // =============================================
+    function parseSfen(sfen) {
+      if (sfen === 'startpos') sfen = STARTPOS;
+      if (sfen.startsWith('sfen ')) sfen = sfen.slice(5);
+      const parts = sfen.trim().split(' ');
+      const boardStr = parts[0];
+      const turn     = (parts[1] || 'b') === 'b' ? 'black' : 'white';
+      const handsStr = parts[2] || '-';
+
+      // 盤面
+      const board = boardStr.split('/').map(rowStr => {
+        const row = [];
+        for (let i = 0; i < rowStr.length; i++) {
+          if (rowStr[i] === '+') {
+            i++;
+            const ch = rowStr[i];
+            row.push({ p: ch.toUpperCase(), color: ch === ch.toUpperCase() ? 'black' : 'white', promoted: true });
+          } else if (/\d/.test(rowStr[i])) {
+            for (let j = 0; j < +rowStr[i]; j++) row.push(null);
+          } else {
+            const ch = rowStr[i];
+            row.push({ p: ch.toUpperCase(), color: ch === ch.toUpperCase() ? 'black' : 'white', promoted: false });
+          }
+        }
+        return row;
+      });
+
+      // 持ち駒
+      const hands = { black: {}, white: {} };
+      if (handsStr !== '-') {
+        for (let i = 0; i < handsStr.length; ) {
+          let count = 1;
+          if (/\d/.test(handsStr[i])) {
+            let n = '';
+            while (i < handsStr.length && /\d/.test(handsStr[i])) n += handsStr[i++];
+            count = +n;
+          }
+          const ch = handsStr[i++];
+          const color = ch === ch.toUpperCase() ? 'black' : 'white';
+          const h = color === 'black' ? hands.black : hands.white;
+          h[ch.toUpperCase()] = (h[ch.toUpperCase()] || 0) + count;
+        }
+      }
+
+      return { board, hands, turn };
+    }
+
+    // =============================================
+    // USI形式の一手を適用してstate複製を返す
+    // 形式: 7g7f / 7g7f+ / P*5e
+    // =============================================
+    function applyMove(state, move) {
+      // deep copy
+      const s = {
+        board: state.board.map(r => r.map(c => c ? { ...c } : null)),
+        hands: { black: { ...state.hands.black }, white: { ...state.hands.white } },
+        turn:  state.turn,
+      };
+
+      const promote = move.endsWith('+');
+      const m = promote ? move.slice(0, -1) : move;
+
+      if (m[1] === '*') {
+        // 打ち駒: P*5e
+        const piece  = m[0].toUpperCase();
+        const toCol  = 9 - +m[2];          // 筋 → array col
+        const toRow  = m[3].charCodeAt(0) - 97; // 段 'a'=0
+        s.board[toRow][toCol] = { p: piece, color: s.turn, promoted: false };
+        const h = s.hands[s.turn];
+        h[piece] = (h[piece] || 1) - 1;
+        if (!h[piece]) delete h[piece];
+      } else {
+        // 移動: 7g7f
+        const fromCol = 9 - +m[0];
+        const fromRow = m[1].charCodeAt(0) - 97;
+        const toCol   = 9 - +m[2];
+        const toRow   = m[3].charCodeAt(0) - 97;
+
+        const piece    = s.board[fromRow][fromCol];
+        const captured = s.board[toRow][toCol];
+
+        // 取った駒を持ち駒に（成り駒は素に戻す）
+        if (captured) {
+          const h = s.hands[s.turn];
+          h[captured.p] = (h[captured.p] || 0) + 1;
+        }
+
+        s.board[toRow][toCol]   = { ...piece, promoted: piece.promoted || promote };
+        s.board[fromRow][fromCol] = null;
+      }
+
+      s.turn = s.turn === 'black' ? 'white' : 'black';
+      return s;
+    }
+
+    // =============================================
+    // USI → 日本語棋譜表記
+    // =============================================
+    const FW  = ['１','２','３','４','５','６','７','８','９'];
+    const KR  = ['一','二','三','四','五','六','七','八','九'];
+
+    function toJpCoord(col, rowChar) {
+      return FW[+col - 1] + KR[rowChar.charCodeAt(0) - 97];
+    }
+
+    function usiToJp(move, stateBefore) {
+      const color  = stateBefore.turn;
+      const marker = color === 'black' ? '▲' : '△';
+      const promote = move.endsWith('+');
+      const m = promote ? move.slice(0, -1) : move;
+
+      if (m[1] === '*') {
+        // 打ち駒: P*5e
+        const jp = KANJI[m[0].toUpperCase()][0];
+        return marker + toJpCoord(m[2], m[3]) + jp + '打';
+      }
+
+      // 移動
+      const fromArrCol = 9 - +m[0];
+      const fromArrRow = m[1].charCodeAt(0) - 97;
+      const piece = stateBefore.board[fromArrRow][fromArrCol];
+
+      let label;
+      if (piece.p === 'K') {
+        label = color === 'black' ? '王' : '玉';
+      } else {
+        label = KANJI[piece.p][piece.promoted ? 1 : 0];
+      }
+
+      return marker + toJpCoord(m[2], m[3]) + label + (promote ? '成' : '');
+    }
+
+    // =============================================
+    // HTMLビルダー
+    // =============================================
+    function pieceHtml(cell) {
+      if (!cell) return '';
+      let label;
+      if (cell.p === 'K') {
+        label = cell.color === 'black' ? '王' : '玉';
+      } else {
+        const k = KANJI[cell.p];
+        label = k ? k[cell.promoted ? 1 : 0] : cell.p;
+      }
+      const cls = ['sp-piece',
+        cell.color === 'white' ? 'sp-white' : '',
+        cell.promoted ? 'sp-promoted' : ''
+      ].filter(Boolean).join(' ');
+      return `<span class="${cls}">${label}</span>`;
+    }
+
+    function handHtml(hand) {
+      const pieces = HAND_ORDER.filter(p => hand[p] > 0);
+      if (!pieces.length) return '<span class="sp-hand-empty">なし</span>';
+      return pieces.map(p => {
+        const label = KANJI[p][0];
+        const cnt   = hand[p] > 1 ? `<sup>${hand[p]}</sup>` : '';
+        return `<span class="sp-hand-piece">${label}${cnt}</span>`;
+      }).join('');
+    }
+
+    function buildHtml(state, lastMove, idx, total, caption, kifuLines) {
+      // ハイライト（直前の移動先）
+      let hlRow = -1, hlCol = -1;
+      if (lastMove) {
+        const m = lastMove.replace(/\+$/, '');
+        hlCol = 9 - +m[m[1] === '*' ? 2 : 2];
+        hlRow = m[m[1] === '*' ? 3 : 3].charCodeAt(0) - 97;
+      }
+
+      // 列ラベル
+      const colLabels = Array.from({ length: 9 }, (_, i) =>
+        `<div>${9 - i}</div>`
+      ).join('');
+
+      // 星目の位置: 盤を3+3+3に分割する線の交点
+      // 列: array col2(7筋-6筋間) と col5(4筋-3筋間) の右端
+      // 行: array row2(3段-4段間) と row5(6段-7段間) の下端
+      const HOSHI = new Set(['2-2','2-5','5-2','5-5']);
+
+      // 盤面マス（9×9のみ、行ラベルは別）
+      let cells = '';
+      for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+          const hl    = (r === hlRow && c === hlCol) ? ' sp-highlight' : '';
+          const hoshi = HOSHI.has(`${r}-${c}`) ? ' sp-hoshi' : '';
+          cells += `<div class="sp-cell${hl}${hoshi}">${pieceHtml(state.board[r][c])}</div>`;
+        }
+      }
+
+      // 行ラベル（盤の右に別要素として並べる）
+      const rowLabels = ROW_LABELS.map(l => `<div class="sp-row-label">${l}</div>`).join('');
+
+      const currentJp  = idx > 0 ? kifuLines[idx - 1] : null;
+      const infoText = idx === 0
+        ? (total > 0 ? `初期局面 / 全${total}手` : '初期局面')
+        : `${currentJp}　${idx} / ${total}手`;
+
+      const prevDisabled = idx === 0 ? 'disabled' : '';
+      const nextDisabled = idx === total ? 'disabled' : '';
+
+      const kifuSection = kifuLines && kifuLines.length > 0 ? `
+        <div class="sp-kifu">
+          ${kifuLines.map((k, i) => `
+            <div class="sp-kifu-row${i + 1 === idx ? ' is-current' : ''}" data-goto="${i + 1}">
+              <span class="sp-kifu-num">${i + 1}</span>
+              <span>${k}</span>
+            </div>
+          `).join('')}
+        </div>` : '';
+
+      return `
+        <div class="sp-hand">
+          <span class="sp-hand-label">後手の持ち駒：</span>
+          ${handHtml(state.hands.white)}
+        </div>
+        <div class="sp-col-labels">${colLabels}</div>
+        <div class="sp-layout">
+          <div class="sp-board-and-rows">
+            <div class="sp-board">${cells}</div>
+            <div class="sp-row-labels">${rowLabels}</div>
+          </div>
+          ${kifuSection}
+        </div>
+        <div class="sp-hand">
+          <span class="sp-hand-label">先手の持ち駒：</span>
+          ${handHtml(state.hands.black)}
+        </div>
+        ${total > 0 ? `
+        <div class="sp-controls">
+          <button class="sp-btn" data-action="first" ${prevDisabled}>|◁</button>
+          <button class="sp-btn" data-action="prev"  ${prevDisabled}>◁</button>
+          <span class="sp-info">${infoText}</span>
+          <button class="sp-btn" data-action="next"  ${nextDisabled}>▷</button>
+          <button class="sp-btn" data-action="last"  ${nextDisabled}>▷|</button>
+        </div>` : `<div class="sp-info" style="text-align:center; margin-top:6px;">${infoText}</div>`}
+        ${caption ? `<div class="sp-caption">${caption}</div>` : ''}
+      `;
+    }
+
+    // =============================================
+    // ShogiPlayerクラス
+    // =============================================
+    class ShogiPlayer {
+      constructor(el) {
+        this.el = el;
+        const sfen     = el.dataset.sfen    || 'startpos';
+        const movesStr = el.dataset.moves   || '';
+        const caption  = el.dataset.caption || '';
+
+        const initial = parseSfen(sfen);
+        this.moves    = movesStr.trim() ? movesStr.trim().split(/\s+/) : [];
+        this.caption  = caption;
+
+        // 局面履歴を生成
+        this.history = [initial];
+        let s = initial;
+        for (const mv of this.moves) {
+          s = applyMove(s, mv);
+          this.history.push(s);
+        }
+
+        // 棋譜（日本語表記）を事前生成
+        this.kifuLines = this.moves.map((mv, i) => usiToJp(mv, this.history[i]));
+
+        this.idx = 0;
+        this.render();
+      }
+
+      render() {
+        const lastMove = this.idx > 0 ? this.moves[this.idx - 1] : null;
+        this.el.innerHTML = buildHtml(
+          this.history[this.idx], lastMove,
+          this.idx, this.moves.length, this.caption, this.kifuLines
+        );
+
+        // ナビボタン
+        this.el.querySelectorAll('.sp-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const actions = { first: 0, prev: this.idx - 1, next: this.idx + 1, last: this.history.length - 1 };
+            const n = actions[btn.dataset.action];
+            if (n !== undefined) this.go(n);
+          });
+        });
+
+        // 棋譜行クリック
+        this.el.querySelectorAll('.sp-kifu-row').forEach(row => {
+          row.addEventListener('click', () => this.go(+row.dataset.goto));
+        });
+
+        // 現在の手をスクロールして見せる
+        const kifu = this.el.querySelector('.sp-kifu');
+        const cur  = this.el.querySelector('.sp-kifu-row.is-current');
+        if (kifu && cur) {
+          const top = cur.offsetTop - kifu.clientHeight / 2 + cur.clientHeight / 2;
+          kifu.scrollTop = top;
+        }
+      }
+
+      go(n) {
+        this.idx = Math.max(0, Math.min(n, this.history.length - 1));
+        this.render();
+      }
+    }
+
+    // ページ内の全要素を初期化
+    document.querySelectorAll('.shogi-player').forEach(el => new ShogiPlayer(el));
+
+    // =============================================
+    // 盤面カラーテーマスイッチャー
+    // =============================================
+    const THEMES = [
+      { key: 'wood',   label: '木材',    bg: '#f2e8d8', hl: '#f0ee88' },
+      { key: 'gray',   label: 'グレー',  bg: '#ebebeb', hl: '#f0ee70' },
+      { key: 'lime',   label: 'ライム',  bg: '#e8f2dc', hl: '#eef580' },
+      { key: 'citrus', label: 'シトラス', bg: '#faf6d0', hl: '#f8f878' },
+      { key: 'blue',   label: 'ブルー',  bg: '#dce8f5', hl: '#eef578' },
+      { key: 'cyan',   label: '水色',    bg: '#d8eff5', hl: '#eef578' },
+      { key: 'pink',   label: 'ピンク',  bg: '#f8e8f2', hl: '#f8f080' },
+    ];
+
+    const THEME_STORAGE_KEY = 'sp-board-theme';
+
+    function applyTheme(theme) {
+      document.documentElement.style.setProperty('--sp-board-bg', theme.bg);
+      document.documentElement.style.setProperty('--sp-board-hl', theme.hl);
+      document.querySelectorAll('.sp-theme-btn').forEach(b =>
+        b.classList.toggle('is-active', b.dataset.key === theme.key)
+      );
+      try { localStorage.setItem(THEME_STORAGE_KEY, theme.key); } catch (_) {}
+    }
+
+    const picker = document.getElementById('theme-picker');
+    if (picker) {
+      THEMES.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'sp-theme-btn';
+        btn.dataset.key = t.key;
+        btn.style.background = t.bg;
+        btn.title = t.label;
+        btn.addEventListener('click', () => applyTheme(t));
+        picker.appendChild(btn);
+      });
+    }
+
+    // 保存済みテーマを復元（なければ木材）
+    const savedKey = (() => { try { return localStorage.getItem(THEME_STORAGE_KEY); } catch (_) { return null; } })();
+    const initialTheme = THEMES.find(t => t.key === savedKey) || THEMES[0];
+    applyTheme(initialTheme);
+  })();
+  </script>
+</body>
+</html>
