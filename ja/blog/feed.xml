@@ -2,34 +2,34 @@
 <rss version="2.0">
   <channel>
     <title>ブログ | さいばの将棋ポータル</title>
-    <link>https://saiba-zakki.com/ja/blog/</link>
+    <link>https://shogi.saiba-zakki.com/ja/blog/</link>
     <description>さいばによる将棋コラム・上達のヒントなどをお届けするブログです。</description>
     <language>ja</language>
     <item>
       <title>【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介</title>
-      <link>https://saiba-zakki.com/ja/blog/post/?slug=kindle-unlimited-shogi-books</link>
-      <guid isPermaLink="true">https://saiba-zakki.com/ja/blog/post/?slug=kindle-unlimited-shogi-books</guid>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/kindle-unlimited-shogi-books/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/kindle-unlimited-shogi-books/</guid>
       <description>Kindle Unlimitedで読める将棋本をまとめて紹介。将棋世界バックナンバーから、終盤・詰将棋・考え方の名著まで、上級～有段者向けを中心にピックアップしています。</description>
       <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>3分切れ負け対局が棋力停滞の原因かも？上達における短時間将棋のデメリット</title>
-      <link>https://saiba-zakki.com/ja/blog/post/?slug=short-time-shogi-drawbacks</link>
-      <guid isPermaLink="true">https://saiba-zakki.com/ja/blog/post/?slug=short-time-shogi-drawbacks</guid>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/short-time-shogi-drawbacks/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/short-time-shogi-drawbacks/</guid>
       <description>将棋を強くなりたいなら、短すぎる持ち時間の対局はあまりおススメできません。3分切れ負けや10秒将棋が棋力向上の妨げになりやすい理由と、感想戦の重要性について解説します。</description>
       <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>将棋はなぜ囲いを作る手から始めるのか？</title>
-      <link>https://saiba-zakki.com/ja/blog/post/?slug=shogi-opening-basics</link>
-      <guid isPermaLink="true">https://saiba-zakki.com/ja/blog/post/?slug=shogi-opening-basics</guid>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/shogi-opening-basics/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/shogi-opening-basics/</guid>
       <description>序盤でいきなり攻めに全振りしてはいけないのはなぜか？実はちゃんとした理由があります。「序盤は将来への投資」という考え方を軸に、囲いを優先すべき理由をわかりやすく解説します。</description>
       <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>「将棋のルールはわかるけど…」という方に、指す将棋の面白さを伝えたくて本を書きました</title>
-      <link>https://saiba-zakki.com/ja/blog/post/?slug=why-i-wrote-this-book</link>
-      <guid isPermaLink="true">https://saiba-zakki.com/ja/blog/post/?slug=why-i-wrote-this-book</guid>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/why-i-wrote-this-book/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/why-i-wrote-this-book/</guid>
       <description>「将棋のルールは分かるけど、どう考えればいいのか分からない」——そんな方のために本を書いた理由と、将棋を指す面白さをもっと多くの人に知ってほしいという思いを綴ります。</description>
       <pubDate>Thu, 11 Sep 2025 00:00:00 GMT</pubDate>
     </item>

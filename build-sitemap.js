@@ -11,7 +11,7 @@
 const fs   = require('fs');
 const path = require('path');
 
-const BASE = 'https://saiba-zakki.com';
+const BASE = 'https://shogi.saiba-zakki.com';
 
 // Static pages: [path, priority, changefreq]
 const STATIC_PAGES = [
@@ -46,7 +46,7 @@ for (const [p, priority, changefreq] of STATIC_PAGES) {
 for (const lang of ['en', 'ja']) {
   const posts = readPosts(lang);
   for (const post of posts) {
-    const loc = `${BASE}/${lang}/blog/post/?slug=${post.slug}`;
+    const loc = `${BASE}/${lang}/blog/posts/${post.slug}/`;
     entries.push(url(loc, post.date, '0.7', 'never'));
   }
 }

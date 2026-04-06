@@ -54,19 +54,34 @@
   </style>
 </head>
 <body>
+  <!-- INJECT:header:en:/ja/castles/2/ -->
   <header class="site-header">
     <div class="container">
-      <a href="../../../" class="site-logo">Saiba's Shogi Portal</a>
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
       <nav class="site-nav">
-        <a href="../../">Books</a>
-        <a href="../../blog/">Blog</a>
-        <a href="../../guide/">Guide</a>
-        <a href="../" class="is-current" aria-current="page">Castles</a>
-        <a href="../../glossary/">Glossary</a>
-        <a href="../../../ja/castles/2/" class="lang-switch">JA</a>
+        <a href="/en/">Books</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/guide/">Guide</a>
+        <a href="/en/castles/">Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/ja/castles/2/" class="lang-switch">JA</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
 
   <main>
     <section class="hero" style="padding: 2.5rem 0 2rem;">
@@ -79,7 +94,7 @@
           <div class="step-line"></div>
           <div class="step-dot is-current">
             <div class="step-dot-circle">2</div>
-            <span class="step-dot-label">Ranging Rook</span>
+            <span class="step-dot-label"><a href="/en/glossary/#static-ranging-rook" class="glossary-link">Ranging Rook</a></span>
           </div>
           <div class="step-line"></div>
           <a href="../3/" class="step-dot">
@@ -96,7 +111,7 @@
       <div class="container">
         <div class="guide-body">
 
-          <p>In ranging rook (<em>furibisha</em>) play, your Rook moves sideways and your King shelters on the right side of the board. The Mino Castle is the cornerstone of ranging rook defense — and it upgrades naturally into the High Mino and Silver Crown, giving you a clear development path as the game progresses.</p>
+          <p>In ranging rook (<em>furibisha</em>) play, your Rook moves sideways and your King shelters on the right side of the board. The Mino <a href="/en/glossary/#castle" class="glossary-link">Castle</a> is the cornerstone of ranging rook defense — and it upgrades naturally into the High Mino and Silver Crown, giving you a clear development path as the game progresses.</p>
 
           <div class="sp-theme-picker" id="sp-theme-picker">
             <span class="sp-theme-label">Board color: </span>
@@ -154,7 +169,7 @@
                    data-caption="Silver Crown"></div>
             </div>
             <p>Silver Crown is the further development of High Mino. The Silver advances to the top rank, giving the castle strong resistance from all directions. In the late endgame, a King that escapes to the edge file can be surprisingly hard to mate.</p>
-            <p>The Mino → High Mino → Silver Crown upgrade path is one of the most satisfying aspects of ranging rook play. Note that static rook players can also build a mirrored Silver Crown on the left side.</p>
+            <p>The Mino → High Mino → Silver Crown upgrade path is one of the most satisfying aspects of ranging rook play. Note that <a href="/en/glossary/#static-ranging-rook" class="glossary-link">static rook</a> players can also build a mirrored Silver Crown on the left side.</p>
           </div>
 
           <!-- Double Gold -->
@@ -192,6 +207,7 @@
     </section>
   </main>
 
+  <!-- INJECT:footer:en:false -->
   <button class="back-to-top" aria-label="Back to top">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
       <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -200,19 +216,26 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">Back to top</a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
     </div>
   </footer>
 
-  <script src="../../../js/shogi-player.js"></script>
   <script>
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 400);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
   </script>
+<!-- /INJECT:footer -->
+
+  <script src="../../../js/shogi-player.js"></script>
 </body>
 </html>

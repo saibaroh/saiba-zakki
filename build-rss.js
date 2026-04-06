@@ -11,7 +11,7 @@
 const fs   = require('fs');
 const path = require('path');
 
-const BASE = 'https://saiba-zakki.com';
+const BASE = 'https://shogi.saiba-zakki.com';
 
 const CHANNELS = {
   en: {
@@ -53,7 +53,7 @@ function buildFeed(lang) {
   const ch = CHANNELS[lang];
 
   const items = posts.map(post => {
-    const url = `${BASE}/${lang}/blog/post/?slug=${post.slug}`;
+    const url = `${BASE}/${lang}/blog/posts/${post.slug}/`;
     const title = escape(post.title.replace(/<br>/g, ' '));
     const desc  = escape(post.lead);
     return [

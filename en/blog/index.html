@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="canonical" href="https://shogi.saiba-zakki.com/en/blog/">
   <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/blog/">
-  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/blog/">
-  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/blog/">
+  <link rel="alternate" hreflang="en"        href="https://shogi.saiba-zakki.com/en/blog/">
+  <link rel="alternate" hreflang="ja"        href="https://shogi.saiba-zakki.com/ja/blog/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Saiba's Shogi Portal">
   <meta property="og:title" content="Blog | Saiba's Shogi Portal">
@@ -20,6 +20,44 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Blog | Saiba's Shogi Portal">
   <meta name="twitter:description" content="Shogi columns, tips, and thoughts from Saiba — helping beginners enjoy the game.">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog | Saiba's Shogi Portal",
+    "url": "https://shogi.saiba-zakki.com/en/blog/",
+    "description": "Shogi columns, tips, and thoughts from Saiba — helping beginners enjoy the game.",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Person",
+      "name": "Saiba",
+      "url": "https://shogi.saiba-zakki.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://shogi.saiba-zakki.com/en/blog/posts/why-castle-first/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://shogi.saiba-zakki.com/en/blog/posts/short-time-shogi-plateau/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "url": "https://shogi.saiba-zakki.com/en/blog/posts/shogi-opening-basics/"
+      }
+    ]
+  }
+]
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
   <script>
@@ -54,8 +92,43 @@
 
     <section class="section">
       <div class="container">
-        <div class="post-list" id="post-list">
-          <p style="color:var(--color-text-muted);">Loading...</p>
+        <div class="post-list">
+        <a href="posts/why-castle-first/" class="post-card">
+          
+          <div class="">
+            <div class="post-card-meta">
+              <span class="post-card-category">Opening</span>
+              <span>2026-04-05</span>
+            </div>
+            <p class="post-card-title">Why Does Shogi Always Start by Building a Castle?</p>
+            <p class="post-card-excerpt">Why can't you just attack from the very first move? There is actually a solid reason. We explain, around the key idea that &quot;the opening is an investment in the future,&quot; why building a castle first is the right approach.</p>
+            <span class="post-card-readmore">Read more</span>
+          </div>
+        </a>
+        <a href="posts/short-time-shogi-plateau/" class="post-card">
+          
+          <div class="">
+            <div class="post-card-meta">
+              <span class="post-card-category">Improvement</span>
+              <span>2026-02-02</span>
+            </div>
+            <p class="post-card-title">[Shogi] Is 3-Minute Blitz the Cause of Your Plateau? 4 Disadvantages of Short-Time Games for Improvemen</p>
+            <p class="post-card-excerpt">If you want to improve at Shogi, ultra-fast games can work against you. This post explains four practical drawbacks of short-time formats and why 10-minute games plus post-game analysis are more effective.</p>
+            <span class="post-card-readmore">Read more</span>
+          </div>
+        </a>
+        <a href="posts/shogi-opening-basics/" class="post-card">
+          
+          <div class="">
+            <div class="post-card-meta">
+              <span class="post-card-category">Column</span>
+              <span>2026-01-26</span>
+            </div>
+            <p class="post-card-title">Why I Wrote a Shogi (Japanese Chess) Guide for Global Beginners</p>
+            <p class="post-card-excerpt">I share why I wrote beginner-focused English Shogi books, what gap I saw after &quot;learning the rules,&quot; and how practical thinking can help players start winning and enjoying real games.</p>
+            <span class="post-card-readmore">Read more</span>
+          </div>
+        </a>
         </div>
       </div>
     </section>
@@ -69,76 +142,18 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../">Back to top</a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../">Back to top</a></p>
     </div>
   </footer>
 
   <script>
-    fetch('posts.json')
-      .then(r => r.json())
-      .then(posts => {
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        const list = document.getElementById('post-list');
-        if (posts.length === 0) {
-          list.innerHTML = '<p style="color:var(--color-text-muted);">No posts yet.</p>';
-          return;
-        }
-        list.innerHTML = posts.map(post => {
-          const thumbHtml = post.thumbnail
-            ? `<div class="post-card-thumb"><img src="${post.thumbnail}" alt="${post.title}" loading="lazy"></div>`
-            : '';
-          const bodyClass = post.thumbnail ? 'post-card-body' : '';
-          return `
-            <a href="post/?slug=${post.slug}" class="post-card${post.thumbnail ? ' has-thumb' : ''}">
-              ${thumbHtml}
-              <div class="${bodyClass}">
-                <div class="post-card-meta">
-                  <span class="post-card-category">${post.category}</span>
-                  <span>${post.date}</span>
-                </div>
-                <p class="post-card-title">${post.title}</p>
-                <p class="post-card-excerpt">${post.lead}</p>
-                <span class="post-card-readmore">Read more</span>
-              </div>
-            </a>
-          `;
-        }).join('');
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
 
-        // JSON-LD
-        const base = 'https://shogi.saiba-zakki.com';
-        const ldJson = document.createElement('script');
-        ldJson.type = 'application/ld+json';
-        ldJson.textContent = JSON.stringify([
-          {
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            "name": "Blog | Saiba's Shogi Portal",
-            "url": base + "/en/blog/",
-            "description": "Shogi columns, tips, and thoughts from Saiba — helping beginners enjoy the game.",
-            "inLanguage": "en",
-            "author": { "@type": "Person", "name": "Saiba", "url": base + "/" }
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "itemListElement": posts.map((post, i) => ({
-              "@type": "ListItem",
-              "position": i + 1,
-              "url": `${base}/en/blog/post/?slug=${post.slug}`
-            }))
-          }
-        ]);
-        document.head.appendChild(ldJson);
-      })
-      .catch(() => {
-        document.getElementById('post-list').innerHTML = '<p>Failed to load posts.</p>';
-      });
-
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
+    var backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
       backToTop.classList.toggle('is-visible', window.scrollY > 400);
     }, { passive: true });
-    backToTop.addEventListener('click', () => {
+    backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>

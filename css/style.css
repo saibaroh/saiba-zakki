@@ -1256,6 +1256,19 @@ main {
 }
 
 /* ========================================
+   Glossary inline links
+   ======================================== */
+.glossary-link {
+  border-bottom: 1px dotted var(--color-primary);
+  text-decoration: none;
+  color: inherit;
+}
+.glossary-link:hover {
+  border-bottom-style: solid;
+  color: var(--color-primary);
+}
+
+/* ========================================
    Link Card (OGP preview)
    ======================================== */
 .link-card {

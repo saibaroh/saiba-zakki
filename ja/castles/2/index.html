@@ -54,19 +54,34 @@
   </style>
 </head>
 <body>
+  <!-- INJECT:header:ja:/en/castles/2/ -->
   <header class="site-header">
     <div class="container">
-      <a href="../../../" class="site-logo">さいばの将棋ポータル</a>
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="../../">本の紹介</a>
-        <a href="../../blog/">ブログ</a>
-        <a href="../../guide/">入門ガイド</a>
-        <a href="../" class="is-current" aria-current="page">囲い</a>
-        <a href="../../glossary/">用語集</a>
-        <a href="../../../en/castles/2/" class="lang-switch">EN</a>
+        <a href="/ja/">本の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門ガイド</a>
+        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/en/castles/2/" class="lang-switch">EN</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
 
   <main>
     <section class="hero" style="padding: 2.5rem 0 2rem;">
@@ -79,7 +94,7 @@
           <div class="step-line"></div>
           <div class="step-dot is-current">
             <div class="step-dot-circle">2</div>
-            <span class="step-dot-label">振り飛車の囲い</span>
+            <span class="step-dot-label"><a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">振り飛車</a>の<a href="/ja/glossary/#囲い" class="glossary-link">囲い</a></span>
           </div>
           <div class="step-line"></div>
           <a href="../3/" class="step-dot">
@@ -96,7 +111,7 @@
       <div class="container">
         <div class="guide-body">
 
-          <p>振り飛車では飛車を横に動かして攻める関係で、玉を右辺（居飛車なら左辺）に移動させてから囲うのが基本です。振り飛車の囲いは美濃囲いを起点に、高美濃囲い・銀冠と発展させる「美濃系」が中心で、このつながりを理解しておくと囲い選びがスムーズになります。</p>
+          <p>振り飛車では飛車を横に動かして攻める関係で、玉を右辺（<a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">居飛車</a>なら左辺）に移動させてから囲うのが基本です。振り飛車の囲いは美濃囲いを起点に、高美濃囲い・銀冠と発展させる「美濃系」が中心で、このつながりを理解しておくと囲い選びがスムーズになります。</p>
 
           <div class="sp-theme-picker" id="sp-theme-picker">
             <span class="sp-theme-label">盤の色：</span>
@@ -171,7 +186,7 @@
                    data-sfen="9/9/9/9/9/2PP5/PPBSPPPPP/3RGGKS1/LN5NL b - 1"
                    data-caption="金無双"></div>
             </div>
-            <p>お互いに振り飛車を採用する相振り飛車で使われることが多い囲いです。金を2枚横並びにして上部をまんべんなく強化することで、上からの攻めを受け止めやすいのが特徴です。</p>
+            <p>お互いに振り飛車を採用する<a href="/ja/glossary/#相居飛車・相振り飛車・対抗形" class="glossary-link">相振り飛車</a>で使われることが多い囲いです。金を2枚横並びにして上部をまんべんなく強化することで、上からの攻めを<a href="/ja/glossary/#受け" class="glossary-link">受け</a>止めやすいのが特徴です。</p>
             <p>美濃系とは系統が異なりますが、相振り飛車を指すなら覚えておきたい形です。</p>
           </div>
 
@@ -192,6 +207,7 @@
     </section>
   </main>
 
+  <!-- INJECT:footer:ja:false -->
   <button class="back-to-top" aria-label="ページ上部へ戻る">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
       <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -200,19 +216,26 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">トップへ戻る</a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
     </div>
   </footer>
 
-  <script src="../../../js/shogi-player.js"></script>
   <script>
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 400);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
   </script>
+<!-- /INJECT:footer -->
+
+  <script src="../../../js/shogi-player.js"></script>
 </body>
 </html>

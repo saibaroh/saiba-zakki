@@ -59,19 +59,34 @@
   </style>
 </head>
 <body>
+  <!-- INJECT:header:ja:/en/castles/3/ -->
   <header class="site-header">
     <div class="container">
-      <a href="../../../" class="site-logo">さいばの将棋ポータル</a>
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="../../">本の紹介</a>
-        <a href="../../blog/">ブログ</a>
-        <a href="../../guide/">入門ガイド</a>
-        <a href="../" class="is-current" aria-current="page">囲い</a>
-        <a href="../../glossary/">用語集</a>
-        <a href="../../../en/castles/3/" class="lang-switch">EN</a>
+        <a href="/ja/">本の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門ガイド</a>
+        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/en/castles/3/" class="lang-switch">EN</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
 
   <main>
     <section class="hero" style="padding: 2.5rem 0 2rem;">
@@ -119,9 +134,9 @@
                    data-sfen="9/9/9/9/9/2PP5/PPB1PPPPP/LSG2S1R1/KNG4NL b - 1"
                    data-caption="居飛車穴熊"></div>
             </div>
-            <p><strong>定番の囲いの中で最も堅く、完成した状態では王手すらかからないほどの堅陣です。</strong>これが穴熊最大の魅力で、最終盤での粘りは他の囲いとは別格です。さらに外側に駒を張り付けることでどんどん強化もできます。</p>
-            <p>ただし、組み切るまでに非常に手数がかかり、その間に攻め込まれやすいという大きな弱点があります。駒の位置も偏るため、囲っている間に攻めに使える駒が少なくなります。相居飛車ではこのリスクが特に高く、あまり採用されません。</p>
-            <p>指しこなすにはコツが必要ですが、最終盤での強さはピカイチです。将棋に慣れてきたら挑戦してみてください。振り飛車側でも、左右反転した形で穴熊を組むことができます。</p>
+            <p><strong>定番の<a href="/ja/glossary/#囲い" class="glossary-link">囲い</a>の中で最も堅く、完成した状態では王手すらかからないほどの堅陣です。</strong>これが穴熊最大の魅力で、最終盤での粘りは他の囲いとは別格です。さらに外側に駒を張り付けることでどんどん強化もできます。</p>
+            <p>ただし、組み切るまでに非常に手数がかかり、その間に攻め込まれやすいという大きな弱点があります。駒の位置も偏るため、囲っている間に攻めに使える駒が少なくなります。<a href="/ja/glossary/#相居飛車・相振り飛車・対抗形" class="glossary-link">相居飛車</a>ではこのリスクが特に高く、あまり採用されません。</p>
+            <p>指しこなすにはコツが必要ですが、最終盤での強さはピカイチです。将棋に慣れてきたら挑戦してみてください。<a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">振り飛車</a>側でも、左右反転した形で穴熊を組むことができます。</p>
           </div>
 
           <!-- まとめ -->
@@ -130,7 +145,7 @@
           <p>10の囲いを見てきましたが、「どれを選べばいいか」と迷うのは自然なことです。選び方のシンプルな指針を紹介します。</p>
 
           <h3>まず自分の戦法を決める</h3>
-          <p>囲いは戦法とセットです。居飛車を指すか振り飛車を指すかで、候補になる囲いがほぼ決まります。どちらか一方をメインに決め、そこに合う囲いを選びましょう。</p>
+          <p>囲いは戦法とセットです。<a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">居飛車</a>を指すか振り飛車を指すかで、候補になる囲いがほぼ決まります。どちらか一方をメインに決め、そこに合う囲いを選びましょう。</p>
 
           <div class="summary-box">
             <h3>居飛車を指すなら</h3>
@@ -146,7 +161,7 @@
             <ul>
               <li><strong>まずはこれ</strong>：美濃囲い一択といえるほどの定番</li>
               <li><strong>もっと堅くしたい</strong>：高美濃囲い→銀冠と発展させる</li>
-              <li><strong>相振り飛車</strong>：金無双も視野に</li>
+              <li><strong><a href="/ja/glossary/#相居飛車・相振り飛車・対抗形" class="glossary-link">相振り飛車</a></strong>：金無双も視野に</li>
             </ul>
           </div>
 
@@ -170,6 +185,7 @@
     </section>
   </main>
 
+  <!-- INJECT:footer:ja:false -->
   <button class="back-to-top" aria-label="ページ上部へ戻る">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
       <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -178,19 +194,26 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">トップへ戻る</a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
     </div>
   </footer>
 
-  <script src="../../../js/shogi-player.js"></script>
   <script>
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 400);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
   </script>
+<!-- /INJECT:footer -->
+
+  <script src="../../../js/shogi-player.js"></script>
 </body>
 </html>

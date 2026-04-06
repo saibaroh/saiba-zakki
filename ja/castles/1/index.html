@@ -54,19 +54,34 @@
   </style>
 </head>
 <body>
+  <!-- INJECT:header:ja:/en/castles/1/ -->
   <header class="site-header">
     <div class="container">
-      <a href="../../../" class="site-logo">さいばの将棋ポータル</a>
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="../../">本の紹介</a>
-        <a href="../../blog/">ブログ</a>
-        <a href="../../guide/">入門ガイド</a>
-        <a href="../" class="is-current" aria-current="page">囲い</a>
-        <a href="../../glossary/">用語集</a>
-        <a href="../../../en/castles/1/" class="lang-switch">EN</a>
+        <a href="/ja/">本の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門ガイド</a>
+        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/en/castles/1/" class="lang-switch">EN</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
 
   <main>
     <section class="hero" style="padding: 2.5rem 0 2rem;">
@@ -74,7 +89,7 @@
         <div class="step-indicator">
           <div class="step-dot is-current">
             <div class="step-dot-circle">1</div>
-            <span class="step-dot-label">居飛車の囲い</span>
+            <span class="step-dot-label"><a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">居飛車</a>の<a href="/ja/glossary/#囲い" class="glossary-link">囲い</a></span>
           </div>
           <div class="step-line"></div>
           <a href="../2/" class="step-dot">
@@ -96,7 +111,7 @@
       <div class="container">
         <div class="guide-body">
 
-          <p>居飛車では、相手が振り飛車か居飛車かによって、適した囲いが大きく変わります。相手が振り飛車なら右辺で戦いが起きるため玉を左に逃がした囲いが有効で、相居飛車なら左辺に囲います。どちらの展開でも、基本の形を知っておくことが大切です。</p>
+          <p>居飛車では、相手が<a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">振り飛車</a>か居飛車かによって、適した囲いが大きく変わります。相手が振り飛車なら右辺で戦いが起きるため玉を左に逃がした囲いが有効で、<a href="/ja/glossary/#相居飛車・相振り飛車・対抗形" class="glossary-link">相居飛車</a>なら左辺に囲います。どちらの展開でも、基本の形を知っておくことが大切です。</p>
 
           <div class="sp-theme-picker" id="sp-theme-picker">
             <span class="sp-theme-label">盤の色：</span>
@@ -116,8 +131,8 @@
                    data-sfen="9/9/9/9/9/2P6/PP1PPPPPP/1BK1GS1R1/LNSG3NL b - 1"
                    data-caption="舟囲い"></div>
             </div>
-            <p>相手が振り飛車戦法のときに居飛車側が使う定番の囲いです。玉を左に寄せ、右側の金銀を上がるだけで完成するため覚えやすく組みやすいのが最大の魅力です。</p>
-            <p>耐久力はあまり高くありませんが、最低限の囲いでさっさと攻めに転じることができます。舟囲いをベースに、後述のエルモ囲いに発展させる指し方も定番です。なお、相手が居飛車の場合は玉の位置が飛車の脅威を受けやすいため不向きです。</p>
+            <p>相手が振り飛車戦法のときに居飛車側が使う定番の囲いです。玉を左に<a href="/ja/glossary/#寄せ" class="glossary-link">寄せ</a>、右側の金銀を上がるだけで完成するため覚えやすく組みやすいのが最大の魅力です。</p>
+            <p>耐久力はあまり高くありませんが、最低限の囲いでさっさと攻めに転じることができます。舟囲いをベースに、後述のエルモ囲いに発展させる指し方も定番です。なお、相手が居飛車の場合は玉の位置が飛車の脅威を<a href="/ja/glossary/#受け" class="glossary-link">受け</a>やすいため不向きです。</p>
           </div>
 
           <!-- カニ囲い -->
@@ -209,6 +224,7 @@
     </section>
   </main>
 
+  <!-- INJECT:footer:ja:false -->
   <button class="back-to-top" aria-label="ページ上部へ戻る">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
       <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -217,19 +233,26 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">トップへ戻る</a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
     </div>
   </footer>
 
-  <script src="../../../js/shogi-player.js"></script>
   <script>
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 400);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
   </script>
+<!-- /INJECT:footer -->
+
+  <script src="../../../js/shogi-player.js"></script>
 </body>
 </html>

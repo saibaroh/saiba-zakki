@@ -2,27 +2,27 @@
 <rss version="2.0">
   <channel>
     <title>Blog | Saiba's Shogi Portal</title>
-    <link>https://saiba-zakki.com/en/blog/</link>
+    <link>https://shogi.saiba-zakki.com/en/blog/</link>
     <description>Shogi columns, tips, and thoughts from Saiba — helping beginners enjoy the game.</description>
     <language>en</language>
     <item>
       <title>Why Does Shogi Always Start by Building a Castle?</title>
-      <link>https://saiba-zakki.com/en/blog/post/?slug=why-castle-first</link>
-      <guid isPermaLink="true">https://saiba-zakki.com/en/blog/post/?slug=why-castle-first</guid>
+      <link>https://shogi.saiba-zakki.com/en/blog/posts/why-castle-first/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/en/blog/posts/why-castle-first/</guid>
       <description>Why can't you just attack from the very first move? There is actually a solid reason. We explain, around the key idea that &quot;the opening is an investment in the future,&quot; why building a castle first is the right approach.</description>
       <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>[Shogi] Is 3-Minute Blitz the Cause of Your Plateau? 4 Disadvantages of Short-Time Games for Improvemen</title>
-      <link>https://saiba-zakki.com/en/blog/post/?slug=short-time-shogi-plateau</link>
-      <guid isPermaLink="true">https://saiba-zakki.com/en/blog/post/?slug=short-time-shogi-plateau</guid>
+      <link>https://shogi.saiba-zakki.com/en/blog/posts/short-time-shogi-plateau/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/en/blog/posts/short-time-shogi-plateau/</guid>
       <description>If you want to improve at Shogi, ultra-fast games can work against you. This post explains four practical drawbacks of short-time formats and why 10-minute games plus post-game analysis are more effective.</description>
       <pubDate>Mon, 02 Feb 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Why I Wrote a Shogi (Japanese Chess) Guide for Global Beginners</title>
-      <link>https://saiba-zakki.com/en/blog/post/?slug=shogi-opening-basics</link>
-      <guid isPermaLink="true">https://saiba-zakki.com/en/blog/post/?slug=shogi-opening-basics</guid>
+      <link>https://shogi.saiba-zakki.com/en/blog/posts/shogi-opening-basics/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/en/blog/posts/shogi-opening-basics/</guid>
       <description>I share why I wrote beginner-focused English Shogi books, what gap I saw after &quot;learning the rules,&quot; and how practical thinking can help players start winning and enjoying real games.</description>
       <pubDate>Mon, 26 Jan 2026 00:00:00 GMT</pubDate>
     </item>

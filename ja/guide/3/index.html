@@ -55,19 +55,34 @@
   </style>
 </head>
 <body>
+  <!-- INJECT:header:ja:/en/guide/3/ -->
   <header class="site-header">
     <div class="container">
-      <a href="../../../" class="site-logo">さいばの将棋ポータル</a>
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="../../">本の紹介</a>
-        <a href="../../blog/">ブログ</a>
-        <a href="../" class="is-current" aria-current="page">入門ガイド</a>
-        <a href="../../castles/">囲い</a>
-        <a href="../../glossary/">用語集</a>
-        <a href="../../../en/guide/3/" class="lang-switch">EN</a>
+        <a href="/ja/">本の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門ガイド</a>
+        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/en/guide/3/" class="lang-switch">EN</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
 
   <main>
     <section class="hero" style="padding: 2.5rem 0 2rem;">
@@ -98,7 +113,7 @@
         <div class="guide-body">
 
           <p>将棋は相手より先に玉を詰ますゲームです。玉がどれほど安全かは、常に形勢に直結するポイントです。</p>
-          <p>序盤・中盤では囲いを作って玉を守るのがセオリーです。終盤では囲いにこだわらず、柔軟に「詰まれにくい態勢」を作ることがポイントになります。</p>
+          <p>序盤・中盤では<a href="/ja/glossary/#囲い" class="glossary-link">囲い</a>を作って玉を守るのがセオリーです。終盤では囲いにこだわらず、柔軟に「詰まれにくい態勢」を作ることがポイントになります。</p>
 
           <h2>玉の安全は守りだけでなく攻めにも影響する</h2>
 
@@ -114,7 +129,7 @@
 
           <p>3つの原則をおさらいします。</p>
           <div class="summary-box">
-            <p><strong>STEP 1：駒の価値を知る</strong><br>駒得・駒損を意識して指す。成り駒（龍・馬・と金）は最強クラスの戦力。</p>
+            <p><strong>STEP 1：駒の価値を知る</strong><br><a href="/ja/glossary/#駒得" class="glossary-link">駒得</a>・<a href="/ja/glossary/#駒得" class="glossary-link">駒損</a>を意識して指す。成り駒（龍・馬・と金）は最強クラスの戦力。</p>
             <p><strong>STEP 2：終盤ほど一手の価値が上がる</strong><br>序盤・中盤で悪形を作らないことが終盤の戦いを決める。</p>
             <p><strong>STEP 3：玉の安全は攻めの土台でもある</strong><br>玉が安全だからこそ、踏み込んだ攻めができる。</p>
           </div>
@@ -137,6 +152,7 @@
     </section>
   </main>
 
+  <!-- INJECT:footer:ja:false -->
   <button class="back-to-top" aria-label="ページ上部へ戻る">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
       <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -145,18 +161,24 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">トップへ戻る</a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
     </div>
   </footer>
 
   <script>
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 400);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
   </script>
+<!-- /INJECT:footer -->
 </body>
 </html>

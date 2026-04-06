@@ -54,19 +54,34 @@
   </style>
 </head>
 <body>
+  <!-- INJECT:header:en:/ja/guide/3/ -->
   <header class="site-header">
     <div class="container">
-      <a href="../../../" class="site-logo">Saiba's Shogi Portal</a>
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
       <nav class="site-nav">
-        <a href="../../">Books</a>
-        <a href="../../blog/">Blog</a>
-        <a href="../" class="is-current" aria-current="page">Guide</a>
-        <a href="../../castles/">Castles</a>
-        <a href="../../glossary/">Glossary</a>
-        <a href="../../../ja/guide/3/" class="lang-switch">JA</a>
+        <a href="/en/">Books</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/guide/">Guide</a>
+        <a href="/en/castles/">Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/ja/guide/3/" class="lang-switch">JA</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
 
   <main>
     <section class="hero" style="padding: 2.5rem 0 2rem;">
@@ -97,7 +112,7 @@
         <div class="guide-body">
 
           <p>Shogi is a game of checkmating the opponent's King before they checkmate yours. How safe your King is always directly affects the balance of the position.</p>
-          <p>In the opening and middlegame, the standard approach is to build a castle to protect your King. In the endgame, the focus shifts to flexibly creating a formation that is hard to checkmate, rather than clinging rigidly to a specific castle shape.</p>
+          <p>In the opening and middlegame, the standard approach is to build a <a href="/en/glossary/#castle" class="glossary-link">castle</a> to protect your King. In the endgame, the focus shifts to flexibly creating a formation that is hard to checkmate, rather than clinging rigidly to a specific castle shape.</p>
 
           <h2>King safety affects your attack, not just your defense</h2>
 
@@ -113,7 +128,7 @@
 
           <p>Here is a quick recap of all three principles:</p>
           <div class="summary-box">
-            <p><strong>Step 1: Know the value of each piece</strong><br>Be conscious of material gain and loss in every exchange. Promoted pieces are top-tier attacking forces.</p>
+            <p><strong>Step 1: Know the value of each piece</strong><br>Be conscious of <a href="/en/glossary/#material-gain" class="glossary-link">material gain</a> and loss in every exchange. Promoted pieces are top-tier attacking forces.</p>
             <p><strong>Step 2: Each move becomes more valuable in the endgame</strong><br>Avoiding bad formations in the opening and middlegame determines how you fight at the end.</p>
             <p><strong>Step 3: King safety is the foundation of your attack</strong><br>A safe King is what allows you to attack boldly and avoid collapse.</p>
           </div>
@@ -136,6 +151,7 @@
     </section>
   </main>
 
+  <!-- INJECT:footer:en:false -->
   <button class="back-to-top" aria-label="Back to top">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
       <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -144,18 +160,24 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../">Back to top</a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
     </div>
   </footer>
 
   <script>
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 400);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
   </script>
+<!-- /INJECT:footer -->
 </body>
 </html>

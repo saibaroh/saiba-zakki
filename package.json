@@ -3,5 +3,8 @@
     "build":    "node build.js",
     "build:en": "node build.js en",
     "build:ja": "node build.js ja"
+  },
+  "devDependencies": {
+    "marked": "^9.0.0"
   }
 }
