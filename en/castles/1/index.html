@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 1: Static Rook Castles | Castle Guide | Saiba's Shogi Portal</title>
+  <meta name="description" content="Seven castles used in static rook strategies: Boat, Crab, Modern Bishop Exchange, Central King, Gangi, Yagura, and Elmo. Diagrams and descriptions for each formation.">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/en/castles/1/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/castles/1/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/castles/1/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="Step 1: Static Rook Castles | Castle Guide | Saiba's Shogi Portal">
+  <meta property="og:description" content="Seven castles used in static rook strategies: Boat, Crab, Modern Bishop Exchange, Central King, Gangi, Yagura, and Elmo.">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/en/castles/1/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Step 1: Static Rook Castles | Castle Guide | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="Seven castles used in static rook strategies: Boat, Crab, Modern Bishop Exchange, Central King, Gangi, Yagura, and Elmo.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+  <style>
+    .guide-body { max-width: 720px; margin: 0 auto; }
+    .guide-body h2 { font-size: 1.25rem; font-weight: 700; margin: 2.5rem 0 0.4rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--color-border); }
+    .guide-body p { line-height: 1.85; margin-bottom: 1rem; }
+    .design-note { background: var(--color-surface); border-left: 3px solid var(--color-accent); padding: 0.6rem 0.95rem; margin: 0.5rem 0 1rem; font-size: 0.95rem; border-radius: 0 6px 6px 0; }
+    .step-indicator { display: flex; align-items: center; justify-content: center; max-width: 480px; margin: 0 auto; }
+    .step-dot { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; text-decoration: none; color: var(--color-text-muted); }
+    .step-dot-circle { width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--color-text-muted); transition: background 0.15s, border-color 0.15s; }
+    .step-dot.is-current .step-dot-circle { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+    .step-dot.is-current .step-dot-label { color: var(--color-text); font-weight: 700; }
+    .step-dot:hover:not(.is-current) .step-dot-circle { border-color: var(--color-accent); }
+    .step-dot-label { font-size: 0.7rem; white-space: nowrap; }
+    .step-line { flex: 1; max-width: 80px; height: 2px; background: var(--color-border); margin: 0 0.4rem 1.4rem; }
+    .course-nav { display: flex; justify-content: space-between; gap: 1rem; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--color-border); max-width: 720px; }
+    .course-nav-btn { display: flex; flex-direction: column; padding: 0.9rem 1.2rem; border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; color: var(--color-text); flex: 1; max-width: 260px; transition: background 0.15s, border-color 0.15s; }
+    .course-nav-btn:hover { background: var(--color-hover); border-color: var(--color-accent); color: var(--color-text); text-decoration: none; }
+    .course-nav-btn.is-next { text-align: right; margin-left: auto; }
+    .course-nav-label { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.2rem; }
+    .course-nav-title { font-weight: 700; font-size: 0.88rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <!-- INJECT:header:en:/ja/castles/1/ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="/en/">Books</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/guide/">Guide</a>
+        <a href="/en/castles/">Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/ja/castles/1/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
+
+  <main>
+    <section class="hero" style="padding: 2.5rem 0 2rem;">
+      <div class="container">
+        <div class="step-indicator">
+          <div class="step-dot is-current">
+            <div class="step-dot-circle">1</div>
+            <span class="step-dot-label"><a href="/en/glossary/#static-ranging-rook" class="glossary-link">Static Rook</a></span>
+          </div>
+          <div class="step-line"></div>
+          <a href="../2/" class="step-dot">
+            <div class="step-dot-circle">2</div>
+            <span class="step-dot-label">Ranging Rook</span>
+          </a>
+          <div class="step-line"></div>
+          <a href="../3/" class="step-dot">
+            <div class="step-dot-circle">3</div>
+            <span class="step-dot-label">Fortress &amp; Choosing</span>
+          </a>
+        </div>
+        <h1 class="hero-title" style="margin-top: 1.4rem;">Step 1: Static Rook Castles</h1>
+        <p class="hero-subtitle"><a href="../" style="color:inherit; text-decoration:none; opacity:0.75;">Castle Guide</a> &nbsp;›&nbsp; Step 1 / 3</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="guide-body">
+
+          <p>In static rook (<em>ibisha</em>) play, the right <a href="/en/glossary/#castle" class="glossary-link">castle</a> depends heavily on whether your opponent plays <a href="/en/glossary/#static-ranging-rook" class="glossary-link">ranging rook</a> or static rook. Against a ranging rook opponent, battles happen on the right side of the board, so you move your King to the left to shelter it. Against a static rook opponent, you castle on the left. Knowing the key formations for both scenarios gives you a solid foundation.</p>
+
+          <div class="sp-theme-picker" id="sp-theme-picker">
+            <span class="sp-theme-label">Board color: </span>
+          </div>
+
+          <!-- Boat Castle -->
+          <div class="castle-entry" id="boat">
+            <h2>Boat Castle <span style="font-size:0.85rem; font-weight:400; color:var(--color-text-muted);">舟囲い</span></h2>
+            <div class="castle-ratings">
+              <span>Moves to Build<span class="castle-stars">★★★★★</span></span>
+              <span>Durability <span class="castle-stars">★</span>☆☆☆☆</span>
+              <span>Balance <span class="castle-stars">★★★</span>☆☆</span>
+              <span class="rec-badge rec-great">Best for Beginners</span>
+            </div>
+            <div class="board-center">
+              <div class="shogi-player" data-diagram
+                   data-sfen="9/9/9/9/9/2P6/PP1PPPPPP/1BK1GS1R1/LNSG3NL b - 1"
+                   data-caption="Boat Castle"></div>
+            </div>
+            <p class="design-note"><strong>Design idea:</strong> Get the King away from the Rook as fast as possible against <a href="/en/glossary/#static-ranging-rook" class="glossary-link">ranging rook</a>.</p>
+            <p>The Boat Castle is the lightest castle the static rook side uses against ranging rook. Its core is a single point: move the King far from the opponent's Rook. Against ranging rook, where the Rook swings to the right files (files 4–8), shifting your King to the far left (files 2–3) dramatically reduces the Rook's direct threat.</p>
+            <p>The Gold–Silver connection is minimal — the left Gold in particular floats loosely — so it prioritizes speed over durability. You can attack straight away, or develop it into sturdier castles like Elmo, the Fortress, or the Silver Crown. It's not suited to static rook vs static rook, where the King ends up near the front of the opponent's Rook.</p>
+          </div>
+
+          <!-- Crab Castle -->
+          <div class="castle-entry" id="crab">
+            <h2>Crab Castle <span style="font-size:0.85rem; font-weight:400; color:var(--color-text-muted);">カニ囲い</span></h2>
+            <div class="castle-ratings">
+              <span>Moves to Build<span class="castle-stars">★★★★</span>☆</span>
+              <span>Durability <span class="castle-stars">★</span>☆☆☆☆</span>
+              <span>Balance <span class="castle-stars">★★★</span>☆☆</span>
+              <span class="rec-badge rec-good">Good for Beginners</span>
+            </div>
+            <div class="board-center">
+              <div class="shogi-player" data-diagram
+                   data-sfen="9/9/9/9/9/2P6/PP1PPPPPP/1BGSG2R1/LN1K2SNL b - 1"
+                   data-caption="Crab Castle"></div>
+            </div>
+            <p class="design-note"><strong>Design idea:</strong> Cover the top with Gold and Silver — the minimal static-rook-vs-static-rook defense.</p>
+            <p>In static rook vs static rook, both Rooks bear down the same files, so the top (head) of the King is the first vital point. The Crab Castle guards that top with two Golds and one Silver lined up horizontally. Placing pieces thickly above the King blocks the opponent's Rook or Bishop from aiming directly at the King's head.</p>
+            <p>The Gold–Silver connection is weak, however, so durability against a serious attack is limited, and a Rook dropped with check can really hurt. It's a castle for players who want to spend little on defense and launch an attack quickly.</p>
+          </div>
+
+          <!-- Modern Bishop Exchange -->
+          <div class="castle-entry" id="modern-bishop-exchange">
+            <h2>Modern Bishop Exchange <span style="font-size:0.85rem; font-weight:400; color:var(--color-text-muted);">現代角換わり</span></h2>
+            <div class="castle-ratings">
+              <span>Moves to Build<span class="castle-stars">★★</span>☆☆☆</span>
+              <span>Durability <span class="castle-stars">★★</span>☆☆☆</span>
+              <span>Balance <span class="castle-stars">★★★★★</span></span>
+              <span class="rec-badge rec-ok">Try Later</span>
+            </div>
+            <div class="board-center">
+              <div class="shogi-player" data-diagram
+                   data-sfen="9/9/9/9/7P1/P1P1SPP1P/1PSPP1N2/2GK1G3/LN5RL w B 1"
+                   data-caption="Modern Bishop Exchange"></div>
+            </div>
+            <p class="design-note"><strong>Design idea:</strong> A balance-first formation built above all to deny bishop drops.</p>
+            <p>This is the mainstream formation in the Bishop Exchange (<em>kakugawari</em>) opening. The key points are leaving the right Gold at an in-between square away from the King, and dropping the Rook to the back rank to guard the bottom row. From this arrangement it's sometimes called the "G-4h / R-2i" type.</p>
+            <p>Because both sides hold a Bishop in hand in Bishop Exchange, the shape is designed first and foremost to leave no gap for a bishop drop — a balance-specialized formation. Durability is modest, though; once an attack starts it can turn dangerous fast, and a single misstep tends to be decisive. Expect a tense, sharp game.</p>
+          </div>
+
+          <!-- Central King -->
+          <div class="castle-entry" id="central-king">
+            <h2>Central King <span style="font-size:0.85rem; font-weight:400; color:var(--color-text-muted);">中住まい</span></h2>
+            <div class="castle-ratings">
+              <span>Moves to Build<span class="castle-stars">★★★★★</span></span>
+              <span>Durability <span class="castle-stars">★</span>☆☆☆☆</span>
+              <span>Balance <span class="castle-stars">★★★★★</span></span>
+              <span class="rec-badge rec-good">Good for Beginners</span>
+            </div>
+            <div class="board-center">
+              <div class="shogi-player" data-diagram
+                   data-sfen="9/9/9/9/9/2P4R1/PP1PPPP1P/1BG1KSG2/LNS4NL w P 1"
+                   data-caption="Central King"></div>
+            </div>
+            <p class="design-note"><strong>Design idea:</strong> The King defends the center itself — a light, wide-coverage balance formation.</p>
+            <p>The diagram is just one example; the Golds, Silvers, and other pieces are placed flexibly. The defining point is that the King steps one square forward from its starting square (K-5h). Sitting here, the King reinforces the center's defense with its own power, and becomes harder to check.</p>
+            <p>It excels at balance, leaves few gaps for drop attacks, and costs very few moves. The catch: once a single point is breached it can collapse straight to mate, so don't count on its durability.</p>
+          </div>
+
+          <!-- Gangi -->
+          <div class="castle-entry" id="gangi">
+            <h2>Gangi <span style="font-size:0.85rem; font-weight:400; color:var(--color-text-muted);">雁木囲い</span></h2>
+            <div class="castle-ratings">
+              <span>Moves to Build<span class="castle-stars">★★★</span>☆☆</span>
+              <span>Durability <span class="castle-stars">★★</span>☆☆☆</span>
+              <span>Balance <span class="castle-stars">★★★★★</span></span>
+              <span class="rec-badge rec-good">Good for Beginners</span>
+            </div>
+            <div class="board-center">
+              <div class="shogi-player" data-diagram
+                   data-sfen="9/9/9/9/9/2PP5/PP1SPPPPP/1BG1GS1R1/LN1K3NL w - 1"
+                   data-caption="Gangi"></div>
+            </div>
+            <p class="design-note"><strong>Design idea:</strong> Build central thickness with a Gold–Silver shape that answers attacks from any direction.</p>
+            <p>Gangi's strength is balance and flexibility. With Golds and Silvers spread across the top, it copes reasonably with attacks from above, from the left, and with the fight for the center. Its signature is the left Silver: it builds central thickness while staying firmly connected to the Gold behind it. This Silver is the heart of Gangi — it lets you resist tenaciously and counter when attacked.</p>
+            <p>Through the midgame it doesn't fall easily, but it isn't a tight wrap around the King, so once an attack lands it can prove brittle. There's no single "best" King square either; reading the attack and choosing an easy-to-escape, hard-to-check spot is the knack. A castle you grow into as your defensive skill develops.</p>
+          </div>
+
+          <!-- Yagura -->
+          <div class="castle-entry" id="yagura">
+            <h2>Yagura <span style="font-size:0.85rem; font-weight:400; color:var(--color-text-muted);">矢倉囲い</span></h2>
+            <div class="castle-ratings">
+              <span>Moves to Build<span class="castle-stars">★★</span>☆☆☆</span>
+              <span>Durability <span class="castle-stars">★★★★</span>☆</span>
+              <span>Balance <span class="castle-stars">★★★</span>☆☆</span>
+              <span class="rec-badge rec-ok">Try Later</span>
+            </div>
+            <div class="board-center">
+              <div class="shogi-player" data-diagram
+                   data-sfen="9/9/9/9/9/2PPP4/PPSG1PPPP/1KGB1S1R1/LN5NL w - 1"
+                   data-caption="Yagura"></div>
+            </div>
+            <p class="design-note"><strong>Design idea:</strong> A traditional fortress that guards the top thickly with three Gold/Silver pieces.</p>
+            <p>Yagura is the classical fortress of static rook vs static rook, long called "the pure literature of shogi." It concentrates two Golds and one Silver from the King's right up to the top, maximizing defense against vertical attacks. This thick overhead structure makes it hard for the opponent's Rook–Bishop–Silver–Knight combination to break through the top. It's less strong against side attacks (such as a dropped Rook) or attacks from the far left, so stay alert.</p>
+            <p>It was once the royal road of static rook play — studied deeply and used heavily by pros — but in recent years the risk of being attacked before it's complete has made it less common. A little tricky for beginners; best attempted once you have some experience.</p>
+          </div>
+
+          <!-- Elmo Castle -->
+          <div class="castle-entry" id="elmo">
+            <h2>Elmo Castle <span style="font-size:0.85rem; font-weight:400; color:var(--color-text-muted);">エルモ囲い</span></h2>
+            <div class="castle-ratings">
+              <span>Moves to Build<span class="castle-stars">★★★★</span>☆</span>
+              <span>Durability <span class="castle-stars">★★★</span>☆☆</span>
+              <span>Balance <span class="castle-stars">★★★</span>☆☆</span>
+              <span class="rec-badge rec-good">Good for Beginners</span>
+            </div>
+            <div class="board-center">
+              <div class="shogi-player" data-diagram
+                   data-sfen="9/9/9/9/9/2P6/PP1PPPPPP/1BKS1S1R1/LNG1G2NL w - 1"
+                   data-caption="Elmo Castle"></div>
+            </div>
+            <p class="design-note"><strong>Design idea:</strong> Cover the Boat Castle's weakness with a Gold–Silver connection.</p>
+            <p>A development of the Boat Castle, Elmo has spread rapidly in recent years as the new standard against ranging rook. The Boat Castle is handy but has a weak Gold–Silver connection, leaving it fragile against side attacks. Elmo fixes that by adding a move to connect the Gold and Silver: placing them adjacent beneath the King greatly improves durability against attacks from the side.</p>
+            <p>It keeps the Boat Castle's core idea of "keeping the King far from the Rook" while adding the good-shape principle of a connected Gold and Silver. A balanced option — speed-oriented, yet with a baseline of solidity.</p>
+          </div>
+
+        </div>
+
+        <div class="course-nav">
+          <a href="../" class="course-nav-btn">
+            <span class="course-nav-label">← Course top</span>
+            <span class="course-nav-title">Essential Castles Guide</span>
+          </a>
+          <a href="../2/" class="course-nav-btn is-next">
+            <span class="course-nav-label">Next step →</span>
+            <span class="course-nav-title">Step 2: Ranging Rook Castles</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- INJECT:footer:en:false -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+<!-- /INJECT:footer -->
+
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>

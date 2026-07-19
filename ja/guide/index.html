@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>入門ガイド：考え方の土台ショートコース | さいばの将棋ポータル</title>
+  <meta name="description" content="将棋のルールを覚えたら次に押さえたい「考え方の土台」を3回に分けて解説。駒の価値・一手の重要度・玉の安全度——どんな戦型でも変わらない普遍的な原則。">
+  <link rel="icon" href="../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/guide/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/guide/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/guide/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="入門ガイド：考え方の土台ショートコース | さいばの将棋ポータル">
+  <meta property="og:description" content="将棋のルールを覚えたら次に押さえたい「考え方の土台」を3回に分けて解説。駒の価値・一手の重要度・玉の安全度——どんな戦型でも変わらない普遍的な原則。">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/guide/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="入門ガイド：考え方の土台ショートコース | さいばの将棋ポータル">
+  <meta name="twitter:description" content="将棋のルールを覚えたら次に押さえたい「考え方の土台」を3回に分けて解説。">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+  <style>
+    .course-intro {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .course-intro > p {
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    .course-badge {
+      display: inline-block;
+      background: var(--color-hover);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 0.2rem 0.85rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .course-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .course-card {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.3rem 1.6rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .course-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--color-accent);
+      color: var(--color-text);
+      text-decoration: none;
+    }
+    .course-card-num {
+      flex-shrink: 0;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .course-card-body {
+      flex: 1;
+    }
+    .course-card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .course-card-desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .course-card-arrow {
+      color: var(--color-border);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform 0.15s, color 0.15s;
+    }
+    .course-card:hover .course-card-arrow {
+      transform: translateX(3px);
+      color: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- INJECT:header:ja:/en/guide/ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">本の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門ガイド</a>
+        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/en/guide/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
+
+  <main>
+    <section class="hero" style="padding: 3.5rem 0;">
+      <div class="container">
+        <h1 class="hero-title">考え方の土台ショートコース</h1>
+        <p class="hero-subtitle">ルールを覚えたら次に知りたい3つの原則</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="course-intro">
+          <p>将棋のルールを覚えたけど、どういう方針で指せばいいのか分からない——そんな悩みを感じたことはありませんか。</p>
+          <p>ルールの次に知るべきことは、<strong>どんな戦型でも変わらない「考え方の土台」</strong>です。定跡を丸暗記する前に、この3つの原則を身につけておくと、自分で考えて指す力が大きく変わります。</p>
+          <div class="course-cards">
+            <a href="1/" class="course-card">
+              <div class="course-card-num">1</div>
+              <div class="course-card-body">
+                <p class="course-card-title">駒の価値を知る</p>
+                <p class="course-card-desc">駒ごとの強さと「駒得・駒損」の考え方。成り駒（龍・馬・と金）が最強クラスの戦力になる理由。</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+            <a href="2/" class="course-card">
+              <div class="course-card-num">2</div>
+              <div class="course-card-body">
+                <p class="course-card-title">終盤ほど「一手の価値」が上がる</p>
+                <p class="course-card-desc">序盤と終盤で一手の重みがまったく違う理由。終盤に勝負を決めるために、今から何を意識するか。</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+            <a href="3/" class="course-card">
+              <div class="course-card-num">3</div>
+              <div class="course-card-body">
+                <p class="course-card-title">玉の安全は「攻めの土台」でもある</p>
+                <p class="course-card-desc">玉の安全は守りだけの問題ではない。攻めの継続力・踏み込んだ攻め・逆転負けのリスクすべてに影響する。</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- INJECT:footer:ja:false -->
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+<!-- /INJECT:footer -->
+</body>
+</html>

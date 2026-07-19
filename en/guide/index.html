@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner's Guide: Short Course on Core Thinking Principles | Saiba's Shogi Portal</title>
+  <meta name="description" content="A short course on the thinking principles every shogi player should know right after learning the rules. Piece values, move weight, and King safety.">
+  <link rel="icon" href="../../images/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/en/guide/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/guide/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/guide/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="Beginner's Guide: Short Course on Core Thinking Principles | Saiba's Shogi Portal">
+  <meta property="og:description" content="A short course on the thinking principles every shogi player should know right after learning the rules. Piece values, move weight, and King safety.">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/en/guide/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Beginner's Guide: Short Course on Core Thinking Principles | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="A 3-part short course on the thinking principles every shogi player should know right after learning the rules.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+  <style>
+    .course-intro {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .course-intro > p {
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    .course-badge {
+      display: inline-block;
+      background: var(--color-hover);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 0.2rem 0.85rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .course-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .course-card {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.3rem 1.6rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .course-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--color-accent);
+      color: var(--color-text);
+      text-decoration: none;
+    }
+    .course-card-num {
+      flex-shrink: 0;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .course-card-body {
+      flex: 1;
+    }
+    .course-card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .course-card-desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .course-card-arrow {
+      color: var(--color-border);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform 0.15s, color 0.15s;
+    }
+    .course-card:hover .course-card-arrow {
+      transform: translateX(3px);
+      color: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- INJECT:header:en:/ja/guide/ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="/en/">Books</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/guide/">Guide</a>
+        <a href="/en/castles/">Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/ja/guide/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
+
+  <main>
+    <section class="hero" style="padding: 3.5rem 0;">
+      <div class="container">
+        <h1 class="hero-title">Core Thinking Principles — Short Course</h1>
+        <p class="hero-subtitle">3 principles to know right after learning the rules</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="course-intro">
+          <p>After learning the rules of shogi, many players hit the same wall: "I know how the pieces move, but I have no idea what to actually do."</p>
+          <p>The answer is not to memorize opening theory. What you need first is a solid set of <strong>thinking principles that apply in any position</strong>. These three ideas form the foundation of good shogi thinking.</p>
+          <div class="course-cards">
+            <a href="1/" class="course-card">
+              <div class="course-card-num">1</div>
+              <div class="course-card-body">
+                <p class="course-card-title">Know the value of each piece</p>
+                <p class="course-card-desc">Piece rankings and the concept of material gain. Why promoted pieces — Dragon, Horse, and <em>Tokin</em> — are among the most powerful forces on the board.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+            <a href="2/" class="course-card">
+              <div class="course-card-num">2</div>
+              <div class="course-card-body">
+                <p class="course-card-title">Each move becomes more valuable in the endgame</p>
+                <p class="course-card-desc">Why the weight of a single move changes completely from the opening to the endgame — and how the decisions you make now determine how you fight at the end.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+            <a href="3/" class="course-card">
+              <div class="course-card-num">3</div>
+              <div class="course-card-body">
+                <p class="course-card-title">King safety is the foundation of your attack</p>
+                <p class="course-card-desc">King safety is not just a defensive concern. It affects your ability to attack aggressively, sustain momentum, and avoid comeback losses.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- INJECT:footer:en:false -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+<!-- /INJECT:footer -->
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>リダイレクト中…</title>
+  <script>
+    var slug = new URLSearchParams(location.search).get('slug');
+    location.replace(slug ? '../posts/' + slug + '/' : '../');
+  </script>
+</head>
+<body></body>
+</html>
