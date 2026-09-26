@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>基本の囲い12選 | さいばの将棋ポータル</title>
+  <title>基本の囲いの紹介 | さいばの将棋ポータル</title>
   <meta name="description" content="将棋の代表的な囲いを12種類まとめて解説。居飛車・振り飛車それぞれの定番囲いを、手軽さ・耐久力・バランスの観点から紹介します。">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,12 @@
   <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/castles/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="さいばの将棋ポータル">
-  <meta property="og:title" content="基本の囲い12選 | さいばの将棋ポータル">
+  <meta property="og:title" content="基本の囲いの紹介 | さいばの将棋ポータル">
   <meta property="og:description" content="将棋の代表的な囲いを12種類まとめて解説。居飛車・振り飛車それぞれの定番囲いを、手軽さ・耐久力・バランスの観点から紹介します。">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/castles/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="基本の囲い12選 | さいばの将棋ポータル">
+  <meta name="twitter:title" content="基本の囲いの紹介 | さいばの将棋ポータル">
   <meta name="twitter:description" content="将棋の代表的な囲いを12種類まとめて解説。居飛車・振り飛車それぞれの定番囲いを紹介します。">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
@@ -37,11 +37,12 @@
     <div class="container">
       <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="/ja/">本の紹介</a>
+        <a href="/ja/">さいばの著書の紹介</a>
         <a href="/ja/blog/">ブログ</a>
-        <a href="/ja/guide/">入門ガイド</a>
-        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
         <a href="/ja/glossary/">用語集</a>
+        <a href="https://kansosen.saiba-zakki.com/" class="nav-external">感想戦ノート</a>
         <a href="/en/castles/" class="lang-switch">EN</a>
       </nav>
     </div>
@@ -50,7 +51,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
@@ -64,8 +65,8 @@
   <main>
     <section class="hero" style="padding: 3.5rem 0;">
       <div class="container">
-        <h1 class="hero-title">基本の囲い12選</h1>
-        <p class="hero-subtitle"><a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">居飛車</a>・<a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">振り飛車</a>の代表的な<a href="/ja/glossary/#囲い" class="glossary-link">囲い</a>を解説</p>
+        <h1 class="hero-title">基本の囲いの紹介</h1>
+        <p class="hero-subtitle"><a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">居飛車</a>・<a href="/ja/glossary/#居飛車・振り飛車" class="glossary-link">振り飛車</a>の代表的な<a href="/ja/glossary/#囲い" class="glossary-link">囲い</a>12選を解説</p>
       </div>
     </section>
 
@@ -125,7 +126,7 @@
               <div class="course-card-num">3</div>
               <div class="course-card-body">
                 <p class="course-card-title">穴熊と囲いの選び方</p>
-                <p class="course-card-desc">最強の堅陣・穴熊の特徴と注意点。囲いコース締めくくりとして「どの囲いを選ぶか」の指針も。</p>
+                <p class="course-card-desc">最強の堅陣・穴熊の特徴と注意点。シリーズの締めくくりとして「どの囲いを選ぶか」の指針も。</p>
               </div>
               <span class="course-card-arrow">›</span>
             </a>

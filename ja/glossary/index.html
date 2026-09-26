@@ -36,11 +36,12 @@
     <div class="container">
       <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="/ja/">本の紹介</a>
+        <a href="/ja/">さいばの著書の紹介</a>
         <a href="/ja/blog/">ブログ</a>
-        <a href="/ja/guide/">入門ガイド</a>
-        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
         <a href="/ja/glossary/">用語集</a>
+        <a href="https://kansosen.saiba-zakki.com/" class="nav-external">感想戦ノート</a>
         <a href="/en/glossary/" class="lang-switch">EN</a>
       </nav>
     </div>
@@ -49,7 +50,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }

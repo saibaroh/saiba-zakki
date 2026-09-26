@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shogi Books | Saiba's Shogi Portal</title>
+  <title>Books by Saiba | Saiba's Shogi Portal</title>
   <meta name="description" content="Introducing shogi books for learners at all levels — from complete beginners to intermediate players.">
   <link rel="icon" href="../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,12 +64,12 @@
   </script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Saiba's Shogi Portal">
-  <meta property="og:title" content="Shogi Books | Saiba's Shogi Portal">
+  <meta property="og:title" content="Books by Saiba | Saiba's Shogi Portal">
   <meta property="og:description" content="Introducing shogi books for learners at all levels — from complete beginners to intermediate players.">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/en/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Shogi Books | Saiba's Shogi Portal">
+  <meta name="twitter:title" content="Books by Saiba | Saiba's Shogi Portal">
   <meta name="twitter:description" content="Introducing shogi books for learners at all levels — from complete beginners to intermediate players.">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
@@ -86,10 +86,10 @@
     <div class="container">
       <a href="/" class="site-logo">Saiba's Shogi Portal</a>
       <nav class="site-nav">
-        <a href="/en/">Books</a>
+        <a href="/en/">Books by Saiba</a>
         <a href="/en/blog/">Blog</a>
-        <a href="/en/guide/">Guide</a>
-        <a href="/en/castles/">Castles</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
         <a href="/en/glossary/">Glossary</a>
         <a href="/ja/" class="lang-switch">JA</a>
       </nav>
@@ -99,7 +99,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
@@ -126,7 +126,7 @@
         <div class="shelf-text">
           <div class="shelf-heading">
             <p class="hero-format">Kindle Edition</p>
-            <h1 class="hero-title">Saiba's Shogi Books</h1>
+            <h1 class="hero-title">Books by Saiba</h1>
           </div>
           <div class="shelf-intro">
             <p class="hero-subtitle">For players who just learned the rules, and for beginners who feel stuck and can't seem to improve.<br> These Kindle books are written to help you break through that wall.</p>

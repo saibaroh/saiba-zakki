@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Step 2: Each Move Becomes More Valuable in the Endgame | Guide | Saiba's Shogi Portal</title>
+  <title>Step 2: Each Move Becomes More Valuable in the Endgame | Beginner's Guide | Saiba's Shogi Portal</title>
   <meta name="description" content="The importance of a single move changes completely from the opening to the endgame. How you play in the early game determines whether you can keep attacking in the endgame.">
   <link rel="icon" href="../../../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,12 @@
   <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/guide/2/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Saiba's Shogi Portal">
-  <meta property="og:title" content="Step 2: Each Move Becomes More Valuable in the Endgame | Guide | Saiba's Shogi Portal">
+  <meta property="og:title" content="Step 2: Each Move Becomes More Valuable in the Endgame | Beginner's Guide | Saiba's Shogi Portal">
   <meta property="og:description" content="The importance of a single move changes completely from the opening to the endgame. How you play in the early game determines whether you can keep attacking in the endgame.">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/en/guide/2/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Step 2: Each Move Becomes More Valuable in the Endgame | Guide | Saiba's Shogi Portal">
+  <meta name="twitter:title" content="Step 2: Each Move Becomes More Valuable in the Endgame | Beginner's Guide | Saiba's Shogi Portal">
   <meta name="twitter:description" content="The importance of a single move changes completely from opening to endgame. How you play early determines how you fight at the end.">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
@@ -37,10 +37,10 @@
     <div class="container">
       <a href="/" class="site-logo">Saiba's Shogi Portal</a>
       <nav class="site-nav">
-        <a href="/en/">Books</a>
+        <a href="/en/">Books by Saiba</a>
         <a href="/en/blog/">Blog</a>
-        <a href="/en/guide/">Guide</a>
-        <a href="/en/castles/">Castles</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
         <a href="/en/glossary/">Glossary</a>
         <a href="/ja/guide/2/" class="lang-switch">JA</a>
       </nav>
@@ -50,7 +50,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
@@ -81,7 +81,7 @@
           </a>
         </div>
         <h1 class="hero-title" style="margin-top: 1.4rem;">Step 2: Each Move Becomes More Valuable in the Endgame</h1>
-        <p class="hero-subtitle"><a href="../" style="color:inherit; text-decoration:none; opacity:0.75;">Guide</a> &nbsp;›&nbsp; Step 2 of 3</p>
+        <p class="hero-subtitle"><a href="../" style="color:inherit; text-decoration:none; opacity:0.75;">Beginner's Guide</a> &nbsp;›&nbsp; Step 2 of 3</p>
       </div>
     </section>
 

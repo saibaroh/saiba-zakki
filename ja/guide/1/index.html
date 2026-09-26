@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STEP 1：駒の価値を知る | 入門ガイド | さいばの将棋ポータル</title>
+  <title>STEP 1：駒の価値を知る | 入門者向け解説 | さいばの将棋ポータル</title>
   <meta name="description" content="将棋の駒ごとの価値と「駒得・駒損」の考え方。龍・馬・と金といった成り駒が最強クラスの攻め駒になる理由を解説します。">
   <link rel="icon" href="../../../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,12 @@
   <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/guide/1/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="さいばの将棋ポータル">
-  <meta property="og:title" content="STEP 1：駒の価値を知る | 入門ガイド | さいばの将棋ポータル">
+  <meta property="og:title" content="STEP 1：駒の価値を知る | 入門者向け解説 | さいばの将棋ポータル">
   <meta property="og:description" content="将棋の駒ごとの価値と「駒得・駒損」の考え方。龍・馬・と金といった成り駒が最強クラスの攻め駒になる理由を解説します。">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/guide/1/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="STEP 1：駒の価値を知る | 入門ガイド | さいばの将棋ポータル">
+  <meta name="twitter:title" content="STEP 1：駒の価値を知る | 入門者向け解説 | さいばの将棋ポータル">
   <meta name="twitter:description" content="将棋の駒ごとの価値と「駒得・駒損」の考え方。龍・馬・と金といった成り駒が最強クラスの攻め駒になる理由を解説します。">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
@@ -37,11 +37,12 @@
     <div class="container">
       <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="/ja/">本の紹介</a>
+        <a href="/ja/">さいばの著書の紹介</a>
         <a href="/ja/blog/">ブログ</a>
-        <a href="/ja/guide/">入門ガイド</a>
-        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
         <a href="/ja/glossary/">用語集</a>
+        <a href="https://kansosen.saiba-zakki.com/" class="nav-external">感想戦ノート</a>
         <a href="/en/guide/1/" class="lang-switch">EN</a>
       </nav>
     </div>
@@ -50,7 +51,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
@@ -81,7 +82,7 @@
           </a>
         </div>
         <h1 class="hero-title" style="margin-top: 1.4rem;">STEP 1：駒の価値を知る</h1>
-        <p class="hero-subtitle"><a href="../" style="color:inherit; text-decoration:none; opacity:0.75;">入門ガイド</a> &nbsp;›&nbsp; STEP 1 / 3</p>
+        <p class="hero-subtitle"><a href="../" style="color:inherit; text-decoration:none; opacity:0.75;">入門者向け解説</a> &nbsp;›&nbsp; STEP 1 / 3</p>
       </div>
     </section>
 

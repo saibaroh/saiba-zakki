@@ -139,12 +139,20 @@ main {
 .site-nav a {
   color: var(--color-text-muted);
   font-size: 0.86rem;
+  white-space: nowrap;
   transition: color 0.15s;
 }
 
 .site-nav a:hover {
   color: var(--color-text);
   text-decoration: none;
+}
+
+.site-nav a.nav-external::after {
+  content: "\2197";
+  font-size: 0.8em;
+  margin-left: 0.15em;
+  color: var(--color-text-muted);
 }
 
 /* 現在のページ（lib/templates.js の renderHeader が付与） */
@@ -436,17 +444,30 @@ main {
   margin-top: 0.4rem;
 }
 
-.gate-tagline {
+.gate-copy {
   margin-top: 1.6rem;
-  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
   font-weight: 700;
   line-height: 1.6;
+  color: var(--shu-light);
 }
 
-.gate-tagline span {
+.gate-copy span {
   display: block;
-  font-size: 0.72em;
+  font-size: 0.68em;
   font-weight: 400;
+  color: var(--wall-muted);
+}
+
+.gate-desc {
+  margin-top: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.gate-desc span {
+  display: block;
+  font-size: 0.86em;
   color: var(--wall-muted);
 }
 
@@ -557,10 +578,8 @@ main {
 }
 
 .gate-menu a {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.75rem 1.4rem 0.75rem 0.25rem;
+  display: block;
+  padding: 0.75rem 1.6rem 0.75rem 0.25rem;
   border-bottom: 1px solid rgba(245, 240, 230, 0.16);
   color: var(--wall-text);
   position: relative;
@@ -570,8 +589,14 @@ main {
   content: "\2192";
   position: absolute;
   right: 0.25rem;
+  top: 50%;
+  margin-top: -0.8em;
   color: var(--wall-muted);
   transition: transform 0.15s, color 0.15s;
+}
+
+.gate-menu a.is-external::after {
+  content: "\2197";
 }
 
 .gate-menu a:hover {
@@ -588,13 +613,13 @@ main {
 }
 
 .gate-menu strong {
-  flex: none;
-  width: 6.5em;
+  display: block;
   font-size: 0.95rem;
   transition: color 0.15s;
 }
 
 .gate-menu span {
+  display: block;
   font-size: 0.82rem;
   color: var(--wall-muted);
   line-height: 1.6;
@@ -2249,25 +2274,8 @@ main {
 /* ========================================
    Responsive
    ======================================== */
-@media (max-width: 768px) {
-  .post-card.has-thumb {
-    flex-direction: column;
-  }
-
-  .post-card-thumb {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-  }
-
-  .book-hero-inner,
-  .book-intro {
-    grid-template-columns: 1fr;
-  }
-
-  .book-cover-wrap {
-    max-width: 170px;
-  }
-
+@media (max-width: 1000px) {
+  /* ヘッダーが2段になり高さが変わるので固定をやめる（本の紹介の目次バーとの重なり防止） */
   .site-header {
     position: static;
   }
@@ -2285,6 +2293,26 @@ main {
   .site-nav {
     gap: 0.4rem 1rem;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-card.has-thumb {
+    flex-direction: column;
+  }
+
+  .post-card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .book-hero-inner,
+  .book-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .book-cover-wrap {
+    max-width: 170px;
   }
 
   .hero {

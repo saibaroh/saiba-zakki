@@ -87,10 +87,10 @@
     <div class="container">
       <a href="/" class="site-logo">Saiba's Shogi Portal</a>
       <nav class="site-nav">
-        <a href="/en/">Books</a>
+        <a href="/en/">Books by Saiba</a>
         <a href="/en/blog/">Blog</a>
-        <a href="/en/guide/">Guide</a>
-        <a href="/en/castles/">Castles</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
         <a href="/en/glossary/">Glossary</a>
         <a href="/ja/blog/posts/shogi-opening-basics/" class="lang-switch">JA</a>
       </nav>
@@ -100,7 +100,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }

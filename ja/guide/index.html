@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>入門ガイド：考え方の土台ショートコース | さいばの将棋ポータル</title>
+  <title>入門者向け解説：考え方の土台ショートコース | さいばの将棋ポータル</title>
   <meta name="description" content="将棋のルールを覚えたら次に押さえたい「考え方の土台」を3回に分けて解説。駒の価値・一手の重要度・玉の安全度——どんな戦型でも変わらない普遍的な原則。">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,12 @@
   <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/guide/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="さいばの将棋ポータル">
-  <meta property="og:title" content="入門ガイド：考え方の土台ショートコース | さいばの将棋ポータル">
+  <meta property="og:title" content="入門者向け解説：考え方の土台ショートコース | さいばの将棋ポータル">
   <meta property="og:description" content="将棋のルールを覚えたら次に押さえたい「考え方の土台」を3回に分けて解説。駒の価値・一手の重要度・玉の安全度——どんな戦型でも変わらない普遍的な原則。">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/guide/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="入門ガイド：考え方の土台ショートコース | さいばの将棋ポータル">
+  <meta name="twitter:title" content="入門者向け解説：考え方の土台ショートコース | さいばの将棋ポータル">
   <meta name="twitter:description" content="将棋のルールを覚えたら次に押さえたい「考え方の土台」を3回に分けて解説。">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
@@ -37,11 +37,12 @@
     <div class="container">
       <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="/ja/">本の紹介</a>
+        <a href="/ja/">さいばの著書の紹介</a>
         <a href="/ja/blog/">ブログ</a>
-        <a href="/ja/guide/">入門ガイド</a>
-        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
         <a href="/ja/glossary/">用語集</a>
+        <a href="https://kansosen.saiba-zakki.com/" class="nav-external">感想戦ノート</a>
         <a href="/en/guide/" class="lang-switch">EN</a>
       </nav>
     </div>
@@ -50,7 +51,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
@@ -64,8 +65,8 @@
   <main>
     <section class="hero" style="padding: 3.5rem 0;">
       <div class="container">
-        <h1 class="hero-title">考え方の土台ショートコース</h1>
-        <p class="hero-subtitle">ルールを覚えたら次に知りたい3つの原則</p>
+        <h1 class="hero-title">入門者向け解説</h1>
+        <p class="hero-subtitle">考え方の土台ショートコース：ルールを覚えたら次に知りたい3つの原則</p>
       </div>
     </section>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Essential Castles Guide | Saiba's Shogi Portal</title>
+  <title>Essential Castles | Saiba's Shogi Portal</title>
   <meta name="description" content="A guide to 12 essential shogi castles. Learn the formations used in both static and ranging rook strategies, rated by ease, durability, and balance.">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,12 @@
   <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/castles/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Saiba's Shogi Portal">
-  <meta property="og:title" content="Essential Castles Guide | Saiba's Shogi Portal">
+  <meta property="og:title" content="Essential Castles | Saiba's Shogi Portal">
   <meta property="og:description" content="A guide to 12 essential shogi castles, rated by ease, durability, and balance.">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/en/castles/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Essential Castles Guide | Saiba's Shogi Portal">
+  <meta name="twitter:title" content="Essential Castles | Saiba's Shogi Portal">
   <meta name="twitter:description" content="A guide to 12 essential shogi castles, rated by ease, durability, and balance.">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
@@ -37,10 +37,10 @@
     <div class="container">
       <a href="/" class="site-logo">Saiba's Shogi Portal</a>
       <nav class="site-nav">
-        <a href="/en/">Books</a>
+        <a href="/en/">Books by Saiba</a>
         <a href="/en/blog/">Blog</a>
-        <a href="/en/guide/">Guide</a>
-        <a href="/en/castles/">Castles</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
         <a href="/en/glossary/">Glossary</a>
         <a href="/ja/castles/" class="lang-switch">JA</a>
       </nav>
@@ -50,7 +50,7 @@
     (function () {
       var path = location.pathname;
       var best = null, bestLen = 0;
-      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
         try {
           var lp = new URL(a.href).pathname;
           if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
@@ -64,8 +64,8 @@
   <main>
     <section class="hero" style="padding: 3.5rem 0;">
       <div class="container">
-        <h1 class="hero-title">Essential Castles — 12 Formations</h1>
-        <p class="hero-subtitle"><a href="/en/glossary/#static-ranging-rook" class="glossary-link">Static rook</a> and <a href="/en/glossary/#static-ranging-rook" class="glossary-link">ranging rook</a> castles explained in 3 lessons</p>
+        <h1 class="hero-title">Essential Castles</h1>
+        <p class="hero-subtitle"><a href="/en/glossary/#static-ranging-rook" class="glossary-link">Static rook</a> and <a href="/en/glossary/#static-ranging-rook" class="glossary-link">ranging rook</a> castles — 12 formations explained in 3 lessons</p>
       </div>
     </section>
 
