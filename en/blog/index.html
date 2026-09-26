@@ -6,6 +6,9 @@
   <title>Blog | Saiba's Shogi Portal</title>
   <meta name="description" content="Shogi columns, tips, and thoughts from Saiba — helping beginners enjoy the game.">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="canonical" href="https://shogi.saiba-zakki.com/en/blog/">
   <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/blog/">
@@ -70,17 +73,30 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../../" class="site-logo">Saiba's Shogi Portal</a>
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
       <nav class="site-nav">
-        <a href="../">Books</a>
-        <a href="./">Blog</a>
-        <a href="../guide/">Guide</a>
-        <a href="../castles/">Castles</a>
-        <a href="../glossary/">Glossary</a>
-        <a href="../../ja/blog/" class="lang-switch">JA</a>
+        <a href="/en/">Books</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/guide/">Guide</a>
+        <a href="/en/castles/">Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/ja/blog/" class="lang-switch">JA</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
 
   <main>
     <section class="hero" style="padding: 3.5rem 0;">

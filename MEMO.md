@@ -48,14 +48,46 @@ make build-ja  # ja のみ
 make build-en  # en のみ
 ```
 
-以下の3つをまとめて実行する：
+以下をまとめて実行する：
+- 表紙などの画像から表示用の軽量 WebP を作る（`tools/optimize-images.py`、`make images` 単体でも可）
+- 記事ごとの SNS 共有画像 `images/og/{lang}-{slug}.png` を作る（`tools/make-og-images.py`、`make og` 単体でも可）
 - `posts.json` の再生成（frontmatter から）
+- 記事ページ・ブログ一覧の HTML 生成
 - `sitemap.xml` の更新
 - `feed.xml`（RSS）の更新（`en/blog/feed.xml` / `ja/blog/feed.xml`）
 
+画像の変換・共有画像の生成には Python の Pillow と日本語フォント（Noto Sans JP）が必要。
+無い環境ではこの2つだけスキップされ、残りのビルドは通常どおり進む。
+
 ---
 
-## 将棋盤の埋め込み方
+## ブログ記事に盤面図を入れる
+
+Markdown に ```` ```board ```` ブロックを書くと、ビルド時に盤面図になる
+（盤面用の CSS / JS はその記事にだけ自動で読み込まれる）。
+
+````markdown
+```board
+sfen: 9/9/9/9/9/2P6/PP1PPPPPP/1BK1GS1R1/LNSG3NL b - 1
+caption: 舟囲い
+```
+
+```board
+sfen: startpos
+moves: 7g7f 3c3d 2g2f
+caption: 序盤の進行例
+```
+````
+
+| キー | 説明 |
+|---|---|
+| `sfen` | 局面（SFEN）。`startpos` で平手初期局面 |
+| `moves` | USI 形式の手順（省略可）。書くと再生ボタンと棋譜が付く。省略すると静止図 |
+| `caption` | 盤面下のキャプション（省略可） |
+
+---
+
+## 将棋盤の埋め込み方（HTML ページ）
 
 テストページ: `/test/index.html`
 

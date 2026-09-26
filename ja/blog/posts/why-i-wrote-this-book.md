@@ -38,7 +38,7 @@ thumbnail: ""
 ```linkcard
 url: https://amzn.asia/d/9PwVFBo
 title: 脱初心者！将棋の考え方 ―読むだけで１級分上達する思考とコツ―
-image: /images/ja-book1.jpg
+image: /images/ja-book1.webp
 desc: Kindle Unlimited 読み放題対象。将棋の「考え方」を教わったことがない方に向けた、即効性のある上達ガイド。
 ```
 

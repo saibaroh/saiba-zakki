@@ -57,6 +57,6 @@ This article is an excerpt and adaptation from the author's book *Shogi Beyond t
 ```linkcard
 url: https://a.co/d/2HM6hzD
 title: Shogi Beyond the Rules — Think Better, Play Better, Win More
-image: /images/en-book1.jpg
+image: /images/en-book1.webp
 desc: Available on Kindle Unlimited. A practical thinking guide for players who know the rules but still can't win.
 ```

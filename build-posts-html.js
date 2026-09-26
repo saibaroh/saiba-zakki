@@ -17,11 +17,12 @@ const fs   = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 const { linkGlossaryTerms } = require('./lib/glossary-links');
+const { renderHeader, FONT_LINKS } = require('./lib/templates');
 
 const BASE_URL = 'https://shogi.saiba-zakki.com';
 const GA_ID    = 'G-3QWHMZKB7V';
 
-// Per-language UI strings and nav structure.
+// Per-language UI strings.
 // All relative paths are from {lang}/blog/posts/{slug}/index.html:
 //   ../    = {lang}/blog/posts/
 //   ../../  = {lang}/blog/
@@ -43,13 +44,6 @@ const CFG = {
     backToTopAria:  'Back to top',
     otherLang:      'ja',
     otherLangLabel: 'JA',
-    navLinks: [
-      ['../../../',          'Books'],
-      ['../../',             'Blog'],
-      ['../../../guide/',    'Guide'],
-      ['../../../castles/',  'Castles'],
-      ['../../../glossary/', 'Glossary'],
-    ],
     authorBio:
       'Amateur 3-dan Shogi player, IT engineer in Japan. Author of beginner-focused Shogi Kindle books in Japanese and English. → ' +
       '<a href="../../../" class="books-link">See published books</a><br>\n' +
@@ -84,13 +78,6 @@ const CFG = {
     backToTopAria:  'ページ上部へ戻る',
     otherLang:      'en',
     otherLangLabel: 'EN',
-    navLinks: [
-      ['../../../',          '本の紹介'],
-      ['../../',             'ブログ'],
-      ['../../../guide/',    '入門ガイド'],
-      ['../../../castles/',  '囲い'],
-      ['../../../glossary/', '用語集'],
-    ],
     authorBio:
       '将棋ウォーズを中心に将棋を楽しむアマチュア三段。初心者～級位者向けの将棋Kindle本の執筆活動を行っている。→ ' +
       '<a href="../../../" class="books-link">執筆した本はこちら</a><br>\n' +
@@ -162,6 +149,41 @@ function processLinkCards(html) {
   );
 }
 
+/**
+ * Replace <pre><code class="language-board">…</code></pre> blocks with a
+ * shogi-player board (js/shogi-player.js).
+ *
+ *   ```board
+ *   sfen: 9/9/9/9/9/2P6/PP1PPPPPP/1BK1GS1R1/LNSG3NL b - 1
+ *   moves: 7g7f 3c3d        (optional — adds move controls)
+ *   caption: 舟囲い          (optional)
+ *   ```
+ *
+ * Returns { html, hasBoard }.
+ */
+function processBoards(html) {
+  let hasBoard = false;
+  const out = html.replace(
+    /<pre><code class="language-board">([\s\S]*?)<\/code><\/pre>/g,
+    (_, raw) => {
+      const data = {};
+      unescHtml(raw).trim().split('\n').forEach(line => {
+        const i = line.indexOf(':');
+        if (i > 0) data[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+      });
+      hasBoard = true;
+      const attrs = [
+        data.moves ? '' : ' data-diagram',
+        ` data-sfen="${esc(data.sfen || 'startpos')}"`,
+        data.moves   ? ` data-moves="${esc(data.moves)}"`     : '',
+        data.caption ? ` data-caption="${esc(data.caption)}"` : '',
+      ].join('');
+      return `<div class="board-center"><div class="shogi-player"${attrs}></div></div>`;
+    }
+  );
+  return { html: out, hasBoard };
+}
+
 // ---------------------------------------------------------------------------
 // HTML template
 // ---------------------------------------------------------------------------
@@ -172,12 +194,8 @@ function renderPage({
   hreflangLines, jsonLd,
   contentHtml, thumbHtml,
   xShareBtn, prevNextHtml,
-  langLink,
+  langLink, lang, hasBoard,
 }) {
-  const navHtml = cfg.navLinks
-    .map(([href, label]) => `        <a href="${href}">${label}</a>`)
-    .join('\n');
-
   return `<!DOCTYPE html>
 <html lang="${cfg.htmlLang}">
 <head>
@@ -186,7 +204,9 @@ function renderPage({
   <title>${esc(plainTitle)} | ${cfg.breadBlog} | ${esc(cfg.siteName)}</title>
   <meta name="description" content="${esc(post.lead)}">
   <link rel="icon" href="../../../../images/profile.webp" type="image/webp">
-  <link rel="stylesheet" href="../../../../css/style.css">
+${FONT_LINKS}
+  <link rel="stylesheet" href="../../../../css/style.css">${hasBoard ? `
+  <link rel="stylesheet" href="../../../../css/shogi-player.css">` : ''}
   <link rel="canonical" href="${postUrl}">
 ${hreflangLines}
   <meta property="og:type" content="article">
@@ -211,15 +231,7 @@ ${jsonLd}
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="../../../../" class="site-logo">${esc(cfg.siteName)}</a>
-      <nav class="site-nav">
-${navHtml}
-        <a href="${langLink}" class="lang-switch">${cfg.otherLangLabel}</a>
-      </nav>
-    </div>
-  </header>
+${renderHeader(lang, langLink)}
 
   <main>
     <div class="container">
@@ -322,7 +334,8 @@ ${contentHtml}
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  </script>
+  </script>${hasBoard ? `
+  <script src="../../../../js/shogi-player.js"></script>` : ''}
 </body>
 </html>
 `;
@@ -335,13 +348,6 @@ ${contentHtml}
 function renderBlogIndex({ cfg, lang, posts }) {
   const pageUrl  = `${BASE_URL}/${lang}/blog/`;
   const otherLang = cfg.otherLang;
-
-  // Nav links from {lang}/blog/index.html (2 levels deep from root).
-  // Labels are taken from cfg.navLinks; paths are recomputed for this depth.
-  const blogNavPaths = ['../', './', '../guide/', '../castles/', '../glossary/'];
-  const navHtml = cfg.navLinks
-    .map(([, label], i) => `        <a href="${blogNavPaths[i]}">${label}</a>`)
-    .join('\n');
 
   const cardHtml = posts.length === 0
     ? `        <p style="color:var(--color-text-muted);">${cfg.blogEmptyMessage}</p>`
@@ -393,6 +399,7 @@ function renderBlogIndex({ cfg, lang, posts }) {
   <title>${esc(cfg.blogPageTitle)}</title>
   <meta name="description" content="${esc(cfg.blogDescription)}">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
+${FONT_LINKS}
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="canonical" href="${pageUrl}">
   <link rel="alternate" hreflang="x-default" href="${BASE_URL}/en/blog/">
@@ -420,15 +427,7 @@ ${jsonLd}
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="../../" class="site-logo">${esc(cfg.siteName)}</a>
-      <nav class="site-nav">
-${navHtml}
-        <a href="../../${otherLang}/blog/" class="lang-switch">${cfg.otherLangLabel}</a>
-      </nav>
-    </div>
-  </header>
+${renderHeader(lang, `/${otherLang}/blog/`)}
 
   <main>
     <section class="hero" style="padding: 3.5rem 0;">
@@ -531,6 +530,8 @@ function buildForLang(lang, allPosts) {
     const mdBody    = mdContent.replace(/^---[\s\S]*?---\n?/, '');
     let contentHtml = marked.parse(mdBody);
     contentHtml     = processLinkCards(contentHtml);
+    const boards    = processBoards(contentHtml);
+    contentHtml     = boards.html;
     contentHtml     = linkGlossaryTerms(contentHtml, lang);
 
     const postUrl    = `${BASE_URL}/${lang}/blog/posts/${post.slug}/`;
@@ -558,11 +559,13 @@ function buildForLang(lang, allPosts) {
       ].filter(Boolean).join('\n');
     }
 
-    // OGP image
+    // OGP image: thumbnail > generated card (tools/make-og-images.py) > profile icon
+    const ogCard  = `/images/og/${lang}-${post.slug}.png`;
+    const hasCard = fs.existsSync(path.join(__dirname, ogCard));
     const ogImage = post.thumbnail
       ? (post.thumbnail.startsWith('http') ? post.thumbnail : `${BASE_URL}${post.thumbnail}`)
-      : `${BASE_URL}/images/profile.webp`;
-    const twitterCard = post.thumbnail ? 'summary_large_image' : 'summary';
+      : hasCard ? `${BASE_URL}${ogCard}` : `${BASE_URL}/images/profile.webp`;
+    const twitterCard = (post.thumbnail || hasCard) ? 'summary_large_image' : 'summary';
 
     // JSON-LD
     const jsonLd = JSON.stringify([
@@ -621,11 +624,11 @@ function buildForLang(lang, allPosts) {
 
     // Language switcher link
     const langLink = hasOtherLang
-      ? `../../../../${otherLang}/blog/posts/${post.slug}/`
-      : `../../../../${otherLang}/blog/`;
+      ? `/${otherLang}/blog/posts/${post.slug}/`
+      : `/${otherLang}/blog/`;
 
     // Render and write
-    const html    = renderPage({ cfg, post, plainTitle, postUrl, ogImage, twitterCard, hreflangLines, jsonLd, contentHtml, thumbHtml, xShareBtn, prevNextHtml, langLink });
+    const html    = renderPage({ cfg, post, plainTitle, postUrl, ogImage, twitterCard, hreflangLines, jsonLd, contentHtml, thumbHtml, xShareBtn, prevNextHtml, langLink, lang, hasBoard: boards.hasBoard });
     const outDir  = path.join(postsDir, post.slug);
     if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');

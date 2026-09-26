@@ -6,9 +6,12 @@
   <title>Shogi Books | Saiba's Shogi Portal</title>
   <meta name="description" content="Introducing shogi books for learners at all levels — from complete beginners to intermediate players.">
   <link rel="icon" href="../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="canonical" href="https://shogi.saiba-zakki.com/en/">
-  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/">
   <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/">
   <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/">
   <script type="application/ld+json">
@@ -118,12 +121,36 @@
   </nav>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-shelf">
       <div class="container">
-        <h1 class="hero-title">Shogi Books</h1>
-        <p class="hero-format">Kindle Edition</p>
-        <p class="hero-subtitle">For players who just learned the rules, and for beginners who feel stuck and can't seem to improve.<br>These Kindle books are written to help you break through that wall.</p>
-        <p class="hero-ku">All volumes available free with <strong>Kindle Unlimited</strong></p>
+        <div class="shelf-text">
+          <div class="shelf-heading">
+            <p class="hero-format">Kindle Edition</p>
+            <h1 class="hero-title">Saiba's Shogi Books</h1>
+          </div>
+          <div class="shelf-intro">
+            <p class="hero-subtitle">For players who just learned the rules, and for beginners who feel stuck and can't seem to improve.<br> These Kindle books are written to help you break through that wall.</p>
+            <p class="hero-ku">All volumes available free with <strong>Kindle Unlimited</strong></p>
+          </div>
+        </div>
+        <nav class="shelf" aria-label="Books">
+          <a class="shelf-book" href="#book1">
+            <img src="../images/en-book1.webp" alt="Shogi Beyond the Rules">
+            <span class="shelf-label"><span class="nav-num">01</span>Shogi Beyond the Rules</span>
+          </a>
+          <a class="shelf-book" href="#book2">
+            <img src="../images/en-book2.webp" alt="Shogi Shapes for Beginners">
+            <span class="shelf-label"><span class="nav-num">02</span>Shogi Shapes for Beginners</span>
+          </a>
+          <a class="shelf-book" href="#book3">
+            <img src="../images/en-book3.webp" alt="Shogi Checkmate Drills for Beginners">
+            <span class="shelf-label"><span class="nav-num">03</span>Checkmate Drills</span>
+          </a>
+          <a class="shelf-book" href="#book4">
+            <img src="../images/cover_chess_and_shogi.webp" alt="Shogi for Chess Players">
+            <span class="shelf-label"><span class="nav-num">04</span>Shogi for Chess Players</span>
+          </a>
+        </nav>
       </div>
     </section>
 
@@ -141,7 +168,7 @@
         <!-- Cover + Meta -->
         <div class="book-intro">
           <div class="book-cover-wrap">
-            <img src="../images/en-book1.jpg" alt="Shogi Beyond the Rules cover">
+            <img src="../images/en-book1.webp" alt="Shogi Beyond the Rules cover">
           </div>
 
           <div class="book-meta">
@@ -289,7 +316,7 @@
         <!-- Cover + Meta -->
         <div class="book-intro">
           <div class="book-cover-wrap">
-            <img src="../images/en-book2.jpg" alt="Shogi Shapes for Beginners cover">
+            <img src="../images/en-book2.webp" alt="Shogi Shapes for Beginners cover">
           </div>
 
           <div class="book-meta">
@@ -433,7 +460,7 @@
         <!-- Cover + Meta -->
         <div class="book-intro">
           <div class="book-cover-wrap">
-            <img src="../images/en-book3.jpg" alt="Shogi Checkmate Drills for Beginners cover">
+            <img src="../images/en-book3.webp" alt="Shogi Checkmate Drills for Beginners cover">
           </div>
 
           <div class="book-meta">
@@ -510,7 +537,7 @@
         <!-- Cover + Meta -->
         <div class="book-intro">
           <div class="book-cover-wrap">
-            <img src="../images/cover_chess_and_shogi.jpg" alt="Shogi for Chess Players cover">
+            <img src="../images/cover_chess_and_shogi.webp" alt="Shogi for Chess Players cover">
           </div>
 
           <div class="book-meta">
@@ -591,12 +618,12 @@
         <h2 class="section-title">Free Content</h2>
         <p style="text-align:center; color:var(--color-text-muted); font-size:0.9rem; margin-bottom:1.8rem;">Free reading material to go alongside the books — thinking principles and castles explained.</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; max-width:720px; margin:0 auto;">
-          <a href="guide/" style="display:flex; flex-direction:column; gap:0.5rem; padding:1.4rem 1.6rem; background:var(--color-surface); border:1px solid var(--color-border); border-radius:10px; text-decoration:none; color:var(--color-text); transition:box-shadow 0.15s, border-color 0.15s;" onmouseover="this.style.boxShadow='var(--shadow)';this.style.borderColor='var(--color-accent)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+          <a href="guide/" style="display:flex; flex-direction:column; gap:0.5rem; padding:1.4rem 1.6rem; border-top:1px solid var(--color-text); padding-left:0; padding-right:0; text-decoration:none; color:var(--color-text); transition:box-shadow 0.15s, border-color 0.15s;" onmouseover="this.style.boxShadow='var(--shadow)';this.style.borderColor='var(--color-accent)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
             <span style="font-weight:700; font-size:1rem;">Core Thinking Principles</span>
             <span style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.6;">Three principles to know right after learning the rules — piece values, move weight, and King safety.</span>
             <span style="font-size:0.8rem; color:var(--color-accent); margin-top:0.3rem;">3 lessons →</span>
           </a>
-          <a href="castles/" style="display:flex; flex-direction:column; gap:0.5rem; padding:1.4rem 1.6rem; background:var(--color-surface); border:1px solid var(--color-border); border-radius:10px; text-decoration:none; color:var(--color-text); transition:box-shadow 0.15s, border-color 0.15s;" onmouseover="this.style.boxShadow='var(--shadow)';this.style.borderColor='var(--color-accent)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+          <a href="castles/" style="display:flex; flex-direction:column; gap:0.5rem; padding:1.4rem 1.6rem; border-top:1px solid var(--color-text); padding-left:0; padding-right:0; text-decoration:none; color:var(--color-text); transition:box-shadow 0.15s, border-color 0.15s;" onmouseover="this.style.boxShadow='var(--shadow)';this.style.borderColor='var(--color-accent)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
             <span style="font-weight:700; font-size:1rem;">Essential Castles — 12 Formations</span>
             <span style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.6;">Static rook and ranging rook castles explained with board diagrams, rated by moves to build, durability, and balance.</span>
             <span style="font-size:0.8rem; color:var(--color-accent); margin-top:0.3rem;">3 lessons →</span>

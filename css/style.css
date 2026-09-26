@@ -1,29 +1,37 @@
 /* ========================================
    CSS Variables / Theme
+   Web フォント（Noto Sans JP）は各ページの <head> で読み込む
+   （lib/templates.js の FONT_LINKS）。
+   生成りの紙 + 墨 + 朱 の3色が基本。
+   カードの影・大きな角丸・グラデーションは使わず、罫線と余白で区切る。
    ======================================== */
 :root {
-  --color-bg: #F3F6FA;
-  --color-surface: #FFFFFF;
-  --color-primary: #1B2D4F;
-  --color-accent: #2A6496;
-  --color-gold: #4A9BC5;
-  --color-purchase: #B7791F;
-  --color-purchase-hover: #8E5714;
-  --color-purchase-soft: #F4E7D3;
-  --color-purchase-border: #B08A4A;
-  --color-purchase-text: #8A6A2C;
-  --color-text: #1E2835;
-  --color-text-muted: #57697D;
-  --color-border: #C9D7E8;
-  --color-hover: #E8EFF8;
+  --color-bg: #F5F0E6;          /* 生成り（ページ背景） */
+  --color-surface: #FAF7F0;     /* 盤面・表などの少し明るい面 */
+  --color-tint: #EDE5D5;        /* 本の紹介枠などの少し濃い面 */
+  --color-primary: #2B2724;     /* 墨（見出し） */
+  --color-accent: #B5432F;      /* 朱（リンク・強調） */
+  --color-gold: #B5432F;        /* 旧アクセント。朱に統一 */
+  --color-purchase: #B5432F;
+  --color-purchase-hover: #93331F;
+  --color-purchase-soft: #EDE5D5;
+  --color-purchase-border: #B5432F;
+  --color-purchase-text: #B5432F;
+  --color-text: #2B2724;
+  --color-text-muted: #6B6259;
+  --color-border: #D6CBB8;      /* 罫線 */
+  --color-hover: #EDE5D5;
+  --color-wood: #C4A276;        /* 本棚の棚板 */
+  --color-wood-dark: #9C7A50;
 
-  --radius: 8px;
-  --radius-lg: 16px;
-  --shadow: 0 2px 12px rgba(27, 45, 79, 0.08);
-  --shadow-hover: 0 6px 24px rgba(27, 45, 79, 0.16);
+  --radius: 2px;
+  --radius-lg: 2px;
+  --shadow: none;
+  --shadow-hover: none;
 
-  --max-width: 1100px;
-  --header-height: 54px;
+  --max-width: 1040px;
+  --read-width: 720px;
+  --header-height: 57px;
   --books-nav-height: 42px;
 }
 
@@ -44,9 +52,10 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
-    "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-  line-height: 1.75;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", "Segoe UI",
+    "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  line-height: 1.85;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -65,10 +74,15 @@ a {
 
 a:hover {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 p + p {
   margin-top: 0.75rem;
+}
+
+::selection {
+  background: rgba(181, 67, 47, 0.18);
 }
 
 /* ========================================
@@ -88,13 +102,13 @@ main {
    Site Header
    ======================================== */
 .site-header {
-  background: var(--color-primary);
-  color: #fff;
+  background: var(--color-bg);
+  color: var(--color-text);
   padding: 0.9rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header .container {
@@ -105,44 +119,50 @@ main {
 }
 
 .site-logo {
-  font-size: 1.15rem;
-  font-weight: bold;
-  color: var(--color-gold);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
   letter-spacing: 0.04em;
 }
 
 .site-logo:hover {
   text-decoration: none;
-  opacity: 0.85;
+  color: var(--color-accent);
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.4rem;
 }
 
 .site-nav a {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.9rem;
-  transition: color 0.2s;
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  transition: color 0.15s;
 }
 
 .site-nav a:hover {
-  color: var(--color-gold);
+  color: var(--color-text);
   text-decoration: none;
+}
+
+/* 現在のページ（lib/templates.js の renderHeader が付与） */
+.site-nav a.is-current {
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 .lang-switch {
   font-size: 0.78rem;
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  padding: 0.2rem 0.65rem;
-  border-radius: 4px;
-  transition: all 0.2s;
+  letter-spacing: 0.05em;
 }
 
 .lang-switch:hover {
-  background: rgba(255, 255, 255, 0.15);
   text-decoration: none !important;
 }
 
@@ -150,8 +170,8 @@ main {
    Breadcrumb
    ======================================== */
 .breadcrumb {
-  padding: 0.85rem 0;
-  font-size: 0.83rem;
+  padding: 1.1rem 0 0;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
   display: flex;
   align-items: center;
@@ -160,6 +180,10 @@ main {
 }
 
 .breadcrumb a {
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a:hover {
   color: var(--color-accent);
 }
 
@@ -168,61 +192,58 @@ main {
 }
 
 /* ========================================
-   Hero Section
+   Hero Section（ページの表題）
    ======================================== */
 .hero {
-  background: linear-gradient(140deg, var(--color-primary) 0%, #2A3F6F 60%, #152340 100%);
-  color: #fff;
-  padding: 5rem 0;
+  background: transparent;
+  color: var(--color-text);
+  padding: 4.5rem 0 3.5rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .hero-eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.2em;
-  color: var(--color-gold);
+  color: var(--color-accent);
   margin-bottom: 0.85rem;
 }
 
 .hero-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: bold;
-  margin-bottom: 1rem;
-  line-height: 1.3;
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
 }
 
 .hero-format {
   display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--color-purchase-hover);
-  background: var(--color-purchase-soft);
-  border: 1px solid rgba(183, 121, 31, 0.35);
-  padding: 0.3rem 1.1rem;
-  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 0.1rem 0.8rem;
   letter-spacing: 0.08em;
   margin-bottom: 1.25rem;
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 560px;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 580px;
   margin: 0 auto;
 }
 
 .hero-ku {
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.03em;
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 .hero-ku strong {
-  color: #F4C98D;
+  color: var(--color-accent);
   font-weight: 700;
 }
 
@@ -236,6 +257,373 @@ main {
 }
 
 /* ========================================
+   Hero — 本棚（本の紹介ページ）
+   暗い壁に照明を当てた本棚。表紙の色を主役にする。
+   ======================================== */
+.hero-shelf {
+  --wall: #2A221C;
+  --wall-text: #F5F0E6;
+  --wall-muted: rgba(245, 240, 230, 0.72);
+  --label-h: 1.3rem;
+  --label-gap: 1.6rem;
+  --plank-h: 14px;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 72%, rgba(255, 214, 150, 0.16), transparent 70%),
+    var(--wall);
+  color: var(--wall-text);
+  text-align: left;
+  padding: 4rem 0 3.25rem;
+  border-bottom: none;
+}
+
+.shelf-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.25rem;
+}
+
+.hero-shelf .hero-format {
+  color: #E88A6F;
+  border-color: currentColor;
+  margin-bottom: 1rem;
+}
+
+.hero-shelf .hero-title {
+  font-size: clamp(1.9rem, 4.8vw, 3rem);
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.shelf-intro {
+  max-width: 400px;
+}
+
+.hero-shelf .hero-subtitle {
+  color: var(--wall-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* 固定の改行を外し、幅に合わせて自然に折り返す */
+.hero-shelf .hero-subtitle br {
+  display: none;
+}
+
+.hero-shelf .hero-ku {
+  color: var(--wall-text);
+  margin-top: 0.9rem;
+}
+
+.hero-shelf .hero-ku strong {
+  color: #E88A6F;
+}
+
+.shelf {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 3.5vw, 40px);
+  padding: 0 clamp(8px, 3vw, 32px);
+}
+
+/* 棚板：表紙の下端にぴったり合わせる */
+.shelf::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--label-h) + var(--label-gap) - var(--plank-h));
+  height: var(--plank-h);
+  background: linear-gradient(var(--color-wood), #B08D60);
+  box-shadow: 0 5px 0 var(--color-wood-dark), 0 18px 24px rgba(0, 0, 0, 0.45);
+}
+
+.shelf-book {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: var(--wall-muted);
+  text-decoration: none;
+}
+
+.shelf-book img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  box-shadow: 4px 0 0 rgba(0, 0, 0, 0.25), 6px 10px 22px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.shelf-label {
+  display: block;
+  height: var(--label-h);
+  margin-top: var(--label-gap);
+  font-size: 0.8rem;
+  line-height: var(--label-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+
+.shelf-label .nav-num {
+  color: #E88A6F;
+  font-weight: 700;
+  margin-right: 0.45em;
+}
+
+.shelf-book:hover {
+  text-decoration: none;
+}
+
+.shelf-book:hover img {
+  transform: translateY(-12px);
+  box-shadow: 4px 0 0 rgba(0, 0, 0, 0.25), 8px 22px 30px rgba(0, 0, 0, 0.55);
+}
+
+.shelf-book:hover .shelf-label {
+  color: var(--wall-text);
+}
+
+.shelf-book:focus-visible {
+  outline: 2px solid #E88A6F;
+  outline-offset: 6px;
+}
+
+/* ========================================
+   Gate — サイトのトップ（言語選択）
+   本の紹介ページと同じ「暗い壁の本棚」を日英で左右に並べる。
+   ======================================== */
+.gate-page {
+  background: #2A221C;
+}
+
+.gate {
+  --wall-text: #F5F0E6;
+  --wall-muted: rgba(245, 240, 230, 0.68);
+  --shu-light: #E88A6F;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--wall-text);
+  background:
+    radial-gradient(ellipse 40% 55% at 25% 62%, rgba(255, 214, 150, 0.13), transparent 70%),
+    radial-gradient(ellipse 40% 55% at 75% 62%, rgba(255, 214, 150, 0.13), transparent 70%),
+    #2A221C;
+}
+
+.gate-brand {
+  text-align: center;
+  padding: clamp(3rem, 9vh, 5.5rem) 1.5rem 0;
+}
+
+.gate-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+.gate-title span {
+  display: block;
+  font-size: 0.42em;
+  letter-spacing: 0.12em;
+  color: var(--wall-muted);
+  margin-top: 0.4rem;
+}
+
+.gate-tagline {
+  margin-top: 1.6rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.gate-tagline span {
+  display: block;
+  font-size: 0.72em;
+  font-weight: 400;
+  color: var(--wall-muted);
+}
+
+.gate-byline {
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  color: var(--wall-muted);
+}
+
+.gate-sides {
+  flex: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vh, 4.5rem) 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.gate-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 clamp(1rem, 3vw, 2.5rem);
+}
+
+.gate-side + .gate-side {
+  border-left: 1px solid rgba(245, 240, 230, 0.14);
+}
+
+.gate-enter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: var(--wall-text);
+}
+
+.gate-enter:hover {
+  text-decoration: none;
+}
+
+.gate-lang {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--shu-light);
+  margin-bottom: 1.5rem;
+}
+
+.gate-side h2.gate-lang {
+  font-size: 0.8rem;
+}
+
+.gate-shelf {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 1.6vw, 18px);
+  width: 100%;
+  padding: 0 clamp(6px, 1.5vw, 16px);
+  border-bottom: 12px solid var(--color-wood);
+  box-shadow: 0 5px 0 var(--color-wood-dark), 0 18px 24px rgba(0, 0, 0, 0.45);
+}
+
+.gate-shelf img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  box-shadow: 3px 0 0 rgba(0, 0, 0, 0.25), 5px 8px 18px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s;
+}
+
+.gate-enter:hover .gate-shelf img {
+  transform: translateY(-8px);
+}
+
+.gate-enter:hover .gate-shelf img:nth-child(2) { transition-delay: 0.03s; }
+.gate-enter:hover .gate-shelf img:nth-child(3) { transition-delay: 0.06s; }
+.gate-enter:hover .gate-shelf img:nth-child(4) { transition-delay: 0.09s; }
+
+.gate-cta {
+  margin-top: 2.25rem;
+  padding: 0.7rem 1.8rem;
+  border: 1px solid var(--wall-text);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.gate-enter:hover .gate-cta,
+.gate-enter:focus-visible .gate-cta {
+  background: var(--wall-text);
+  color: #2A221C;
+}
+
+.gate-enter:focus-visible {
+  outline: none;
+}
+
+/* 中身の一覧（何が読めるか） */
+.gate-menu {
+  list-style: none;
+  width: 100%;
+  max-width: 440px;
+  margin-top: 2.25rem;
+  border-top: 1px solid rgba(245, 240, 230, 0.16);
+}
+
+.gate-menu a {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1.4rem 0.75rem 0.25rem;
+  border-bottom: 1px solid rgba(245, 240, 230, 0.16);
+  color: var(--wall-text);
+  position: relative;
+}
+
+.gate-menu a::after {
+  content: "\2192";
+  position: absolute;
+  right: 0.25rem;
+  color: var(--wall-muted);
+  transition: transform 0.15s, color 0.15s;
+}
+
+.gate-menu a:hover {
+  text-decoration: none;
+}
+
+.gate-menu a:hover strong,
+.gate-menu a:hover::after {
+  color: var(--shu-light);
+}
+
+.gate-menu a:hover::after {
+  transform: translateX(3px);
+}
+
+.gate-menu strong {
+  flex: none;
+  width: 6.5em;
+  font-size: 0.95rem;
+  transition: color 0.15s;
+}
+
+.gate-menu span {
+  font-size: 0.82rem;
+  color: var(--wall-muted);
+  line-height: 1.6;
+}
+
+.gate-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(245, 240, 230, 0.45);
+  padding: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .gate-sides {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .gate-side + .gate-side {
+    border-left: none;
+  }
+
+  /* ブラウザの言語に合う側を先に */
+  .gate-side.is-preferred {
+    order: -1;
+  }
+}
+
+/* ========================================
    Generic Section
    ======================================== */
 .section {
@@ -243,13 +631,10 @@ main {
 }
 
 .section-title {
-  font-size: 1.45rem;
-  font-weight: bold;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--color-primary);
-  margin-bottom: 1.75rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 3px solid var(--color-gold);
-  display: inline-block;
+  margin-bottom: 1.5rem;
 }
 
 .section-lead {
@@ -264,32 +649,29 @@ main {
    ======================================== */
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2.5rem 2rem;
 }
 
 .book-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform 0.25s, box-shadow 0.25s;
   display: flex;
   flex-direction: column;
   color: var(--color-text);
 }
 
 .book-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
   text-decoration: none;
   color: var(--color-text);
+}
+
+.book-card:hover .book-card-title {
+  color: var(--color-accent);
 }
 
 .book-card-cover {
   aspect-ratio: 3 / 4;
   overflow: hidden;
+  border: 1px solid var(--color-border);
 }
 
 .book-card-cover img {
@@ -306,8 +688,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #1B2D4F 0%, #2A3F6F 100%);
-  color: var(--color-gold);
+  background: var(--color-tint);
+  color: var(--color-text-muted);
   text-align: center;
   padding: 1.5rem;
   gap: 0.75rem;
@@ -321,22 +703,21 @@ main {
 .book-card-cover-placeholder .title {
   font-size: 0.85rem;
   line-height: 1.5;
-  opacity: 0.9;
 }
 
 .book-card-body {
-  padding: 1.25rem;
+  padding: 1rem 0 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.3rem;
 }
 
 .book-card-title {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--color-primary);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .book-card-subtitle {
@@ -346,8 +727,7 @@ main {
 
 .book-card-desc {
   font-size: 0.88rem;
-  color: var(--color-text);
-  line-height: 1.65;
+  line-height: 1.75;
   flex: 1;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
@@ -357,7 +737,7 @@ main {
   align-self: flex-start;
   color: var(--color-accent);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: auto;
 }
 
@@ -382,7 +762,7 @@ main {
 
 .book-cover-wrap {
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(27, 45, 79, 0.22);
+  border: 1px solid var(--color-border);
 }
 
 .book-cover-placeholder {
@@ -391,8 +771,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #1B2D4F 0%, #2A3F6F 100%);
-  color: var(--color-gold);
+  background: var(--color-tint);
+  color: var(--color-text-muted);
   text-align: center;
   padding: 2rem;
   gap: 1rem;
@@ -406,33 +786,33 @@ main {
 .book-cover-placeholder .title {
   font-size: 0.95rem;
   line-height: 1.55;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .book-meta {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
 .book-eyebrow {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  color: var(--color-gold);
-  font-weight: bold;
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .book-title {
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  font-weight: bold;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  font-weight: 700;
   color: var(--color-primary);
-  line-height: 1.3;
+  line-height: 1.45;
 }
 
 .book-subtitle {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .kindle-badge {
@@ -440,15 +820,12 @@ main {
   align-items: center;
   gap: 0.4rem;
   font-size: 0.78rem;
-  font-weight: 600;
-  color: #F4C98D;
-  background: #232F3E;
-  border: 1px solid rgba(244, 201, 141, 0.35);
-  padding: 0.28rem 0.8rem;
-  border-radius: 4px;
+  font-weight: 700;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  padding: 0.1rem 0.7rem;
   letter-spacing: 0.03em;
   width: fit-content;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .kindle-badge::before {
@@ -467,20 +844,20 @@ main {
 
 .book-tags {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem 0.9rem;
   flex-wrap: wrap;
-  margin-top: 0.25rem;
+  margin-top: 0.1rem;
 }
 
 .tag {
-  font-size: 0.73rem;
-  padding: 0.18rem 0.65rem;
-  border-radius: 100px;
-  background: var(--color-hover);
-  border: 1px solid var(--color-border);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.tag::before {
+  content: "#";
+  margin-right: 0.1em;
   color: var(--color-accent);
-  font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .book-purchase {
@@ -497,61 +874,58 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   border-radius: var(--radius);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
   text-decoration: none;
-  border: none;
-  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  letter-spacing: 0.03em;
 }
 
 .btn:hover {
   text-decoration: none;
-  transform: translateY(-1px);
 }
 
 .btn-primary {
-  background: #F6E6B8;
-  color: var(--color-purchase-text);
-  border: 1.5px solid var(--color-purchase-border);
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary);
 }
 
 .btn-primary:hover {
-  background: #F1DFA7;
-  box-shadow: 0 4px 16px rgba(176, 138, 74, 0.28);
-  color: #75581F;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
 }
 
 .btn-primary:focus-visible {
-  outline: 3px solid var(--color-purchase-soft);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
 .btn-disabled {
-  background: var(--color-hover);
+  background: transparent;
   color: var(--color-text-muted);
-  border: 1.5px solid var(--color-border);
+  border-color: var(--color-border);
   cursor: default;
 }
 
 .btn-disabled:hover {
-  transform: none;
-  box-shadow: none;
   color: var(--color-text-muted);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-accent);
-  border: 2px solid var(--color-accent);
+  color: var(--color-text);
+  border-color: var(--color-text);
 }
 
 .btn-outline:hover {
-  background: var(--color-hover);
-  color: var(--color-accent);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 /* ========================================
@@ -573,11 +947,9 @@ main {
 
 .book-section-title {
   font-size: 1.05rem;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--color-primary);
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1rem;
 }
 
 /* ========================================
@@ -587,22 +959,24 @@ main {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.35rem;
 }
 
 .styled-list li {
-  padding-left: 1.5rem;
+  padding-left: 1.2rem;
   position: relative;
   font-size: 0.95rem;
 }
 
 .styled-list li::before {
-  content: "\25B8";
+  content: "";
   position: absolute;
-  left: 0;
-  color: var(--color-gold);
-  font-size: 0.85em;
-  top: 0.15em;
+  left: 0.15rem;
+  top: 0.8em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-text);
 }
 
 /* ========================================
@@ -611,34 +985,22 @@ main {
 .toc-list {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  border-top: 1px solid var(--color-border);
 }
 
 .toc-item {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  padding: 0.85rem 1.1rem;
+  padding: 0.8rem 0.25rem;
   border-bottom: 1px solid var(--color-border);
   font-size: 0.93rem;
-  transition: background 0.15s;
 }
-
-.toc-item:last-child {
-  border-bottom: none;
-}
-
-.toc-item:nth-child(even) {
-  background: var(--color-bg);
-}
-
 
 .toc-num {
-  font-size: 0.77rem;
-  color: var(--color-gold);
-  font-weight: bold;
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-weight: 700;
   min-width: 4.5rem;
   flex-shrink: 0;
 }
@@ -653,10 +1015,9 @@ main {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  padding: 0.85rem 1.1rem;
+  padding: 0.8rem 0.25rem;
   cursor: pointer;
   list-style: none;
-  transition: background 0.15s;
 }
 
 .toc-expandable summary::-webkit-details-marker {
@@ -664,41 +1025,38 @@ main {
 }
 
 .toc-expandable summary::after {
-  content: "\25B8";
+  content: "+";
   margin-left: auto;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  line-height: 1;
   color: var(--color-text-muted);
-  transition: transform 0.2s;
   flex-shrink: 0;
 }
 
 .toc-expandable[open] summary::after {
-  transform: rotate(90deg);
+  content: "\2212";
 }
 
 .toc-expandable summary:hover {
-  background: var(--color-hover);
+  color: var(--color-accent);
 }
 
 .toc-sub {
   list-style: none;
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  padding: 0.5rem 0;
-  overflow: hidden;
+  padding: 0 0 0.8rem;
 }
 
 .toc-sub li {
-  padding: 0.45rem 1.1rem 0.45rem 5.8rem;
+  padding: 0.25rem 0.25rem 0.25rem 5.75rem;
   font-size: 0.87rem;
   color: var(--color-text-muted);
   position: relative;
 }
 
 .toc-sub li::before {
-  content: "–";
+  content: "\2013";
   position: absolute;
-  left: 4.5rem;
+  left: 4.6rem;
   color: var(--color-border);
 }
 
@@ -706,30 +1064,24 @@ main {
    Author Box
    ======================================== */
 .author-box {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
+  border-top: 1px solid var(--color-border);
+  padding: 2rem 0 0;
   display: flex;
-  gap: 1.75rem;
+  gap: 1.25rem;
   align-items: flex-start;
-  box-shadow: var(--shadow);
 }
 
 .author-avatar {
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: var(--color-tint);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-gold);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   flex-shrink: 0;
   overflow: hidden;
-  border: 3px solid #C8922A;
-  box-shadow: 0 4px 12px rgba(27, 45, 79, 0.2);
 }
 
 .author-avatar img {
@@ -739,20 +1091,20 @@ main {
 }
 
 .author-name {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   color: var(--color-primary);
 }
 
 .author-bio {
   font-size: 0.88rem;
   color: var(--color-text-muted);
-  line-height: 1.75;
+  line-height: 1.85;
 }
 
 .author-bio .books-link {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -760,7 +1112,6 @@ main {
 
 .author-bio .books-link:hover {
   opacity: 0.75;
-  text-decoration: underline;
 }
 
 /* ========================================
@@ -791,12 +1142,12 @@ main {
   line-height: 1;
   color: var(--color-primary);
   margin-bottom: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .lang-selector-title {
   font-size: clamp(1.6rem, 4vw, 2.5rem);
-  font-weight: bold;
+  font-weight: 700;
   color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
@@ -821,57 +1172,54 @@ main {
   align-items: center;
   gap: 0.35rem;
   padding: 1.5rem 2.75rem;
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow);
-  transition: all 0.25s;
+  border: 1px solid var(--color-text);
   color: var(--color-text);
   min-width: 168px;
+  transition: background 0.15s, color 0.15s;
 }
 
 .lang-btn:hover {
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-4px);
+  background: var(--color-text);
+  color: var(--color-bg);
   text-decoration: none;
-  color: var(--color-primary);
 }
 
 .lang-btn .label {
   font-size: 1.15rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .lang-btn .sub {
   font-size: 0.8rem;
-  color: var(--color-text-muted);
+  opacity: 0.7;
 }
 
 /* ========================================
    Footer
    ======================================== */
 .site-footer {
-  background: var(--color-primary);
-  color: rgba(255, 255, 255, 0.65);
-  padding: 1.75rem 0;
+  background: transparent;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding: 1.75rem 0 2rem;
   text-align: center;
-  font-size: 0.83rem;
+  font-size: 0.8rem;
   margin-top: auto;
 }
 
 .site-footer a {
-  color: var(--color-gold);
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .site-footer a:hover {
-  color: #7CC0E0;
-  text-decoration: none;
+  color: var(--color-accent);
 }
 
 .affiliate-notice {
   font-size: 0.75rem;
-  opacity: 0.5;
+  opacity: 0.8;
   margin-bottom: 0.5rem;
 }
 
@@ -879,36 +1227,35 @@ main {
    X Share Button
    ======================================== */
 .article-share {
-  margin: 2rem 0 1rem;
+  margin: 2.5rem 0 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .btn-x-share {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: #000;
-  color: #fff;
-  font-size: 0.88rem;
-  font-weight: bold;
-  padding: 0.55rem 1.2rem;
-  border-radius: 9999px;
-  transition: opacity 0.2s;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 1.1rem;
+  transition: background 0.15s, color 0.15s;
 }
 
 .btn-x-share:hover {
-  opacity: 0.8;
+  background: var(--color-text);
+  color: var(--color-bg);
   text-decoration: none;
-  color: #fff;
 }
 
 /* ========================================
    Books Nav (single-page anchor navigation)
    ======================================== */
 .books-nav {
-  background: #162847;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: var(--header-height);
   z-index: 99;
@@ -926,69 +1273,62 @@ main {
 }
 
 .books-nav a {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-text-muted);
   font-size: 0.82rem;
-  padding: 0.68rem 1.2rem;
+  padding: 0.65rem 1.1rem 0.65rem 0;
+  margin-right: 0.4rem;
   white-space: nowrap;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  transition: all 0.2s;
   text-decoration: none;
 }
 
 .books-nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--color-gold);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 .books-nav .nav-num {
-  font-size: 0.68rem;
-  color: var(--color-gold);
-  font-weight: bold;
-  opacity: 0.8;
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 /* ========================================
    Book Page Section (single-page view)
    ======================================== */
 .book-page-section {
-  padding: 3.5rem 0;
-  border-bottom: 2px solid var(--color-border);
+  padding: 4rem 0;
   scroll-margin-top: calc(var(--header-height) + var(--books-nav-height) + 12px);
 }
 
-.book-page-section:last-child {
-  border-bottom: none;
+/* main 内の section 順は hero → book1 → book2 … なので、odd が 2冊目・4冊目 */
+.book-page-section:nth-of-type(odd) {
+  background: var(--color-tint);
 }
 
 .book-page-header {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2.25rem;
-  padding: 1.25rem 1.5rem;
-  background: linear-gradient(90deg, var(--color-hover) 0%, transparent 100%);
-  border-left: 4px solid var(--color-gold);
-  border-radius: 0 var(--radius) var(--radius) 0;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
 }
 
 .book-num-badge {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--color-gold);
-  opacity: 0.55;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
   line-height: 1;
   flex-shrink: 0;
 }
 
 .book-page-title {
-  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
-  font-weight: bold;
-  color: var(--color-primary);
-  line-height: 1.3;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
 .book-intro {
@@ -1002,47 +1342,34 @@ main {
 .book-details {
   display: flex;
   flex-direction: column;
+  max-width: 760px;
 }
 
 .book-detail-section {
-  padding: 1.75rem;
-  margin-bottom: 1.25rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--color-border);
 }
 
 .book-detail-section:last-child {
-  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* Jump links to other books */
 .other-books-links {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.4rem 1.4rem;
   flex-wrap: wrap;
   margin-top: 0.5rem;
 }
 
 .other-books-links a {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--color-accent);
-  font-weight: 600;
-  padding: 0.4rem 1rem;
-  border: 1.5px solid var(--color-accent);
-  border-radius: 100px;
-  transition: all 0.2s;
+  font-weight: 700;
 }
 
 .other-books-links a::after {
   content: " \2192";
-}
-
-.other-books-links a:hover {
-  background: var(--color-accent);
-  color: #fff;
-  text-decoration: none;
 }
 
 /* ========================================
@@ -1051,41 +1378,39 @@ main {
 .post-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  max-width: var(--read-width);
+  margin: 0 auto;
+  border-top: 1px solid var(--color-border);
 }
 
 .post-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem 2rem;
-  box-shadow: var(--shadow);
-  transition: box-shadow 0.2s, transform 0.2s;
   display: block;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--color-border);
   color: var(--color-text);
 }
 
 .post-card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
   text-decoration: none;
   color: var(--color-text);
+}
+
+.post-card:hover .post-card-title {
+  color: var(--color-accent);
 }
 
 .post-card.has-thumb {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
-  padding: 1.25rem 1.5rem;
 }
 
 .post-card-thumb {
   width: 160px;
   flex-shrink: 0;
-  border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  background: var(--color-hover);
+  background: var(--color-tint);
 }
 
 .post-card-thumb img {
@@ -1103,52 +1428,50 @@ main {
 .post-card-meta {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.65rem;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
   font-size: 0.8rem;
   color: var(--color-text-muted);
 }
 
 .post-card-category {
-  font-size: 0.73rem;
-  font-weight: 600;
   color: var(--color-accent);
-  background: var(--color-hover);
-  border: 1px solid var(--color-border);
-  padding: 0.15rem 0.6rem;
-  border-radius: 100px;
-  letter-spacing: 0.02em;
 }
 
 .post-card-title {
-  font-size: 1.15rem;
-  font-weight: bold;
+  font-size: 1.12rem;
+  font-weight: 700;
   color: var(--color-primary);
-  line-height: 1.45;
-  margin-bottom: 0.6rem;
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+  transition: color 0.15s;
 }
 
 .post-card-excerpt {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .post-card-readmore {
-  display: inline-block;
-  margin-top: 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-accent);
-}
-
-.post-card-readmore::after {
-  content: " \2192";
+  display: none;
 }
 
 /* ========================================
    Blog Article Page
    ======================================== */
+.container > article,
+.container > article ~ .section,
+.container > .breadcrumb {
+  max-width: var(--read-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container > article ~ .section {
+  padding-top: 1rem;
+}
+
 .article-header {
   padding: 3rem 0 2rem;
   border-bottom: 1px solid var(--color-border);
@@ -1158,106 +1481,90 @@ main {
 .article-meta {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
   font-size: 0.82rem;
   color: var(--color-text-muted);
 }
 
 .article-category {
-  font-size: 0.75rem;
-  font-weight: 600;
   color: var(--color-accent);
-  background: var(--color-hover);
-  border: 1px solid var(--color-border);
-  padding: 0.2rem 0.7rem;
-  border-radius: 100px;
 }
 
 .article-title {
-  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-  font-weight: bold;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
   color: var(--color-primary);
-  line-height: 1.35;
-  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.01em;
 }
 
 .article-lead {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
-  line-height: 1.75;
-  max-width: 680px;
+  line-height: 1.85;
 }
 
 .article-body {
-  max-width: 720px;
-  font-size: 1rem;
-  line-height: 1.85;
+  font-size: 1.0625rem;
+  line-height: 2;
   color: var(--color-text);
 }
 
 .article-body h2 {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--color-primary);
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--color-gold);
-  display: inline-block;
+  line-height: 1.5;
+  margin-top: 3rem;
+  margin-bottom: 0.9rem;
 }
 
 .article-body h3 {
-  font-size: 1.05rem;
-  font-weight: bold;
+  font-size: 1.08rem;
+  font-weight: 700;
   color: var(--color-primary);
-  margin-top: 1.75rem;
-  margin-bottom: 0.65rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .article-body p {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.5em;
+}
+
+.article-body p + p {
+  margin-top: 0;
 }
 
 .article-body ul,
 .article-body ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  padding-left: 1.3rem;
+  margin-bottom: 1.5em;
 }
 
-.article-body ul li {
-  list-style: none;
-  padding-left: 1.2rem;
-  position: relative;
-  font-size: 0.97rem;
+.article-body li {
+  margin-bottom: 0.3em;
 }
 
-.article-body ul li::before {
-  content: "\25B8";
-  position: absolute;
-  left: 0;
-  color: var(--color-gold);
-  font-size: 0.8em;
-  top: 0.2em;
-}
-
-.article-body ol li {
-  list-style: decimal;
-  font-size: 0.97rem;
+.article-body ul li::marker {
+  color: var(--color-text);
 }
 
 .article-body strong {
-  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 3rem 0 2rem;
 }
 
 .article-thumb {
   width: 100%;
   max-height: 380px;
   overflow: hidden;
-  border-radius: var(--radius-lg);
   margin-bottom: 2rem;
 }
 
@@ -1269,117 +1576,536 @@ main {
 }
 
 /* ========================================
+   Course pages — 入門ガイド・囲い（一覧／各ステップ）
+   ======================================== */
+.course-intro {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.course-intro > p {
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+.course-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.course-cards {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.course-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.3rem 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.course-card:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.course-card-num {
+  flex-shrink: 0;
+  width: 2rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.course-card-body {
+  flex: 1;
+}
+
+.course-card-title {
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin-bottom: 0.2rem;
+  transition: color 0.15s;
+}
+
+.course-card-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.course-card-arrow {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform 0.15s, color 0.15s;
+}
+
+.course-card:hover .course-card-title {
+  color: var(--color-accent);
+}
+
+.course-card:hover .course-card-arrow {
+  transform: translateX(3px);
+  color: var(--color-accent);
+}
+
+/* 囲い早見表 */
+.castle-table-wrap {
+  max-width: 680px;
+  margin: 1.5rem auto 2rem;
+  overflow-x: auto;
+}
+
+.castle-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+.castle-table th,
+.castle-table td {
+  border: 1px solid var(--color-border);
+  padding: 0.45rem 0.7rem;
+  text-align: center;
+}
+
+.castle-table th {
+  background: var(--color-hover);
+  font-weight: 700;
+}
+
+.castle-table td:first-child {
+  text-align: left;
+  font-weight: 700;
+}
+
+.castle-table td:nth-child(2) {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.stars-gold { color: #A0712A; }
+.rec-great  { color: var(--color-accent); font-weight: 700; }
+.rec-good   { color: var(--color-text); }
+.rec-ok     { color: var(--color-text-muted); }
+
+/* 各ステップの本文 */
+.guide-body {
+  max-width: var(--read-width);
+  margin: 0 auto;
+}
+
+.guide-body h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2.5rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.guide-body .castle-entry h2 {
+  margin-bottom: 0.4rem;
+}
+
+.guide-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 1.8rem 0 0.6rem;
+}
+
+.guide-body p {
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.guide-body ul {
+  margin: 0.5rem 0 1rem 1.4rem;
+  line-height: 1.85;
+}
+
+.guide-body li {
+  margin-bottom: 0.4rem;
+}
+
+.guide-value-table {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.guide-value-table .piece {
+  padding: 0.2rem 0.7rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.guide-value-table .arrow {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+.design-note {
+  border-left: 3px solid var(--color-accent);
+  padding: 0.15rem 0 0.15rem 1rem;
+  margin: 0.75rem 0 1rem;
+  font-size: 0.95rem;
+}
+
+.series-note {
+  font-size: 0.83rem;
+  color: var(--color-text-muted);
+  border-left: 3px solid var(--color-border);
+  padding: 0.1rem 0 0.1rem 1rem;
+  margin: 1rem 0 1.5rem;
+  line-height: 1.7;
+}
+
+.summary-box {
+  background: var(--color-tint);
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.summary-box h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.summary-box p {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.summary-box p:last-child {
+  margin-bottom: 0;
+}
+
+.summary-box ul {
+  margin: 0.4rem 0 0 1.2rem;
+}
+
+/* ステップ表示（1 — 2 — 3） */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.step-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-text-muted);
+}
+
+.step-dot:hover {
+  text-decoration: none;
+}
+
+.step-dot-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.step-dot.is-current .step-dot-circle {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.step-dot.is-current .step-dot-label {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.step-dot.is-done .step-dot-circle {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.step-dot:hover:not(.is-current) .step-dot-circle {
+  border-color: var(--color-accent);
+}
+
+.step-dot-label {
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.step-line {
+  flex: 1;
+  max-width: 80px;
+  height: 2px;
+  background: var(--color-border);
+  margin: 0 0.4rem 1.4rem;
+}
+
+/* 前後のステップへのナビ */
+.course-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  max-width: var(--read-width);
+}
+
+.course-nav-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  color: var(--color-text);
+  flex: 1;
+  max-width: 300px;
+}
+
+.course-nav-btn:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.course-nav-btn.is-next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.course-nav-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.course-nav-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+/* ========================================
+   Glossary page
+   ======================================== */
+.glossary-index,
+.glossary-list {
+  max-width: var(--read-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.glossary-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.glossary-index a {
+  font-size: 0.85rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: background 0.15s;
+}
+
+.glossary-index a:hover {
+  background: var(--color-hover);
+  text-decoration: none;
+}
+
+.glossary-italic-note {
+  max-width: var(--read-width);
+  margin: 0 auto 2rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  padding: 0.7rem 1rem;
+  background: var(--color-tint);
+}
+
+.glossary-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.glossary-item {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.glossary-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.glossary-term {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+}
+
+.glossary-term a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glossary-def {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.glossary-def ul {
+  margin: 0.5rem 0 0 1.2rem;
+  padding: 0;
+}
+
+.glossary-def li {
+  margin-bottom: 0.25rem;
+}
+
+.glossary-note {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* ========================================
    Glossary inline links
    ======================================== */
 .glossary-link {
-  border-bottom: 1px dotted var(--color-primary);
+  border-bottom: 1px dotted var(--color-text-muted);
   text-decoration: none;
   color: inherit;
 }
 .glossary-link:hover {
-  border-bottom-style: solid;
-  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  text-decoration: none;
 }
 
 /* ========================================
-   Link Card (OGP preview)
+   Link Card (OGP preview) — 本の紹介枠
    ======================================== */
 .link-card {
   display: flex;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+  gap: 1.25rem;
+  padding: 1.25rem;
   margin: 1.5rem 0;
-  transition: box-shadow 0.2s, transform 0.2s;
   color: var(--color-text);
-  background: var(--color-surface);
+  background: var(--color-tint);
   text-decoration: none !important;
 }
 
-.link-card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+.link-card:hover .link-card-title {
+  color: var(--color-accent);
 }
 
 .link-card-thumb {
-  width: 160px;
+  width: 96px;
   flex-shrink: 0;
   overflow: hidden;
-  background: var(--color-hover);
+  align-self: flex-start;
 }
 
 .link-card-thumb img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
 .link-card-body {
-  padding: 1rem 1.25rem;
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
   justify-content: center;
 }
 
-.link-card-title {
-  font-size: 0.95rem;
-  font-weight: bold;
-  color: var(--color-primary);
-  line-height: 1.45;
+.link-card-body p,
+.article-body .link-card-body p {
   margin: 0;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+}
+
+.link-card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.55;
+  margin: 0;
+  transition: color 0.15s;
 }
 
 .link-card-desc {
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   color: var(--color-text-muted);
-  line-height: 1.55;
+  line-height: 1.75;
   margin: 0;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 
 .link-card-host {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-accent);
   margin: 0;
 }
 
+.link-card-host::after {
+  content: " \2192";
+}
+
 @media (max-width: 480px) {
-  .link-card {
-    flex-direction: column;
-  }
   .link-card-thumb {
-    width: 100%;
-    height: 140px;
+    width: 72px;
   }
+}
+
+/* ガイド・囲いページ末尾の本の紹介 */
+.book-promo {
+  max-width: var(--read-width);
+  margin: 3.5rem auto 0;
+}
+
+.book-promo-lead {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
 }
 
 .btn-ghost {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem 0;
   font-size: 0.88rem;
   color: var(--color-text-muted);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
 }
 
 .btn-ghost:hover {
   color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -1390,37 +2116,31 @@ main {
 
 .copy-email-btn {
   margin-left: 0.45rem;
-  padding: 0.15rem 0.5rem;
+  padding: 0.1rem 0.5rem;
   border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
+  background: transparent;
   color: var(--color-text-muted);
+  font-family: inherit;
   font-size: 0.75rem;
   line-height: 1.4;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
 .copy-email-btn:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
-  background: var(--color-hover);
 }
 
 .btn-nav {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  padding: 0.85rem 1.25rem;
-  border: 2px solid var(--color-accent);
-  border-radius: var(--radius);
+  gap: 0.25rem;
+  padding: 1rem 0;
   text-decoration: none;
-  transition: all 0.2s;
-  max-width: 300px;
+  flex: 1 1 240px;
 }
 
 .btn-nav:hover {
-  background: var(--color-hover);
   text-decoration: none;
 }
 
@@ -1432,19 +2152,21 @@ main {
 
 .btn-nav-title {
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: color 0.15s;
+}
+
+.btn-nav:hover .btn-nav-title {
   color: var(--color-accent);
-  line-height: 1.5;
 }
 
 .article-body blockquote {
-  background: var(--color-hover);
-  border-left: 4px solid var(--color-gold);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 1rem 1.25rem;
-  margin: 1.5rem 0;
-  font-size: 0.93rem;
-  color: var(--color-text-muted);
+  border-left: 3px solid var(--color-accent);
+  padding: 0.2rem 0 0.2rem 1.25rem;
+  margin: 2rem 0;
+  color: var(--color-text);
 }
 
 .article-body blockquote p {
@@ -1453,69 +2175,75 @@ main {
 
 .article-body a {
   color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.article-body a.glossary-link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .article-body code {
-  background: var(--color-hover);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
+  background: var(--color-tint);
   padding: 0.1em 0.4em;
   font-size: 0.88em;
 }
 
 .article-body .note {
-  background: var(--color-hover);
-  border-left: 4px solid var(--color-gold);
-  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--color-tint);
   padding: 1rem 1.25rem;
-  margin: 1.5rem 0;
-  font-size: 0.93rem;
-  color: var(--color-text-muted);
+  margin: 1.75rem 0;
+  font-size: 0.95rem;
 }
 
 .article-footer {
-  margin-top: 3rem;
-  padding-top: 2rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--color-border);
   display: flex;
-  gap: 1rem;
+  gap: 0 2rem;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 }
 
+.article-footer .btn-ghost {
+  flex-basis: 100%;
+}
 
 /* ========================================
    Back to Top Button
    ======================================== */
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 44px;
-  height: 44px;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: var(--color-primary);
-  color: #fff;
-  border: none;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s, visibility 0.25s, transform 0.2s;
-  box-shadow: var(--shadow-hover);
+  transition: opacity 0.25s, visibility 0.25s;
   z-index: 100;
 }
 
 .back-to-top.is-visible {
-  opacity: 0.85;
+  opacity: 0.9;
   visibility: visible;
 }
 
 .back-to-top:hover {
   opacity: 1;
-  transform: translateY(-2px);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 /* ========================================
@@ -1537,26 +2265,56 @@ main {
   }
 
   .book-cover-wrap {
-    max-width: 190px;
-    margin: 0 auto;
+    max-width: 170px;
   }
 
-  .author-box {
+  .site-header {
+    position: static;
+  }
+
+  .books-nav {
+    top: 0;
+  }
+
+  .site-header .container {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    gap: 0.3rem;
   }
 
   .site-nav {
-    gap: 0.9rem;
+    gap: 0.4rem 1rem;
+    flex-wrap: wrap;
   }
 
   .hero {
-    padding: 2.75rem 0;
+    padding: 2.75rem 0 2.25rem;
+  }
+
+  .hero-shelf {
+    padding: 2.75rem 0 2.5rem;
+  }
+
+  .shelf-text {
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-shelf {
+    --label-h: 1.1rem;
+    --label-gap: 1.1rem;
+    --plank-h: 10px;
+  }
+
+  .shelf-label {
+    font-size: 0.68rem;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
   .books-grid {
     grid-template-columns: 1fr;
   }
@@ -1575,6 +2333,10 @@ main {
 
   .book-page-section {
     padding: 2.5rem 0;
+  }
+
+  .article-body {
+    font-size: 1rem;
   }
 
   .lang-btn {

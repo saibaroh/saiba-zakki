@@ -6,6 +6,9 @@
   <title>STEP 1：駒の価値を知る | 入門ガイド | さいばの将棋ポータル</title>
   <meta name="description" content="将棋の駒ごとの価値と「駒得・駒損」の考え方。龍・馬・と金といった成り駒が最強クラスの攻め駒になる理由を解説します。">
   <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
   <link rel="stylesheet" href="../../../css/style.css">
   <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/guide/1/">
   <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/guide/1/">
@@ -27,34 +30,6 @@
     gtag('js', new Date());
     gtag('config', 'G-3QWHMZKB7V');
   </script>
-  <style>
-    .guide-body { max-width: 720px; margin: 0 auto; }
-    .guide-body h2 { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--color-border); }
-    .guide-body h3 { font-size: 1.05rem; font-weight: 700; margin: 1.8rem 0 0.6rem; }
-    .guide-body p { line-height: 1.85; margin-bottom: 1rem; }
-    .guide-body ul { margin: 0.5rem 0 1rem 1.4rem; line-height: 1.85; }
-    .guide-body li { margin-bottom: 0.4rem; }
-    .guide-value-table { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; margin: 1rem 0; font-size: 1rem; font-weight: 700; }
-    .guide-value-table .piece { padding: 0.3rem 0.7rem; background: var(--color-hover); border: 1px solid var(--color-border); border-radius: 4px; }
-    .guide-value-table .arrow { color: var(--color-text-muted); font-size: 1.1rem; }
-    /* Step indicator */
-    .step-indicator { display: flex; align-items: center; justify-content: center; max-width: 480px; margin: 0 auto 0; }
-    .step-dot { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; text-decoration: none; color: var(--color-text-muted); }
-    .step-dot-circle { width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--color-text-muted); transition: background 0.15s, border-color 0.15s; }
-    .step-dot.is-current .step-dot-circle { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
-    .step-dot.is-current .step-dot-label { color: var(--color-text); font-weight: 700; }
-    .step-dot.is-done .step-dot-circle { border-color: var(--color-accent); color: var(--color-accent); }
-    .step-dot:hover:not(.is-current) .step-dot-circle { border-color: var(--color-accent); }
-    .step-dot-label { font-size: 0.7rem; white-space: nowrap; }
-    .step-line { flex: 1; max-width: 80px; height: 2px; background: var(--color-border); margin: 0 0.4rem 1.4rem; }
-    /* Course nav */
-    .course-nav { display: flex; justify-content: space-between; gap: 1rem; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--color-border); max-width: 720px; }
-    .course-nav-btn { display: flex; flex-direction: column; padding: 0.9rem 1.2rem; border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; color: var(--color-text); flex: 1; max-width: 260px; transition: background 0.15s, border-color 0.15s; }
-    .course-nav-btn:hover { background: var(--color-hover); border-color: var(--color-accent); color: var(--color-text); text-decoration: none; }
-    .course-nav-btn.is-next { text-align: right; margin-left: auto; }
-    .course-nav-label { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.2rem; }
-    .course-nav-title { font-weight: 700; font-size: 0.88rem; line-height: 1.4; }
-  </style>
 </head>
 <body>
   <!-- INJECT:header:ja:/en/guide/1/ -->
@@ -138,6 +113,18 @@
           <p>逆に言えば、<strong>相手に成り駒を作られることは極力防ぐ</strong>必要があります。特に大駒を相手の陣地に成り込まれてしまうと、それだけで形勢が大きく傾いてしまいます。駒の交換や攻めの応対では、「相手に成り駒を作らせないか」という視点も忘れずに持っておきましょう。</p>
 
         </div>
+
+        <aside class="book-promo">
+          <p class="book-promo-lead">このガイドの内容は、拙著『脱初心者！将棋の考え方』でさらに詳しく解説しています。</p>
+          <a href="https://amzn.asia/d/9PwVFBo" class="link-card" target="_blank" rel="noopener">
+            <div class="link-card-thumb"><img src="/images/ja-book1.webp" alt="脱初心者！将棋の考え方 ―読むだけで１級分上達する思考とコツ―" loading="lazy"></div>
+            <div class="link-card-body">
+              <p class="link-card-title">脱初心者！将棋の考え方 ―読むだけで１級分上達する思考とコツ―</p>
+              <p class="link-card-desc">Kindle Unlimited 読み放題対象。将棋の「考え方」を教わったことがない方に向けた、即効性のある上達ガイド。</p>
+              <p class="link-card-host">Amazonで見る</p>
+            </div>
+          </a>
+        </aside>
 
         <div class="course-nav">
           <span></span>

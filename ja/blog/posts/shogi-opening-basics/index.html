@@ -6,6 +6,9 @@
   <title>将棋はなぜ囲いを作る手から始めるのか？ | ブログ | さいばの将棋ポータル</title>
   <meta name="description" content="序盤でいきなり攻めに全振りしてはいけないのはなぜか？実はちゃんとした理由があります。「序盤は将来への投資」という考え方を軸に、囲いを優先すべき理由をわかりやすく解説します。">
   <link rel="icon" href="../../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
   <link rel="stylesheet" href="../../../../css/style.css">
   <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/blog/posts/shogi-opening-basics/">
   <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/blog/posts/shogi-opening-basics/">
@@ -16,8 +19,8 @@
   <meta property="og:title" content="将棋はなぜ囲いを作る手から始めるのか？">
   <meta property="og:description" content="序盤でいきなり攻めに全振りしてはいけないのはなぜか？実はちゃんとした理由があります。「序盤は将来への投資」という考え方を軸に、囲いを優先すべき理由をわかりやすく解説します。">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/blog/posts/shogi-opening-basics/">
-  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/og/ja-shogi-opening-basics.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="将棋はなぜ囲いを作る手から始めるのか？">
   <meta name="twitter:description" content="序盤でいきなり攻めに全振りしてはいけないのはなぜか？実はちゃんとした理由があります。「序盤は将来への投資」という考え方を軸に、囲いを優先すべき理由をわかりやすく解説します。">
   <script type="application/ld+json">
@@ -82,17 +85,30 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../../../../" class="site-logo">さいばの将棋ポータル</a>
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="../../../">本の紹介</a>
-        <a href="../../">ブログ</a>
-        <a href="../../../guide/">入門ガイド</a>
-        <a href="../../../castles/">囲い</a>
-        <a href="../../../glossary/">用語集</a>
-        <a href="../../../../en/blog/posts/shogi-opening-basics/" class="lang-switch">EN</a>
+        <a href="/ja/">本の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門ガイド</a>
+        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/en/blog/posts/shogi-opening-basics/" class="lang-switch">EN</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
 
   <main>
     <div class="container">
@@ -142,7 +158,7 @@
 <li><strong>相手の準備を妨害する</strong>：相手の陣形作りが中途半端なタイミングで戦いを仕掛けるのが効果的です。中途半端な陣形のまま戦いが始まった相手は、中盤以降に苦労することになるでしょう</li>
 </ul>
 <h3>まとめ</h3>
-<p>序盤では将来のために、**「中盤以降に強く戦うための陣形を作ること」**がメインになります。攻めを焦らず、万全の準備を整えてから戦いを仕掛けることが基本です。</p>
+<p>序盤では将来のために、「<strong>中盤以降に強く戦うための陣形を作ること</strong>」がメインになります。攻めを焦らず、万全の準備を整えてから戦いを仕掛けることが基本です。</p>
 <hr>
 <p>【お知らせ】</p>
 <p>本記事は、拙著『脱初心者！将棋の考え方』から内容を抜粋・再編集したものです。
@@ -150,7 +166,7 @@
 <p>面白い・参考になったと思っていただけた方は、ぜひ書籍もお手に取りください</p>
 <p>📚 Kindle Unlimited会員の方は無料でお読み頂けます！</p>
 <a href="https://amzn.asia/d/9PwVFBo" target="_blank" rel="noopener noreferrer" class="link-card">
-  <div class="link-card-thumb"><img src="/images/ja-book1.jpg" alt="脱初心者！将棋の考え方 ―読むだけで１級分上達する思考とコツ―" loading="lazy"></div>
+  <div class="link-card-thumb"><img src="/images/ja-book1.webp" alt="脱初心者！将棋の考え方 ―読むだけで１級分上達する思考とコツ―" loading="lazy"></div>
   <div class="link-card-body">
     <p class="link-card-title">脱初心者！将棋の考え方 ―読むだけで１級分上達する思考とコツ―</p>
     <p class="link-card-desc">Kindle Unlimited 読み放題対象。将棋の「考え方」を教わったことがない方に向けた、即効性のある上達ガイド。</p>

@@ -6,6 +6,9 @@
   <title>ブログ | さいばの将棋ポータル</title>
   <meta name="description" content="さいばによる将棋コラム・上達のヒントなどをお届けするブログです。">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/blog/">
   <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/blog/">
@@ -75,17 +78,30 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../../" class="site-logo">さいばの将棋ポータル</a>
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
       <nav class="site-nav">
-        <a href="../">本の紹介</a>
-        <a href="./">ブログ</a>
-        <a href="../guide/">入門ガイド</a>
-        <a href="../castles/">囲い</a>
-        <a href="../glossary/">用語集</a>
-        <a href="../../en/blog/" class="lang-switch">EN</a>
+        <a href="/ja/">本の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門ガイド</a>
+        <a href="/ja/castles/">囲い</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/en/blog/" class="lang-switch">EN</a>
       </nav>
     </div>
   </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
 
   <main>
     <section class="hero" style="padding: 3.5rem 0;">
