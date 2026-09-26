@@ -45,7 +45,7 @@ const CFG = {
     otherLang:      'ja',
     otherLangLabel: 'JA',
     authorBio:
-      'Amateur 3-dan Shogi player, IT engineer in Japan. Author of beginner-focused Shogi Kindle books in Japanese and English. → ' +
+      'Amateur 4-dan Shogi player, IT engineer in Japan. Author of beginner-focused Shogi Kindle books in Japanese and English. → ' +
       '<a href="../../../" class="books-link">See published books</a><br>\n' +
       '              Mail:\n' +
       '              <span class="obfuscated-email">saiba.contact.books [at] gmail [dot] com</span>\n' +
@@ -79,7 +79,7 @@ const CFG = {
     otherLang:      'en',
     otherLangLabel: 'EN',
     authorBio:
-      '将棋ウォーズを中心に将棋を楽しむアマチュア三段。初心者～級位者向けの将棋Kindle本の執筆活動を行っている。→ ' +
+      '将棋ウォーズを中心に将棋を楽しむアマチュア四段。初心者～級位者向けの将棋Kindle本の執筆活動を行っている。→ ' +
       '<a href="../../../" class="books-link">執筆した本はこちら</a><br>\n' +
       '              Note: <a href="https://note.com/saibaba81" target="_blank" rel="noopener">https://note.com/saibaba81</a>',
     xShareSuffix:     '| さいばの将棋ポータル',
