@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>無料の将棋ツール | さいばの将棋ポータル</title>
+  <title>将棋の局面図・感想戦記事を作る | さいばの将棋ポータル</title>
   <meta name="description" content="棋譜から振り返り記事を作る「将棋感想戦ノート」と、駒を自由に配置して画像を作る「将棋局面図メーカー」。ブラウザで使える無料ツールを紹介します。">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,12 @@
   <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/tools/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="さいばの将棋ポータル">
-  <meta property="og:title" content="無料の将棋ツール | さいばの将棋ポータル">
+  <meta property="og:title" content="将棋の局面図・感想戦記事を作る | さいばの将棋ポータル">
   <meta property="og:description" content="棋譜から振り返り記事を作る「将棋感想戦ノート」と、駒を自由に配置して画像を作る「将棋局面図メーカー」。ブラウザで使える無料ツールを紹介します。">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/tools/">
   <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="無料の将棋ツール | さいばの将棋ポータル">
+  <meta name="twitter:title" content="将棋の局面図・感想戦記事を作る | さいばの将棋ポータル">
   <meta name="twitter:description" content="棋譜から振り返り記事を作る「将棋感想戦ノート」と、駒を自由に配置して画像を作る「将棋局面図メーカー」。ブラウザで使える無料ツールを紹介します。">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
@@ -42,7 +42,7 @@
         <a href="/ja/guide/">入門者向け解説</a>
         <a href="/ja/castles/">基本の囲いの紹介</a>
         <a href="/ja/glossary/">用語集</a>
-        <a href="/ja/tools/">無料ツール</a>
+        <a href="/ja/tools/">局面図・記事作成</a>
         <a href="/en/tools/" class="lang-switch">EN</a>
       </nav>
     </div>
@@ -64,33 +64,48 @@
   <main>
     <section class="hero tools-hero">
       <div class="container">
-        <h1 class="hero-title">無料の将棋ツール</h1>
-        <p class="hero-subtitle">棋譜を振り返って記事にする。伝えたい局面を、1枚の画像にする。</p>
+        <h1 class="hero-title">将棋ツール</h1>
+        <p class="hero-subtitle">局面図を作る。図入りの感想戦記事を作る。</p>
+        <p class="tools-availability">無料・ログイン不要で使えます。</p>
       </div>
     </section>
     <section class="section tools-section" aria-label="ツール一覧">
       <div class="container">
-        <p class="tools-intro">目的に合わせて、2つのツールを使い分けられます。どちらも無料・ログイン不要で、ブラウザからすぐに使えます。</p>
-        <article class="tool-card" aria-labelledby="notes-title">
-          <img class="tool-screenshot" src="/images/tools/notes-ja.webp" alt="指し手の一覧、将棋盤、コメント欄が並ぶ感想戦ノートの画面" width="1440" height="1000" fetchpriority="high" decoding="async">
-          <div class="tool-details">
-            <p class="tool-purpose">棋譜から振り返り記事を作る</p>
-            <h2 id="notes-title">将棋感想戦ノート</h2>
-            <p>将棋ウォーズなどの棋譜を読み込み、局面ごとにコメントを書いて、局面図付きの振り返り記事にまとめられます。</p>
-            <ul><li>対局の反省や気づきを、棋譜と一緒に残したいときに。</li><li>noteに貼る本文と局面図の画像を書き出せます。</li></ul>
-            <a class="tool-launch" href="https://kansosen.saiba-zakki.com/">感想戦ノートを開く <span aria-hidden="true">↗</span></a>
+        <section class="tool-example" aria-labelledby="example-title">
+          <div class="tool-example-copy">
+            <h2 id="example-title">こんな局面図が作れます</h2>
+            <p>ブログやSNSに使える局面図を、画像として保存できます。</p>
+            <p>棋譜から図付きの記事を作るなら<a href="#notes-title">感想戦ノート</a>。駒を自由に配置して作りたい方は<a href="#diagram-title">局面図メーカー</a>へ。</p>
           </div>
-        </article>
-        <article class="tool-card" aria-labelledby="diagram-title">
-          <img class="tool-screenshot" src="/images/tools/diagram-ja.webp" alt="駒の配置パレットと将棋盤が並ぶ局面図メーカーの画面" width="1440" height="1000" loading="lazy" decoding="async">
-          <div class="tool-details">
-            <p class="tool-purpose">局面図を1枚作る</p>
-            <h2 id="diagram-title">将棋局面図メーカー</h2>
-            <p>駒を自由に配置したり、SFENを読み込んだりして、ブログやSNSに使える局面図を作れます。</p>
-            <ul><li>手筋の紹介や、詰将棋・囲いの図を作りたいときに。</li><li>作った局面はPNG画像とSFENでコピー・保存できます。</li></ul>
-            <a class="tool-launch" href="https://kansosen.saiba-zakki.com/diagram/">局面図メーカーを開く <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
+          <figure>
+            <a class="tool-example-image" href="/images/tools/sample-ja.png" aria-label="局面図の完成例を原寸のPNGで開く">
+              <img src="/images/tools/sample-ja.png" alt="本譜105手目、先手の6四香打を黄色で強調した局面図。手番と持ち駒も表示。" width="1968" height="1620" fetchpriority="high" decoding="async">
+            </a>
+            <figcaption>感想戦ノートで書き出した局面図の例<br><a href="/images/tools/sample-ja.png">原寸のPNGを見る →</a></figcaption>
+          </figure>
+        </section>
+        <div class="tools-grid">
+          <article class="tool-card" aria-labelledby="diagram-title">
+            <img class="tool-screenshot" src="/images/tools/diagram-ja.webp" alt="駒の配置パレットと将棋盤が並ぶ局面図メーカーの画面" width="1440" height="1000" loading="lazy" decoding="async">
+            <div class="tool-details">
+              <h2 id="diagram-title">局面図を作る</h2>
+              <p class="tool-purpose">将棋局面図メーカー</p>
+              <p>駒を自由に配置して、局面図を画像として保存。ブログやSNSに使えます。</p>
+              <ul><li>手筋の紹介や、詰将棋・囲いの図に。SFENの読み込みにも対応。</li><li>作った局面はPNG画像とSFENでコピー・保存できます。</li></ul>
+              <a class="tool-launch" href="https://kansosen.saiba-zakki.com/diagram/">局面図メーカーを開く <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="tool-card" aria-labelledby="notes-title">
+            <img class="tool-screenshot" src="/images/tools/notes-ja.webp" alt="指し手の一覧、将棋盤、コメント欄が並ぶ感想戦ノートの画面" width="1440" height="1000" loading="lazy" decoding="async">
+            <div class="tool-details">
+              <h2 id="notes-title">感想戦の記事を作る</h2>
+              <p class="tool-purpose">将棋感想戦ノート</p>
+              <p>棋譜にコメントを付けて、図入りの感想戦記事を作成。本文と局面図を書き出せます。</p>
+              <ul><li>将棋ウォーズなどの棋譜に、反省や気づきを残せます。</li><li>noteに貼る本文と局面図の画像を書き出せます。</li></ul>
+              <a class="tool-launch" href="https://kansosen.saiba-zakki.com/">感想戦ノートを開く <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
         <p class="tools-note">局面図メーカーは、感想戦ノートの局面図作成機能から生まれた姉妹ツールです。局面図だけを作りたいときは、直接メーカーを開いて使えます。</p>
       </div>
     </section>

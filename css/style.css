@@ -2419,26 +2419,107 @@ main {
 
 /* Free tools directory */
 .tools-hero {
-  padding: 3.5rem 0 2.5rem;
+  padding: 2.5rem 0 2rem;
 }
 
 .tools-section {
   padding-top: 2rem;
 }
 
-.tools-intro {
-  max-width: 48rem;
-  margin-bottom: 2.5rem;
+.tools-availability {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
-.tool-card {
+.tool-example {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
-  gap: 2.5rem;
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--color-border);
+  gap: 3rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tool-example h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  margin-bottom: 1rem;
+}
+
+.tool-example-copy p + p {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.tool-example-copy a,
+.tool-example figcaption a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tool-example figure {
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 380px;
+  justify-self: center;
+}
+
+.tool-example-image {
+  display: block;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.tool-example-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tool-example-image:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.tool-example figcaption {
+  margin-top: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.tool-details h2 {
+  scroll-margin-top: 6rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 1.5rem;
+}
+
+.tool-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.tool-details .tool-launch {
+  margin-top: auto;
 }
 
 .tool-screenshot {
@@ -2502,9 +2583,14 @@ main {
 }
 
 @media (max-width: 768px) {
-  .tool-card {
+  .tool-example,
+  .tools-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
-    padding: 2rem 0;
+  }
+
+  .tool-card + .tool-card {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
   }
 }
