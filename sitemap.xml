@@ -26,6 +26,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://shogi.saiba-zakki.com/en/tools/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shogi.saiba-zakki.com/ja/tools/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://shogi.saiba-zakki.com/en/blog/posts/why-castle-first/</loc>
     <lastmod>2026-04-05</lastmod>
     <changefreq>never</changefreq>

@@ -17,7 +17,7 @@ const fs   = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 const { linkGlossaryTerms } = require('./lib/glossary-links');
-const { renderHeader, FONT_LINKS } = require('./lib/templates');
+const { renderHeader, renderSupportLink, FONT_LINKS } = require('./lib/templates');
 
 const BASE_URL = 'https://shogi.saiba-zakki.com';
 const GA_ID    = 'G-3QWHMZKB7V';
@@ -294,7 +294,7 @@ ${contentHtml}
   <footer class="site-footer">
     <div class="container">
       <p class="affiliate-notice">${cfg.affiliateNotice}</p>
-      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../../">${cfg.footerBack}</a></p>
+${renderSupportLink(lang)}      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../../">${cfg.footerBack}</a></p>
     </div>
   </footer>
 
@@ -454,7 +454,7 @@ ${cardHtml}
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../">${cfg.footerBack}</a></p>
+${renderSupportLink(lang)}      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../">${cfg.footerBack}</a></p>
     </div>
   </footer>
 

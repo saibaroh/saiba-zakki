@@ -44,6 +44,7 @@ const INJECT_FILES = [
   ['en/castles/2/index.html','en', false],
   ['en/castles/3/index.html','en', false],
   ['en/glossary/index.html', 'en', false],
+  ['en/tools/index.html',    'en', false],
   ['ja/index.html',          'ja', true],
   ['ja/guide/index.html',    'ja', false],
   ['ja/guide/1/index.html',  'ja', false],
@@ -54,6 +55,7 @@ const INJECT_FILES = [
   ['ja/castles/2/index.html','ja', false],
   ['ja/castles/3/index.html','ja', false],
   ['ja/glossary/index.html', 'ja', false],
+  ['ja/tools/index.html',    'ja', false],
 ];
 
 // ---------------------------------------------------------------------------

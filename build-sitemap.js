@@ -20,6 +20,8 @@ const STATIC_PAGES = [
   ['/ja/',       '0.9', 'monthly'],
   ['/en/blog/',  '0.8', 'weekly'],
   ['/ja/blog/',  '0.8', 'weekly'],
+  ['/en/tools/', '0.8', 'monthly'],
+  ['/ja/tools/', '0.8', 'monthly'],
 ];
 
 function readPosts(lang) {
