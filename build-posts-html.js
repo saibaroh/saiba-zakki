@@ -17,7 +17,7 @@ const fs   = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 const { linkGlossaryTerms } = require('./lib/glossary-links');
-const { renderHeader, renderSupportLink, FONT_LINKS } = require('./lib/templates');
+const { renderHeader, renderSupportLink, FONT_LINKS, TOOL_CLICK_SCRIPT } = require('./lib/templates');
 
 const BASE_URL = 'https://shogi.saiba-zakki.com';
 const GA_ID    = 'G-3QWHMZKB7V';
@@ -115,11 +115,15 @@ function unescHtml(str) {
     .replace(/&apos;/g, "'");
 }
 
+// Link-card footer label for Amazon links (other links show the hostname).
+const AMAZON_LABEL = { ja: 'Amazonで見る', en: 'View on Amazon' };
+const AMAZON_HOST  = /(^|\.)(amazon\.[a-z.]+|amzn\.(to|asia|eu)|a\.co)$/;
+
 /**
  * Replace <pre><code class="language-linkcard">…</code></pre> blocks
  * with rendered link-card HTML, matching the browser's processLinkCards().
  */
-function processLinkCards(html) {
+function processLinkCards(html, lang) {
   return html.replace(
     /<pre><code class="language-linkcard">([\s\S]*?)<\/code><\/pre>/g,
     (_, raw) => {
@@ -133,6 +137,7 @@ function processLinkCards(html) {
 
       let hostname;
       try { hostname = new URL(data.url).hostname; } catch (_) { hostname = data.url; }
+      const footer = AMAZON_HOST.test(hostname) ? AMAZON_LABEL[lang] : hostname;
 
       const thumbHtml = data.image
         ? `<div class="link-card-thumb"><img src="${esc(data.image)}" alt="${esc(data.title || '')}" loading="lazy"></div>`
@@ -142,7 +147,7 @@ function processLinkCards(html) {
   <div class="link-card-body">
     <p class="link-card-title">${esc(data.title || data.url)}</p>
     ${data.desc ? `<p class="link-card-desc">${esc(data.desc)}</p>` : ''}
-    <p class="link-card-host">${esc(hostname)}</p>
+    <p class="link-card-host">${esc(footer)}</p>
   </div>
 </a>`;
     }
@@ -334,7 +339,8 @@ ${renderSupportLink(lang)}      <p>&copy; <span id="copy-year"></span> shogi.sai
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  </script>${hasBoard ? `
+  </script>
+${TOOL_CLICK_SCRIPT}${hasBoard ? `
   <script src="../../../../js/shogi-player.js"></script>` : ''}
 </body>
 </html>
@@ -529,7 +535,7 @@ function buildForLang(lang, allPosts) {
     const mdContent = fs.readFileSync(mdFile, 'utf8');
     const mdBody    = mdContent.replace(/^---[\s\S]*?---\n?/, '');
     let contentHtml = marked.parse(mdBody);
-    contentHtml     = processLinkCards(contentHtml);
+    contentHtml     = processLinkCards(contentHtml, lang);
     const boards    = processBoards(contentHtml);
     contentHtml     = boards.html;
     contentHtml     = linkGlossaryTerms(contentHtml, lang);

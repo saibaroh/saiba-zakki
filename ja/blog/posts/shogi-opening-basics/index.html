@@ -92,7 +92,7 @@
         <a href="/ja/guide/">入門者向け解説</a>
         <a href="/ja/castles/">基本の囲いの紹介</a>
         <a href="/ja/glossary/">用語集</a>
-        <a href="/ja/tools/">局面図・記事作成</a>
+        <a href="/ja/tools/">無料ツール</a>
         <a href="/en/blog/posts/shogi-opening-basics/" class="lang-switch">EN</a>
       </nav>
     </div>
@@ -171,7 +171,7 @@
   <div class="link-card-body">
     <p class="link-card-title">脱初心者！将棋の考え方 ―読むだけで１級分上達する思考とコツ―</p>
     <p class="link-card-desc">Kindle Unlimited 読み放題対象。将棋の「考え方」を教わったことがない方に向けた、即効性のある上達ガイド。</p>
-    <p class="link-card-host">amzn.asia</p>
+    <p class="link-card-host">Amazonで見る</p>
   </div>
 </a>
 
@@ -263,6 +263,19 @@
     }, { passive: true });
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
     });
   </script>
 </body>

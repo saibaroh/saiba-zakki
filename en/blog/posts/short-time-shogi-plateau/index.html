@@ -91,7 +91,7 @@
         <a href="/en/guide/">Beginner's Guide</a>
         <a href="/en/castles/">Essential Castles</a>
         <a href="/en/glossary/">Glossary</a>
-        <a href="/en/tools/">Diagrams & Articles</a>
+        <a href="/en/tools/">Free Tools</a>
         <a href="/ja/blog/" class="lang-switch">JA</a>
       </nav>
     </div>
@@ -176,6 +176,15 @@ That habit cuts out one of the strongest training methods: post-game analysis.</
 <li>Repeating habits in your own thinking, such as over-attacking or over-defending</li>
 </ul>
 <p>This is where you convert one game into lasting skill.</p>
+<p>It also helps to write down what you learned so you can look back on it later. I made a free tool, Shogi Review Notes, for exactly this: paste a game record, leave comments on key positions, and turn it into a review article with board diagrams.</p>
+<a href="https://kansosen.saiba-zakki.com/en/" target="_blank" rel="noopener noreferrer" class="link-card">
+  <div class="link-card-thumb"><img src="/images/tools/sample-en.webp" alt="Shogi Review Notes" loading="lazy"></div>
+  <div class="link-card-body">
+    <p class="link-card-title">Shogi Review Notes</p>
+    <p class="link-card-desc">A free tool for writing illustrated game reviews. No sign-up, and your games and comments are never uploaded.</p>
+    <p class="link-card-host">kansosen.saiba-zakki.com</p>
+  </div>
+</a>
 <h2>Practical Time-Control Suggestion</h2>
 <p>For improvement-focused sessions, prioritize 10-minute games or longer.
 Use short-time games as a separate mode for fun, warm-up, or quick play.</p>
@@ -283,6 +292,19 @@ Use short-time games as a separate mode for fun, warm-up, or quick play.</p>
     }, { passive: true });
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
     });
   </script>
 </body>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Shogi Diagrams & Review Articles | Saiba's Shogi Portal</title>
-  <meta name="description" content="Create illustrated game reviews with Shogi Review Notes, or arrange pieces and export board images with Shogi Diagram Maker. Two free tools for your browser.">
+  <title>Free Tools: Shogi Diagrams & Game Reviews | Saiba's Shogi Portal</title>
+  <meta name="description" content="Shogi Review Notes turns your games into illustrated review articles, and Shogi Diagram Maker creates board images. Free tools that run in your browser.">
   <link rel="icon" href="../../images/profile.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +15,69 @@
   <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/tools/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Saiba's Shogi Portal">
-  <meta property="og:title" content="Create Shogi Diagrams & Review Articles | Saiba's Shogi Portal">
-  <meta property="og:description" content="Create illustrated game reviews with Shogi Review Notes, or arrange pieces and export board images with Shogi Diagram Maker. Two free tools for your browser.">
+  <meta property="og:title" content="Free Tools: Shogi Diagrams & Game Reviews | Saiba's Shogi Portal">
+  <meta property="og:description" content="Shogi Review Notes turns your games into illustrated review articles, and Shogi Diagram Maker creates board images. Free tools that run in your browser.">
   <meta property="og:url" content="https://shogi.saiba-zakki.com/en/tools/">
-  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Create Shogi Diagrams & Review Articles | Saiba's Shogi Portal">
-  <meta name="twitter:description" content="Create illustrated game reviews with Shogi Review Notes, or arrange pieces and export board images with Shogi Diagram Maker. Two free tools for your browser.">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/og/tools-en.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Tools: Shogi Diagrams & Game Reviews | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="Shogi Review Notes turns your games into illustrated review articles, and Shogi Diagram Maker creates board images. Free tools that run in your browser.">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "WebApplication",
+        "name": "Shogi Review Notes",
+        "url": "https://kansosen.saiba-zakki.com/en/",
+        "description": "Annotate shogi games and variations and export review articles with board diagrams, all in your browser.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web browser",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Saiba",
+          "url": "https://shogi.saiba-zakki.com/"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "WebApplication",
+        "name": "Shogi Diagram Maker",
+        "url": "https://kansosen.saiba-zakki.com/en/diagram/",
+        "description": "Create shogi board diagrams from SFEN or by placing pieces freely, and save them as PNG images.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web browser",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Saiba",
+          "url": "https://shogi.saiba-zakki.com/"
+        }
+      }
+    }
+  ]
+}
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
   <script>
@@ -42,7 +98,7 @@
         <a href="/en/guide/">Beginner's Guide</a>
         <a href="/en/castles/">Essential Castles</a>
         <a href="/en/glossary/">Glossary</a>
-        <a href="/en/tools/">Diagrams & Articles</a>
+        <a href="/en/tools/">Free Tools</a>
         <a href="/ja/tools/" class="lang-switch">JA</a>
       </nav>
     </div>
@@ -62,51 +118,59 @@
   </script>
 <!-- /INJECT:header -->
   <main>
-    <section class="hero tools-hero">
+    <section class="hero">
       <div class="container">
-        <h1 class="hero-title">Shogi Tools</h1>
-        <p class="hero-subtitle">Create board diagrams and illustrated game reviews.</p>
-        <p class="tools-availability">Free to use. No login required.</p>
+        <h1 class="hero-title">Free Tools</h1>
+        <p class="hero-subtitle">Create shogi board diagrams and illustrated game reviews in your browser.<br>Free, no sign-up required.</p>
       </div>
     </section>
-    <section class="section tools-section" aria-label="Available tools">
+
+    <section class="section">
       <div class="container">
-        <section class="tool-example" aria-labelledby="example-title">
-          <div class="tool-example-copy">
-            <h2 id="example-title">Create diagrams like this</h2>
-            <p>Save board diagrams as images for your blog or social posts.</p>
-            <p>Use <a href="#notes-title">Review Notes</a> to turn a game into an illustrated article, or <a href="#diagram-title">Diagram Maker</a> to arrange pieces freely.</p>
-          </div>
-          <figure>
-            <a class="tool-example-image" href="/images/tools/sample-en.png" aria-label="Open the sample diagram as a full-size PNG">
-              <img src="/images/tools/sample-en.png" alt="A diagram after move 105, with Black’s lance drop to 6-4 highlighted in yellow, the side to move, and pieces in hand." width="1968" height="1620" fetchpriority="high" decoding="async">
+        <div class="tool-list">
+          <article class="tool-row" aria-labelledby="notes-title">
+            <a class="tool-shot" href="https://kansosen.saiba-zakki.com/en/" tabindex="-1" aria-hidden="true">
+              <img src="/images/tools/notes-en.webp" alt="" width="1440" height="1000" loading="lazy" decoding="async">
             </a>
-            <figcaption>A diagram exported from Shogi Review Notes<br><a href="/images/tools/sample-en.png">View full-size PNG →</a></figcaption>
-          </figure>
-        </section>
-        <div class="tools-grid">
-          <article class="tool-card" aria-labelledby="diagram-title">
-            <img class="tool-screenshot" src="/images/tools/diagram-en.webp" alt="Shogi Diagram Maker with a piece palette and an editable board" width="1440" height="1000" loading="lazy" decoding="async">
-            <div class="tool-details">
-              <h2 id="diagram-title">Create a board diagram</h2>
-              <p class="tool-purpose">Shogi Diagram Maker</p>
-              <p>Arrange pieces freely or load an SFEN position to create a board image for your blog or social posts.</p>
-              <ul><li>Illustrate a tactic, a tsume puzzle, or a castle.</li><li>Copy or save your position as a PNG image or SFEN.</li></ul>
-              <a class="tool-launch" href="https://kansosen.saiba-zakki.com/en/diagram/">Open Diagram Maker <span aria-hidden="true">↗</span></a>
+            <div class="tool-body">
+              <h2 id="notes-title">Shogi Review Notes</h2>
+              <p class="tool-lead">Look back on a game and turn it into a review article with board diagrams.</p>
+              <ul class="styled-list">
+                <li>Load a game record by pasting a KIF file</li>
+                <li>Comment on key positions and try variations on the board</li>
+                <li>Export the article text together with its diagram images</li>
+              </ul>
+              <p class="tool-note">Your games and comments are never uploaded.</p>
+              <a class="btn btn-primary" href="https://kansosen.saiba-zakki.com/en/">Open Review Notes <span aria-hidden="true">↗</span></a>
             </div>
           </article>
-          <article class="tool-card" aria-labelledby="notes-title">
-            <img class="tool-screenshot" src="/images/tools/notes-en.webp" alt="Shogi Review Notes with a move list, a shogi board, and a comment editor" width="1440" height="1000" loading="lazy" decoding="async">
-            <div class="tool-details">
-              <h2 id="notes-title">Write a game review</h2>
-              <p class="tool-purpose">Shogi Review Notes</p>
-              <p>Import a game record, add comments to individual positions, and turn your analysis into an article with board diagrams.</p>
-              <ul><li>Keep your thoughts and lessons alongside the moves.</li><li>Export article text and diagram images for publishing.</li></ul>
-              <a class="tool-launch" href="https://kansosen.saiba-zakki.com/en/">Open Review Notes <span aria-hidden="true">↗</span></a>
+
+          <article class="tool-row" aria-labelledby="diagram-title">
+            <a class="tool-shot" href="https://kansosen.saiba-zakki.com/en/diagram/" tabindex="-1" aria-hidden="true">
+              <img src="/images/tools/diagram-en.webp" alt="" width="1440" height="1000" loading="lazy" decoding="async">
+            </a>
+            <div class="tool-body">
+              <h2 id="diagram-title">Shogi Diagram Maker</h2>
+              <p class="tool-lead">Quickly create a single board diagram as an image.</p>
+              <ul class="styled-list">
+                <li>Place pieces freely, or load a position from SFEN</li>
+                <li>Copy or download the PNG image and SFEN</li>
+                <li>Great for explaining tactics, tsume problems, or social posts</li>
+              </ul>
+              <p class="tool-note">The diagram feature of Review Notes, available as a standalone tool.</p>
+              <a class="btn btn-primary" href="https://kansosen.saiba-zakki.com/en/diagram/">Open Diagram Maker <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         </div>
-        <p class="tools-note">Shogi Diagram Maker grew out of the diagram feature in Shogi Review Notes. If you only need a board image, you can open the maker directly.</p>
+
+        <figure class="tool-sample">
+          <a href="/images/tools/sample-en.png"><img src="/images/tools/sample-en.webp" alt="A diagram exported from Review Notes, with the last move highlighted, the side to move, and pieces in hand." width="800" height="659" loading="lazy" decoding="async"></a>
+          <figcaption>
+            <strong>Example export</strong>
+            An image exported from Review Notes. The last move, the side to move, and pieces in hand all fit in one diagram.
+            <a href="/images/tools/sample-en.png">View full size</a>
+          </figcaption>
+        </figure>
       </div>
     </section>
   </main>
@@ -136,6 +200,19 @@
         });
       }
     })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
   </script>
 <!-- /INJECT:footer -->
 </body>

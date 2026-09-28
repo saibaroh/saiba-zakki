@@ -625,36 +625,6 @@ main {
   line-height: 1.6;
 }
 
-.gate-tools {
-  width: 100%;
-  max-width: 440px;
-  margin-top: 2rem;
-}
-
-.gate-tools-heading {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.4rem 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.gate-tools-heading h3 {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--wall-text);
-}
-
-.gate-tools-heading a {
-  color: var(--wall-muted);
-  font-size: 0.78rem;
-}
-
-.gate-tool-links {
-  margin-top: 0;
-}
-
 .gate-footer {
   text-align: center;
   font-size: 0.75rem;
@@ -2417,180 +2387,106 @@ main {
   }
 }
 
-/* Free tools directory */
-.tools-hero {
-  padding: 2.5rem 0 2rem;
+/* ========================================
+   無料ツール（/ja/tools/, /en/tools/）
+   ======================================== */
+.tool-row:first-child {
+  padding-top: 0.5rem;
 }
 
-.tools-section {
-  padding-top: 2rem;
-}
-
-.tools-availability {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-.tool-example {
+.tool-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 2.5rem;
   align-items: center;
-  gap: 3rem;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  padding: 2.75rem 0;
   border-bottom: 1px solid var(--color-border);
 }
 
-.tool-example h2 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  margin-bottom: 1rem;
-}
-
-.tool-example-copy p + p {
-  margin-top: 1rem;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-}
-
-.tool-example-copy a,
-.tool-example figcaption a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.tool-example figure {
-  margin: 0;
-  min-width: 0;
-  width: 100%;
-  max-width: 380px;
-  justify-self: center;
-}
-
-.tool-example-image {
+.tool-shot {
   display: block;
-  padding: 0.5rem;
-  background: #fff;
   border: 1px solid var(--color-border);
-  border-radius: 8px;
+  background: var(--color-surface);
+  transition: border-color 0.15s;
 }
 
-.tool-example-image img {
-  display: block;
+.tool-shot:hover {
+  border-color: var(--color-text-muted);
+}
+
+.tool-shot img {
   width: 100%;
   height: auto;
 }
 
-.tool-example-image:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 4px;
+.tool-body h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
 }
 
-.tool-example figcaption {
-  margin-top: 0.75rem;
+.tool-lead {
   color: var(--color-text-muted);
-  font-size: 0.8rem;
-  text-align: center;
+  margin-bottom: 1.1rem;
 }
 
-.tool-details h2 {
-  scroll-margin-top: 6rem;
+.tool-body .styled-list {
+  margin-bottom: 1rem;
 }
 
-.tools-grid {
+.tool-note {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.4rem;
+}
+
+.tool-sample {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3rem;
-  margin-bottom: 2rem;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 820px;
+  margin: 3.5rem auto 0;
 }
 
-.tool-card {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  gap: 1.5rem;
-}
-
-.tool-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex: 1;
-}
-
-.tool-details .tool-launch {
-  margin-top: auto;
-}
-
-.tool-screenshot {
-  display: block;
+.tool-sample img {
   width: 100%;
   height: auto;
   border: 1px solid var(--color-border);
-  border-radius: 8px;
 }
 
-.tool-purpose {
-  color: var(--color-accent);
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.tool-details h2 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  margin-bottom: 1rem;
-}
-
-.tool-details ul {
-  margin: 1rem 0 1.5rem;
-  padding-left: 1.25rem;
-  color: var(--color-text-muted);
+.tool-sample figcaption {
   font-size: 0.9rem;
-}
-
-.tool-details li + li {
-  margin-top: 0.35rem;
-}
-
-.tool-launch {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 1.2rem;
-  background: var(--color-accent);
-  color: #fff;
-  font-weight: 700;
-  border-radius: 4px;
-}
-
-.tool-launch:hover {
-  background: var(--color-purchase-hover);
-  color: #fff;
-  text-decoration: none;
-}
-
-.tool-launch:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 4px;
-}
-
-.tools-note {
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.tool-sample figcaption strong {
+  display: block;
+  color: var(--color-text);
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.tool-sample figcaption a {
+  display: table;
+  margin-top: 0.4rem;
+  font-weight: 700;
+}
+
+.tool-sample figcaption a::after {
+  content: " \2192";
 }
 
 @media (max-width: 768px) {
-  .tool-example,
-  .tools-grid {
+  .tool-row,
+  .tool-sample {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
 
-  .tool-card + .tool-card {
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
+  .tool-sample {
+    max-width: 420px;
   }
 }

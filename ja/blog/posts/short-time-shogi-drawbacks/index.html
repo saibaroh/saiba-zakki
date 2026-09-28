@@ -91,7 +91,7 @@
         <a href="/ja/guide/">入門者向け解説</a>
         <a href="/ja/castles/">基本の囲いの紹介</a>
         <a href="/ja/glossary/">用語集</a>
-        <a href="/ja/tools/">局面図・記事作成</a>
+        <a href="/ja/tools/">無料ツール</a>
         <a href="/en/blog/" class="lang-switch">EN</a>
       </nav>
     </div>
@@ -169,11 +169,32 @@
 <h4>自分の考え方のクセや課題を見つける</h4>
 <p>感想戦を何局もしているうちに、自分の中の課題や考え方のクセが見えてきます。例えば、無謀な攻めをして形勢を損ねていることが多い、逆に守備的すぎてチャンスを逃しているなどです。こういったクセを意識して矯正できれば、最善手を選べる可能性が上がるはずです。</p>
 <p>また、終盤で詰みがあったのに何度も逃している、などの課題が見えることもあるでしょう。こういった気付きは長期的に自分の棋力を向上させるために重要だと思います。これについては、自分より強い人に意見をもらえれば理想的だと思います。</p>
+<h4>気づいたことを記録に残す</h4>
+<p>感想戦で気づいたことは、記録に残しておくと後から見返せます。筆者が作った無料ツール「将棋感想戦ノート」を使うと、将棋ウォーズなどの棋譜に局面ごとのコメントを残して、局面図付きの振り返り記事にまとめられます。</p>
+<a href="https://kansosen.saiba-zakki.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+  <div class="link-card-thumb"><img src="/images/tools/sample-ja.webp" alt="将棋感想戦ノート" loading="lazy"></div>
+  <div class="link-card-body">
+    <p class="link-card-title">将棋感想戦ノート</p>
+    <p class="link-card-desc">棋譜にコメントを付けて、局面図付きの感想戦記事を作れる無料ツール。ログイン不要で、棋譜やコメントは外部に送信されません。</p>
+    <p class="link-card-host">kansosen.saiba-zakki.com</p>
+  </div>
+</a>
 <hr>
 <h2>まとめ</h2>
 <p>将棋を強くなるためには、<strong>時間をかけてしっかりと考える ＋ じっくり考えた将棋を感想戦で振り返る</strong>、というのが極めて重要だと思います。これをしていれば、何かインプットをしなくても、徐々に棋力は上がっていくと思っています。</p>
 <p>隙間時間で遊べて、アドレナリンが出るような短時間の将棋は面白いと感じるのは筆者も同意ですが、それは娯楽と割り切って考えるのが良いと思います。</p>
 <p>ぜひ実践してみてください！</p>
+<hr>
+<p><strong>3切れとの付き合い方については、本を書きました</strong></p>
+<p>この記事では「3切れは娯楽と割り切る」と書きましたが、3切れをやめる必要はないと思っています。3切れは、勝ち負けの仕組みそのものが普通の将棋とは違う「別モードの将棋」です。将棋ウォーズでの数千局の経験をもとに、そんな3切れとの付き合い方を1冊にまとめました。時間切れの悔しさや連敗で消耗しがちな方は、ぜひ読んでみてください。</p>
+<a href="https://amzn.to/4vHMfYV" target="_blank" rel="noopener noreferrer" class="link-card">
+  <div class="link-card-thumb"><img src="/images/ja-book4.webp" alt="3分切れ負けは将棋じゃない？ ―3切れ将棋というゲームの考え方と付き合い方―" loading="lazy"></div>
+  <div class="link-card-body">
+    <p class="link-card-title">3分切れ負けは将棋じゃない？ ―3切れ将棋というゲームの考え方と付き合い方―</p>
+    <p class="link-card-desc">3切れで消耗しすぎないための、エッセイ寄りの小さな考察本。Kindle Unlimited 読み放題対象。</p>
+    <p class="link-card-host">Amazonで見る</p>
+  </div>
+</a>
 
         </div>
 
@@ -263,6 +284,19 @@
     }, { passive: true });
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
     });
   </script>
 </body>

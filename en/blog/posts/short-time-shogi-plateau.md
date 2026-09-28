@@ -67,6 +67,15 @@ When reviewing, use AI analysis or stronger players' feedback and focus on:
 
 This is where you convert one game into lasting skill.
 
+It also helps to write down what you learned so you can look back on it later. I made a free tool, Shogi Review Notes, for exactly this: paste a game record, leave comments on key positions, and turn it into a review article with board diagrams.
+
+```linkcard
+url: https://kansosen.saiba-zakki.com/en/
+title: Shogi Review Notes
+image: /images/tools/sample-en.webp
+desc: A free tool for writing illustrated game reviews. No sign-up, and your games and comments are never uploaded.
+```
+
 ## Practical Time-Control Suggestion
 
 For improvement-focused sessions, prioritize 10-minute games or longer.
