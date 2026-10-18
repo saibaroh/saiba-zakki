@@ -6,20 +6,7 @@ const path = require('path');
 const root = __dirname;
 const outputDir = path.join(root, '_site');
 
-const publishPaths = [
-  '404.html',
-  'CNAME',
-  'robots.txt',
-  'sitemap.xml',
-  'index.html',
-  'feed.xml',
-  'css',
-  'en',
-  'images',
-  'ja',
-  'js',
-  'lib',
-];
+const publishPaths = require('./lib/publish-paths');
 
 const excludedExtensions = new Set(['.md']);
 

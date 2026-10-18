@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://saiba-zakki.com/sitemap.xml
+Sitemap: https://shogi.saiba-zakki.com/sitemap.xml
