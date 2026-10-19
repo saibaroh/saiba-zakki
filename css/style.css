@@ -2490,3 +2490,17 @@ main {
     max-width: 420px;
   }
 }
+
+
+/* Link to the author's personal blog, distinct from the portal's blog. */
+.author-blog-link {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.gate-footer .author-blog-link a {
+  color: var(--wall-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
