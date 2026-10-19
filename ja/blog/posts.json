@@ -1,12 +1,48 @@
 [
   {
+    "slug": "bishop-practical-review",
+    "title": "有段者でも難しい！取られそうな角、最善の使い方は？【将棋ウォーズ実戦振り返り１】",
+    "titleHtml": "有段者でも難しい！取られそうな角、最善の使い方は？【将棋ウォーズ実戦振り返り１】",
+    "date": "2026-09-25",
+    "category": "実戦・振り返り",
+    "lead": "将棋ウォーズの私の実戦で、振り返りをしていて非常に面白い手順があり、それを問題形式でご紹介します！問題私が後手番で、相居飛車からお互い激しい攻め合いの将棋になっています。ここから、AI解析で唯一後手良しになる手順が非常に難しかったのでご紹介します。5手セットの手順です。非常に難しい手順ですが、力自慢",
+    "thumbnail": "/images/migrated/covers/bishop-practical-review.webp"
+  },
+  {
+    "slug": "shogi-slump",
+    "title": "将棋の泥沼・スランプは、本当に棋力低下なのか",
+    "titleHtml": "将棋の泥沼・スランプは、本当に棋力低下なのか",
+    "date": "2026-09-05",
+    "category": "将棋コラム",
+    "lead": "私は将棋ウォーズで、一応四段ということになっています。「一応」と書いたのには理由があります。いつでも四段らしい将棋が指せる、という意味ではまったくないからです。四段というのは、かなり熱心に指していた時期に、空き時間をほとんど将棋につぎ込んで、どうにか届いた数字です。要するに、自己ベストに近い棋力です",
+    "thumbnail": "/images/migrated/covers/shogi-slump.webp"
+  },
+  {
+    "slug": "shogi-chaos-and-memorization",
+    "title": "将棋は「カオス」だから、暗記で強くなるのは難しいという話",
+    "titleHtml": "将棋は「カオス」だから、暗記で強くなるのは難しいという話",
+    "date": "2026-07-11",
+    "category": "将棋コラム",
+    "lead": "今回は、若干マニアックな将棋の話です。なぜ将棋の上達は難しいのかという点について、私が考察していることを語ります。将棋の難しさの本質は、盤上のほんの小さな違いが、数手後には大きな戦況差に増幅されるから、だと私は考えています。私はこれを「カオス的」なゲームと考えています。数学で言う所の「カオス」と似て",
+    "thumbnail": "/images/migrated/covers/shogi-chaos-and-memorization.webp"
+  },
+  {
+    "slug": "tsume-battle-review",
+    "title": "将棋ウォーズ　詰めバト感想戦",
+    "titleHtml": "将棋ウォーズ　詰めバト感想戦",
+    "date": "2026-06-04",
+    "category": "実戦・振り返り",
+    "lead": "最近実装された将棋ウォーズの新モード、詰めバトを早速遊んでいます！私は詰将棋は大事だと思っていながらも、淡々としており対戦に比べると地道な訓練という感じだったので、楽しみながら詰将棋ができるのはありがたいです。アクティブユーザーの多い「将棋ウォーズ」で色々な将棋の新しい対戦の試みを提供してもらえるの",
+    "thumbnail": "/images/migrated/covers/tsume-battle-review.webp"
+  },
+  {
     "slug": "kindle-unlimited-shogi-books",
     "title": "【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介",
     "titleHtml": "【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介",
     "date": "2026-04-05",
     "category": "棋書紹介",
     "lead": "Kindle Unlimitedで読める将棋本をまとめて紹介。将棋世界バックナンバーから、終盤・詰将棋・考え方の名著まで、上級～有段者向けを中心にピックアップしています。",
-    "thumbnail": ""
+    "thumbnail": "/images/migrated/covers/kindle-unlimited-shogi-books.webp"
   },
   {
     "slug": "short-time-shogi-drawbacks",
@@ -15,7 +51,88 @@
     "date": "2026-04-05",
     "category": "上達",
     "lead": "将棋を強くなりたいなら、短すぎる持ち時間の対局はあまりおススメできません。3分切れ負けや10秒将棋が棋力向上の妨げになりやすい理由と、感想戦の重要性について解説します。",
-    "thumbnail": ""
+    "thumbnail": "/images/migrated/covers/short-time-shogi-drawbacks.webp"
+  },
+  {
+    "slug": "learning-shogi-shapes",
+    "title": "【将棋】なぜ、勝つために形について学ぶことが重要なのか？",
+    "titleHtml": "【将棋】なぜ、勝つために形について学ぶことが重要なのか？",
+    "date": "2026-03-25",
+    "category": "将棋コラム",
+    "lead": "なぜ「形」を知るだけで勝率が上がるのか？初級者の方は、「相手の手を読めるようにならないと勝てないんだろうな」「詰将棋を解けるようにしないと」と、思いがちだと思います。もちろん、将棋は読みが重要ですし、詰将棋の力も間違いなく効いてきます。それは間違いありません。しかし、見過ごされがちですが、他にも強く",
+    "thumbnail": "/images/migrated/covers/learning-shogi-shapes.webp"
+  },
+  {
+    "slug": "ordinary-shogi-moves",
+    "title": "【将棋ウォーズ】普通の手を普通に指す難しさ",
+    "titleHtml": "【将棋ウォーズ】普通の手を普通に指す難しさ",
+    "date": "2026-03-12",
+    "category": "将棋コラム",
+    "lead": "将棋は完全に実力のゲームだと思う方も多いかと思います。たしかに、盤面の中で運で決まる要素はありませんし、情報はすべて相手にも自分にも見えています。どれだけ正確に読み、どれだけ判断が適切だったかが結果に表れる、きわめて公平なゲームです。しかし、プレイヤーとして実際に指していると、同時に、メンタルのゲー",
+    "thumbnail": "/images/migrated/covers/ordinary-shogi-moves.webp"
+  },
+  {
+    "slug": "recommending-ranging-rook",
+    "title": "初心者に振り飛車をおすすめする気持ちがわかった",
+    "titleHtml": "初心者に振り飛車をおすすめする気持ちがわかった",
+    "date": "2025-10-05",
+    "category": "将棋コラム",
+    "lead": "このあいだ、将棋をほとんどやったことがない友人が、私の書いた本を読んでくれたのをきっかけに、ぴよ将棋（対Lv.12 6級相当）をやって見せてくれました。横でその様子を見ていて「初心者に将棋を教えるのって難しいな」と実感し",
+    "thumbnail": "/images/migrated/covers/recommending-ranging-rook.webp"
+  },
+  {
+    "slug": "first-skill-for-beginners",
+    "title": "【将棋】勝てるようになりたい初心者へ：まず身につけるべきたった一つの力",
+    "titleHtml": "【将棋】勝てるようになりたい初心者へ：まず身につけるべきたった一つの力",
+    "date": "2025-09-27",
+    "category": "将棋コラム",
+    "lead": "将棋を始めたばかりの時、「どの戦法を学ぶべきなのか？」 「とにかく攻め方を学ばないと勝てないかな」といったことを考えるのではないでしょうか？ もちろん、これらも強くなるために必要な要素です。 しかし、ほとんどの初心者が勝",
+    "thumbnail": "/images/migrated/covers/first-skill-for-beginners.webp"
+  },
+  {
+    "slug": "benefits-of-shogi",
+    "title": "将棋を趣味にする意外なメリット３選",
+    "titleHtml": "将棋を趣味にする意外なメリット３選",
+    "date": "2025-09-22",
+    "category": "将棋コラム",
+    "lead": "一生楽しめるという安心感 私の祖父も将棋が大好きで、亡くなる直前まで、愛用の盤と駒で、詰将棋を動かして考えることを楽しみにしていました。色々なことがあった祖父の生涯でも、将棋という趣味が生涯の支えになっていたのだと思いま",
+    "thumbnail": "/images/migrated/covers/benefits-of-shogi.webp"
+  },
+  {
+    "slug": "should-amateurs-study-openings",
+    "title": "【将棋】アマチュアは序盤の定跡を勉強すべき？",
+    "titleHtml": "【将棋】アマチュアは序盤の定跡を勉強すべき？",
+    "date": "2025-09-20",
+    "category": "将棋コラム",
+    "lead": "定跡の勉強について 定跡とは、過去の膨大な対局から導き出された「この場面ではこの指し手が有力」というお手本のような序盤の手順です。プロの対局の解説や、分厚い定跡本を見て、これくらい覚えないと勝てないんだと絶望する方もいる",
+    "thumbnail": "/images/migrated/covers/should-amateurs-study-openings.webp"
+  },
+  {
+    "slug": "beyond-shogi-beginner",
+    "title": "【将棋】どこまでできれば初心者脱出？",
+    "titleHtml": "【将棋】どこまでできれば初心者脱出？",
+    "date": "2025-09-19",
+    "category": "将棋コラム",
+    "lead": "もちろん、初心者が身に着けるべき内容は非常に多くあるのですが、難しい序盤知識や、好手を見つける技術はあまり優先度が高くない、というのが私の考えです。 なぜかというと：好手が対局中に数回出るようになるより、はっきりとした悪手・ミスが出る回数を減らす方が簡単将棋は好手よりも、悪手の方がはっきりと形勢に影",
+    "thumbnail": "/images/migrated/covers/beyond-shogi-beginner.webp"
+  },
+  {
+    "slug": "helping-shogi-beginners",
+    "title": "将棋の未来をつなぐために ――初心者が楽しめるまでの距離をどう縮めるか",
+    "titleHtml": "将棋の未来をつなぐために ――初心者が楽しめるまでの距離をどう縮めるか",
+    "date": "2025-09-15",
+    "category": "将棋コラム",
+    "lead": "趣味としての指し将棋、参入ハードルが高くないか？ 指し将棋は「勝てるようになって初めて楽しめる」趣味だと思います。他の趣味と比較すると、楽しさの入り口に到達するまでのハードルが高い、ある意味「厳しい趣味」です。 少しでも",
+    "thumbnail": "/images/migrated/covers/helping-shogi-beginners.webp"
+  },
+  {
+    "slug": "shogi-memorization",
+    "title": "将棋って暗記ゲーなの？という疑問について思うこと",
+    "titleHtml": "将棋って暗記ゲーなの？という疑問について思うこと",
+    "date": "2025-09-13",
+    "category": "将棋コラム",
+    "lead": "定跡とは、過去の膨大な対局から導き出された「この場面ではこの指し手が有力」というお手本のような序盤の手順です。プロの対局の解説や、分厚い定跡本を見て、これくらい覚えないと勝てないんだと絶望する方もいるかもしれませんね。",
+    "thumbnail": "/images/migrated/covers/shogi-memorization.webp"
   },
   {
     "slug": "shogi-opening-basics",
@@ -24,15 +141,33 @@
     "date": "2025-09-12",
     "category": "序盤",
     "lead": "序盤でいきなり攻めに全振りしてはいけないのはなぜか？実はちゃんとした理由があります。「序盤は将来への投資」という考え方を軸に、囲いを優先すべき理由をわかりやすく解説します。",
-    "thumbnail": ""
+    "thumbnail": "/images/migrated/covers/shogi-opening-basics.webp"
   },
   {
-    "slug": "why-i-wrote-this-book",
-    "title": "「将棋のルールはわかるけど…」という方に、指す将棋の面白さを伝えたくて本を書きました",
-    "titleHtml": "「将棋のルールはわかるけど…」という方に、指す将棋の面白さを伝えたくて本を書きました",
-    "date": "2025-09-11",
-    "category": "コラム",
-    "lead": "「将棋のルールは分かるけど、どう考えればいいのか分からない」——そんな方のために本を書いた理由と、将棋を指す面白さをもっと多くの人に知ってほしいという思いを綴ります。",
-    "thumbnail": ""
+    "slug": "shogi-sprint-review",
+    "title": "【将棋ウォーズ】スプリント感想戦1",
+    "titleHtml": "【将棋ウォーズ】スプリント感想戦1",
+    "date": "2025-03-08",
+    "category": "実戦・振り返り",
+    "lead": "将棋ウォーズ四段の筆者による、自学を兼ねた将棋AIのHaoを使ってのセルフ感想戦です。将棋ウォーズのスプリントについて思うこと将棋ウォーズで最近実装された、互角の途中局面から始まるスプリントモードについて、筆者は革新的で素晴らしいゲームだと思います。というのも、将棋を自分で指さない方からすると、プロ",
+    "thumbnail": "/images/migrated/covers/shogi-sprint-review.webp"
+  },
+  {
+    "slug": "practical-tsume",
+    "title": "面白い筋の実戦詰将棋",
+    "titleHtml": "面白い筋の実戦詰将棋",
+    "date": "2025-02-23",
+    "category": "実戦・振り返り",
+    "lead": "筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正",
+    "thumbnail": "/images/migrated/covers/practical-tsume.webp"
+  },
+  {
+    "slug": "never-give-up-shogi",
+    "title": "将棋は最後まで諦めるな！(ゲームメカニクスからの視点)",
+    "titleHtml": "将棋は最後まで諦めるな！(ゲームメカニクスからの視点)",
+    "date": "2025-01-12",
+    "category": "将棋コラム",
+    "lead": "ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームなので、簡単に諦めない方がいい、という話です。将棋と他のゲームとの比較例えば、他のスポーツやゲームを考えてみましょう。大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッ",
+    "thumbnail": "/images/migrated/covers/never-give-up-shogi.webp"
   }
 ]

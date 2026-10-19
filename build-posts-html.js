@@ -441,7 +441,7 @@ ${renderHeader(lang, `/${otherLang}/blog/`)}
     <section class="hero" style="padding: 3.5rem 0;">
       <div class="container">
         <h1 class="hero-title">${cfg.blogHeroTitle}</h1>
-        <p class="hero-subtitle">${cfg.blogHeroSubtitle}</p>
+        <p class="hero-subtitle">${cfg.blogHeroSubtitle}</p>${lang==='ja'?'\n<p><a href="https://saiba-zakki.com/2025/09/%E3%80%8C%E5%B0%86%E6%A3%8B%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%AF%E3%82%8F%E3%81%8B%E3%82%8B%E3%81%91%E3%81%A9%E3%80%8D%E3%81%A8%E3%81%84%E3%81%86%E6%96%B9%E3%81%AB%E3%80%81%E6%8C%87/">『脱初心者！将棋の考え方』を書いた理由</a>（才羽のザッキログ）</p>':''}
       </div>
     </section>
 

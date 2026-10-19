@@ -6,6 +6,34 @@
     <description>さいばによる将棋コラム・上達のヒントなどをお届けするブログです。</description>
     <language>ja</language>
     <item>
+      <title>有段者でも難しい！取られそうな角、最善の使い方は？【将棋ウォーズ実戦振り返り１】</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/bishop-practical-review/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/bishop-practical-review/</guid>
+      <description>将棋ウォーズの私の実戦で、振り返りをしていて非常に面白い手順があり、それを問題形式でご紹介します！問題私が後手番で、相居飛車からお互い激しい攻め合いの将棋になっています。ここから、AI解析で唯一後手良しになる手順が非常に難しかったのでご紹介します。5手セットの手順です。非常に難しい手順ですが、力自慢</description>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将棋の泥沼・スランプは、本当に棋力低下なのか</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/shogi-slump/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/shogi-slump/</guid>
+      <description>私は将棋ウォーズで、一応四段ということになっています。「一応」と書いたのには理由があります。いつでも四段らしい将棋が指せる、という意味ではまったくないからです。四段というのは、かなり熱心に指していた時期に、空き時間をほとんど将棋につぎ込んで、どうにか届いた数字です。要するに、自己ベストに近い棋力です</description>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将棋は「カオス」だから、暗記で強くなるのは難しいという話</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/shogi-chaos-and-memorization/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/shogi-chaos-and-memorization/</guid>
+      <description>今回は、若干マニアックな将棋の話です。なぜ将棋の上達は難しいのかという点について、私が考察していることを語ります。将棋の難しさの本質は、盤上のほんの小さな違いが、数手後には大きな戦況差に増幅されるから、だと私は考えています。私はこれを「カオス的」なゲームと考えています。数学で言う所の「カオス」と似て</description>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将棋ウォーズ　詰めバト感想戦</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/tsume-battle-review/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/tsume-battle-review/</guid>
+      <description>最近実装された将棋ウォーズの新モード、詰めバトを早速遊んでいます！私は詰将棋は大事だと思っていながらも、淡々としており対戦に比べると地道な訓練という感じだったので、楽しみながら詰将棋ができるのはありがたいです。アクティブユーザーの多い「将棋ウォーズ」で色々な将棋の新しい対戦の試みを提供してもらえるの</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介</title>
       <link>https://shogi.saiba-zakki.com/ja/blog/posts/kindle-unlimited-shogi-books/</link>
       <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/kindle-unlimited-shogi-books/</guid>
@@ -20,6 +48,69 @@
       <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>【将棋】なぜ、勝つために形について学ぶことが重要なのか？</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/learning-shogi-shapes/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/learning-shogi-shapes/</guid>
+      <description>なぜ「形」を知るだけで勝率が上がるのか？初級者の方は、「相手の手を読めるようにならないと勝てないんだろうな」「詰将棋を解けるようにしないと」と、思いがちだと思います。もちろん、将棋は読みが重要ですし、詰将棋の力も間違いなく効いてきます。それは間違いありません。しかし、見過ごされがちですが、他にも強く</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>【将棋ウォーズ】普通の手を普通に指す難しさ</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/ordinary-shogi-moves/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/ordinary-shogi-moves/</guid>
+      <description>将棋は完全に実力のゲームだと思う方も多いかと思います。たしかに、盤面の中で運で決まる要素はありませんし、情報はすべて相手にも自分にも見えています。どれだけ正確に読み、どれだけ判断が適切だったかが結果に表れる、きわめて公平なゲームです。しかし、プレイヤーとして実際に指していると、同時に、メンタルのゲー</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>初心者に振り飛車をおすすめする気持ちがわかった</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/recommending-ranging-rook/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/recommending-ranging-rook/</guid>
+      <description>このあいだ、将棋をほとんどやったことがない友人が、私の書いた本を読んでくれたのをきっかけに、ぴよ将棋（対Lv.12 6級相当）をやって見せてくれました。横でその様子を見ていて「初心者に将棋を教えるのって難しいな」と実感し</description>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>【将棋】勝てるようになりたい初心者へ：まず身につけるべきたった一つの力</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/first-skill-for-beginners/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/first-skill-for-beginners/</guid>
+      <description>将棋を始めたばかりの時、「どの戦法を学ぶべきなのか？」 「とにかく攻め方を学ばないと勝てないかな」といったことを考えるのではないでしょうか？ もちろん、これらも強くなるために必要な要素です。 しかし、ほとんどの初心者が勝</description>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将棋を趣味にする意外なメリット３選</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/benefits-of-shogi/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/benefits-of-shogi/</guid>
+      <description>一生楽しめるという安心感 私の祖父も将棋が大好きで、亡くなる直前まで、愛用の盤と駒で、詰将棋を動かして考えることを楽しみにしていました。色々なことがあった祖父の生涯でも、将棋という趣味が生涯の支えになっていたのだと思いま</description>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>【将棋】アマチュアは序盤の定跡を勉強すべき？</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/should-amateurs-study-openings/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/should-amateurs-study-openings/</guid>
+      <description>定跡の勉強について 定跡とは、過去の膨大な対局から導き出された「この場面ではこの指し手が有力」というお手本のような序盤の手順です。プロの対局の解説や、分厚い定跡本を見て、これくらい覚えないと勝てないんだと絶望する方もいる</description>
+      <pubDate>Sat, 20 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>【将棋】どこまでできれば初心者脱出？</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/beyond-shogi-beginner/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/beyond-shogi-beginner/</guid>
+      <description>もちろん、初心者が身に着けるべき内容は非常に多くあるのですが、難しい序盤知識や、好手を見つける技術はあまり優先度が高くない、というのが私の考えです。 なぜかというと：好手が対局中に数回出るようになるより、はっきりとした悪手・ミスが出る回数を減らす方が簡単将棋は好手よりも、悪手の方がはっきりと形勢に影</description>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将棋の未来をつなぐために ――初心者が楽しめるまでの距離をどう縮めるか</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/helping-shogi-beginners/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/helping-shogi-beginners/</guid>
+      <description>趣味としての指し将棋、参入ハードルが高くないか？ 指し将棋は「勝てるようになって初めて楽しめる」趣味だと思います。他の趣味と比較すると、楽しさの入り口に到達するまでのハードルが高い、ある意味「厳しい趣味」です。 少しでも</description>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将棋って暗記ゲーなの？という疑問について思うこと</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/shogi-memorization/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/shogi-memorization/</guid>
+      <description>定跡とは、過去の膨大な対局から導き出された「この場面ではこの指し手が有力」というお手本のような序盤の手順です。プロの対局の解説や、分厚い定跡本を見て、これくらい覚えないと勝てないんだと絶望する方もいるかもしれませんね。</description>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>将棋はなぜ囲いを作る手から始めるのか？</title>
       <link>https://shogi.saiba-zakki.com/ja/blog/posts/shogi-opening-basics/</link>
       <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/shogi-opening-basics/</guid>
@@ -27,11 +118,25 @@
       <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>「将棋のルールはわかるけど…」という方に、指す将棋の面白さを伝えたくて本を書きました</title>
-      <link>https://shogi.saiba-zakki.com/ja/blog/posts/why-i-wrote-this-book/</link>
-      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/why-i-wrote-this-book/</guid>
-      <description>「将棋のルールは分かるけど、どう考えればいいのか分からない」——そんな方のために本を書いた理由と、将棋を指す面白さをもっと多くの人に知ってほしいという思いを綴ります。</description>
-      <pubDate>Thu, 11 Sep 2025 00:00:00 GMT</pubDate>
+      <title>【将棋ウォーズ】スプリント感想戦1</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/shogi-sprint-review/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/shogi-sprint-review/</guid>
+      <description>将棋ウォーズ四段の筆者による、自学を兼ねた将棋AIのHaoを使ってのセルフ感想戦です。将棋ウォーズのスプリントについて思うこと将棋ウォーズで最近実装された、互角の途中局面から始まるスプリントモードについて、筆者は革新的で素晴らしいゲームだと思います。というのも、将棋を自分で指さない方からすると、プロ</description>
+      <pubDate>Sat, 08 Mar 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>面白い筋の実戦詰将棋</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/</guid>
+      <description>筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正</description>
+      <pubDate>Sun, 23 Feb 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>将棋は最後まで諦めるな！(ゲームメカニクスからの視点)</title>
+      <link>https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/</link>
+      <guid isPermaLink="true">https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/</guid>
+      <description>ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームなので、簡単に諦めない方がいい、という話です。将棋と他のゲームとの比較例えば、他のスポーツやゲームを考えてみましょう。大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッ</description>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

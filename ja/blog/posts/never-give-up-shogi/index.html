@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>将棋は最後まで諦めるな！(ゲームメカニクスからの視点) | ブログ | さいばの将棋ポータル</title>
+  <meta name="description" content="ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームなので、簡単に諦めない方がいい、という話です。将棋と他のゲームとの比較例えば、他のスポーツやゲームを考えてみましょう。大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッ">
+  <link rel="icon" href="../../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/">
+  <link rel="alternate" hreflang="ja"        href="https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="将棋は最後まで諦めるな！(ゲームメカニクスからの視点)">
+  <meta property="og:description" content="ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームなので、簡単に諦めない方がいい、という話です。将棋と他のゲームとの比較例えば、他のスポーツやゲームを考えてみましょう。大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッ">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/migrated/covers/never-give-up-shogi.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="将棋は最後まで諦めるな！(ゲームメカニクスからの視点)">
+  <meta name="twitter:description" content="ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームなので、簡単に諦めない方がいい、という話です。将棋と他のゲームとの比較例えば、他のスポーツやゲームを考えてみましょう。大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッ">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "将棋は最後まで諦めるな！(ゲームメカニクスからの視点)",
+    "description": "ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームなので、簡単に諦めない方がいい、という話です。将棋と他のゲームとの比較例えば、他のスポーツやゲームを考えてみましょう。大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッ",
+    "datePublished": "2025-01-12",
+    "author": {
+      "@type": "Person",
+      "name": "さいば",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "さいば"
+    },
+    "url": "https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/",
+    "inLanguage": "ja",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "ブログ",
+        "item": "https://shogi.saiba-zakki.com/ja/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "将棋は最後まで諦めるな！(ゲームメカニクスからの視点)",
+        "item": "https://shogi.saiba-zakki.com/ja/blog/posts/never-give-up-shogi/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">さいばの著書の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/ja/tools/">無料ツール</a>
+        <a href="/en/blog/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="../../../../">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../../">ブログ</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>将棋は最後まで諦めるな！(ゲームメカニクスからの視点)</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">将棋コラム</span>
+            <span>2025-01-12</span>
+            <span>著者：さいば</span>
+          </div>
+          <h1 class="article-title">将棋は最後まで諦めるな！(ゲームメカニクスからの視点)</h1>
+          <p class="article-lead">ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームなので、簡単に諦めない方がいい、という話です。将棋と他のゲームとの比較例えば、他のスポーツやゲームを考えてみましょう。大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッ</p>
+        </header>
+
+        <figure class="article-thumb">
+          <img src="/images/migrated/covers/never-give-up-shogi.webp" alt="将棋は最後まで諦めるな！(ゲームメカニクスからの視点)">
+        </figure>
+        <div class="article-body">
+<p id="20fc079c-9d6f-4e28-b41d-b27e1953c791">ゲームメカニクス的に、将棋は終盤での逆転がとても起こりやすいゲームな<br>ので、簡単に諦めない方がいい、という話です。</p><h2 id="bf33e6e1-c480-4351-b881-9fd09b6179f2">将棋と他のゲームとの比較</h2><p id="885bb410-db0b-4e68-bfef-cc90c8e47f9a">例えば、他のスポーツやゲームを考えてみましょう。</p><p id="3768cef2-07de-4ed3-b76f-7e4150f292d8">大体のスポーツは前半でも後半でも、点の入り方は変わりません。野球は１回でも９回でも得点の入り方は変わりませんし、サッカーも１点ずつしか点は入りません。麻雀も得点計算は序盤(東１局)と終盤(南４局)で変わることはありません。</p><p id="e95385c0-6f4a-489f-86d3-a3a7baf1d07c">その一方で、将棋における一手の価値は、序盤から、中盤、終盤になるにつれて、飛躍的に、何倍も、高まっていきます。<br>これは終盤になるにつれ、以下のような理由から、一手で実現できる攻撃力が全く違うことが要因です。</p><ul id="0b166040-b7a9-449b-8409-14382928b0cc"><li><p id="48dcd2be-c5bd-4152-9848-244869d6db5e">成り駒が増えて強力な駒が増える</p></li><li><p id="6141c40b-5fc6-47da-be8a-ea94129153c3">互いの陣形が乱れてくる</p></li><li><p id="2713ab77-4179-4ccc-8508-3a41a6a4097c">持ち駒が増える</p></li></ul><p id="a643b0cf-cf88-4932-952c-9079db7df575">将棋は逆転が頻繁に起こり、しかもそれは運による理不尽なものではありません。だからこそ、優勢な側も最後まで緊張感やスリルを楽しめますし、敗勢から勝ち星を拾う快感も経験でき、終盤戦がとても熱いものになる、というのが将棋の大きな魅力だと思います。</p><h2 id="bcbe3c9e-c5eb-4baa-92eb-e5efae3088ac">プロの対局でも逆転はあるからアマチュアが諦めるな！</h2><p id="fb712163-5447-47c4-8d4a-3b8c68b9c219">近年の将棋放送ではAIによる形勢表示が出て、アマチュアにもわかりやすくなりましたが、プロ同士の対局でも勝率99％から1%へと、一気に勝勢から敗勢へと評価値が動いてしまうことはしばしば起こります。<br><br>まして、将棋ウォーズや将棋クエストなどでの、短時間のアマチュアの将棋では、詰みが明らかになるまでは投了すべきではない、と私は思っております。</p><p id="aca0ed8b-e73f-413f-84b3-e26631de5fb4">具体的には以下のようなことを考えていくと、投了したくなる局面から10局に1局くらいは勝てるかもしれません。</p><ul id="4f9df51b-de34-4ce8-8154-38b78508be99"><li><p id="2d733188-d574-4b22-ac3c-fc9fa81d8d5b"><a href="/ja/glossary/#攻防手" class="glossary-link">攻防手</a>で攻め駒が素抜ける手がないか？と注目する。</p></li><li><p id="66238a99-632b-4140-8eea-db2e59d1bde7">自分の駒が増えた時、もしくは相手の持ち駒が減った時、瞬間的に相手玉が寄る状況になっていないか？を確認する。</p></li><li><p id="38510420-a4c0-46fa-97d5-eaa37ac002a7">相手の玉にも攻撃を掛け、相手が攻めと守りを両方考えるようにして混乱を誘う。</p></li><li><p id="da6b73c7-30b4-48c7-8368-0461ecfb9638">自玉の<a href="/ja/glossary/#入玉" class="glossary-link">入玉</a>を見せていく。</p></li></ul><p id="6f70919f-9ab1-4efd-9623-6c0870d7242c">以上、将棋ウォーズで苦しすぎて、とっとと投了したくなる自分への自戒を込めての記事でした！</p><p id="b240ed94-cdb7-4ddb-8339-48fe7ce2dd94"><br></p>
+
+        </div>
+
+        <div class="article-share">
+          <a class="btn-x-share" href="https://x.com/intent/post?text=%E5%B0%86%E6%A3%8B%E3%81%AF%E6%9C%80%E5%BE%8C%E3%81%BE%E3%81%A7%E8%AB%A6%E3%82%81%E3%82%8B%E3%81%AA%EF%BC%81(%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%A1%E3%82%AB%E3%83%8B%E3%82%AF%E3%82%B9%E3%81%8B%E3%82%89%E3%81%AE%E8%A6%96%E7%82%B9)%20%7C%20%E3%81%95%E3%81%84%E3%81%B0%E3%81%AE%E5%B0%86%E6%A3%8B%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB&url=https%3A%2F%2Fshogi.saiba-zakki.com%2Fja%2Fblog%2Fposts%2Fnever-give-up-shogi%2F" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026Z"/></svg>
+            この記事をXでシェア
+          </a>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../../" class="btn-ghost">← ブログ一覧へ</a>
+          <a href="../practical-tsume/" class="btn-nav">
+            <span class="btn-nav-label">← 新しい記事</span>
+            <span class="btn-nav-title">面白い筋の実戦詰将棋</span>
+          </a>
+        </footer>
+      </article>
+
+      <section class="section">
+        <div class="author-box">
+          <div class="author-avatar">
+            <img src="../../../../images/profile.webp" alt="さいば icon">
+          </div>
+          <div>
+            <p class="author-name">さいば</p>
+            <p class="author-bio">
+              将棋ウォーズを中心に将棋を楽しむアマチュア四段。初心者～級位者向けの将棋Kindle本の執筆活動を行っている。→ <a href="../../../" class="books-link">執筆した本はこちら</a><br>
+              Note: <a href="https://note.com/saibaba81" target="_blank" rel="noopener">https://note.com/saibaba81</a>
+            </p>
+            <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="affiliate-notice">本ページにはAmazonアソシエイトプログラムを利用した広告リンクが含まれている場合があります。</p>
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../../">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('.copy-email-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var user   = btn.dataset.emailUser   || '';
+        var domain = btn.dataset.emailDomain || '';
+        if (!user || !domain) return;
+        var email        = user + '@' + domain;
+        var defaultLabel = btn.dataset.copyDefault || 'Copy';
+        var doneLabel    = btn.dataset.copyDone    || 'Copied!';
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch (_) {
+          var temp = document.createElement('textarea');
+          temp.value = email;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'absolute';
+          temp.style.left = '-9999px';
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          temp.remove();
+        }
+        btn.textContent = doneLabel;
+        setTimeout(function() { btn.textContent = defaultLabel; }, 1600);
+      });
+    });
+
+    var backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ title: "【上級～有段レベル中心】Kindle Unlimitedで読める棋書�
 date: "2026-04-05"
 category: "棋書紹介"
 lead: "Kindle Unlimitedで読める将棋本をまとめて紹介。将棋世界バックナンバーから、終盤・詰将棋・考え方の名著まで、上級～有段者向けを中心にピックアップしています。"
-thumbnail: ""
+thumbnail: "/images/migrated/covers/kindle-unlimited-shogi-books.webp"
 ---
 
 Kindle Unlimitedとは、月額料金を支払うことで、Amazonに存在する莫大な量の電子書籍を好きなだけ読むことができるサービスです。いわば月額制の電子書籍の図書館のようなサービスです。
@@ -16,7 +16,7 @@ Amazon上のすべての電子書籍が対象というわけではありませ�
 
 新規登録の方は、30日間の無料体験もあります。
 
-[![Kindle Unlimited 30日間無料体験](../../../images/KU-Assocb.jpg)](https://www.amazon.co.jp/kindle-dbs/hz/signup?tag=saibaba81-22)
+[![Kindle Unlimited 30日間無料体験](/images/KU-Assocb.jpg)](https://www.amazon.co.jp/kindle-dbs/hz/signup?tag=saibaba81-22)
 
 ---
 

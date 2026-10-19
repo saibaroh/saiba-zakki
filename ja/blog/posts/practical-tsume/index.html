@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面白い筋の実戦詰将棋 | ブログ | さいばの将棋ポータル</title>
+  <meta name="description" content="筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正">
+  <link rel="icon" href="../../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/">
+  <link rel="alternate" hreflang="ja"        href="https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="面白い筋の実戦詰将棋">
+  <meta property="og:description" content="筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/migrated/covers/practical-tsume.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="面白い筋の実戦詰将棋">
+  <meta name="twitter:description" content="筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "面白い筋の実戦詰将棋",
+    "description": "筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正",
+    "datePublished": "2025-02-23",
+    "author": {
+      "@type": "Person",
+      "name": "さいば",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "さいば"
+    },
+    "url": "https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/",
+    "inLanguage": "ja",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "ブログ",
+        "item": "https://shogi.saiba-zakki.com/ja/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "面白い筋の実戦詰将棋",
+        "item": "https://shogi.saiba-zakki.com/ja/blog/posts/practical-tsume/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">さいばの著書の紹介</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/ja/tools/">無料ツール</a>
+        <a href="/en/blog/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="../../../../">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../../">ブログ</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>面白い筋の実戦詰将棋</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">実戦・振り返り</span>
+            <span>2025-02-23</span>
+            <span>著者：さいば</span>
+          </div>
+          <h1 class="article-title">面白い筋の実戦詰将棋</h1>
+          <p class="article-lead">筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正</p>
+        </header>
+
+        <figure class="article-thumb">
+          <img src="/images/migrated/covers/practical-tsume.webp" alt="面白い筋の実戦詰将棋">
+        </figure>
+        <div class="article-body">
+<p>筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。</p>
+<p>実戦詰将棋として自己評価してみると以下の感じ。</p>
+<h2 id="section-1">問題</h2>
+<p>筋の珍しさ:★★★★☆</p>
+<p>筋の面白さ:★★★☆☆</p>
+<p>芸術性:★★★★☆</p>
+<p>難易度: 正確に読み切れたらアマ高段レベルだと思います。</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/6ef4c2e07e3160b6f43d1d571d520492.png" alt="" class="wp-image-95" srcset="/images/migrated/wp-content/uploads/2025/02/6ef4c2e07e3160b6f43d1d571d520492.png 672w, /images/migrated/wp-content/uploads/2025/02/6ef4c2e07e3160b6f43d1d571d520492-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/6ef4c2e07e3160b6f43d1d571d520492-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/6ef4c2e07e3160b6f43d1d571d520492-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><p>※AI検討で検証しています。</p>
+<p>詰みにつながる初手は1通りのみです。</p>
+<p>↓↓↓↓以下、正解までしばらく空白。</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<h3 id="section-2">解答</h3>
+<p>筆者が面白いと思った初手は▲<strong>３一飛</strong>でした！</p>
+<h4>初手からの変化</h4>
+<h5>2手目△同　金</h5>
+<p>▲<strong>３一飛</strong>に△同　金は、</p>
+<p>▲５二桂成 △同　玉 ▲４三銀打 △６一玉 ▲５二金まで</p>
+<p>▲<strong>３一飛</strong>と捨て駒をすることで、▲４三銀打が同金と取られないようになっているのがポイントです。</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/e6ddf1ace3b56d4ce623965f0c362981.png" alt="" class="wp-image-96" srcset="/images/migrated/wp-content/uploads/2025/02/e6ddf1ace3b56d4ce623965f0c362981.png 672w, /images/migrated/wp-content/uploads/2025/02/e6ddf1ace3b56d4ce623965f0c362981-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/e6ddf1ace3b56d4ce623965f0c362981-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/e6ddf1ace3b56d4ce623965f0c362981-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><h5>2手目△４一歩(香、桂)</h5>
+<p>▲３一飛に対して<a href="/ja/glossary/#合駒" class="glossary-link">合駒</a>はどうでしょうか。</p>
+<p>▲<strong>３一飛</strong>に△４一歩は、 ▲５二桂成 △同　玉 ▲３二飛成 △４二香 ▲４三銀成 △６一玉 ▲５二金 まで</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/476b2d6b6b3baca1e537e0de3f9612a5.png" alt="" class="wp-image-98" srcset="/images/migrated/wp-content/uploads/2025/02/476b2d6b6b3baca1e537e0de3f9612a5.png 672w, /images/migrated/wp-content/uploads/2025/02/476b2d6b6b3baca1e537e0de3f9612a5-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/476b2d6b6b3baca1e537e0de3f9612a5-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/476b2d6b6b3baca1e537e0de3f9612a5-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><p>▲<strong>３一飛</strong>に歩ではなく、△４一香もしくは△４一桂も、5手目▲３二飛成が防げないため同じ詰み筋で詰みます。</p>
+<h5>2手目△４一金</h5>
+<p>2手目△４一金ですと、先ほどの歩、香、桂の合駒とは違う詰み筋が生じています。</p>
+<p>▲<strong>３一飛</strong>に△４一金は、今度は飛車切りで詰みます。</p>
+<p>▲同　飛成 △同　玉 ▲３二桂成 △同　玉※ ▲３一金<br>△４二玉 ▲４一金打まで</p>
+<p>※△５一玉もありますが、並べ詰みで簡単です。</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/e55c0258f3c838de9c2b77787ec18d1b.png" alt="" class="wp-image-99" srcset="/images/migrated/wp-content/uploads/2025/02/e55c0258f3c838de9c2b77787ec18d1b.png 672w, /images/migrated/wp-content/uploads/2025/02/e55c0258f3c838de9c2b77787ec18d1b-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/e55c0258f3c838de9c2b77787ec18d1b-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/e55c0258f3c838de9c2b77787ec18d1b-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><p>一段目に、尻と金、尻金、尻金と並んだ面白い詰み形ですね！</p>
+<p>以上、最長手数は11手詰め。</p>
+<p>初手の飛車捨てが中々見えにくい筋なのではないかと思いますし、その後も合駒の変化があり、読み切りが中々難しい問題なのではないかと思います。</p>
+<h2 id="section-3">改題(かなり難しい)</h2>
+<p>問題図の後手の持ち駒に銀と角があっても実は詰将棋として成立します。</p>
+<p>この場合には、最長手数が17手詰めになり、かなり難易度の高い問題となるようで、筆者の棋力では到底無理です。</p>
+<p>最初にこの局面から正確に詰みを読み切れたら、奨励会やプロ級では無いかと思います。</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/image-1.png" alt="画像に alt 属性が指定されていません。ファイル名: 1342ac293e296f5922974942bc1c00ce-1.png" class="wp-image-102" srcset="/images/migrated/wp-content/uploads/2025/02/image-1.png 672w, /images/migrated/wp-content/uploads/2025/02/image-1-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/image-1-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/image-1-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><p>↓↓↓↓以下、正解までしばらく空白。</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<p>↓</p>
+<h4>改題の正解</h4>
+<p>先ほどの問題と同様に、初手は▲３一飛ですが、銀合、角合だと長手数になり、使う<a href="/ja/glossary/#手筋" class="glossary-link">手筋</a>も増えます。</p>
+<p>先ほど見た、2手目 △４一金は飛車を切って尻金の筋で早く詰みましたが、銀合、角合ではこの筋が効かず、さらに後手の３二金に紐を付けているのでしぶといようです。</p>
+<h5>2手目 △４一銀</h5>
+<p>細かい変化は省略します。</p>
+<p>▲３一飛 △４一銀 ▲５二桂成 △同　玉 ▲６三銀 △同　龍<br>▲４一飛成 △同　玉 ▲６三馬 △５二金 ▲５一金 △同　玉<br>▲６二銀 △４二玉 ▲５三銀成 △同　金 ▲４一飛 まで 17手詰め</p>
+<p>5手目からの、▲６三銀 △同　龍 ▲４一飛成(下図) △同　玉 ▲６三馬　の流れは、銀捨て、飛車切りから馬で龍を回収する流れが実に上手いですね！</p>
+<p>▲６三馬以下の合駒は、どれでもあまり難しい筋にはならないようです。</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/f269010ac1b8c7c20dd6e06b5f1bc942.png" alt="" class="wp-image-105" srcset="/images/migrated/wp-content/uploads/2025/02/f269010ac1b8c7c20dd6e06b5f1bc942.png 672w, /images/migrated/wp-content/uploads/2025/02/f269010ac1b8c7c20dd6e06b5f1bc942-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/f269010ac1b8c7c20dd6e06b5f1bc942-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/f269010ac1b8c7c20dd6e06b5f1bc942-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/7729a0fc75f38307f190d61b9f403ea5.png" alt="" class="wp-image-103" srcset="/images/migrated/wp-content/uploads/2025/02/7729a0fc75f38307f190d61b9f403ea5.png 672w, /images/migrated/wp-content/uploads/2025/02/7729a0fc75f38307f190d61b9f403ea5-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/7729a0fc75f38307f190d61b9f403ea5-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/7729a0fc75f38307f190d61b9f403ea5-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><h5>2手目 △４一角</h5>
+<p>概ね2手目 △４一銀と同じ筋です。</p>
+<p>細かい変化は省略します。<br>▲３一飛 △４一角 ▲５二桂成 △同　玉 ▲６三銀 △同　龍<br>▲４一飛成 △同　玉 ▲６三馬 △５二飛 ▲５一金 △同　玉<br>▲６二角 △４一玉 ▲５一飛 △４二玉 ▲５二飛成 まで 17手詰め</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="672" height="672" src="/images/migrated/wp-content/uploads/2025/02/256c2eddaa72b8fa3dc08c5f2c22dce4.png" alt="" class="wp-image-104" srcset="/images/migrated/wp-content/uploads/2025/02/256c2eddaa72b8fa3dc08c5f2c22dce4.png 672w, /images/migrated/wp-content/uploads/2025/02/256c2eddaa72b8fa3dc08c5f2c22dce4-300x300.png 300w, /images/migrated/wp-content/uploads/2025/02/256c2eddaa72b8fa3dc08c5f2c22dce4-150x150.png 150w, /images/migrated/wp-content/uploads/2025/02/256c2eddaa72b8fa3dc08c5f2c22dce4-100x100.png 100w" sizes="auto, (max-width: 672px) 100vw, 672px"></figure><p>以上、盲点に入りやすい初手、合駒の選択による詰み筋の変化、相手の龍を回収するアイディアと、難しいですが、中々見どころの多い問題だったかと思います。</p>
+<p>楽しんで頂けたら幸いです！</p>
+
+        </div>
+
+        <div class="article-share">
+          <a class="btn-x-share" href="https://x.com/intent/post?text=%E9%9D%A2%E7%99%BD%E3%81%84%E7%AD%8B%E3%81%AE%E5%AE%9F%E6%88%A6%E8%A9%B0%E5%B0%86%E6%A3%8B%20%7C%20%E3%81%95%E3%81%84%E3%81%B0%E3%81%AE%E5%B0%86%E6%A3%8B%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB&url=https%3A%2F%2Fshogi.saiba-zakki.com%2Fja%2Fblog%2Fposts%2Fpractical-tsume%2F" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026Z"/></svg>
+            この記事をXでシェア
+          </a>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../../" class="btn-ghost">← ブログ一覧へ</a>
+          <a href="../shogi-sprint-review/" class="btn-nav">
+            <span class="btn-nav-label">← 新しい記事</span>
+            <span class="btn-nav-title">【将棋ウォーズ】スプリント感想戦1</span>
+          </a>
+          <a href="../never-give-up-shogi/" class="btn-nav">
+            <span class="btn-nav-label">古い記事 →</span>
+            <span class="btn-nav-title">将棋は最後まで諦めるな！(ゲームメカニクスからの視点)</span>
+          </a>
+        </footer>
+      </article>
+
+      <section class="section">
+        <div class="author-box">
+          <div class="author-avatar">
+            <img src="../../../../images/profile.webp" alt="さいば icon">
+          </div>
+          <div>
+            <p class="author-name">さいば</p>
+            <p class="author-bio">
+              将棋ウォーズを中心に将棋を楽しむアマチュア四段。初心者～級位者向けの将棋Kindle本の執筆活動を行っている。→ <a href="../../../" class="books-link">執筆した本はこちら</a><br>
+              Note: <a href="https://note.com/saibaba81" target="_blank" rel="noopener">https://note.com/saibaba81</a>
+            </p>
+            <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="affiliate-notice">本ページにはAmazonアソシエイトプログラムを利用した広告リンクが含まれている場合があります。</p>
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../../">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('.copy-email-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var user   = btn.dataset.emailUser   || '';
+        var domain = btn.dataset.emailDomain || '';
+        if (!user || !domain) return;
+        var email        = user + '@' + domain;
+        var defaultLabel = btn.dataset.copyDefault || 'Copy';
+        var doneLabel    = btn.dataset.copyDone    || 'Copied!';
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch (_) {
+          var temp = document.createElement('textarea');
+          temp.value = email;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'absolute';
+          temp.style.left = '-9999px';
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          temp.remove();
+        }
+        btn.textContent = doneLabel;
+        setTimeout(function() { btn.textContent = defaultLabel; }, 1600);
+      });
+    });
+
+    var backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+</body>
+</html>

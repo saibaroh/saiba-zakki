@@ -148,3 +148,11 @@ P*5e       # 歩を5五に打つ（駒記号＋*＋座標）
 テーマスイッチャー UI を使う場合は `/test/index.html` の `THEMES` 配列と初期化コードをコピーする。
 
 対応テーマ: `wood`（木材）/ `gray`（グレー）/ `lime`（ライム）/ `citrus`（シトラス）/ `blue`（ブルー）/ `cyan`（水色）/ `pink`（ピンク）
+
+## rootブログからの将棋記事移転（2026-10-20）
+
+将棋のコラム・棋書紹介・対局振り返り19記事は、このリポジトリの`ja/blog/posts/`で管理します。自著紹介・出版報告は`https://saiba-zakki.com/`に残しています。
+
+`why-i-wrote-this-book`の旧URLは`lib/article-redirects.json`と`build-article-redirects.js`でroot側へ案内します。GitHub Pagesではこの案内ページを静的HTMLの即時転送として生成し、サイトマップから除外しています。元の原稿は非公開の`archive/`に保存しています。
+
+移転元URLの301転送は`/home/matsudatomoki/saiba-zakki-root/main-site/src/data/article-migrations.json`で管理します。記事URLを変更する場合は両方を更新してください。
