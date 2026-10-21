@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play Shogi: Rules for Complete Beginners | Saiba's Shogi Portal</title>
+  <meta name="description" content="Learn how to play shogi with illustrated rules for piece movement, promotion, captured pieces, and drops. No chess experience needed.">
+  <link rel="icon" href="../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/en/how-to-play/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/how-to-play/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="How to Play Shogi: Rules for Complete Beginners | Saiba's Shogi Portal">
+  <meta property="og:description" content="Learn how to play shogi with illustrated rules for piece movement, promotion, captured pieces, and drops. No chess experience needed.">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/en/how-to-play/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to Play Shogi: Rules for Complete Beginners | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="An illustrated introduction to shogi: the board, piece moves, promotion, drops, and practice questions.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <!-- INJECT:header:en:/ja/ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="/en/">Books by Saiba</a>
+        <a href="/en/how-to-play/">How to Play</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/en/tools/">Free Tools</a>
+        <a href="/ja/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+<!-- /INJECT:header -->
+
+  <main>
+<section class="hero"><div class="container">
+<p class="rules-eyebrow">Start here</p>
+<h1 class="hero-title">How to Play Shogi</h1>
+<p class="hero-subtitle">Learn the pieces, promotion, and drops. No chess experience needed.</p>
+</div></section>
+<article class="container rules-guide">
+<p>Shogi is a board game for two players, often called Japanese chess. Your goal is to trap the other player's king. Its special twist: pieces you capture can return to the board on your side.</p>
+<p>This guide uses letters on the pieces, so you can learn without reading Japanese. The diagrams and examples are adapted from my book <a href="/en/#book4">Shogi for Chess Players</a>.</p>
+<nav class="rules-toc" aria-label="On this page"><strong>On this page</strong><ol>
+<li><a href="#board">The board and the goal</a></li><li><a href="#pieces">How the pieces move</a></li><li><a href="#promotion">Promotion</a></li><li><a href="#drops">Captured pieces and drops</a></li><li><a href="#practice">Try three questions</a></li><li><a href="#next">Your next step</a></li>
+</ol></nav>
+<section aria-labelledby="board"><h2 id="board">1. The board and the goal</h2>
+<p>The board has 9 rows and 9 columns. Each player starts with 20 pieces. Both sides use the same pieces; the pointed end faces the opponent. In these diagrams, your pieces are upright and your opponent's letters are upside down.</p>
+<figure><img src="/images/how-to-play/01-initial-position.png" alt="Starting position: each player has nine pawns, a bishop and rook, and a back row of lance, knight, silver, gold, king, gold, silver, knight, lance." width="820" height="635" loading="lazy"><figcaption>From your side, the bishop starts on the left and the rook on the right.</figcaption></figure>
+<details><summary>Setting up a physical board</summary><p>Looking from your side, put lance, knight, silver, gold, king, gold, silver, knight, lance along the nearest row. In the second row, place the bishop second from the left and the rook second from the right; leave the other squares empty. Fill the third row with nine pawns. Your opponent does the same from their side. Both players start with no pieces in hand.</p></details>
+<p>In the diagrams, K means king, R rook, B bishop, G gold, S silver, N knight, L lance, and P pawn. The small gray dots and arrows are movement reminders, not extra pieces. Pieces beside the board are pieces in hand; a dash means none.</p>
+<h3>Take one turn at a time</h3>
+<p>For a casual game, agree who goes first. That player is called Black (or <em>sente</em>); the second player is White (or <em>gote</em>). These names do not refer to the color of the pieces. Players alternate turns. On your turn, either move one piece already on the board or place one captured piece onto it. You cannot pass.</p>
+<p>Move onto an opponent's piece to capture it. Remove that piece and keep it beside the board, visible to both players. These captured pieces are your <strong>pieces in hand</strong>. You cannot move onto your own piece.</p>
+<h3>Check and checkmate</h3>
+<p>If your king could be captured on the opponent's next turn, it is in <strong>check</strong>. You must stop the attack: move the king to safety, capture the attacking piece, or block its attack when possible. You may never make a move that leaves your own king in check.</p>
+<p><strong>Checkmate</strong> means the king is in check and there is no legal way to escape. The player delivering checkmate wins; you do not actually capture the king. A player may also resign to concede the game.</p>
+</section>
+<section aria-labelledby="pieces"><h2 id="pieces">2. How the pieces move</h2>
+<p>“Forward” means toward your opponent. It is upward for your pieces in these diagrams and downward for theirs. All pieces capture in the same way they move.</p>
+<p>Each diagram shows <strong>one piece facing upward</strong>. Blue squares are places it can move. For the rook, bishop, and lance, the straight lines continue as far as the board allows, unless another piece blocks the way.</p>
+<div class="rules-piece-grid"><div class="rules-piece"><h3>King <span>(K)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-K-title"><title id="move-K-title">King: One square in any direction, but never into check.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="46" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="46" y="102" width="36" height="36" fill="#bfe0f7"/><rect x="46" y="138" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="138" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="102" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="138" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">K</text></svg><p>One square in any direction, but never into check.</p></div><div class="rules-piece"><h3>Rook <span>(R)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-R-title"><title id="move-R-title">Rook: Any distance vertically or horizontally.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="82" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="30" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="102" width="36" height="36" fill="#bfe0f7"/><rect x="154" y="102" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="138" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="174" width="36" height="36" fill="#bfe0f7"/><rect x="46" y="102" width="36" height="36" fill="#bfe0f7"/><rect x="10" y="102" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M100 96 L100 38" fill="none" stroke="#35617e" stroke-width="2"/><path d="M124 120 L182 120" fill="none" stroke="#35617e" stroke-width="2"/><path d="M100 144 L100 202" fill="none" stroke="#35617e" stroke-width="2"/><path d="M76 120 L18 120" fill="none" stroke="#35617e" stroke-width="2"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">R</text></svg><p>Any distance vertically or horizontally.</p></div><div class="rules-piece"><h3>Bishop <span>(B)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-B-title"><title id="move-B-title">Bishop: Any distance diagonally.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="46" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="10" y="30" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="154" y="30" width="36" height="36" fill="#bfe0f7"/><rect x="46" y="138" width="36" height="36" fill="#bfe0f7"/><rect x="10" y="174" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="138" width="36" height="36" fill="#bfe0f7"/><rect x="154" y="174" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M76 96 L18 38" fill="none" stroke="#35617e" stroke-width="2"/><path d="M124 96 L182 38" fill="none" stroke="#35617e" stroke-width="2"/><path d="M76 144 L18 202" fill="none" stroke="#35617e" stroke-width="2"/><path d="M124 144 L182 202" fill="none" stroke="#35617e" stroke-width="2"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">B</text></svg><p>Any distance diagonally.</p></div><div class="rules-piece"><h3>Gold general <span>(G)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-G-title"><title id="move-G-title">Gold general: One square forward, diagonally forward, sideways, or straight backward. Not diagonally backward.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="46" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="46" y="102" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="102" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="138" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">G</text></svg><p>One square forward, diagonally forward, sideways, or straight backward. Not diagonally backward.</p></div><div class="rules-piece"><h3>Silver general <span>(S)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-S-title"><title id="move-S-title">Silver general: One square forward or in any diagonal direction. Not sideways or straight backward.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="46" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="46" y="138" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="138" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">S</text></svg><p>One square forward or in any diagonal direction. Not sideways or straight backward.</p></div><div class="rules-piece"><h3>Knight <span>(N)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-N-title"><title id="move-N-title">Knight: Two squares forward and one sideways in a single jump. Only two possible destinations.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="46" y="30" width="36" height="36" fill="#bfe0f7"/><rect x="118" y="30" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">N</text></svg><p>Two squares forward and one sideways in a single jump. Only two possible destinations.</p></div><div class="rules-piece"><h3>Lance <span>(L)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-L-title"><title id="move-L-title">Lance: Any distance straight forward.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="82" y="66" width="36" height="36" fill="#bfe0f7"/><rect x="82" y="30" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M100 96 L100 38" fill="none" stroke="#35617e" stroke-width="2"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">L</text></svg><p>Any distance straight forward.</p></div><div class="rules-piece"><h3>Pawn <span>(P)</span></h3><svg viewBox="0 0 200 220" role="img" aria-labelledby="move-P-title"><title id="move-P-title">Pawn: One square straight forward, including when capturing.</title><text x="100" y="15" text-anchor="middle" font-size="12" fill="#6B6259">Forward ↑</text><rect x="10" y="30" width="180" height="180" fill="#fff"/><rect x="82" y="66" width="36" height="36" fill="#bfe0f7"/><path d="M10 30V210 M10 30H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M46 30V210 M10 66H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M82 30V210 M10 102H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M118 30V210 M10 138H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M154 30V210 M10 174H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><path d="M190 30V210 M10 210H190" fill="none" stroke="#8c8276" stroke-width="0.7"/><text x="100" y="128" text-anchor="middle" font-size="20" fill="#2B2724">P</text></svg><p>One square straight forward, including when capturing.</p></div></div>
+<p>Only the knight can jump over pieces. A rook, bishop, or lance must stop before a friendly piece, or capture an enemy piece and stop on its square. You may move less than the maximum distance, but cannot turn a corner during a move.</p>
+<h3>Your first move</h3><p>From the starting position, try moving the pawn in front of your rook one square forward into the empty square. That is a complete turn. Your opponent now makes one move. Neither player can drop a piece yet, because no pieces have been captured.</p>
+<details><summary>If you already play chess</summary><p>The king, rook, and bishop move as in chess. The knight jumps only forward. Pawns move and capture straight forward: there is no initial double move or en passant. There is no queen and no castling move. Black plays first.</p></details>
+</section>
+<section aria-labelledby="promotion"><h2 id="promotion">3. Promotion</h2>
+<p>Promotion changes how a piece moves for the rest of its time on the board. The three rows farthest from you are your <strong>promotion zone</strong>. When an unpromoted piece moves into, within, or out of that zone, you may promote it as part of the same turn. The king and gold cannot promote.</p>
+<figure><img src="/images/how-to-play/03-promotion-zone.png" alt="The top three rows of the board are highlighted as the promotion zone for the player at the bottom." width="820" height="635" loading="lazy"><figcaption>Your opponent has the opposite zone: the three rows nearest you.</figcaption></figure>
+<p>With physical pieces, turn the piece over. Here, a <strong>+</strong> before the letter marks promotion.</p>
+<ul><li><strong>Rook → dragon (+R):</strong> keeps its rook moves and gains a one-square diagonal move.</li>
+<li><strong>Bishop → horse (+B):</strong> keeps its bishop moves and gains a one-square vertical or horizontal move.</li>
+<li><strong>Silver, knight, lance, pawn:</strong> replace their original moves with the gold's moves. A promoted pawn is also called a <em>tokin</em>.</li></ul>
+<div class="rules-diagram-pair"><figure><img src="/images/how-to-play/03-move-dragon.png" alt="A promoted rook can move any distance along rows and columns, or one square diagonally." width="820" height="635" loading="lazy"><figcaption>Dragon: rook moves plus one diagonal step.</figcaption></figure><figure><img src="/images/how-to-play/03-move-horse.png" alt="A promoted bishop can move any distance diagonally, or one square horizontally or vertically." width="820" height="635" loading="lazy"><figcaption>Horse: bishop moves plus one straight step.</figcaption></figure>
+</div>
+<p>Promotion is usually optional. It is compulsory if the piece would otherwise have no future move: a pawn or lance reaching the last row, or a knight reaching either of the last two rows.</p>
+<p>A promoted piece stays promoted while on the board, even outside the zone. It cannot promote again. If captured, it returns to its original, unpromoted form in the capturer's hand.</p>
+</section>
+<section aria-labelledby="drops"><h2 id="drops">4. Captured pieces and drops</h2>
+<p>Instead of moving a piece, you may place one piece from your hand on an <strong>empty square</strong>, facing your opponent. This uses your whole turn and is called a <strong>drop</strong>. The piece now belongs to your side and moves normally on later turns.</p>
+<p>A drop cannot capture anything. You always drop a piece unpromoted, even into the promotion zone. It may promote on a later move that starts or ends in that zone.</p>
+<p>For example, suppose your rook captures an enemy silver. Keep the silver beside the board and let your opponent take their turn. On one of your later turns, you can drop that silver onto an empty square. You do not also move it on that turn. You may keep captured pieces in hand for as long as you like.</p>
+<h3>Three restrictions to remember</h3>
+<ul><li><strong>No two unpromoted pawns in one column (nifu).</strong> You cannot drop a pawn in a column that already has one of your unpromoted pawns. An opponent's pawn or your own promoted pawn does not count.</li>
+<li><strong>No pieces with nowhere to go.</strong> You cannot drop a pawn or lance on the last row, or a knight on either of the last two rows, relative to its forward direction.</li>
+<li><strong>No immediate checkmate by dropping a pawn.</strong> A pawn drop may give check, but must not itself be checkmate. Moving a pawn already on the board to give mate is allowed. Other pieces may be dropped to give mate.</li></ul>
+<p>As with every move, a drop must leave your own king safe. A useful example is dropping a piece between your king and an attacking rook, bishop, or lance.</p>
+<h3>A drop that wins the game</h3>
+<p>In this small example, your silver (S) is on the board and you have a gold (G) in hand. The opposing king is at the top. Only the pieces needed for the example are shown.</p><figure><img src="/images/how-to-play/04-dropmate-before.png" alt="Opponent king at the top center, your silver two squares below it, and your gold beside the board in hand." width="820" height="635" loading="lazy"><figcaption>Before: the gold is beside the board, ready to drop.</figcaption></figure><p>Drop the gold in the empty square directly between the silver and the king. The gold attacks the king and all four other squares it could escape to. The king cannot capture the gold because your silver protects it. There is no square between the gold and king where a piece could block the attack. This is checkmate.</p><figure><img src="/images/how-to-play/04-dropmate-after.png" alt="Your gold is now directly below the opponent king, protected by your silver. The gold attacks the king and every escape square." width="820" height="635" loading="lazy"><figcaption>After: G*52 means “drop a gold on column 5, row 2.” The asterisk marks a drop.</figcaption></figure>
+<details><summary>What about repeated positions and other endings?</summary>
+<p>If the same position occurs four times, including the pieces in hand and whose turn it is, this is <em>sennichite</em>. Normally the game is replayed with the sides reversed; online handling can vary. If one player causes the repetition by checking on every turn, that player loses.</p>
+<p>There is no chess-style stalemate draw: having no legal move is a loss. Games can also end through time limits or illegal moves. Rare positions in which both kings enter enemy territory use additional entering-king or impasse rules; follow the rules of your playing site or event.</p>
+</details>
+</section>
+<section aria-labelledby="practice"><h2 id="practice">5. Try three questions</h2>
+<p>Think through each question, then open the answer. These are practice examples, so the boards do not contain a full starting set of pieces.</p>
+<h3>Can a piece promote when leaving the zone?</h3>
+<p>Your unpromoted silver starts in the promotion zone and moves one square diagonally backward, out of it. May you promote?</p>
+<details><summary>Show answer: promotion</summary><p><strong>Yes.</strong> The move starts in the zone. Entering, moving within, and leaving the zone all allow promotion.</p></details>
+<h3>Can a promoted silver move diagonally backward?</h3>
+<details><summary>Show answer: the promoted silver</summary><p><strong>No.</strong> It now moves like a gold. Its original movement is replaced, so it loses the silver's diagonal backward moves and gains sideways and straight backward moves.</p></details>
+<h3>Your king is in check. Can a drop save it?</h3>
+<p>You are the bottom player, with a silver and a pawn in hand. The opposing rook attacks your king along the bottom row. Your king has no safe square and cannot capture the rook. Which piece can you drop between them?</p>
+<figure><img src="/images/how-to-play/p1-recap-block-q.png" alt="Bottom king on 89 is checked by a rook on 69. The opponent king on 87 blocks escape. You have a silver and pawn in hand, and your own pawn is already in column 7." width="820" height="635" loading="lazy"><figcaption>The numbers identify squares: columns run from 1 on the right to 9 on the left; rows run from 1 at the top to 9 at the bottom. Read the column first, then the row. The empty square between rook and king is 79.</figcaption></figure>
+<details><summary>Show answer: escape the check</summary><p><strong>Drop the silver on 79.</strong> It blocks the rook's attack. The pawn cannot be dropped there because you already have an unpromoted pawn in column 7. Your pieces move upward in this diagram: the bottom row is not their last row. Without the other pawn in column 7, a pawn drop here would be legal.</p><figure><img src="/images/how-to-play/p1-recap-block-a.png" alt="A silver dropped on 79 blocks the rook on 69 from attacking the king on 89." width="820" height="635" loading="lazy"><figcaption>A piece in hand can defend your king as well as attack.</figcaption></figure></details>
+</section>
+<section aria-labelledby="next"><h2 id="next">6. Your next step</h2>
+<p>You now know the basic moves. Keep this page nearby during your first game and take your time checking where each piece can go.</p>
+<h3>Before you finish each turn</h3><ul><li>Does my piece move this way, and is its path clear (unless it is a knight)?</li><li>Will my king be safe after the move?</li><li>If I move into, within, or out of the promotion zone, can or must I promote?</li><li>If I drop a piece, is the square empty and are all three drop restrictions satisfied?</li></ul>
+<div class="rules-next"><a href="/en/guide/"><strong>Learn what to think about during a game →</strong><span>Three short lessons on piece values, the endgame, and king safety.</span></a>
+<a href="/en/castles/"><strong>Explore basic castles →</strong><span>Learn how pieces work together to protect your king.</span></a>
+<a href="/en/#book4"><strong>Shogi for Chess Players →</strong><span>The book behind this guide, with more examples of how shogi changes familiar chess ideas.</span></a></div>
+</section>
+</article></main>
+
+  <!-- INJECT:footer:en:false -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">Author’s blog: Saiba’s Zakkilog (Japanese) <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+<!-- /INJECT:footer -->
+</body>
+</html>

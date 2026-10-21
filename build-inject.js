@@ -35,6 +35,7 @@ const { renderHeader, renderFooter } = require('./lib/templates');
 // ---------------------------------------------------------------------------
 const INJECT_FILES = [
   ['en/index.html',          'en', true],
+  ['en/how-to-play/index.html', 'en', false],
   ['en/guide/index.html',    'en', false],
   ['en/guide/1/index.html',  'en', false],
   ['en/guide/2/index.html',  'en', false],
