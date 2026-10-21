@@ -56,6 +56,7 @@ const INJECT_FILES = [
   ['ja/castles/3/index.html','ja', false],
   ['ja/glossary/index.html', 'ja', false],
   ['ja/tools/index.html',    'ja', false],
+  ['ja/recommended-books/index.html', 'ja', true],
 ];
 
 // ---------------------------------------------------------------------------
@@ -71,7 +72,9 @@ function toUrlPath(filePath) {
 function otherLangPath(filePath, lang) {
   const urlPath  = toUrlPath(filePath);
   const other    = lang === 'en' ? 'ja' : 'en';
-  return urlPath.replace(`/${lang}/`, `/${other}/`);
+  const translated = urlPath.replace(`/${lang}/`, `/${other}/`);
+  return fs.existsSync(path.join(__dirname, translated.slice(1), "index.html"))
+    ? translated : `/${other}/`;
 }
 
 // ---------------------------------------------------------------------------

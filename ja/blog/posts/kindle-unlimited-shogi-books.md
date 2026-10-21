@@ -6,6 +6,8 @@ lead: "Kindle Unlimitedで読める将棋本をまとめて紹介。将棋世界
 thumbnail: "/images/migrated/covers/kindle-unlimited-shogi-books.webp"
 ---
 
+目的から本を探したい方は、[有段者向けのおすすめ棋書一覧](/ja/recommended-books/)をご覧ください。寄せ・終盤、詰将棋、考え方、読み物・棋譜の4分野にまとめています。
+
 Kindle Unlimitedとは、月額料金を支払うことで、Amazonに存在する莫大な量の電子書籍を好きなだけ読むことができるサービスです。いわば月額制の電子書籍の図書館のようなサービスです。
 
 Amazon上のすべての電子書籍が対象というわけではありませんが、非常に多くの対象書籍があり、名著や人気著者の本も多く含まれます。
