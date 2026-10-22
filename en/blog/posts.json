@@ -1,5 +1,14 @@
 [
   {
+    "slug": "shogi-mate-in-one",
+    "title": "Mate in One: A Free Shogi Puzzle Game for Beginners",
+    "titleHtml": "Mate in One: A Free Shogi Puzzle Game for Beginners",
+    "date": "2026-10-23",
+    "category": "Projects",
+    "lead": "Try 200 one-move checkmate puzzles in your browser. A short beginner course, movement guides, and English piece labels help you get started with shogi.",
+    "thumbnail": "/images/games/shogi-mate-in-one.webp"
+  },
+  {
     "slug": "why-castle-first",
     "title": "Why Does Shogi Always Start by Building a Castle?",
     "titleHtml": "Why Does Shogi Always Start by Building a Castle?",

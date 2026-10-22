@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料の将棋1手詰ゲーム「Mate in One」を公開しました | ブログ | さいばの将棋ポータル</title>
+  <meta name="description" content="3×3・5×5・9×9の盤で遊ぶ、全200問の1手詰パズルです。日本語対応で、ブラウザから無料で遊べます。">
+  <link rel="icon" href="../../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/blog/posts/shogi-mate-in-one/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/blog/posts/shogi-mate-in-one/">
+  <link rel="alternate" hreflang="en"        href="https://shogi.saiba-zakki.com/en/blog/posts/shogi-mate-in-one/">
+  <link rel="alternate" hreflang="ja"        href="https://shogi.saiba-zakki.com/ja/blog/posts/shogi-mate-in-one/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="無料の将棋1手詰ゲーム「Mate in One」を公開しました">
+  <meta property="og:description" content="3×3・5×5・9×9の盤で遊ぶ、全200問の1手詰パズルです。日本語対応で、ブラウザから無料で遊べます。">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/blog/posts/shogi-mate-in-one/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/games/shogi-mate-in-one.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="無料の将棋1手詰ゲーム「Mate in One」を公開しました">
+  <meta name="twitter:description" content="3×3・5×5・9×9の盤で遊ぶ、全200問の1手詰パズルです。日本語対応で、ブラウザから無料で遊べます。">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "無料の将棋1手詰ゲーム「Mate in One」を公開しました",
+    "description": "3×3・5×5・9×9の盤で遊ぶ、全200問の1手詰パズルです。日本語対応で、ブラウザから無料で遊べます。",
+    "datePublished": "2026-10-23",
+    "author": {
+      "@type": "Person",
+      "name": "さいば",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "さいば"
+    },
+    "url": "https://shogi.saiba-zakki.com/ja/blog/posts/shogi-mate-in-one/",
+    "inLanguage": "ja",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/ja/blog/posts/shogi-mate-in-one/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "ブログ",
+        "item": "https://shogi.saiba-zakki.com/ja/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "無料の将棋1手詰ゲーム「Mate in One」を公開しました",
+        "item": "https://shogi.saiba-zakki.com/ja/blog/posts/shogi-mate-in-one/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">さいばの著書の紹介</a>
+        <a href="/ja/recommended-books/">おすすめ棋書</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/ja/tools/">無料ツール</a>
+        <a href="/en/blog/posts/shogi-mate-in-one/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="../../../../">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../../">ブログ</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>無料の将棋1手詰ゲーム「Mate in One」を公開しました</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">制作物</span>
+            <span>2026-10-23</span>
+            <span>著者：さいば</span>
+          </div>
+          <h1 class="article-title">無料の将棋1手詰ゲーム「Mate in One」を公開しました</h1>
+          <p class="article-lead">3×3・5×5・9×9の盤で遊ぶ、全200問の1手詰パズルです。日本語対応で、ブラウザから無料で遊べます。</p>
+        </header>
+
+        <figure class="article-thumb">
+          <img src="/images/games/shogi-mate-in-one.webp" alt="無料の将棋1手詰ゲーム「Mate in One」を公開しました">
+        </figure>
+        <div class="article-body">
+<p>将棋の1手詰パズルゲーム「Mate in One — Shogi Puzzles」を公開しました。ダウンロード不要で、ブラウザから全編無料で遊べます。日本語表示にも対応しています。</p>
+<p><strong><a href="https://saibababa.itch.io/shogi-mate-in-one">「Mate in One」で遊ぶ（itch.io）</a></strong></p>
+<h2>小さな盤から始める、全200問の1手詰</h2>
+<p>あと1手で相手の玉を詰ませる問題を解いていくゲームです。3×3の小さな盤から、通常の将棋と同じ9×9の盤まで、3種類を用意しています。</p>
+<ul>
+<li>3×3の盤：70問</li>
+<li>5×5の盤：70問</li>
+<li>9×9の盤：60問</li>
+</ul>
+<p>将棋が初めての方には、駒の動かし方や持ち駒、成りを学べる13問の初心者コースもあります。駒の動きを示すガイドや、どの駒を動かすかが分かるヒントも使えます。</p>
+<p>間違えたときは、相手の応手が盤上に表示されるので、なぜ詰まないのかを確認しながら進められます。</p>
+<h2>30秒チャレンジと着せ替えもあります</h2>
+<p>30秒で何問解けるかに挑戦するモードも用意しました。問題を解いて経験値をためると、盤・駒・背景の見た目を追加できます。</p>
+<p>操作は駒を選んでから移動先を選ぶだけ。駒の表示は漢字とアルファベットを切り替えられ、進み具合や設定はブラウザに保存されます。</p>
+<p>海外の方にも将棋の面白さを知ってもらいたくて、英語のサイトや入門書に加えて、このゲームを作りました。ルールを知らない方にも、パズルを遊びながら将棋に触れてもらえたらと思っています。</p>
+<p>少し時間が空いたときなどに、ぜひ遊んでみてください。</p>
+<p><strong><a href="https://saibababa.itch.io/shogi-mate-in-one">「Mate in One」で遊ぶ（itch.io）</a></strong></p>
+
+        </div>
+
+        <div class="article-share">
+          <a class="btn-x-share" href="https://x.com/intent/post?text=%E7%84%A1%E6%96%99%E3%81%AE%E5%B0%86%E6%A3%8B1%E6%89%8B%E8%A9%B0%E3%82%B2%E3%83%BC%E3%83%A0%E3%80%8CMate%20in%20One%E3%80%8D%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%20%7C%20%E3%81%95%E3%81%84%E3%81%B0%E3%81%AE%E5%B0%86%E6%A3%8B%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB&url=https%3A%2F%2Fshogi.saiba-zakki.com%2Fja%2Fblog%2Fposts%2Fshogi-mate-in-one%2F" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026Z"/></svg>
+            この記事をXでシェア
+          </a>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../../" class="btn-ghost">← ブログ一覧へ</a>
+          <a href="../bishop-practical-review/" class="btn-nav">
+            <span class="btn-nav-label">古い記事 →</span>
+            <span class="btn-nav-title">有段者でも難しい！取られそうな角、最善の使い方は？【将棋ウォーズ実戦振り返り１】</span>
+          </a>
+        </footer>
+      </article>
+
+      <section class="section">
+        <div class="author-box">
+          <div class="author-avatar">
+            <img src="../../../../images/profile.webp" alt="さいば icon">
+          </div>
+          <div>
+            <p class="author-name">さいば</p>
+            <p class="author-bio">
+              将棋ウォーズを中心に将棋を楽しむアマチュア四段。初心者～級位者向けの将棋Kindle本の執筆活動を行っている。→ <a href="../../../" class="books-link">執筆した本はこちら</a><br>
+              Note: <a href="https://note.com/saibaba81" target="_blank" rel="noopener">https://note.com/saibaba81</a>
+            </p>
+            <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="affiliate-notice">本ページにはAmazonアソシエイトプログラムを利用した広告リンクが含まれている場合があります。</p>
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="../../../../">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('.copy-email-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var user   = btn.dataset.emailUser   || '';
+        var domain = btn.dataset.emailDomain || '';
+        if (!user || !domain) return;
+        var email        = user + '@' + domain;
+        var defaultLabel = btn.dataset.copyDefault || 'Copy';
+        var doneLabel    = btn.dataset.copyDone    || 'Copied!';
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch (_) {
+          var temp = document.createElement('textarea');
+          temp.value = email;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'absolute';
+          temp.style.left = '-9999px';
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          temp.remove();
+        }
+        btn.textContent = doneLabel;
+        setTimeout(function() { btn.textContent = defaultLabel; }, 1600);
+      });
+    });
+
+    var backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+</body>
+</html>

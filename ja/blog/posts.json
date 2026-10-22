@@ -1,5 +1,14 @@
 [
   {
+    "slug": "shogi-mate-in-one",
+    "title": "無料の将棋1手詰ゲーム「Mate in One」を公開しました",
+    "titleHtml": "無料の将棋1手詰ゲーム「Mate in One」を公開しました",
+    "date": "2026-10-23",
+    "category": "制作物",
+    "lead": "3×3・5×5・9×9の盤で遊ぶ、全200問の1手詰パズルです。日本語対応で、ブラウザから無料で遊べます。",
+    "thumbnail": "/images/games/shogi-mate-in-one.webp"
+  },
+  {
     "slug": "bishop-practical-review",
     "title": "有段者でも難しい！取られそうな角、最善の使い方は？【将棋ウォーズ実戦振り返り１】",
     "titleHtml": "有段者でも難しい！取られそうな角、最善の使い方は？【将棋ウォーズ実戦振り返り１】",
