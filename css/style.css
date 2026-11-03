@@ -2590,3 +2590,77 @@ main {
   .rules-diagram-pair { grid-template-columns: 1fr; gap: 0; }
   .rules-guide th, .rules-guide td { padding: 0.5rem; }
 }
+
+/* =========================================================
+   次の一手問題（ja/problems/）
+   ========================================================= */
+.problem-number {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0.2rem;
+}
+
+.problem-answer {
+  margin-top: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+}
+
+.problem-answer > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.9rem 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+.problem-answer > summary::-webkit-details-marker {
+  display: none;
+}
+
+.problem-answer > summary::after {
+  content: " ▼";
+  font-size: 0.8em;
+}
+
+.problem-answer[open] > summary {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.problem-answer[open] > summary::after {
+  content: " ▲";
+}
+
+.problem-answer-body {
+  padding: 0.5rem 1.2rem 1.5rem;
+}
+
+.problem-card-thumb {
+  flex-shrink: 0;
+  width: 280px;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: #fff;
+}
+
+@media (max-width: 640px) {
+  .problem-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .problem-card-thumb {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .problem-card .course-card-arrow {
+    display: none;
+  }
+}

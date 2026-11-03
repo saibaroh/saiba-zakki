@@ -22,6 +22,7 @@ const run = cmd => execSync(`node ${cmd}`, { stdio: 'inherit', cwd: __dirname })
 
 run(`build-posts-json.js${arg}`);
 run(`build-posts-html.js${arg}`);
+run('build-problems.js');
 run('build-inject.js');
 run('build-glossary.js');
 run('build-article-redirects.js');

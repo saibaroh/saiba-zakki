@@ -4,6 +4,7 @@
     "build:en": "node build.js en",
     "build:ja": "node build.js ja",
     "build:pages": "node build-pages.js",
+    "build:problems": "node build-problems.js",
     "test:seo": "node --test test/sitemap.test.js"
   },
   "devDependencies": {

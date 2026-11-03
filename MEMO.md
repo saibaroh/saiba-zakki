@@ -84,6 +84,7 @@ caption: 序盤の進行例
 | `sfen` | 局面（SFEN）。`startpos` で平手初期局面 |
 | `moves` | USI 形式の手順（省略可）。書くと再生ボタンと棋譜が付く。省略すると静止図 |
 | `caption` | 盤面下のキャプション（省略可） |
+| `hands` | `show` と書くと、静止図（`moves` なし）にも持ち駒を表示する（省略可） |
 
 ---
 
@@ -156,3 +157,12 @@ P*5e       # 歩を5五に打つ（駒記号＋*＋座標）
 `why-i-wrote-this-book`の旧URLは`lib/article-redirects.json`と`build-article-redirects.js`でroot側へ案内します。GitHub Pagesではこの案内ページを静的HTMLの即時転送として生成し、サイトマップから除外しています。元の原稿は非公開の`archive/`に保存しています。
 
 移転元URLの301転送は`/home/matsudatomoki/saiba-zakki-root/main-site/src/data/article-migrations.json`で管理します。記事URLを変更する場合は両方を更新してください。
+
+## 次の一手問題（ja/problems/・en/problems/）
+
+1問1ページ。`{lang}/problems/{番号}.md` を置いて `make`（または `node build.js`）すると、`{lang}/problems/{番号}/index.html` と一覧 `{lang}/problems/index.html` ができる。同じ番号の日英は同じ問題として、言語切り替えと hreflang でつながる。
+
+- frontmatter：`title`・`date`・`level`（例：級位者向け / For kyu players）・`lead`（答えは書かない）。`draft: true` で非公開。
+- 本文の `<!-- answer -->` の行から後ろは、「解答を見る」で開く部分になる。
+- 局面は ```` ```board ```` ブロックで書く。問題図は `hands: show` を付けて持ち駒を出す。後手番の局面も、先手目線に反転して載せる。
+- サムネイル：`images/problems/{lang}-{番号}.webp`（幅640px）があれば、一覧と共有画像に使う。感想戦ノートのリポジトリで `node scripts/sfen-diagram.mjs "<SFEN>" --heading 第{番号}問 --out 図.png`（英語版は `--heading "Problem {番号}" --en`）で作り、WebPに変換する。

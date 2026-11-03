@@ -188,6 +188,32 @@
     return marker + toJpCoord(m[2], m[3]) + label + (promote ? '成' : '');
   }
 
+  // 英語ページ用：西洋式の表記（盤の段ラベルに合わせて数字座標。例 ☗Rx34, ☖P*55, ☗Bx22+）
+  function usiToEn(move, stateBefore) {
+    const marker  = stateBefore.turn === 'black' ? '☗' : '☖';
+    const promote = move.endsWith('+');
+    const m = promote ? move.slice(0, -1) : move;
+    const dest = m[2] + (m[3].charCodeAt(0) - 96);
+    if (m[1] === '*') return marker + m[0].toUpperCase() + '*' + dest;
+    const piece  = stateBefore.board[m[1].charCodeAt(0) - 97][9 - +m[0]];
+    const target = stateBefore.board[m[3].charCodeAt(0) - 97][9 - +m[2]];
+    return marker + (piece.promoted ? '+' : '') + piece.p + (target ? 'x' : '-') + dest + (promote ? '+' : '');
+  }
+
+  const UI = IS_ENGLISH_PAGE ? {
+    whiteHand: 'White (gote) in hand:',
+    blackHand: 'Black (sente) in hand:',
+    none:      'None',
+    start:     total => total > 0 ? `Start / ${total} moves` : 'Start',
+    progress:  (mv, idx, total) => `${mv}  ${idx} / ${total}`,
+  } : {
+    whiteHand: '後手の持ち駒：',
+    blackHand: '先手の持ち駒：',
+    none:      'なし',
+    start:     total => total > 0 ? `初期局面 / 全${total}手` : '初期局面',
+    progress:  (mv, idx, total) => `${mv}　${idx} / ${total}手`,
+  };
+
   // =============================================
   // HTMLビルダー
   // =============================================
@@ -233,7 +259,7 @@
 
   function handHtml(hand, pieceStyle) {
     const pieces = HAND_ORDER.filter(p => hand[p] > 0);
-    if (!pieces.length) return '<span class="sp-hand-empty">なし</span>';
+    if (!pieces.length) return `<span class="sp-hand-empty">${UI.none}</span>`;
     return pieces.map(p => {
       const label = pieceStyle === 'alphabet' ? p : KANJI[p][0];
       const cnt   = hand[p] > 1 ? `<sup>${hand[p]}</sup>` : '';
@@ -242,8 +268,8 @@
     }).join('');
   }
 
-  // diagram=true のとき持ち駒・コントロールを非表示
-  function buildHtml(state, lastMove, idx, total, caption, kifuLines, diagram, pieceStyle) {
+  // diagram=true のとき持ち駒・コントロールを非表示（showHands=true なら持ち駒は表示）
+  function buildHtml(state, lastMove, idx, total, caption, kifuLines, diagram, pieceStyle, showHands) {
     let hlRow = -1, hlCol = -1;
     if (lastMove) {
       const m = lastMove.replace(/\+$/, '');
@@ -269,9 +295,7 @@
     const rowLabels = rowLabelValues.map(l => `<div class="sp-row-label">${l}</div>`).join('');
 
     const currentJp = idx > 0 ? kifuLines[idx - 1] : null;
-    const infoText  = idx === 0
-      ? (total > 0 ? `初期局面 / 全${total}手` : '初期局面')
-      : `${currentJp}　${idx} / ${total}手`;
+    const infoText  = idx === 0 ? UI.start(total) : UI.progress(currentJp, idx, total);
 
     const prevDisabled = idx === 0 ? 'disabled' : '';
     const nextDisabled = idx === total ? 'disabled' : '';
@@ -286,15 +310,15 @@
         `).join('')}
       </div>` : '';
 
-    const handSection = !diagram ? `
+    const handSection = (!diagram || showHands) ? `
       <div class="sp-hand">
-        <span class="sp-hand-label">後手の持ち駒：</span>
+        <span class="sp-hand-label">${UI.whiteHand}</span>
         ${handHtml(state.hands.white, pieceStyle)}
       </div>` : '';
 
-    const handSectionBottom = !diagram ? `
+    const handSectionBottom = (!diagram || showHands) ? `
       <div class="sp-hand">
-        <span class="sp-hand-label">先手の持ち駒：</span>
+        <span class="sp-hand-label">${UI.blackHand}</span>
         ${handHtml(state.hands.black, pieceStyle)}
       </div>` : '';
 
@@ -332,6 +356,7 @@
     constructor(el) {
       this.el      = el;
       this.diagram = el.hasAttribute('data-diagram');
+      this.showHands = el.hasAttribute('data-show-hands');
       this.fixedPieceStyle = normalizePieceStyle(el.dataset.pieceStyle);
       const sfen     = el.dataset.sfen    || 'startpos';
       const movesStr = el.dataset.moves   || '';
@@ -348,7 +373,7 @@
         this.history.push(s);
       }
 
-      this.kifuLines = this.moves.map((mv, i) => usiToJp(mv, this.history[i]));
+      this.kifuLines = this.moves.map((mv, i) => (IS_ENGLISH_PAGE ? usiToEn : usiToJp)(mv, this.history[i]));
       this.idx = 0;
       this.render();
     }
@@ -360,7 +385,7 @@
       this.el.classList.toggle('sp-piece-style-kanji', pieceStyle === 'kanji');
       this.el.innerHTML = buildHtml(
         this.history[this.idx], lastMove,
-        this.idx, this.moves.length, this.caption, this.kifuLines, this.diagram, pieceStyle
+        this.idx, this.moves.length, this.caption, this.kifuLines, this.diagram, pieceStyle, this.showHands
       );
 
       this.el.querySelectorAll('.sp-btn').forEach(btn => {
