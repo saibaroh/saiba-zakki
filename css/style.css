@@ -338,6 +338,24 @@ main {
   padding: 0 clamp(8px, 3vw, 32px);
 }
 
+.shelf-five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 600px) {
+  .shelf-five {
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 24px;
+  }
+
+  .shelf-five::before {
+    bottom: calc(var(--label-h) + var(--label-gap) - var(--plank-h) + 24px);
+    width: calc(500px + 4 * clamp(12px, 3.5vw, 40px) + 2 * clamp(8px, 3vw, 32px));
+    min-width: 100%;
+  }
+}
+
 /* 棚板：表紙の下端にぴったり合わせる */
 .shelf::before {
   content: "";
