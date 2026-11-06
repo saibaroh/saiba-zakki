@@ -15,7 +15,8 @@
  *   ---
  *   title: "問題のタイトル"
  *   date: "2026-11-04"
- *   level: "級位者向け"
+ *   type: "next"           (next = 次の一手, tsume = 詰将棋; used by the list filter)
+ *   level: "4級〜2級レベル"  (one of CFG[lang].levelOrder; used by the list filter)
  *   lead: "一覧と検索結果に出る説明（答えは書かない）"
  *   draft: true            (optional — skips the problem)
  *   ---
@@ -55,6 +56,12 @@ const CFG = {
     backToList:   '← 問題の一覧へ',
     prev:         '← 前の問題',
     next:         '次の問題 →',
+    filterLevel:  'レベル',
+    filterType:   '種類',
+    filterAll:    'すべて',
+    noMatch:      '条件に合う問題はありません。',
+    types:        { next: '次の一手', tsume: '詰将棋' },
+    levelOrder:   ['入門', '10級〜5級レベル', '4級〜2級レベル', '1級〜二段レベル', '三段以上レベル', '難問'],
   },
   en: {
     section:      'Shogi Problems',
@@ -69,6 +76,12 @@ const CFG = {
     backToList:   '← All problems',
     prev:         '← Previous problem',
     next:         'Next problem →',
+    filterLevel:  'Level',
+    filterType:   'Type',
+    filterAll:    'All',
+    noMatch:      'No problems match these filters.',
+    types:        { next: 'Next move', tsume: 'Tsume' },
+    levelOrder:   ['4 kyu to 2 kyu level', '3 dan and above', 'Expert challenge'],
   },
 };
 const LANGS = Object.keys(CFG);
@@ -97,9 +110,10 @@ function parseFrontmatter(src, file) {
     if (i <= 0) continue;
     data[line.slice(0, i).trim()] = line.slice(i + 1).trim().replace(/^"(.*)"$/, '$1');
   }
-  for (const key of ['title', 'date', 'level', 'lead']) {
+  for (const key of ['title', 'date', 'type', 'level', 'lead']) {
     if (!data[key]) throw new Error(`${file}: "${key}" is required`);
   }
+  if (!['next', 'tsume'].includes(data.type)) throw new Error(`${file}: "type" must be next or tsume`);
   return { data, body: src.slice(m[0].length) };
 }
 
@@ -272,6 +286,59 @@ ${answer.html}
 ` + foot(lang, hasBoard, 3);
 }
 
+const rank = (order, value) => {
+  const i = order.indexOf(value);
+  return i < 0 ? order.length : i;
+};
+
+/**
+ * List filter. Without JavaScript the filter bar stays hidden and every problem
+ * is shown. The selection is kept in the URL (?level=…&type=…) so it can be shared.
+ */
+const FILTER_SCRIPT = `
+(function () {
+  var bar = document.querySelector('.problem-filter');
+  if (!bar) return;
+  var cards = document.querySelectorAll('.course-cards > .course-card');
+  var empty = document.querySelector('.problem-filter-empty');
+  var params = new URLSearchParams(location.search);
+  var state = { level: params.get('level') || '', type: params.get('type') || '' };
+  // Ignore values in the URL that no chip offers (e.g. an old link).
+  Object.keys(state).forEach(function (key) {
+    var known = Array.prototype.some.call(bar.querySelectorAll('.problem-filter-chip'), function (chip) {
+      return chip.dataset.filter === key && chip.dataset.value === state[key];
+    });
+    if (!known) state[key] = '';
+  });
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (card) {
+      var ok = (!state.level || card.dataset.level === state.level) &&
+               (!state.type || card.dataset.type === state.type);
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    empty.hidden = shown > 0;
+    bar.querySelectorAll('.problem-filter-chip').forEach(function (chip) {
+      chip.setAttribute('aria-pressed', String(state[chip.dataset.filter] === chip.dataset.value));
+    });
+  }
+  bar.addEventListener('click', function (e) {
+    var chip = e.target.closest('.problem-filter-chip');
+    if (!chip) return;
+    state[chip.dataset.filter] = chip.dataset.value;
+    var q = new URLSearchParams();
+    if (state.level) q.set('level', state.level);
+    if (state.type) q.set('type', state.type);
+    var qs = q.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+    apply();
+  });
+  bar.hidden = false;
+  apply();
+})();
+`;
+
 function renderList(lang, problems) {
   const cfg       = CFG[lang];
   const listUrl   = listUrlOf(lang);
@@ -285,7 +352,7 @@ function renderList(lang, problems) {
         const lead  = thumb
           ? `<img class="problem-card-thumb" src="${thumb}" alt="${esc(cfg.label(p.num))}" width="640" height="527" loading="lazy">`
           : `<div class="course-card-num">${p.num}</div>`;
-        return `            <a href="${p.num}/" class="course-card${thumb ? ' problem-card' : ''}">
+        return `            <a href="${p.num}/" class="course-card${thumb ? ' problem-card' : ''}" data-level="${esc(p.level)}" data-type="${p.type}">
               ${lead}
               <div class="course-card-body">${thumb ? `
                 <p class="problem-number">${cfg.label(p.num)}</p>` : ''}
@@ -295,6 +362,21 @@ function renderList(lang, problems) {
               <span class="course-card-arrow">›</span>
             </a>`;
       }).join('\n');
+
+  // Filter chips: only levels and types that appear in the list, in a fixed order.
+  const used   = key => new Set(problems.map(p => p[key]));
+  const levels = [...used('level')].sort((a, b) => rank(cfg.levelOrder, a) - rank(cfg.levelOrder, b));
+  const types  = Object.keys(cfg.types).filter(t => used('type').has(t));
+  const chips  = (group, label, items) => `
+          <div class="problem-filter-group" role="group" aria-label="${label}">
+            <span class="problem-filter-label">${label}</span>
+            <button type="button" class="problem-filter-chip" data-filter="${group}" data-value="" aria-pressed="true">${cfg.filterAll}</button>${items.map(([value, text]) => `
+            <button type="button" class="problem-filter-chip" data-filter="${group}" data-value="${esc(value)}" aria-pressed="false">${esc(text)}</button>`).join('')}
+          </div>`;
+  const filters = problems.length < 2 ? '' : `
+        <div class="problem-filter" hidden>${chips('level', cfg.filterLevel, levels.map(l => [l, l]))}${chips('type', cfg.filterType, types.map(t => [t, cfg.types[t]]))}
+        </div>
+        <p class="problem-filter-empty" hidden>${cfg.noMatch}</p>`;
 
   const jsonLd = [{
     '@context': 'https://schema.org',
@@ -319,14 +401,15 @@ function renderList(lang, problems) {
 
     <section class="section">
       <div class="container">
-        <div class="course-intro">
+        <div class="course-intro">${filters}
           <div class="course-cards">
 ${cards}
           </div>
         </div>
       </div>
     </section>
-  </main>
+  </main>${filters ? `
+  <script>${FILTER_SCRIPT}</script>` : ''}
 ` + foot(lang, false, 2);
 }
 

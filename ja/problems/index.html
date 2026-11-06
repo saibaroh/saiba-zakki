@@ -115,8 +115,24 @@
     <section class="section">
       <div class="container">
         <div class="course-intro">
+        <div class="problem-filter" hidden>
+          <div class="problem-filter-group" role="group" aria-label="レベル">
+            <span class="problem-filter-label">レベル</span>
+            <button type="button" class="problem-filter-chip" data-filter="level" data-value="" aria-pressed="true">すべて</button>
+            <button type="button" class="problem-filter-chip" data-filter="level" data-value="4級〜2級レベル" aria-pressed="false">4級〜2級レベル</button>
+            <button type="button" class="problem-filter-chip" data-filter="level" data-value="三段以上レベル" aria-pressed="false">三段以上レベル</button>
+            <button type="button" class="problem-filter-chip" data-filter="level" data-value="難問" aria-pressed="false">難問</button>
+          </div>
+          <div class="problem-filter-group" role="group" aria-label="種類">
+            <span class="problem-filter-label">種類</span>
+            <button type="button" class="problem-filter-chip" data-filter="type" data-value="" aria-pressed="true">すべて</button>
+            <button type="button" class="problem-filter-chip" data-filter="type" data-value="next" aria-pressed="false">次の一手</button>
+            <button type="button" class="problem-filter-chip" data-filter="type" data-value="tsume" aria-pressed="false">詰将棋</button>
+          </div>
+        </div>
+        <p class="problem-filter-empty" hidden>条件に合う問題はありません。</p>
           <div class="course-cards">
-            <a href="1/" class="course-card problem-card">
+            <a href="1/" class="course-card problem-card" data-level="4級〜2級レベル" data-type="next">
               <img class="problem-card-thumb" src="/images/problems/ja-1.webp" alt="第1問" width="640" height="527" loading="lazy">
               <div class="course-card-body">
                 <p class="problem-number">第1問</p>
@@ -125,7 +141,7 @@
               </div>
               <span class="course-card-arrow">›</span>
             </a>
-            <a href="2/" class="course-card problem-card">
+            <a href="2/" class="course-card problem-card" data-level="4級〜2級レベル" data-type="tsume">
               <img class="problem-card-thumb" src="/images/problems/ja-2.webp" alt="第2問" width="640" height="527" loading="lazy">
               <div class="course-card-body">
                 <p class="problem-number">第2問</p>
@@ -134,7 +150,7 @@
               </div>
               <span class="course-card-arrow">›</span>
             </a>
-            <a href="3/" class="course-card problem-card">
+            <a href="3/" class="course-card problem-card" data-level="難問" data-type="next">
               <img class="problem-card-thumb" src="/images/problems/ja-3.webp" alt="第3問" width="640" height="527" loading="lazy">
               <div class="course-card-body">
                 <p class="problem-number">第3問</p>
@@ -143,7 +159,7 @@
               </div>
               <span class="course-card-arrow">›</span>
             </a>
-            <a href="4/" class="course-card problem-card">
+            <a href="4/" class="course-card problem-card" data-level="三段以上レベル" data-type="tsume">
               <img class="problem-card-thumb" src="/images/problems/ja-4.webp" alt="第4問" width="640" height="527" loading="lazy">
               <div class="course-card-body">
                 <p class="problem-number">第4問</p>
@@ -152,7 +168,7 @@
               </div>
               <span class="course-card-arrow">›</span>
             </a>
-            <a href="5/" class="course-card problem-card">
+            <a href="5/" class="course-card problem-card" data-level="難問" data-type="tsume">
               <img class="problem-card-thumb" src="/images/problems/ja-5.webp" alt="第5問" width="640" height="527" loading="lazy">
               <div class="course-card-body">
                 <p class="problem-number">第5問</p>
@@ -161,7 +177,7 @@
               </div>
               <span class="course-card-arrow">›</span>
             </a>
-            <a href="6/" class="course-card problem-card">
+            <a href="6/" class="course-card problem-card" data-level="三段以上レベル" data-type="tsume">
               <img class="problem-card-thumb" src="/images/problems/ja-6.webp" alt="第6問" width="640" height="527" loading="lazy">
               <div class="course-card-body">
                 <p class="problem-number">第6問</p>
@@ -175,6 +191,49 @@
       </div>
     </section>
   </main>
+  <script>
+(function () {
+  var bar = document.querySelector('.problem-filter');
+  if (!bar) return;
+  var cards = document.querySelectorAll('.course-cards > .course-card');
+  var empty = document.querySelector('.problem-filter-empty');
+  var params = new URLSearchParams(location.search);
+  var state = { level: params.get('level') || '', type: params.get('type') || '' };
+  // Ignore values in the URL that no chip offers (e.g. an old link).
+  Object.keys(state).forEach(function (key) {
+    var known = Array.prototype.some.call(bar.querySelectorAll('.problem-filter-chip'), function (chip) {
+      return chip.dataset.filter === key && chip.dataset.value === state[key];
+    });
+    if (!known) state[key] = '';
+  });
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (card) {
+      var ok = (!state.level || card.dataset.level === state.level) &&
+               (!state.type || card.dataset.type === state.type);
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    empty.hidden = shown > 0;
+    bar.querySelectorAll('.problem-filter-chip').forEach(function (chip) {
+      chip.setAttribute('aria-pressed', String(state[chip.dataset.filter] === chip.dataset.value));
+    });
+  }
+  bar.addEventListener('click', function (e) {
+    var chip = e.target.closest('.problem-filter-chip');
+    if (!chip) return;
+    state[chip.dataset.filter] = chip.dataset.value;
+    var q = new URLSearchParams();
+    if (state.level) q.set('level', state.level);
+    if (state.type) q.set('type', state.type);
+    var qs = q.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+    apply();
+  });
+  bar.hidden = false;
+  apply();
+})();
+</script>
 
   <button class="back-to-top" aria-label="ページ上部へ戻る">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
