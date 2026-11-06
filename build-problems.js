@@ -2,7 +2,7 @@
 /**
  * build-problems.js
  *
- * Generates the "次の一手問題" (next-move problem) pages.
+ * Generates the "将棋の問題" (shogi problem) pages: next-move problems, tsume, and so on.
  *
  *   {lang}/problems/{n}.md  →  {lang}/problems/{n}/index.html
  *                           →  {lang}/problems/index.html (list, by number)
@@ -43,9 +43,9 @@ const BASE_URL = 'https://shogi.saiba-zakki.com';
 const GA_ID    = 'G-3QWHMZKB7V';
 const CFG = {
   ja: {
-    section:      '次の一手問題',
+    section:      '将棋の問題',
     siteName:     'さいばの将棋ポータル',
-    listDesc:     '将棋ウォーズ四段のさいばが、実戦をもとに作った次の一手問題です。1問ずつ、盤面を見て考えてから解答を開けます。',
+    listDesc:     '将棋ウォーズ四段のさいばが、実戦をもとに作った次の一手問題や詰将棋です。1問ずつ、盤面を見て考えてから解答を開けます。',
     listSubtitle: '実戦から作った問題を、1問ずつ載せています。',
     empty:        '問題はまだありません。',
     home:         'ホーム',
@@ -55,12 +55,11 @@ const CFG = {
     backToList:   '← 問題の一覧へ',
     prev:         '← 前の問題',
     next:         '次の問題 →',
-    levelSep:     '｜',
   },
   en: {
-    section:      'Next-Move Problems',
+    section:      'Shogi Problems',
     siteName:     "Saiba's Shogi Portal",
-    listDesc:     'Next-move shogi problems by Saiba, an amateur 4-dan on Shogi Wars, built from real games. Think about each position, then open the answer.',
+    listDesc:     'Next-move and mating problems by Saiba, an amateur 4-dan on Shogi Wars, built from real games. Think about each position, then open the answer.',
     listSubtitle: 'Problems built from real games, one position at a time.',
     empty:        'No problems yet.',
     home:         'Home',
@@ -70,7 +69,6 @@ const CFG = {
     backToList:   '← All problems',
     prev:         '← Previous problem',
     next:         'Next problem →',
-    levelSep:     ' | ',
   },
 };
 const LANGS = Object.keys(CFG);
@@ -188,7 +186,6 @@ function renderProblem(lang, p, prev, next, all) {
   const url       = `${listUrl}${p.num}/`;
   const label     = cfg.label(p.num);
   const fullTitle = `${label} ${p.title}`;
-  const listTitle = `${cfg.section} | ${cfg.siteName}`;
 
   const [questionMd, answerMd] = p.body.split(ANSWER_MARKER);
   if (answerMd === undefined) throw new Error(`${lang}/problems/${p.num}.md: "<!-- answer -->" line is missing`);
@@ -230,7 +227,7 @@ function renderProblem(lang, p, prev, next, all) {
           </a>` : '';
 
   return head({
-    lang, title: `${fullTitle} | ${listTitle}`, description: p.lead, url, ogType: 'article', jsonLd, depth: 3, hasBoard,
+    lang, title: `${fullTitle} | ${cfg.siteName}`, description: p.lead, url, ogType: 'article', jsonLd, depth: 3, hasBoard,
     hreflang: hreflangLines(l => `${listUrlOf(l)}${p.num}/`, langs), langSwitch, image: thumbOf(lang, p.num),
   }) + `
   <main>
@@ -293,7 +290,7 @@ function renderList(lang, problems) {
               <div class="course-card-body">${thumb ? `
                 <p class="problem-number">${cfg.label(p.num)}</p>` : ''}
                 <p class="course-card-title">${esc(p.title)}</p>
-                <p class="course-card-desc">${esc(p.level)}${cfg.levelSep}${esc(p.lead)}</p>
+                <p class="course-card-desc">${esc(p.lead)}</p>
               </div>
               <span class="course-card-arrow">›</span>
             </a>`;
