@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第8問 【三段以上レベル・次の一手】何気ない飛車先交換、手はある？ | さいばの将棋ポータル</title>
+  <meta name="description" content="将棋ウォーズの実戦から作った次の一手問題です。相手が飛車先の歩を交換してきた、一見すると何気ない局面で、手があるかを考えます。">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/problems/8/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/problems/8/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/problems/8/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/problems/8/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="第8問 【三段以上レベル・次の一手】何気ない飛車先交換、手はある？ | さいばの将棋ポータル">
+  <meta property="og:description" content="将棋ウォーズの実戦から作った次の一手問題です。相手が飛車先の歩を交換してきた、一見すると何気ない局面で、手があるかを考えます。">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/problems/8/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/problems/ja-8.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="第8問 【三段以上レベル・次の一手】何気ない飛車先交換、手はある？ | さいばの将棋ポータル">
+  <meta name="twitter:description" content="将棋ウォーズの実戦から作った次の一手問題です。相手が飛車先の歩を交換してきた、一見すると何気ない局面で、手があるかを考えます。">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "第8問 【三段以上レベル・次の一手】何気ない飛車先交換、手はある？",
+    "description": "将棋ウォーズの実戦から作った次の一手問題です。相手が飛車先の歩を交換してきた、一見すると何気ない局面で、手があるかを考えます。",
+    "datePublished": "2026-11-07",
+    "author": {
+      "@type": "Person",
+      "name": "さいば",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "url": "https://shogi.saiba-zakki.com/ja/problems/8/",
+    "inLanguage": "ja",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/ja/problems/8/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "将棋の問題",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "第8問",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/8/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">さいばの著書の紹介</a>
+        <a href="/ja/recommended-books/">おすすめ棋書</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/problems/">将棋の問題</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/ja/tools/">無料ツール</a>
+        <a href="/en/problems/8/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">将棋の問題</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>第8問</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">将棋の問題</span>
+            <span>三段以上レベル</span>
+            <span>右玉</span>
+            <span>2026-11-07</span>
+          </div>
+          <p class="problem-number">第8問</p>
+          <h1 class="article-title">【三段以上レベル・次の一手】何気ない飛車先交換、手はある？</h1>
+        </header>
+
+        <div class="article-body">
+<p>将棋ウォーズの実戦から作った、次の一手問題です。</p>
+<div class="board-center"><div class="shogi-player" data-diagram data-show-hands data-sfen="ln3k1nl/6g2/p1sp1gsp1/4ppp1p/7P1/PrSP1PP1P/4PSN2/2G1GK3/LN5RL b B2Pb2p 1" data-caption="問題図（先手番）"></div></div>
+<p>先手番です。相手が、飛車先の歩を交換してきました。</p>
+<p>一見すると何気ない局面ですが、ここで手があるでしょうか？</p>
+
+          <details class="problem-answer">
+            <summary>解答を見る</summary>
+            <div class="problem-answer-body">
+<h2>解答・解説</h2>
+<p><strong>☗８五角</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="ln3k1nl/6g2/p1sp1gsp1/4ppp1p/7P1/PrSP1PP1P/4PSN2/2G1GK3/LN5RL b B2Pb2p 1" data-moves="B*8e" data-caption="解答図"></div></div>
+<p>意外な角打ちですが、この手には2つの狙いがあります。</p>
+<ul>
+<li>☗６三角成と、王手をしながら馬を作る</li>
+<li>☗８七歩と打って、飛車を詰ましてしまう</li>
+</ul>
+<p>相手からすると、どちらも厄介です。</p>
+<p>相手陣は飛車に弱いため、飛車を手に入れられれば、一方的に相手を追い込むことができるでしょう。</p>
+<h2>ほかの手：☗８七金や☗８七銀</h2>
+<p>☗８七金や☗８七銀と<a href="/ja/glossary/#受け" class="glossary-link">受け</a>るのは穏便で、この進行でも悪くはありません。</p>
+<p>ただ、正解手は一気に優勢に持っていけるので、そちらが勝ります。</p>
+
+            </div>
+          </details>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../" class="btn-ghost">← 問題の一覧へ</a>
+          <a href="../7/" class="btn-nav">
+            <span class="btn-nav-label">← 前の問題</span>
+            <span class="btn-nav-title">第7問 【1級〜二段レベル・次の一手】桂頭を攻められた！どうする？</span>
+          </a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>

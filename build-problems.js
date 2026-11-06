@@ -17,6 +17,7 @@
  *   date: "2026-11-04"
  *   type: "next"           (next = 次の一手, tsume = 詰将棋; used by the list filter)
  *   level: "4級〜2級レベル"  (one of CFG[lang].levelOrder; used by the list filter)
+ *   strategy: "ミレニアム"   (optional — opening / castle, shown next to the level)
  *   lead: "一覧と検索結果に出る説明（答えは書かない）"
  *   draft: true            (optional — skips the problem)
  *   ---
@@ -81,7 +82,7 @@ const CFG = {
     filterAll:    'All',
     noMatch:      'No problems match these filters.',
     types:        { next: 'Next move', tsume: 'Tsume' },
-    levelOrder:   ['4 kyu to 2 kyu level', '3 dan and above', 'Expert challenge'],
+    levelOrder:   ['4 kyu to 2 kyu level', '1 kyu to 2 dan level', '3 dan and above', 'Expert challenge'],
   },
 };
 const LANGS = Object.keys(CFG);
@@ -259,7 +260,8 @@ function renderProblem(lang, p, prev, next, all) {
         <header class="article-header">
           <div class="article-meta">
             <span class="article-category">${cfg.section}</span>
-            <span>${esc(p.level)}</span>
+            <span>${esc(p.level)}</span>${p.strategy ? `
+            <span>${esc(p.strategy)}</span>` : ''}
             <span>${esc(p.date)}</span>
           </div>
           <p class="problem-number">${label}</p>

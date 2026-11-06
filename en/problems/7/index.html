@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem 7 [1 kyu to 2 dan level · Next move] Your knight’s head is under attack — what now? | Saiba's Shogi Portal</title>
+  <meta name="description" content="A next-move problem built from a game on Shogi Wars. White is attacking the head of your knight in a Millennium castle. How should you respond?">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/en/problems/7/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/problems/7/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/problems/7/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/problems/7/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="Problem 7 [1 kyu to 2 dan level · Next move] Your knight’s head is under attack — what now? | Saiba's Shogi Portal">
+  <meta property="og:description" content="A next-move problem built from a game on Shogi Wars. White is attacking the head of your knight in a Millennium castle. How should you respond?">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/en/problems/7/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/problems/en-7.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Problem 7 [1 kyu to 2 dan level · Next move] Your knight’s head is under attack — what now? | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="A next-move problem built from a game on Shogi Wars. White is attacking the head of your knight in a Millennium castle. How should you respond?">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Problem 7 [1 kyu to 2 dan level · Next move] Your knight’s head is under attack — what now?",
+    "description": "A next-move problem built from a game on Shogi Wars. White is attacking the head of your knight in a Millennium castle. How should you respond?",
+    "datePublished": "2026-11-07",
+    "author": {
+      "@type": "Person",
+      "name": "Saiba",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "url": "https://shogi.saiba-zakki.com/en/problems/7/",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/en/problems/7/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Shogi Problems",
+        "item": "https://shogi.saiba-zakki.com/en/problems/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Problem 7",
+        "item": "https://shogi.saiba-zakki.com/en/problems/7/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="/en/">Books by Saiba</a>
+        <a href="/en/how-to-play/">How to Play</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/problems/">Shogi Problems</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/en/tools/">Free Tools</a>
+        <a href="/ja/problems/7/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">Shogi Problems</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Problem 7</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">Shogi Problems</span>
+            <span>1 kyu to 2 dan level</span>
+            <span>Millennium</span>
+            <span>2026-11-07</span>
+          </div>
+          <p class="problem-number">Problem 7</p>
+          <h1 class="article-title">[1 kyu to 2 dan level · Next move] Your knight’s head is under attack — what now?</h1>
+        </header>
+
+        <div class="article-body">
+<p>A next-move problem built from a game on Shogi Wars.</p>
+<div class="board-center"><div class="shogi-player" data-diagram data-show-hands data-sfen="l2g3nl/1ks2s3/1png3p1/p2bp1p1p/2pp1p1P1/P1P1P1P1P/1PN1SP3/1S1G4R/LKG4NL b Rbp 1" data-caption="Problem (Black to move)"></div></div>
+<p>In the original game this position came up with White to move; the sides have been swapped here so that you play Black.</p>
+<p>Black to move. White is attacking the head of your knight on 77. Think of a three-move sequence.</p>
+<p>Squares are written file first, then rank, as labeled on the board (77 = file 7, rank 7).</p>
+
+          <details class="problem-answer">
+            <summary>Show answer</summary>
+            <div class="problem-answer-body">
+<h2>Answer and explanation</h2>
+<p><strong>☗N-65 → ☖Nx65 → ☗S-66</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="l2g3nl/1ks2s3/1png3p1/p2bp1p1p/2pp1p1P1/P1P1P1P1P/1PN1SP3/1S1G4R/LKG4NL b Rbp 1" data-moves="7g6e 7c6e 5g6f" data-caption="Answer"></div></div>
+<p>When you jump with ☗N-65, White captures your knight with ☖Nx65.</p>
+<p>However, by drawing White’s knight out to 65, you can win it back with ☗S-66.</p>
+<h2>A bad example: other moves</h2>
+<p>With any other move, White attacks your knight’s head and you simply lose material.</p>
+<hr>
+<p>When the head of your knight is under attack, consider jumping the knight, drawing in your opponent’s piece, and then winning it back!</p>
+
+            </div>
+          </details>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../" class="btn-ghost">← All problems</a>
+          <a href="../6/" class="btn-nav">
+            <span class="btn-nav-label">← Previous problem</span>
+            <span class="btn-nav-title">Problem 6 [3 dan and above · Tsume] How do you finish it off? An idea from a practical position</span>
+          </a>
+          <a href="../8/" class="btn-nav">
+            <span class="btn-nav-label">Next problem →</span>
+            <span class="btn-nav-title">Problem 8 [3 dan and above · Next move] An ordinary-looking rook pawn exchange — is there a move here?</span>
+          </a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">Author’s blog: Saiba’s Zakkilog (Japanese) <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>
