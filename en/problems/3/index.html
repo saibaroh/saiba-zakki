@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem 3 [Expert challenge · Next move] How should you use the threatened bishop? | Saiba's Shogi Portal</title>
+  <meta name="description" content="Find a five-ply sequence that keeps the attack going with your bishop under threat. A difficult position from a Shogi Wars game.">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/en/problems/3/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/problems/3/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/problems/3/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/problems/3/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="Problem 3 [Expert challenge · Next move] How should you use the threatened bishop? | Saiba's Shogi Portal">
+  <meta property="og:description" content="Find a five-ply sequence that keeps the attack going with your bishop under threat. A difficult position from a Shogi Wars game.">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/en/problems/3/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/problems/en-3.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Problem 3 [Expert challenge · Next move] How should you use the threatened bishop? | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="Find a five-ply sequence that keeps the attack going with your bishop under threat. A difficult position from a Shogi Wars game.">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Problem 3 [Expert challenge · Next move] How should you use the threatened bishop?",
+    "description": "Find a five-ply sequence that keeps the attack going with your bishop under threat. A difficult position from a Shogi Wars game.",
+    "datePublished": "2026-09-25",
+    "author": {
+      "@type": "Person",
+      "name": "Saiba",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "url": "https://shogi.saiba-zakki.com/en/problems/3/",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/en/problems/3/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Shogi Problems",
+        "item": "https://shogi.saiba-zakki.com/en/problems/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Problem 3",
+        "item": "https://shogi.saiba-zakki.com/en/problems/3/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="/en/">Books by Saiba</a>
+        <a href="/en/how-to-play/">How to Play</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/problems/">Shogi Problems</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/en/tools/">Free Tools</a>
+        <a href="/ja/problems/3/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">Shogi Problems</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Problem 3</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">Shogi Problems</span>
+            <span>Expert challenge</span>
+            <span>2026-09-25</span>
+          </div>
+          <p class="problem-number">Problem 3</p>
+          <h1 class="article-title">[Expert challenge · Next move] How should you use the threatened bishop?</h1>
+        </header>
+
+        <div class="article-body">
+<p>This problem comes from one of my Shogi Wars games. I originally played White; the sides have been swapped here so that you play Black.</p>
+<p>Both players are attacking fiercely in a Double <a href="/en/glossary/#static-ranging-rook" class="glossary-link">Static Rook</a> game. In my original engine analysis, only one sequence gave the attacking side an advantage. Find the next five plies. I think this is a problem for strong dan players.</p>
+<div class="board-center"><div class="shogi-player" data-diagram data-show-hands data-sfen="l3k2nl/3r2gb1/pPg1pp2p/5sPP1/3p3R1/1spB1Sn2/P2PPP2P/2S6/L2GKG1NL b N2P2p 1" data-caption="Problem — Black to move"></div></div>
+<p><strong>Hint: Make the bishop do one last job before it is captured.</strong></p>
+
+          <details class="problem-answer">
+            <summary>Show answer</summary>
+            <div class="problem-answer-body">
+<h2>Answer</h2>
+<p><strong>N*85 → G83 → B84</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="l3k2nl/3r2gb1/pPg1pp2p/5sPP1/3p3R1/1spB1Sn2/P2PPP2P/2S6/L2GKG1NL b N2P2p 1" data-moves="N*8e 7c8c 6f8d" data-caption="Intermediate position"></div></div>
+<p>Drop the knight to attack the gold, then offer the bishop for free on 84. It is an extraordinary idea.</p>
+<p><strong>Gx84 → N73+</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="l3k2nl/3r2gb1/pPg1pp2p/5sPP1/3p3R1/1spB1Sn2/P2PPP2P/2S6/L2GKG1NL b N2P2p 1" data-moves="N*8e 7c8c 6f8d 8c8d 8e7c+" data-caption="Answer sequence"></div></div>
+<p>After the gold captures the bishop, the knight promotes and attacks the rook. My original analysis gave the attacking side a slight advantage, around 200 points.</p>
+<h2>Why does losing a bishop work?</h2>
+<ul>
+<li>The defending gold is drawn away from the king.</li>
+<li>Attacking the rook gains time to continue the attack.</li>
+<li>The promoted knight strongly restricts the left side of the enemy king.</li>
+<li>The pawn advance to 23 with promotion remains another promising continuation.</li>
+</ul>
+<p>I was impressed that the attacking side could still be at least equal after giving up an entire bishop.</p>
+<h2>What I played</h2>
+<p>Confused by the position, I chose the straightforward pawn advance to 23 with promotion. That attack did not get a strong enough foothold, and my position quickly deteriorated.</p>
+<p>There were two separate difficulties: finding the knight drop and bishop sacrifice, and judging that the resulting position was playable. This was difficult enough that I could accept not finding it in the game.</p>
+<p>Still, the knight drop is a recognizable local tactic, so I felt a professional might well find it. Drawing a gold forward with a sacrifice can help an attack keep going; that is an idea I want to remember.</p>
+
+            </div>
+          </details>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../" class="btn-ghost">← All problems</a>
+          <a href="../2/" class="btn-nav">
+            <span class="btn-nav-label">← Previous problem</span>
+            <span class="btn-nav-title">Problem 2 [4–2 kyu level · Tsume] If Only That Gold Weren't There…</span>
+          </a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">Author’s blog: Saiba’s Zakkilog (Japanese) <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>

@@ -18,7 +18,7 @@ function removeExcludedFiles(targetDir) {
       continue;
     }
 
-    if (excludedExtensions.has(path.extname(entry.name))) {
+    if (entry.name === '.DS_Store' || excludedExtensions.has(path.extname(entry.name))) {
       fs.rmSync(entryPath);
     }
   }

@@ -369,6 +369,10 @@
 .rec-ok    { color: var(--color-text-muted, #6B6259); }
 .board-center {
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
   margin: 1.2rem 0;
+}
+.board-center > .shogi-player {
+  flex-shrink: 0;
+  margin-inline: auto;
 }
