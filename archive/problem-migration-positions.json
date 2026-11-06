@@ -1,0 +1,21 @@
+{
+  "description": "Manual transcriptions from the original article images. SFEN uses the original orientation: Black to move in each problem. Uppercase = Black, lowercase = White. Move counts are normalized to 1.",
+  "positions": [
+    {"problem":4,"line":"initial","image":"/images/migrated/wp-content/uploads/2025/02/6ef4c2e07e3160b6f43d1d571d520492.png","sfen":"l+B2k2+P1/4g1g2/2p1p1npl/pp3NSsp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L b RSgnl6p 1"},
+    {"problem":4,"line":"take","ply":7,"image":"/images/migrated/wp-content/uploads/2025/02/e6ddf1ace3b56d4ce623965f0c362981.png","sfen":"l+B1k2g+P1/4G4/2p1pSnpl/pp4Ssp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L w rg2nl6p 1"},
+    {"problem":4,"line":"pawn","ply":9,"image":"/images/migrated/wp-content/uploads/2025/02/476b2d6b6b3baca1e537e0de3f9612a5.png","sfen":"l+B1k1p1+P1/4Gl+R2/2p1p+Snpl/pp5sp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L w GSg2n5p 1"},
+    {"problem":4,"line":"gold","ply":9,"image":"/images/migrated/wp-content/uploads/2025/02/e55c0258f3c838de9c2b77787ec18d1b.png","sfen":"l+B3GG+P1/4gk3/2p1p1npl/pp4Ssp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L w Sr2nl6p 1"},
+    {"problem":5,"line":"initial","image":"/images/migrated/wp-content/uploads/2025/02/image-1.png","sfen":"l+B2k2+P1/4g1g2/2p1p1npl/pp3NSsp/3+r5/6P2/P4PN1P/4G4/4P1K1L b RSbgsnl6p 1"},
+    {"problem":5,"line":"silver","ply":7,"image":"/images/migrated/wp-content/uploads/2025/02/f269010ac1b8c7c20dd6e06b5f1bc942.png","sfen":"l+B3+R1+P1/4k1g2/2p+rp1npl/pp4Ssp/9/6P2/P4PN1P/4G4/4P1K1L w GSbgs2nl6p 1"},
+    {"problem":5,"line":"silver","ply":17,"image":"/images/migrated/wp-content/uploads/2025/02/7729a0fc75f38307f190d61b9f403ea5.png","sfen":"l4R1+P1/5kg2/2p+Bg1npl/pp4Ssp/9/6P2/P4PN1P/4G4/4P1K1L w Prbg2s2nl6p 1"},
+    {"problem":5,"line":"bishop","ply":17,"image":"/images/migrated/wp-content/uploads/2025/02/256c2eddaa72b8fa3dc08c5f2c22dce4.png","sfen":"l6+P1/3B+Rkg2/2p+Bp1npl/pp4Ssp/9/6P2/P4PN1P/4G4/4P1K1L w R2g2s2nl6p 1"},
+    {"problem":6,"line":"initial","image":"/images/migrated/images/note/e762e67969f64e787f09.jpg","sfen":"l1k5+N/4s4/p1G1G4/2p1p1p2/3p2s1p/2P4+B1/P4PPKP/4R3L/L+r+b1G1GNs b 2NL2Ps5p 1"},
+    {"problem":6,"line":"battle","ply":3,"image":"/images/migrated/images/note/771c3e2602e3c55ef6cb.jpg","sfen":"lk6+N/3Gs4/p1G6/2p1p1p2/3p2s1p/2P4+B1/P4PPKP/1L2R3L/L+r+b1G1GNs w 2N2Ps5p 1"}
+  ],
+  "notes": [
+    "Problem 5 removes White's silver at 27 and horse at 78 and puts a silver and bishop in White's hand.",
+    "Problem 6's promoted piece at 11 is a knight. All four lances are accounted for separately: 91, 18, 99 and Black's hand.",
+    "Problem 6's seven-ply continuation is visible in the original analysis screenshot, below the board.",
+    "The original article describes Problem 4 as at most 11 plies; its displayed principal variations finish in 7 or 9. This migration checks displayed sequences, not an exhaustive longest-mate search."
+  ]
+}

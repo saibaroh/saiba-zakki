@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第4問 【三段以上レベル・詰将棋】盲点に入る初手と、合駒の攻防 | さいばの将棋ポータル</title>
+  <meta name="description" content="実戦から生まれた、初手と合駒の変化が面白い問題です。先手番で、詰みにつながる手順を考えてください。">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/problems/4/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/problems/4/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/problems/4/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/problems/4/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="第4問 【三段以上レベル・詰将棋】盲点に入る初手と、合駒の攻防 | さいばの将棋ポータル">
+  <meta property="og:description" content="実戦から生まれた、初手と合駒の変化が面白い問題です。先手番で、詰みにつながる手順を考えてください。">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/problems/4/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/problems/ja-4.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="第4問 【三段以上レベル・詰将棋】盲点に入る初手と、合駒の攻防 | さいばの将棋ポータル">
+  <meta name="twitter:description" content="実戦から生まれた、初手と合駒の変化が面白い問題です。先手番で、詰みにつながる手順を考えてください。">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "第4問 【三段以上レベル・詰将棋】盲点に入る初手と、合駒の攻防",
+    "description": "実戦から生まれた、初手と合駒の変化が面白い問題です。先手番で、詰みにつながる手順を考えてください。",
+    "datePublished": "2025-02-23",
+    "author": {
+      "@type": "Person",
+      "name": "さいば",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "url": "https://shogi.saiba-zakki.com/ja/problems/4/",
+    "inLanguage": "ja",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/ja/problems/4/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "将棋の問題",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "第4問",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/4/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">さいばの著書の紹介</a>
+        <a href="/ja/recommended-books/">おすすめ棋書</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/problems/">将棋の問題</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/ja/tools/">無料ツール</a>
+        <a href="/en/problems/4/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">将棋の問題</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>第4問</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">将棋の問題</span>
+            <span>三段以上レベル</span>
+            <span>2025-02-23</span>
+          </div>
+          <p class="problem-number">第4問</p>
+          <h1 class="article-title">【三段以上レベル・詰将棋】盲点に入る初手と、合駒の攻防</h1>
+        </header>
+
+        <div class="article-body">
+<p>私の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。</p>
+<p>実戦詰将棋として自己評価してみると以下の感じ。</p>
+<h2>問題</h2>
+<p>筋の珍しさ:★★★★☆</p>
+<p>筋の面白さ:★★★☆☆</p>
+<p>芸術性:★★★★☆</p>
+<p>難易度: 正確に読み切れたらアマ高段レベルだと思います。</p>
+<div class="board-center"><div class="shogi-player" data-diagram data-show-hands data-sfen="l+B2k2+P1/4g1g2/2p1p1npl/pp3NSsp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L b RSgnl6p 1" data-caption="問題図（先手番）"></div></div>
+<p>※AI検討で検証しています。</p>
+<p>詰みにつながる初手は1通りのみです。</p>
+
+          <details class="problem-answer">
+            <summary>解答を見る</summary>
+            <div class="problem-answer-body">
+<h2>解答</h2>
+<p>私が面白いと思った初手は▲<strong>３一飛</strong>でした！</p>
+<h3>初手からの変化</h3>
+<h4>2手目△同　金</h4>
+<p>▲<strong>３一飛</strong>に△同　金は、</p>
+<p>▲５二桂成 △同　玉 ▲４三銀打 △６一玉 ▲５二金まで</p>
+<p>▲<strong>３一飛</strong>と捨て駒をすることで、▲４三銀打が同金と取られないようになっているのがポイントです。</p>
+<div class="board-center"><div class="shogi-player" data-sfen="l+B2k2+P1/4g1g2/2p1p1npl/pp3NSsp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L b RSgnl6p 1" data-moves="R*3a 3b3a 4d5b+ 5a5b S*4c 5b6a G*5b" data-caption="△同金の変化・7手"></div></div>
+<h4>2手目△４一歩(香、桂)</h4>
+<p>▲３一飛に対して<a href="/ja/glossary/#合駒" class="glossary-link">合駒</a>はどうでしょうか。</p>
+<p>▲<strong>３一飛</strong>に△４一歩は、 ▲５二桂成 △同　玉 ▲３二飛成 △４二香 ▲４三銀成 △６一玉 ▲５二金 まで</p>
+<div class="board-center"><div class="shogi-player" data-sfen="l+B2k2+P1/4g1g2/2p1p1npl/pp3NSsp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L b RSgnl6p 1" data-moves="R*3a P*4a 4d5b+ 5a5b 3a3b+ L*4b 3d4c+ 5b6a G*5b" data-caption="△４一歩の変化・9手"></div></div>
+<p>▲<strong>３一飛</strong>に歩ではなく、△４一香もしくは△４一桂も、5手目▲３二飛成が防げないため同じ詰み筋で詰みます。</p>
+<h4>2手目△４一金</h4>
+<p>2手目△４一金ですと、先ほどの歩、香、桂の合駒とは違う詰み筋が生じています。</p>
+<p>▲<strong>３一飛</strong>に△４一金は、今度は飛車切りで詰みます。</p>
+<p>▲同　飛成 △同　玉 ▲３二桂成 △同　玉※ ▲３一金
+△４二玉 ▲４一金打まで</p>
+<p>※△５一玉もありますが、並べ詰みで簡単です。</p>
+<div class="board-center"><div class="shogi-player" data-sfen="l+B2k2+P1/4g1g2/2p1p1npl/pp3NSsp/3+r5/6P2/P4PNsP/2+b1G4/4P1K1L b RSgnl6p 1" data-moves="R*3a G*4a 3a4a+ 5a4a 4d3b+ 4a3b G*3a 3b4b G*4a" data-caption="△４一金の変化・9手"></div></div>
+<p>一段目に、尻と金、尻金、尻金と並んだ面白い詰み形ですね！</p>
+<p>元記事のAI検討では、最長手数は11手詰めです。ここでは主な変化を紹介しています。</p>
+<p>初手の飛車捨てが中々見えにくい筋なのではないかと思いますし、その後も合駒の変化があり、読み切りが中々難しい問題なのではないかと思います。</p>
+<p>さらに難しい改題は、<a href="../5/">第5問</a>に載せています。</p>
+
+            </div>
+          </details>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../" class="btn-ghost">← 問題の一覧へ</a>
+          <a href="../3/" class="btn-nav">
+            <span class="btn-nav-label">← 前の問題</span>
+            <span class="btn-nav-title">第3問 【難問・次の一手】取られそうな角、最善の使い方は？</span>
+          </a>
+          <a href="../5/" class="btn-nav">
+            <span class="btn-nav-label">次の問題 →</span>
+            <span class="btn-nav-title">第5問 【難問・詰将棋】合駒が増えると、どう変わる？</span>
+          </a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>

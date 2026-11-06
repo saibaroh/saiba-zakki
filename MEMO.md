@@ -170,3 +170,5 @@ P*5e       # 歩を5五に打つ（駒記号＋*＋座標）
 - サムネイル：`images/problems/{lang}-{番号}.webp`（幅640px）があれば、一覧と共有画像に使う。感想戦ノートのリポジトリで `node scripts/sfen-diagram.mjs "<SFEN>" --heading 第{番号}問 --out 図.png`（英語版は `--heading "Problem {番号}" --en`）で作り、WebPに変換する。
 
 `bishop-practical-review` は第3問（`ja/problems/3/`）に移設。旧URLは `lib/article-redirects.json` で案内し、元の原稿は `archive/bishop-practical-review.md` に保存しています。
+
+`practical-tsume` は第4問（通常版）・第5問（改題）へ、`tsume-battle-review` は第6問へ移設。旧URLはそれぞれ第4問・第6問へ転送します。元原稿は `archive/` に保存しています。第6問は将棋ウォーズの「詰めバト」で出会った問題として出典を本文に残しています。

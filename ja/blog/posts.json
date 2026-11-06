@@ -36,15 +36,6 @@
     "thumbnail": "/images/migrated/covers/shogi-chaos-and-memorization.webp"
   },
   {
-    "slug": "tsume-battle-review",
-    "title": "将棋ウォーズ　詰めバト感想戦",
-    "titleHtml": "将棋ウォーズ　詰めバト感想戦",
-    "date": "2026-06-04",
-    "category": "実戦・振り返り",
-    "lead": "最近実装された将棋ウォーズの新モード、詰めバトを早速遊んでいます！私は詰将棋は大事だと思っていながらも、淡々としており対戦に比べると地道な訓練という感じだったので、楽しみながら詰将棋ができるのはありがたいです。アクティブユーザーの多い「将棋ウォーズ」で色々な将棋の新しい対戦の試みを提供してもらえるの",
-    "thumbnail": "/images/migrated/covers/tsume-battle-review.webp"
-  },
-  {
     "slug": "kindle-unlimited-shogi-books",
     "title": "【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介",
     "titleHtml": "【上級～有段レベル中心】Kindle Unlimitedで読める棋書の紹介",
@@ -160,15 +151,6 @@
     "category": "実戦・振り返り",
     "lead": "将棋ウォーズ四段の筆者による、自学を兼ねた将棋AIのHaoを使ってのセルフ感想戦です。将棋ウォーズのスプリントについて思うこと将棋ウォーズで最近実装された、互角の途中局面から始まるスプリントモードについて、筆者は革新的で素晴らしいゲームだと思います。というのも、将棋を自分で指さない方からすると、プロ",
     "thumbnail": "/images/migrated/covers/shogi-sprint-review.webp"
-  },
-  {
-    "slug": "practical-tsume",
-    "title": "面白い筋の実戦詰将棋",
-    "titleHtml": "面白い筋の実戦詰将棋",
-    "date": "2025-02-23",
-    "category": "実戦・振り返り",
-    "lead": "筆者の実戦の中で、中々珍しそうな筋の詰み筋が出てきたので、紹介してみようと思います。 実戦詰将棋として自己評価してみると以下の感じ。 問題 筋の珍しさ:★★★★☆ 筋の面白さ:★★★☆☆ 芸術性:★★★★☆ 難易度: 正",
-    "thumbnail": "/images/migrated/covers/practical-tsume.webp"
   },
   {
     "slug": "never-give-up-shogi",
