@@ -46,8 +46,8 @@ const CFG = {
   ja: {
     section:      '将棋の問題',
     siteName:     'さいばの将棋ポータル',
-    listDesc:     '将棋ウォーズ四段のさいばが、実戦をもとに作った次の一手問題や詰将棋です。1問ずつ、盤面を見て考えてから解答を開けます。',
-    listSubtitle: '実戦から作った問題を、1問ずつ載せています。',
+    listDesc:     '将棋ウォーズ四段のさいばが作った、オリジナルの次の一手と詰将棋の問題です。1問ずつ、盤面を見て考えてから解答を開けます。',
+    listSubtitle: 'オリジナルの次の一手と詰将棋の問題です。',
     empty:        '問題はまだありません。',
     home:         'ホーム',
     author:       'さいば',
@@ -66,8 +66,8 @@ const CFG = {
   en: {
     section:      'Shogi Problems',
     siteName:     "Saiba's Shogi Portal",
-    listDesc:     'Next-move and mating problems by Saiba, an amateur 4-dan on Shogi Wars, built from real games. Think about each position, then open the answer.',
-    listSubtitle: 'Problems built from real games, one position at a time.',
+    listDesc:     'Original next-move and tsume problems by Saiba, an amateur 4-dan on Shogi Wars. Think about each position, then open the answer.',
+    listSubtitle: 'Original next-move and tsume problems.',
     empty:        'No problems yet.',
     home:         'Home',
     author:       'Saiba',
