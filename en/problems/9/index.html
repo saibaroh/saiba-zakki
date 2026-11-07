@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem 9 [4 kyu to 2 kyu level · Mate or not?] Is there a forced mate in this position? | Saiba's Shogi Portal</title>
+  <meta name="description" content="A problem built from a game on Shogi Wars. Decide whether White’s king can be mated by force.">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/en/problems/9/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/problems/9/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/problems/9/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/problems/9/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Saiba's Shogi Portal">
+  <meta property="og:title" content="Problem 9 [4 kyu to 2 kyu level · Mate or not?] Is there a forced mate in this position? | Saiba's Shogi Portal">
+  <meta property="og:description" content="A problem built from a game on Shogi Wars. Decide whether White’s king can be mated by force.">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/en/problems/9/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/problems/en-9.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Problem 9 [4 kyu to 2 kyu level · Mate or not?] Is there a forced mate in this position? | Saiba's Shogi Portal">
+  <meta name="twitter:description" content="A problem built from a game on Shogi Wars. Decide whether White’s king can be mated by force.">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Problem 9 [4 kyu to 2 kyu level · Mate or not?] Is there a forced mate in this position?",
+    "description": "A problem built from a game on Shogi Wars. Decide whether White’s king can be mated by force.",
+    "datePublished": "2026-11-07",
+    "author": {
+      "@type": "Person",
+      "name": "Saiba",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "url": "https://shogi.saiba-zakki.com/en/problems/9/",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/en/problems/9/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Shogi Problems",
+        "item": "https://shogi.saiba-zakki.com/en/problems/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Problem 9",
+        "item": "https://shogi.saiba-zakki.com/en/problems/9/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Saiba's Shogi Portal</a>
+      <nav class="site-nav">
+        <a href="/en/">Books by Saiba</a>
+        <a href="/en/how-to-play/">How to Play</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/en/problems/">Shogi Problems</a>
+        <a href="/en/guide/">Beginner's Guide</a>
+        <a href="/en/castles/">Essential Castles</a>
+        <a href="/en/glossary/">Glossary</a>
+        <a href="/en/tools/">Free Tools</a>
+        <a href="/ja/problems/9/" class="lang-switch">JA</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">Shogi Problems</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Problem 9</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">Shogi Problems</span>
+            <span>4 kyu to 2 kyu level</span>
+            <span>2026-11-07</span>
+          </div>
+          <p class="problem-number">Problem 9</p>
+          <h1 class="article-title">[4 kyu to 2 kyu level · Mate or not?] Is there a forced mate in this position?</h1>
+        </header>
+
+        <div class="article-body">
+<p>A new type of problem, built from a game on Shogi Wars.</p>
+<div class="board-center"><div class="shogi-player" data-diagram data-show-hands data-sfen="l7l/5k3/3Spp3/p2p1n1pp/3g1Np2/+r1p5P/3PPP1G1/2+nSK1S2/5G2L b BGrbsnl6p 1" data-caption="Problem (Black to move)"></div></div>
+<p>Black to move. Is there a forced mate against White’s king in this position?</p>
+<p>If you think there is, try to find the mating sequence too.</p>
+<p>Squares are written file first, then rank, as labeled on the board (33 = file 3, rank 3).</p>
+
+          <details class="problem-answer">
+            <summary>Show answer</summary>
+            <div class="problem-answer-body">
+<h2>Answer and explanation</h2>
+<p><strong>Yes, there is a mate (mate in 5).</strong></p>
+<p><strong>☗B<em>33 → ☖K-31 → ☗G</em>22 → ☖K-41 → ☗N-53 (no promotion)</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="l7l/5k3/3Spp3/p2p1n1pp/3g1Np2/+r1p5P/3PPP1G1/2+nSK1S2/5G2L b BGrbsnl6p 1" data-moves="B*3c 4b3a G*2b 3a4a 4e5c" data-caption="Answer"></div></div>
+<p>White’s replies here are just one example. Other replies are also mated.</p>
+<p>At first glance, it may look like you are a little short of pieces.</p>
+<p>The key, however, is that the final ☗N-53, without promoting, works.</p>
+
+            </div>
+          </details>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../" class="btn-ghost">← All problems</a>
+          <a href="../8/" class="btn-nav">
+            <span class="btn-nav-label">← Previous problem</span>
+            <span class="btn-nav-title">Problem 8 [3 dan and above · Next move] An ordinary-looking rook pawn exchange — is there a move here?</span>
+          </a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">Author’s blog: Saiba’s Zakkilog (Japanese) <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@
  *   ---
  *   title: "問題のタイトル"
  *   date: "2026-11-04"
- *   type: "next"           (next = 次の一手, tsume = 詰将棋; used by the list filter)
+ *   type: "next"           (next = 次の一手, tsume = 詰将棋, mate = 詰む？詰まない？; used by the list filter)
  *   level: "4級〜2級レベル"  (one of CFG[lang].levelOrder; used by the list filter)
  *   strategy: "ミレニアム"   (optional — opening / castle, shown next to the level)
  *   lead: "一覧と検索結果に出る説明（答えは書かない）"
@@ -61,7 +61,7 @@ const CFG = {
     filterType:   '種類',
     filterAll:    'すべて',
     noMatch:      '条件に合う問題はありません。',
-    types:        { next: '次の一手', tsume: '詰将棋' },
+    types:        { next: '次の一手', tsume: '詰将棋', mate: '詰む？詰まない？' },
     levelOrder:   ['入門', '10級〜5級レベル', '4級〜2級レベル', '1級〜二段レベル', '三段以上レベル', '難問'],
   },
   en: {
@@ -81,7 +81,7 @@ const CFG = {
     filterType:   'Type',
     filterAll:    'All',
     noMatch:      'No problems match these filters.',
-    types:        { next: 'Next move', tsume: 'Tsume' },
+    types:        { next: 'Next move', tsume: 'Tsume', mate: 'Mate or not?' },
     levelOrder:   ['4 kyu to 2 kyu level', '1 kyu to 2 dan level', '3 dan and above', 'Expert challenge'],
   },
 };
@@ -114,7 +114,7 @@ function parseFrontmatter(src, file) {
   for (const key of ['title', 'date', 'type', 'level', 'lead']) {
     if (!data[key]) throw new Error(`${file}: "${key}" is required`);
   }
-  if (!['next', 'tsume'].includes(data.type)) throw new Error(`${file}: "type" must be next or tsume`);
+  if (!Object.keys(CFG.ja.types).includes(data.type)) throw new Error(`${file}: "type" must be one of ${Object.keys(CFG.ja.types).join(', ')}`);
   return { data, body: src.slice(m[0].length) };
 }
 
