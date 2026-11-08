@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第11問 【難問・詰む？詰まない？】飛車の横利きをかいくぐれるか | さいばの将棋ポータル</title>
+  <meta name="description" content="将棋ウォーズの実戦から作った問題です。盤面は制圧していますが、相手の飛車の横利きが強い局面。後手玉に即詰みはあるでしょうか。">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/problems/11/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/problems/11/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/problems/11/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/problems/11/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="第11問 【難問・詰む？詰まない？】飛車の横利きをかいくぐれるか | さいばの将棋ポータル">
+  <meta property="og:description" content="将棋ウォーズの実戦から作った問題です。盤面は制圧していますが、相手の飛車の横利きが強い局面。後手玉に即詰みはあるでしょうか。">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/problems/11/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/problems/ja-11.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="第11問 【難問・詰む？詰まない？】飛車の横利きをかいくぐれるか | さいばの将棋ポータル">
+  <meta name="twitter:description" content="将棋ウォーズの実戦から作った問題です。盤面は制圧していますが、相手の飛車の横利きが強い局面。後手玉に即詰みはあるでしょうか。">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "第11問 【難問・詰む？詰まない？】飛車の横利きをかいくぐれるか",
+    "description": "将棋ウォーズの実戦から作った問題です。盤面は制圧していますが、相手の飛車の横利きが強い局面。後手玉に即詰みはあるでしょうか。",
+    "datePublished": "2026-11-09",
+    "author": {
+      "@type": "Person",
+      "name": "さいば",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "url": "https://shogi.saiba-zakki.com/ja/problems/11/",
+    "inLanguage": "ja",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/ja/problems/11/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "将棋の問題",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "第11問",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/11/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">さいばの著書の紹介</a>
+        <a href="/ja/recommended-books/">おすすめ棋書</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/problems/">将棋の問題</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/ja/tools/">無料ツール</a>
+        <a href="/en/problems/11/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">将棋の問題</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>第11問</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">将棋の問題</span>
+            <span>難問</span>
+            <span>2026-11-09</span>
+          </div>
+          <p class="problem-number">第11問</p>
+          <h1 class="article-title">【難問・詰む？詰まない？】飛車の横利きをかいくぐれるか</h1>
+        </header>
+
+        <div class="article-body">
+<p>将棋ウォーズの実戦から作った、即詰みがあるかどうかを判断する問題です。</p>
+<div class="board-center"><div class="shogi-player" data-diagram data-show-hands data-sfen="ln6l/r3kp1g1/p1p3P2/3B1+P1P1/1p4ppp/2P5P/PP1S+nb3/7R1/LN2KG1NL b G2Sgs4p 1" data-caption="問題図（先手番）"></div></div>
+<p>先手番です。盤面は制圧していますが、相手の飛車の横利きが強い局面です。</p>
+<p>この局面で、後手玉に即詰みはあるでしょうか？</p>
+
+          <details class="problem-answer">
+            <summary>解答を見る</summary>
+            <div class="problem-answer-body">
+<h2>解答・解説</h2>
+<p><strong>詰みあり（17手詰）</strong></p>
+<p><strong>☗５三角成 → ☖６一玉 → ☗７一金 → ☖５一玉 → ☗６二銀 → ☖４一玉 → ☗３二銀 → ☖同金 → ☗同歩成 → ☖同玉 → ☗５四馬 → ☖４三歩 → ☗同馬 → ☖２二玉 → ☗２三金 → ☖３一玉 → ☗３二金</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="ln6l/r3kp1g1/p1p3P2/3B1+P1P1/1p4ppp/2P5P/PP1S+nb3/7R1/LN2KG1NL b G2Sgs4p 1" data-moves="6d5c+ 5b6a G*7a 6a5a S*6b 5a4a S*3b 2b3b 3c3b+ 4a3b 5c5d 4b4c 5d4c 3b2b G*2c 2b3a 2c3b" data-caption="解答手順"></div></div>
+<p>ポイントは、5手目の☗６二銀です。</p>
+<p>この銀打ちで飛車の横利きが止まり、右辺に玉を追い込むことができます。</p>
+<p>ここで☖同飛と取ると、☗同馬 → ☖同玉 → ☗６一飛 と、飛車打ちが王手になります。☖５二玉に☗５三銀で詰みです。</p>
+<div class="board-center"><div class="shogi-player" data-sfen="ln6l/r3kp1g1/p1p3P2/3B1+P1P1/1p4ppp/2P5P/PP1S+nb3/7R1/LN2KG1NL b G2Sgs4p 1" data-moves="6d5c+ 5b6a G*7a 6a5a S*6b 9b6b 5c6b 5a6b R*6a 6b5b S*5c" data-caption="変化図（☖同飛の場合）"></div></div>
+
+            </div>
+          </details>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../" class="btn-ghost">← 問題の一覧へ</a>
+          <a href="../10/" class="btn-nav">
+            <span class="btn-nav-label">← 前の問題</span>
+            <span class="btn-nav-title">第10問 【10級〜5級レベル・詰将棋】よく出る手筋で5手詰め</span>
+          </a>
+          <a href="../12/" class="btn-nav">
+            <span class="btn-nav-label">次の問題 →</span>
+            <span class="btn-nav-title">第12問 【4級〜2級レベル・次の一手】一石二鳥の一手を見つけよう</span>
+          </a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>

@@ -18,6 +18,7 @@
  *   type: "next"           (next = 次の一手, tsume = 詰将棋, mate = 詰む？詰まない？; used by the list filter)
  *   level: "4級〜2級レベル"  (one of CFG[lang].levelOrder; used by the list filter)
  *   strategy: "ミレニアム"   (optional — opening / castle, shown next to the level)
+ *   tag: "基本手筋"          (optional — theme such as a basic tesuji; shown and used by the list filter)
  *   lead: "一覧と検索結果に出る説明（答えは書かない）"
  *   draft: true            (optional — skips the problem)
  *   ---
@@ -59,6 +60,7 @@ const CFG = {
     next:         '次の問題 →',
     filterLevel:  'レベル',
     filterType:   '種類',
+    filterTag:    'タグ',
     filterAll:    'すべて',
     noMatch:      '条件に合う問題はありません。',
     types:        { next: '次の一手', tsume: '詰将棋', mate: '詰む？詰まない？' },
@@ -79,10 +81,11 @@ const CFG = {
     next:         'Next problem →',
     filterLevel:  'Level',
     filterType:   'Type',
+    filterTag:    'Tag',
     filterAll:    'All',
     noMatch:      'No problems match these filters.',
     types:        { next: 'Next move', tsume: 'Tsume', mate: 'Mate or not?' },
-    levelOrder:   ['4 kyu to 2 kyu level', '1 kyu to 2 dan level', '3 dan and above', 'Expert challenge'],
+    levelOrder:   ['Beginner', '10 kyu to 5 kyu level', '4 kyu to 2 kyu level', '1 kyu to 2 dan level', '3 dan and above', 'Expert challenge'],
   },
 };
 const LANGS = Object.keys(CFG);
@@ -261,7 +264,8 @@ function renderProblem(lang, p, prev, next, all) {
           <div class="article-meta">
             <span class="article-category">${cfg.section}</span>
             <span>${esc(p.level)}</span>${p.strategy ? `
-            <span>${esc(p.strategy)}</span>` : ''}
+            <span>${esc(p.strategy)}</span>` : ''}${p.tag ? `
+            <span>${esc(p.tag)}</span>` : ''}
             <span>${esc(p.date)}</span>
           </div>
           <p class="problem-number">${label}</p>
@@ -295,7 +299,7 @@ const rank = (order, value) => {
 
 /**
  * List filter. Without JavaScript the filter bar stays hidden and every problem
- * is shown. The selection is kept in the URL (?level=…&type=…) so it can be shared.
+ * is shown. The selection is kept in the URL (?level=…&type=…&tag=…) so it can be shared.
  */
 const FILTER_SCRIPT = `
 (function () {
@@ -304,7 +308,7 @@ const FILTER_SCRIPT = `
   var cards = document.querySelectorAll('.course-cards > .course-card');
   var empty = document.querySelector('.problem-filter-empty');
   var params = new URLSearchParams(location.search);
-  var state = { level: params.get('level') || '', type: params.get('type') || '' };
+  var state = { level: params.get('level') || '', type: params.get('type') || '', tag: params.get('tag') || '' };
   // Ignore values in the URL that no chip offers (e.g. an old link).
   Object.keys(state).forEach(function (key) {
     var known = Array.prototype.some.call(bar.querySelectorAll('.problem-filter-chip'), function (chip) {
@@ -316,7 +320,8 @@ const FILTER_SCRIPT = `
     var shown = 0;
     cards.forEach(function (card) {
       var ok = (!state.level || card.dataset.level === state.level) &&
-               (!state.type || card.dataset.type === state.type);
+               (!state.type || card.dataset.type === state.type) &&
+               (!state.tag || card.dataset.tag === state.tag);
       card.hidden = !ok;
       if (ok) shown++;
     });
@@ -332,6 +337,7 @@ const FILTER_SCRIPT = `
     var q = new URLSearchParams();
     if (state.level) q.set('level', state.level);
     if (state.type) q.set('type', state.type);
+    if (state.tag) q.set('tag', state.tag);
     var qs = q.toString();
     history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
     apply();
@@ -354,7 +360,7 @@ function renderList(lang, problems) {
         const lead  = thumb
           ? `<img class="problem-card-thumb" src="${thumb}" alt="${esc(cfg.label(p.num))}" width="640" height="527" loading="lazy">`
           : `<div class="course-card-num">${p.num}</div>`;
-        return `            <a href="${p.num}/" class="course-card${thumb ? ' problem-card' : ''}" data-level="${esc(p.level)}" data-type="${p.type}">
+        return `            <a href="${p.num}/" class="course-card${thumb ? ' problem-card' : ''}" data-level="${esc(p.level)}" data-type="${p.type}" data-tag="${esc(p.tag || '')}">
               ${lead}
               <div class="course-card-body">${thumb ? `
                 <p class="problem-number">${cfg.label(p.num)}</p>` : ''}
@@ -369,6 +375,7 @@ function renderList(lang, problems) {
   const used   = key => new Set(problems.map(p => p[key]));
   const levels = [...used('level')].sort((a, b) => rank(cfg.levelOrder, a) - rank(cfg.levelOrder, b));
   const types  = Object.keys(cfg.types).filter(t => used('type').has(t));
+  const tags   = [...used('tag')].filter(Boolean).sort();
   const chips  = (group, label, items) => `
           <div class="problem-filter-group" role="group" aria-label="${label}">
             <span class="problem-filter-label">${label}</span>
@@ -376,7 +383,7 @@ function renderList(lang, problems) {
             <button type="button" class="problem-filter-chip" data-filter="${group}" data-value="${esc(value)}" aria-pressed="false">${esc(text)}</button>`).join('')}
           </div>`;
   const filters = problems.length < 2 ? '' : `
-        <div class="problem-filter" hidden>${chips('level', cfg.filterLevel, levels.map(l => [l, l]))}${chips('type', cfg.filterType, types.map(t => [t, cfg.types[t]]))}
+        <div class="problem-filter" hidden>${chips('level', cfg.filterLevel, levels.map(l => [l, l]))}${chips('type', cfg.filterType, types.map(t => [t, cfg.types[t]]))}${tags.length ? chips('tag', cfg.filterTag, tags.map(t => [t, t])) : ''}
         </div>
         <p class="problem-filter-empty" hidden>${cfg.noMatch}</p>`;
 
