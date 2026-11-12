@@ -5,7 +5,7 @@
  * Generates the "将棋の問題" (shogi problem) pages: next-move problems, tsume, and so on.
  *
  *   {lang}/problems/{n}.md  →  {lang}/problems/{n}/index.html
- *                           →  {lang}/problems/index.html (list, by number)
+ *                           →  {lang}/problems/index.html (list, newest first)
  *
  * lang is ja or en. The same number in both languages is the same problem
  * (used for hreflang and the language switch).
@@ -30,6 +30,8 @@
  *
  * In the body, a line containing only `<!-- answer -->` starts the answer.
  * Everything after it is folded into a "解答を見る" / "Show answer" toggle.
+ * Optionally, a line containing only `<!-- hint -->` before it starts a hint,
+ * folded into a "ヒントを見る" / "Show hint" toggle.
  *
  * Usage:
  *   node build-problems.js
@@ -55,6 +57,7 @@ const CFG = {
     author:       'さいば',
     label:        n => `第${n}問`,
     showAnswer:   '解答を見る',
+    showHint:     'ヒントを見る',
     backToList:   '← 問題の一覧へ',
     prev:         '← 前の問題',
     next:         '次の問題 →',
@@ -76,6 +79,7 @@ const CFG = {
     author:       'Saiba',
     label:        n => `Problem ${n}`,
     showAnswer:   'Show answer',
+    showHint:     'Show hint',
     backToList:   '← All problems',
     prev:         '← Previous problem',
     next:         'Next problem →',
@@ -96,6 +100,7 @@ const thumbOf   = (lang, num) => {
   return fs.existsSync(path.join(__dirname, rel)) ? rel : null;
 };
 const ANSWER_MARKER = /^<!--\s*answer\s*-->\s*$/m;
+const HINT_MARKER   = /^<!--\s*hint\s*-->\s*$/m;
 
 function esc(str) {
   return String(str)
@@ -207,9 +212,11 @@ function renderProblem(lang, p, prev, next, all) {
 
   const [questionMd, answerMd] = p.body.split(ANSWER_MARKER);
   if (answerMd === undefined) throw new Error(`${lang}/problems/${p.num}.md: "<!-- answer -->" line is missing`);
-  const question = renderMarkdown(questionMd, lang);
+  const [statementMd, hintMd] = questionMd.split(HINT_MARKER);
+  const question = renderMarkdown(statementMd, lang);
+  const hint     = hintMd === undefined ? null : renderMarkdown(hintMd, lang);
   const answer   = renderMarkdown(answerMd, lang);
-  const hasBoard = question.hasBoard || answer.hasBoard;
+  const hasBoard = question.hasBoard || answer.hasBoard || Boolean(hint && hint.hasBoard);
 
   const langs     = LANGS.filter(l => all[l].some(q => q.num === p.num));
   const otherLang = LANGS.find(l => l !== lang);
@@ -273,7 +280,13 @@ function renderProblem(lang, p, prev, next, all) {
         </header>
 
         <div class="article-body">
-${question.html}
+${question.html}${hint ? `
+          <details class="problem-answer problem-hint">
+            <summary>${cfg.showHint}</summary>
+            <div class="problem-answer-body">
+${hint.html}
+            </div>
+          </details>` : ''}
           <details class="problem-answer">
             <summary>${cfg.showAnswer}</summary>
             <div class="problem-answer-body">
@@ -352,10 +365,11 @@ function renderList(lang, problems) {
   const listUrl   = listUrlOf(lang);
   const listTitle = `${cfg.section} | ${cfg.siteName}`;
   const otherLang = LANGS.find(l => l !== lang);
+  const newestFirst = [...problems].reverse();
 
   const cards = problems.length === 0
     ? `          <p style="color:var(--color-text-muted);">${cfg.empty}</p>`
-    : problems.map(p => {
+    : newestFirst.map(p => {
         const thumb = thumbOf(lang, p.num);
         const lead  = thumb
           ? `<img class="problem-card-thumb" src="${thumb}" alt="${esc(cfg.label(p.num))}" width="640" height="527" loading="lazy">`
@@ -391,7 +405,7 @@ function renderList(lang, problems) {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: listTitle,
-    itemListElement: problems.map((p, i) => ({
+    itemListElement: newestFirst.map((p, i) => ({
       '@type': 'ListItem', position: i + 1, url: `${listUrl}${p.num}/`,
     })),
   }];

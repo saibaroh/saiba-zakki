@@ -2638,6 +2638,14 @@ main {
   padding: 0.5rem 1.2rem 1.5rem;
 }
 
+.problem-hint + .problem-answer {
+  margin-top: 1rem;
+}
+
+.problem-hint .problem-answer-body {
+  padding-bottom: 0.5rem;
+}
+
 .problem-card-thumb {
   flex-shrink: 0;
   width: 280px;
