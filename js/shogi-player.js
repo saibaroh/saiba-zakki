@@ -60,6 +60,25 @@
     }
   }
 
+  // 盤と駒の見た目：classic（シンプル）／ mincho（シンプルの盤で、駒の字をひな明朝に）／
+  // game（駒風。詰将棋ゲームと同じ木目の盤・五角形の駒）／ holo・sakura（駒風の駒の色違いで、盤は黒漆）。
+  // 初期はシンプル。盤の上の切り替えで選んだものを localStorage に覚える。
+  // 見比べ用に ?look=classic / mincho / game / holo / sakura で上書きできる（保存はしない）。
+  const LOOK_STORAGE_KEY = 'sp-board-look';
+  const LOOK_OPTIONS = IS_ENGLISH_PAGE
+    ? [{ key: 'classic', label: 'Simple' }, { key: 'mincho', label: 'Mincho' }, { key: 'game', label: 'Wooden' },
+       { key: 'holo', label: 'Holo' }, { key: 'sakura', label: 'Sakura' }]
+    : [{ key: 'classic', label: 'シンプル' }, { key: 'mincho', label: '明朝' }, { key: 'game', label: '駒風' },
+       { key: 'holo', label: 'ホロ' }, { key: 'sakura', label: '桜' }];
+  // 駒風の盤・駒で描く見た目（holo / sakura は駒の色違い）
+  const isPieceLook = look => ['game', 'holo', 'sakura'].includes(look);
+  const normalizeLook = v => LOOK_OPTIONS.some(o => o.key === v) ? v : null;
+  let currentLook = (() => {
+    const q = normalizeLook(new URLSearchParams(location.search).get('look'));
+    if (q) return q;
+    try { return normalizeLook(localStorage.getItem(LOOK_STORAGE_KEY)) || 'classic'; } catch (_) { return 'classic'; }
+  })();
+
   let currentPieceStyle = IS_ENGLISH_PAGE ? (getSavedPieceStyle() || 'kanji') : 'kanji';
 
   // =============================================
@@ -232,8 +251,27 @@
     return dots + arrows + knight;
   }
 
+  function kanjiLabel(cell) {
+    if (cell.p === 'K') return cell.color === 'black' ? '王' : '玉';
+    const k = KANJI[cell.p];
+    return k ? k[cell.promoted ? 1 : 0] : cell.p;
+  }
+
+  // 詰将棋ゲームと同じ五角形の駒（css/shogi-player.css の .pc）
+  function gamePieceHtml(cell, pieceStyle) {
+    const alpha = pieceStyle === 'alphabet';
+    const cls = ['pc', 'pc-' + cell.p,
+      cell.color === 'white' ? 'enemy' : 'own',
+      cell.promoted ? 'promoted' : '',
+      alpha ? 'letter' : 'kanji'
+    ].filter(Boolean).join(' ');
+    const sym = alpha ? (cell.promoted ? '+' : '') + cell.p : kanjiLabel(cell);
+    return `<span class="${cls}"><span class="pc-face"><span class="pc-sym">${sym}</span></span></span>`;
+  }
+
   function pieceHtml(cell, pieceStyle) {
     if (!cell) return '';
+    if (isPieceLook(currentLook)) return gamePieceHtml(cell, pieceStyle);
     if (pieceStyle === 'alphabet') {
       const cls = ['sp-piece', 'sp-alpha-piece',
         cell.color === 'white' ? 'sp-white' : '',
@@ -260,6 +298,13 @@
   function handHtml(hand, pieceStyle) {
     const pieces = HAND_ORDER.filter(p => hand[p] > 0);
     if (!pieces.length) return `<span class="sp-hand-empty">${UI.none}</span>`;
+    if (isPieceLook(currentLook)) {
+      // 持ち駒は今の表示と同じく、先手・後手とも正面向きで並べる
+      return pieces.map(p => {
+        const cnt = hand[p] > 1 ? `<sup>${hand[p]}</sup>` : '';
+        return `<span class="sp-hand-pc">${gamePieceHtml({ p, color: 'black', promoted: false }, pieceStyle)}</span>${cnt}`;
+      }).join('');
+    }
     return pieces.map(p => {
       const label = pieceStyle === 'alphabet' ? p : KANJI[p][0];
       const cnt   = hand[p] > 1 ? `<sup>${hand[p]}</sup>` : '';
@@ -333,12 +378,18 @@
       </div>` :
       `<div class="sp-info" style="text-align:center; margin-top:6px;">${infoText}</div>`;
 
+    const lookToggle = `
+      <div class="sp-look-toggle" role="group" aria-label="${IS_ENGLISH_PAGE ? 'Board style' : '盤の表示'}">
+        ${LOOK_OPTIONS.map(o => `<button type="button" class="sp-look-btn${o.key === currentLook ? ' is-active' : ''}" data-look="${o.key}" aria-pressed="${o.key === currentLook}">${o.label}</button>`).join('')}
+      </div>`;
+
     return `
+      ${lookToggle}
       ${handSection}
       <div class="sp-col-labels">${colLabels}</div>
       <div class="sp-layout">
         <div class="sp-board-and-rows">
-          <div class="sp-board">${cells}</div>
+          <div class="sp-board-frame"><div class="sp-board">${cells}</div></div>
           <div class="sp-row-labels">${rowLabels}</div>
         </div>
         ${kifuSection}
@@ -383,6 +434,10 @@
       const pieceStyle = this.fixedPieceStyle || currentPieceStyle;
       this.el.classList.toggle('sp-piece-style-alpha', pieceStyle === 'alphabet');
       this.el.classList.toggle('sp-piece-style-kanji', pieceStyle === 'kanji');
+      this.el.classList.toggle('sp-look-game', isPieceLook(currentLook));
+      this.el.classList.toggle('sp-pieces-holo', currentLook === 'holo');
+      this.el.classList.toggle('sp-pieces-sakura', currentLook === 'sakura');
+      this.el.classList.toggle('sp-look-mincho', currentLook === 'mincho');
       this.el.innerHTML = buildHtml(
         this.history[this.idx], lastMove,
         this.idx, this.moves.length, this.caption, this.kifuLines, this.diagram, pieceStyle, this.showHands
@@ -394,6 +449,10 @@
           const n = actions[btn.dataset.action];
           if (n !== undefined) this.go(n);
         });
+      });
+
+      this.el.querySelectorAll('.sp-look-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyLook(btn.dataset.look));
       });
 
       this.el.querySelectorAll('.sp-kifu-row').forEach(row => {
@@ -414,49 +473,20 @@
     }
   }
 
+  // どれか1つの盤で切り替えたら、ページ内の盤を全部切り替えて覚えておく
+  function applyLook(look) {
+    const next = normalizeLook(look);
+    if (!next || next === currentLook) return;
+    currentLook = next;
+    try { localStorage.setItem(LOOK_STORAGE_KEY, next); } catch (_) {}
+    players.forEach(player => player.render());
+  }
+
   // ページ内の全要素を初期化
   const players = Array.from(document.querySelectorAll('.shogi-player'), el => new ShogiPlayer(el));
 
-  // =============================================
-  // 盤面カラーテーマスイッチャー
-  // =============================================
-  const THEMES = [
-    { key: 'wood',   label: '木材',    bg: '#f2e8d8', hl: '#f0ee88' },
-    { key: 'gray',   label: 'グレー',  bg: '#ebebeb', hl: '#f0ee70' },
-    { key: 'lime',   label: 'ライム',  bg: '#e8f2dc', hl: '#eef580' },
-    { key: 'citrus', label: 'シトラス', bg: '#faf6d0', hl: '#f8f878' },
-    { key: 'blue',   label: 'ブルー',  bg: '#dce8f5', hl: '#eef578' },
-    { key: 'cyan',   label: '水色',    bg: '#d8eff5', hl: '#eef578' },
-    { key: 'pink',   label: 'ピンク',  bg: '#f8e8f2', hl: '#f8f080' },
-  ];
-
-  const THEME_STORAGE_KEY = 'sp-board-theme';
-
-  function applyTheme(theme) {
-    document.documentElement.style.setProperty('--sp-board-bg', theme.bg);
-    document.documentElement.style.setProperty('--sp-board-hl', theme.hl);
-    document.querySelectorAll('.sp-theme-btn').forEach(b =>
-      b.classList.toggle('is-active', b.dataset.key === theme.key)
-    );
-    try { localStorage.setItem(THEME_STORAGE_KEY, theme.key); } catch (_) {}
-  }
-
+  // 英語版の囲いのページなどに置いた #sp-theme-picker に、駒の表記の切り替えを入れる
   const picker = document.getElementById('sp-theme-picker');
-  if (picker) {
-    THEMES.forEach(t => {
-      const btn = document.createElement('button');
-      btn.className = 'sp-theme-btn';
-      btn.dataset.key = t.key;
-      btn.style.background = t.bg;
-      btn.title = t.label;
-      btn.addEventListener('click', () => applyTheme(t));
-      picker.appendChild(btn);
-    });
-  }
-
-  const savedKey = (() => { try { return localStorage.getItem(THEME_STORAGE_KEY); } catch (_) { return null; } })();
-  const initialTheme = THEMES.find(t => t.key === savedKey) || THEMES[0];
-  applyTheme(initialTheme);
 
   // =============================================
   // 英語版の駒スタイルスイッチャー
@@ -478,11 +508,6 @@
   }
 
   if (picker && IS_ENGLISH_PAGE && players.length) {
-    const divider = document.createElement('span');
-    divider.className = 'sp-theme-divider';
-    divider.setAttribute('aria-hidden', 'true');
-    picker.appendChild(divider);
-
     const group = document.createElement('div');
     group.className = 'sp-piece-style-group';
 

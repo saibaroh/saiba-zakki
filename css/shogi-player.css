@@ -69,14 +69,14 @@
   height: var(--sp-cell-h);
   border-right: 1px solid #4a2c0a;
   border-bottom: 1px solid #4a2c0a;
-  background: var(--sp-board-bg, #f2e8d8);
+  background: #f2e8d8;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 .sp-cell.sp-highlight {
-  background: var(--sp-board-hl, #f0ee88);
+  background: #f0ee88;
 }
 /* 外枠の右・下 */
 .sp-cell:nth-child(9n)   { border-right: 3px solid #4a2c0a; }
@@ -269,7 +269,7 @@
   flex-shrink: 0;
 }
 .sp-kifu-row.is-current .sp-kifu-num { color: rgba(255,255,255,0.6); }
-/* テーマスイッチャー */
+/* 英語版の駒の表記の切り替え（Kanji / ABC）を置く欄 */
 .sp-theme-picker {
   display: flex;
   align-items: center;
@@ -280,24 +280,6 @@
 .sp-theme-label {
   font-size: 0.75rem;
   color: var(--color-text-muted, #888);
-}
-.sp-theme-btn {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  cursor: pointer;
-  padding: 0;
-  outline-offset: 2px;
-  transition: border-color 0.15s, transform 0.1s;
-}
-.sp-theme-btn:hover  { transform: scale(1.15); }
-.sp-theme-btn.is-active { border-color: #333; }
-.sp-theme-divider {
-  align-self: stretch;
-  width: 1px;
-  min-height: 20px;
-  background: var(--color-border, #ddd);
 }
 .sp-piece-style-group {
   display: flex;
@@ -375,4 +357,216 @@
 .board-center > .shogi-player {
   flex-shrink: 0;
   margin-inline: auto;
+}
+
+/* =============================================
+   駒風の表示（盤の上の切り替えで選ぶ。初期はシンプル）
+   盤と駒は tsume-tutorial-game の styles/app.css から移植。
+   ============================================= */
+@font-face {
+  font-family: "Hina Mincho Pieces";
+  src: url("../fonts/hina-mincho-pieces.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+.sp-look-game {
+  --sp-frame: 9px;
+  --board-1: #ecc07e;
+  --board-2: #d49a52;
+  --grain: rgba(120, 66, 18, 0.08);
+  --board-line: rgba(64, 33, 8, 0.72);
+  --frame-1: #8a5424;
+  --frame-2: #5b3313;
+  --piece-1: #fff3d4;
+  --piece-2: #efcf92;
+  --piece-edge: #b98a45;
+  --piece-ink: #22160b;
+  --promo-ink: #c4210f;
+}
+/* 盤：木の枠 + 木目 */
+.sp-look-game .sp-board-frame {
+  padding: var(--sp-frame);
+  border-radius: 8px;
+  background: linear-gradient(160deg, var(--frame-1), var(--frame-2));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 170, 0.35), inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+    0 4px 0 -1px var(--frame-2), 0 10px 18px rgba(0, 0, 0, 0.25);
+}
+.sp-look-game .sp-board {
+  position: relative;
+  border-top: 1.5px solid var(--board-line);
+  border-left: 1.5px solid var(--board-line);
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.16), transparent 60%),
+    var(--board-tex, repeating-linear-gradient(92deg, var(--grain) 0 2px, transparent 2px 9px), repeating-linear-gradient(89deg, var(--grain) 0 1px, transparent 1px 23px)),
+    linear-gradient(160deg, var(--board-1), var(--board-2));
+  box-shadow: inset 0 0 18px rgba(80, 40, 10, 0.25);
+}
+.sp-look-game .sp-cell,
+.sp-look-game .sp-cell:nth-child(9n),
+.sp-look-game .sp-cell:nth-child(n+73) {
+  border: 0;
+  background: none;
+  box-shadow: inset -1.5px -1.5px 0 var(--board-line);
+  container-type: size;
+}
+.sp-look-game .sp-cell.sp-highlight { background: rgba(255, 236, 120, 0.5); }
+.sp-look-game .sp-cell.sp-hoshi::after {
+  right: -3.5px;
+  bottom: -3.5px;
+  width: 7px;
+  height: 7px;
+  background: var(--board-line);
+}
+/* 筋・段の数字を盤の線に合わせる */
+.sp-look-game .sp-col-labels { margin-left: calc(var(--sp-frame) + 1.5px); }
+.sp-look-game .sp-row-labels { padding-top: calc(var(--sp-frame) + 1.5px); }
+
+/* 駒：五角形 */
+.shogi-player .pc {
+  --s: 0.9;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  filter: var(--pc-shadow, drop-shadow(0 2px 1.5px rgba(30, 12, 0, 0.45)));
+  pointer-events: none;
+}
+/* --s は字の大きさ、--h は高さ、--w は横幅（--h・--w がなければ --s）。
+   大きい駒が縦長や下広がりに見えないよう、高さと横幅の差は小さめにする */
+.shogi-player .pc-K { --s: 0.98; --h: 0.89; --w: 0.91; }
+.shogi-player .pc-R, .shogi-player .pc-B { --s: 0.95; --h: 0.87; --w: 0.89; }
+.shogi-player .pc-G, .shogi-player .pc-S { --s: 0.91; --h: 0.87; --w: 0.87; }
+.shogi-player .pc-N, .shogi-player .pc-L { --s: 0.87; --w: 0.85; }
+.shogi-player .pc-P { --s: 0.83; }
+.shogi-player .pc-face {
+  display: grid;
+  place-items: center;
+  width: calc(84% * var(--w, var(--s)) * var(--sp-pc-scale, 1.12));
+  height: calc(88% * var(--h, var(--s)) * var(--sp-pc-scale, 1.12));
+  padding-top: 5%;
+  clip-path: polygon(50% 0, 84% 13%, 100% 100%, 0 100%, 16% 13%);
+  background:
+    var(--pc-gloss, linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.4) 48%, transparent 58%)),
+    var(--pc-tex, repeating-linear-gradient(88deg, rgba(150, 95, 30, 0.06) 0 1px, transparent 1px 5px)),
+    var(--pc-own, linear-gradient(180deg, var(--piece-1), var(--piece-2)));
+  box-shadow: inset 0 2px 0 var(--pc-hi, rgba(255, 255, 255, 0.7));
+}
+.shogi-player .pc.promoted .pc-face {
+  background:
+    var(--pc-gloss, linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.4) 48%, transparent 58%)),
+    var(--pc-tex, repeating-linear-gradient(88deg, rgba(150, 95, 30, 0.06) 0 1px, transparent 1px 5px)),
+    var(--pc-promo-face, var(--pc-own, linear-gradient(180deg, var(--piece-1), var(--piece-2))));
+}
+.shogi-player .pc.enemy .pc-face {
+  /* 面ごと回すと光の当たり方や厚みの影まで逆さになるので、形と字だけを逆向きにする。
+     ツヤ・影・下側の厚みは先手と同じ向き（盤の上から光が当たる）のまま。 */
+  padding-top: 0;
+  padding-bottom: 5%;
+  clip-path: polygon(50% 100%, 84% 87%, 100% 0, 0 0, 16% 87%);
+}
+.shogi-player .pc.enemy .pc-sym { transform: rotate(180deg); }
+/* 厚みは先手の駒の底辺にだけ、控えめに付ける（後手の駒は先端側になるので付けない） */
+.shogi-player .pc.own .pc-face {
+  box-shadow: inset 0 -2px 0 var(--piece-edge), inset 0 2px 0 var(--pc-hi, rgba(255, 255, 255, 0.7));
+}
+.shogi-player .pc-sym {
+  color: var(--piece-ink);
+  text-shadow: var(--pc-glow, none);
+  line-height: 1;
+  font-size: calc(58cqmin * var(--s));
+  font-weight: 800;
+}
+.shogi-player .pc.kanji .pc-sym {
+  font-family: "Hina Mincho Pieces", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: calc(60cqmin * var(--s));
+  -webkit-text-stroke: 0.3px currentColor;
+}
+.shogi-player .pc.letter .pc-sym { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+.shogi-player .pc.promoted .pc-sym { color: var(--promo-ink); }
+
+/* 持ち駒も小さな駒で並べる */
+.sp-look-game .sp-hand-pc {
+  display: inline-block;
+  width: 30px;
+  height: 34px;
+  container-type: size;
+}
+.sp-look-game .sp-hand sup {
+  margin: 0 4px 0 -2px;
+  font-size: 0.7rem;
+}
+
+/* 盤の表示の切り替え（シンプル／明朝／駒風／ホロ／桜） */
+.sp-look-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+.sp-look-btn {
+  min-height: 26px;
+  padding: 4px 10px;
+  border: 1px solid var(--color-border, #d6d6d6);
+  background: var(--color-surface, #fff);
+  color: var(--color-text-muted, #666);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.sp-look-btn + .sp-look-btn { border-left: 0; }
+.sp-look-btn:first-child { border-radius: 6px 0 0 6px; }
+.sp-look-btn:last-child { border-radius: 0 6px 6px 0; }
+.sp-look-btn:hover { background: var(--color-hover, #f0f0f0); }
+.sp-look-btn.is-active {
+  background: var(--color-primary, #1B2D4F);
+  border-color: var(--color-primary, #1B2D4F);
+  color: #fff;
+}
+
+/* 明朝：シンプルの盤のまま、駒の字をひな明朝にする（漢字表記のときだけ） */
+.sp-look-mincho .sp-piece:not(.sp-alpha-piece),
+.sp-look-mincho .sp-hand-piece:not(.sp-hand-piece-alpha) {
+  font-family: "Hina Mincho Pieces", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-weight: 400;
+  font-synthesis: none;
+  -webkit-text-stroke: 0.55px currentColor;
+}
+.sp-look-mincho .sp-piece:not(.sp-alpha-piece) { font-size: 1.75rem; }
+.sp-look-mincho .sp-hand-piece:not(.sp-hand-piece-alpha) { font-size: 1.2rem; }
+
+/* 駒の色違い（詰将棋ゲームの holo / sakura テーマから。先手・後手とも先手の色で統一） */
+.sp-pieces-holo {
+  --piece-ink: #2b2440;
+  --promo-ink: #8c1f4e;
+  --piece-edge: #9b82bb;
+  --pc-hi: #fff9ff;
+  --pc-own: conic-gradient(from 210deg at 40% 30%, #ffe9b0, #ffc2e2, #c9c4ff, #a9f0ee, #d8ffc4, #ffe9b0);
+  --pc-promo-face: conic-gradient(from 190deg at 40% 30%, #ffd9a8, #ffb3c9, #e0b4ff, #ffd2ea, #ffd9a8);
+  --pc-gloss: none;
+  --pc-tex: none;
+  --pc-glow: 0 1px 1px rgba(255, 255, 255, 0.85);
+  --pc-shadow: drop-shadow(0 5px 5px rgba(40, 30, 80, 0.4));
+}
+.sp-pieces-sakura {
+  --piece-ink: #5c3048;
+  --promo-ink: #a52a55;
+  --piece-edge: #c48aa0;
+  --pc-own: linear-gradient(145deg, #fffaf5 0%, #f8dce3 52%, #eab8c7 100%);
+  --pc-tex:
+    radial-gradient(ellipse 5px 2.2px at 73% 70%, rgba(255, 255, 255, 0.62) 0 54%, transparent 74%),
+    radial-gradient(ellipse 2.2px 5px at 69% 76%, rgba(255, 218, 232, 0.62) 0 54%, transparent 74%),
+    radial-gradient(ellipse 4.5px 2px at 79% 76%, rgba(247, 190, 210, 0.58) 0 54%, transparent 74%),
+    repeating-linear-gradient(104deg, rgba(156, 91, 110, 0.075) 0 1px, transparent 1px 13px);
+}
+
+/* ホロと桜は黒漆の盤（詰将棋ゲームの lacquer テーマから） */
+.sp-pieces-holo,
+.sp-pieces-sakura {
+  --board-1: #2a2220; --board-2: #140f0d; --grain: rgba(255, 220, 160, 0.025);
+  --board-line: rgba(233, 180, 82, 0.62); --frame-1: #1c1512; --frame-2: #070505;
 }
