@@ -33,66 +33,76 @@
       {
         "@type": "ListItem",
         "position": 1,
-        "url": "https://shogi.saiba-zakki.com/en/problems/13/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/15/"
       },
       {
         "@type": "ListItem",
         "position": 2,
-        "url": "https://shogi.saiba-zakki.com/en/problems/12/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/14/"
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "url": "https://shogi.saiba-zakki.com/en/problems/11/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/13/"
       },
       {
         "@type": "ListItem",
         "position": 4,
-        "url": "https://shogi.saiba-zakki.com/en/problems/10/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/12/"
       },
       {
         "@type": "ListItem",
         "position": 5,
-        "url": "https://shogi.saiba-zakki.com/en/problems/9/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/11/"
       },
       {
         "@type": "ListItem",
         "position": 6,
-        "url": "https://shogi.saiba-zakki.com/en/problems/8/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/10/"
       },
       {
         "@type": "ListItem",
         "position": 7,
-        "url": "https://shogi.saiba-zakki.com/en/problems/7/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/9/"
       },
       {
         "@type": "ListItem",
         "position": 8,
-        "url": "https://shogi.saiba-zakki.com/en/problems/6/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/8/"
       },
       {
         "@type": "ListItem",
         "position": 9,
-        "url": "https://shogi.saiba-zakki.com/en/problems/5/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/7/"
       },
       {
         "@type": "ListItem",
         "position": 10,
-        "url": "https://shogi.saiba-zakki.com/en/problems/4/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/6/"
       },
       {
         "@type": "ListItem",
         "position": 11,
-        "url": "https://shogi.saiba-zakki.com/en/problems/3/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/5/"
       },
       {
         "@type": "ListItem",
         "position": 12,
-        "url": "https://shogi.saiba-zakki.com/en/problems/2/"
+        "url": "https://shogi.saiba-zakki.com/en/problems/4/"
       },
       {
         "@type": "ListItem",
         "position": 13,
+        "url": "https://shogi.saiba-zakki.com/en/problems/3/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "url": "https://shogi.saiba-zakki.com/en/problems/2/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
         "url": "https://shogi.saiba-zakki.com/en/problems/1/"
       }
     ]
@@ -144,6 +154,7 @@
       <div class="container">
         <h1 class="hero-title">Shogi Problems</h1>
         <p class="hero-subtitle">Original next-move and tsume problems.</p>
+        <p class="hero-subtitle">All answers have been checked with a shogi engine.</p>
       </div>
     </section>
 
@@ -166,6 +177,7 @@
             <button type="button" class="problem-filter-chip" data-filter="type" data-value="next" aria-pressed="false">Next move</button>
             <button type="button" class="problem-filter-chip" data-filter="type" data-value="tsume" aria-pressed="false">Tsume</button>
             <button type="button" class="problem-filter-chip" data-filter="type" data-value="mate" aria-pressed="false">Mate or not?</button>
+            <button type="button" class="problem-filter-chip" data-filter="type" data-value="escape" aria-pressed="false">Escape the mate</button>
           </div>
           <div class="problem-filter-group" role="group" aria-label="Tag">
             <span class="problem-filter-label">Tag</span>
@@ -176,6 +188,24 @@
         </div>
         <p class="problem-filter-empty" hidden>No problems match these filters.</p>
           <div class="course-cards">
+            <a href="15/" class="course-card problem-card" data-level="1 kyu to 2 dan level" data-type="escape" data-tag="">
+              <img class="problem-card-thumb" src="/images/problems/en-15.webp" alt="Problem 15" width="640" height="527" loading="lazy">
+              <div class="course-card-body">
+                <p class="problem-number">Problem 15</p>
+                <p class="course-card-title">[1 kyu to 2 dan level · Escape the mate] Which way should your king run?</p>
+                <p class="course-card-desc">Black’s king is in check, and the only ways out are ☗K-36 and ☗K-54. Decide which one to choose.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
+            <a href="14/" class="course-card problem-card" data-level="10 kyu to 5 kyu level" data-type="next" data-tag="">
+              <img class="problem-card-thumb" src="/images/problems/en-14.webp" alt="Problem 14" width="640" height="527" loading="lazy">
+              <div class="course-card-body">
+                <p class="problem-number">Problem 14</p>
+                <p class="course-card-title">[10 kyu to 5 kyu level · Next move] Find the chance to use your bishop</p>
+                <p class="course-card-desc">Black has a bishop in hand. Find Black’s next move.</p>
+              </div>
+              <span class="course-card-arrow">›</span>
+            </a>
             <a href="13/" class="course-card problem-card" data-level="1 kyu to 2 dan level" data-type="next" data-tag="Attacking plan">
               <img class="problem-card-thumb" src="/images/problems/en-13.webp" alt="Problem 13" width="640" height="527" loading="lazy">
               <div class="course-card-body">

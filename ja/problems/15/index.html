@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第15問 【1級〜二段レベル・詰み逃れ】玉はどちらに逃げるべき？ | さいばの将棋ポータル</title>
+  <meta name="description" content="先手玉に王手がかかっています。受け方は☗３六玉と☗５四玉の2つだけ。どちらを選ぶべきかを考えます。">
+  <link rel="icon" href="../../../images/profile.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/shogi-player.css">
+  <link rel="canonical" href="https://shogi.saiba-zakki.com/ja/problems/15/">
+  <link rel="alternate" hreflang="x-default" href="https://shogi.saiba-zakki.com/en/problems/15/">
+  <link rel="alternate" hreflang="ja" href="https://shogi.saiba-zakki.com/ja/problems/15/">
+  <link rel="alternate" hreflang="en" href="https://shogi.saiba-zakki.com/en/problems/15/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="さいばの将棋ポータル">
+  <meta property="og:title" content="第15問 【1級〜二段レベル・詰み逃れ】玉はどちらに逃げるべき？ | さいばの将棋ポータル">
+  <meta property="og:description" content="先手玉に王手がかかっています。受け方は☗３六玉と☗５四玉の2つだけ。どちらを選ぶべきかを考えます。">
+  <meta property="og:url" content="https://shogi.saiba-zakki.com/ja/problems/15/">
+  <meta property="og:image" content="https://shogi.saiba-zakki.com/images/problems/ja-15.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="第15問 【1級〜二段レベル・詰み逃れ】玉はどちらに逃げるべき？ | さいばの将棋ポータル">
+  <meta name="twitter:description" content="先手玉に王手がかかっています。受け方は☗３六玉と☗５四玉の2つだけ。どちらを選ぶべきかを考えます。">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "第15問 【1級〜二段レベル・詰み逃れ】玉はどちらに逃げるべき？",
+    "description": "先手玉に王手がかかっています。受け方は☗３六玉と☗５四玉の2つだけ。どちらを選ぶべきかを考えます。",
+    "datePublished": "2026-11-13",
+    "author": {
+      "@type": "Person",
+      "name": "さいば",
+      "url": "https://shogi.saiba-zakki.com/"
+    },
+    "url": "https://shogi.saiba-zakki.com/ja/problems/15/",
+    "inLanguage": "ja",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shogi.saiba-zakki.com/ja/problems/15/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://shogi.saiba-zakki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "将棋の問題",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "第15問",
+        "item": "https://shogi.saiba-zakki.com/ja/problems/15/"
+      }
+    ]
+  }
+]
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWHMZKB7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3QWHMZKB7V');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">さいばの将棋ポータル</a>
+      <nav class="site-nav">
+        <a href="/ja/">さいばの著書の紹介</a>
+        <a href="/ja/recommended-books/">おすすめ棋書</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/problems/">将棋の問題</a>
+        <a href="/ja/guide/">入門者向け解説</a>
+        <a href="/ja/castles/">基本の囲いの紹介</a>
+        <a href="/ja/glossary/">用語集</a>
+        <a href="/ja/tools/">無料ツール</a>
+        <a href="/en/problems/15/" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var best = null, bestLen = 0;
+      document.querySelectorAll('.site-nav a:not(.lang-switch):not(.nav-external)').forEach(function (a) {
+        try {
+          var lp = new URL(a.href).pathname;
+          if (lp.length > bestLen && path.startsWith(lp)) { best = a; bestLen = lp.length; }
+        } catch (e) {}
+      });
+      if (best) { best.classList.add('is-current'); best.setAttribute('aria-current', 'page'); }
+    })();
+  </script>
+
+  <main>
+    <div class="container">
+
+      <nav class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../">将棋の問題</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>第15問</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">将棋の問題</span>
+            <span>1級〜二段レベル</span>
+            <span>2026-11-13</span>
+          </div>
+          <p class="problem-number">第15問</p>
+          <h1 class="article-title">【1級〜二段レベル・詰み逃れ】玉はどちらに逃げるべき？</h1>
+        </header>
+
+        <div class="article-body">
+<div class="board-center"><div class="shogi-player" data-diagram data-show-hands data-sfen="ln+Pg3nl/ks3+RR2/pp1+PPp1pp/2p3P2/4sKB2/4+b4/PP3+n1PP/9/L6NL b 3GS4Ps 1" data-caption="問題図（先手番）"></div></div>
+<p>先手番で、王手がかかっている状態です。</p>
+<p>王手の<a href="/ja/glossary/#受け" class="glossary-link">受け</a>方は、☗３六玉と☗５四玉のどちらかしかありません。どちらを選ぶべきでしょう？</p>
+
+          <details class="problem-answer">
+            <summary>解答を見る</summary>
+            <div class="problem-answer-body">
+<h2>解答・解説</h2>
+<p><strong>☗３六玉</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="ln+Pg3nl/ks3+RR2/pp1+PPp1pp/2p3P2/4sKB2/4+b4/PP3+n1PP/9/L6NL b 3GS4Ps 1" data-moves="4e3f" data-caption="解答図"></div></div>
+<h3>☗５四玉は詰み</h3>
+<p>☗５四玉は、次のような展開で詰みます。</p>
+<p><strong>☗５四玉 → ☖４五銀 → ☗４三玉 → ☖６五馬 → ☗５四金 → ☖同馬</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="ln+Pg3nl/ks3+RR2/pp1+PPp1pp/2p3P2/4sKB2/4+b4/PP3+n1PP/9/L6NL b 3GS4Ps 1" data-moves="4e5d S*4e 5d4c 5f6e G*5d 6e5d" data-caption="☖同馬まで（詰み）"></div></div>
+<p>一見すると、上に行けば味方の駒が多いので安全そうです。しかし、相手陣の駒の利きや、自分の駒が邪魔で、絶妙に詰みになります。</p>
+<p>印象で動くと間違えやすそうな局面です。やはり、詰む詰まないは慎重に読まなければなりませんね。</p>
+<h3>☗３六玉のあとは逃れている</h3>
+<p>正解の☗３六玉以降は、次のような迫り方が一例です。</p>
+<p><strong>☗３六玉 → ☖４六馬 → ☗同角 → ☖同成桂 → ☗２六玉 → ☖４八角 → ☗３七銀 → ☖同角成 → ☗同桂</strong></p>
+<div class="board-center"><div class="shogi-player" data-sfen="ln+Pg3nl/ks3+RR2/pp1+PPp1pp/2p3P2/4sKB2/4+b4/PP3+n1PP/9/L6NL b 3GS4Ps 1" data-moves="4e3f 5f4f 3e4f 4g4f 3f2f B*4h S*3g 4h3g+ 2i3g" data-caption="☗同桂まで"></div></div>
+<p>相手の駒が少し足らず、逃れています。</p>
+<p>一見どちらでも詰まなそうなときほど、危険です。</p>
+
+            </div>
+          </details>
+        </div>
+
+        <footer class="article-footer">
+          <a href="../" class="btn-ghost">← 問題の一覧へ</a>
+          <a href="../14/" class="btn-nav">
+            <span class="btn-nav-label">← 前の問題</span>
+            <span class="btn-nav-title">第14問 【10級〜5級レベル・次の一手】角を使うチャンスを見つけよう</span>
+          </a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" aria-label="ページ上部へ戻る">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="author-blog-link"><a href="https://saiba-zakki.com/">作者のブログ：才羽のザッキログ <span aria-hidden="true">↗</span></a></p>
+      <p>&copy; <span id="copy-year"></span> shogi.saiba-zakki.com &nbsp;|&nbsp; <a href="/">トップへ戻る</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
+      var b = document.querySelector('.back-to-top');
+      if (b) {
+        window.addEventListener('scroll', function () {
+          b.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        b.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://kansosen.saiba-zakki.com"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'click_tool', {
+        tool: a.pathname.indexOf('/diagram/') !== -1 ? 'diagram' : 'notes',
+        link_location: a.closest('.tool-row') ? 'tools_page'
+          : a.closest('.article-body') ? 'article' : 'other',
+        page_language: document.documentElement.lang,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
+  <script src="../../../js/shogi-player.js"></script>
+</body>
+</html>

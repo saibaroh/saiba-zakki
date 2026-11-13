@@ -15,7 +15,7 @@
  *   ---
  *   title: "問題のタイトル"
  *   date: "2026-11-04"
- *   type: "next"           (next = 次の一手, tsume = 詰将棋, mate = 詰む？詰まない？; used by the list filter)
+ *   type: "next"           (next = 次の一手, tsume = 詰将棋, mate = 詰む？詰まない？, escape = 詰み逃れ; used by the list filter)
  *   level: "4級〜2級レベル"  (one of CFG[lang].levelOrder; used by the list filter)
  *   strategy: "ミレニアム"   (optional — opening / castle, shown next to the level)
  *   tag: "基本手筋"          (optional — theme such as a basic tesuji; shown and used by the list filter)
@@ -52,6 +52,7 @@ const CFG = {
     siteName:     'さいばの将棋ポータル',
     listDesc:     '将棋ウォーズ四段のさいばが作った、オリジナルの次の一手と詰将棋の問題です。1問ずつ、盤面を見て考えてから解答を開けます。',
     listSubtitle: 'オリジナルの次の一手と詰将棋の問題です。',
+    listNote:     '問題の解答は、全てソフトで検証済みです。',
     empty:        '問題はまだありません。',
     home:         'ホーム',
     author:       'さいば',
@@ -66,7 +67,7 @@ const CFG = {
     filterTag:    'タグ',
     filterAll:    'すべて',
     noMatch:      '条件に合う問題はありません。',
-    types:        { next: '次の一手', tsume: '詰将棋', mate: '詰む？詰まない？' },
+    types:        { next: '次の一手', tsume: '詰将棋', mate: '詰む？詰まない？', escape: '詰み逃れ' },
     levelOrder:   ['入門', '10級〜5級レベル', '4級〜2級レベル', '1級〜二段レベル', '三段以上レベル', '難問'],
   },
   en: {
@@ -74,6 +75,7 @@ const CFG = {
     siteName:     "Saiba's Shogi Portal",
     listDesc:     'Original next-move and tsume problems by Saiba, an amateur 4-dan on Shogi Wars. Think about each position, then open the answer.',
     listSubtitle: 'Original next-move and tsume problems.',
+    listNote:     'All answers have been checked with a shogi engine.',
     empty:        'No problems yet.',
     home:         'Home',
     author:       'Saiba',
@@ -88,7 +90,7 @@ const CFG = {
     filterTag:    'Tag',
     filterAll:    'All',
     noMatch:      'No problems match these filters.',
-    types:        { next: 'Next move', tsume: 'Tsume', mate: 'Mate or not?' },
+    types:        { next: 'Next move', tsume: 'Tsume', mate: 'Mate or not?', escape: 'Escape the mate' },
     levelOrder:   ['Beginner', '10 kyu to 5 kyu level', '4 kyu to 2 kyu level', '1 kyu to 2 dan level', '3 dan and above', 'Expert challenge'],
   },
 };
@@ -419,6 +421,7 @@ function renderList(lang, problems) {
       <div class="container">
         <h1 class="hero-title">${cfg.section}</h1>
         <p class="hero-subtitle">${cfg.listSubtitle}</p>
+        <p class="hero-subtitle">${cfg.listNote}</p>
       </div>
     </section>
 
